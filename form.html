@@ -1,0 +1,2803 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <!--[include "./public/head-meta.html"]-->
+    <meta charset="utf-8" />
+    <!-- 使用最新版的IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 国产浏览器高速模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 在手机上原比例显示，不可以放大缩小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+    <!-- 则手机号码不被显示为拨号链接 -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览 -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- iphone的私有标签，它指定的iphone中safari顶端的状态条的样式 -->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!-- 去除Android平台中对邮箱地址的识别 -->
+    <meta content="email=no" name="format-detection" />
+    <!-- 清除浏览器中的缓存，它和其它几句合起来用，就可以使你再次进入曾经访问过的页面时，ie浏览器必须从服务端下载最新的内容，达到刷新的效果。 -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- 浏览器窗口 图标 -->
+    <link rel="shortcut icon" href="images/favicon/favicon-1.ico" type="image/x-icon">
+    <!--[/include]-->
+
+    <title>Template-form</title>
+    
+    <!--[include "./public/head-link.html"]-->
+    <!-- IE 老版本浏览器支持css的新属性 html5shiv 支持 html5标签 respond 支持 @media 媒体查询 -->
+    <!--[if lt IE 10]>
+        <script src="vendor/html5/html5shiv.min.js" type="text/javascript"></script>
+        <script src="vendor/html5/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+    <script type="text/javascript" src="vendor/jquery-1.11.3.min.js"></script>
+    <!-- 项目封装 -->
+    <script type="text/javascript" src="scripts/widget.min.js"></script>
+    
+    <!-- 
+       *
+       * 与form表单相关
+       * 
+    -->
+    <!-- 输入框input输入内容格式限制插件 -->
+    <script type="text/javascript" src="vendor/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <script type="text/javascript" src="vendor/inputmask/min/inputmask/bindings/inputmask.binding.min.js"></script>
+    <!-- 日期处理类库 -->
+    <script type="text/javascript" src="vendor/moment/moment.min.js"></script>
+    <!-- 时间插件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="vendor/My97DatePicker/WdatePicker.js"></script>
+    <!-- 下拉插件 多选 -->
+    <link rel="stylesheet" type="text/css" href="vendor/select2-4.0.2/select2.css">
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2-Initials.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/i18n/zh-CN.js"></script><!-- 中文提示 -->
+    <!-- 多选和单选的美化 -->
+    <link rel="stylesheet" type="text/css" href="vendor/icheck/icheck.css">
+    <script type="text/javascript" src="vendor/icheck/icheck.js"></script>
+    <!-- 上传附件的组件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/webuploader/diyUpload.css">
+    <script type="text/javascript" src="vendor/webuploader/webuploader.js"></script>
+    <script type="text/javascript" src="vendor/webuploader/diyUpload.js"></script>
+    <!-- 富文本编辑器  -->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <!-- ztree的组件 -->
+    <link rel="stylesheet" href="vendor/ztree/css/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="vendor/ztree/jquery.ztree.all-3.5.min.js"></script>
+    <!-- 上传头像 -->
+    <script src="vendor/photoClip/iscroll-zoom.js"></script>
+    <script src="vendor/photoClip/hammer.min.js"></script><!-- 触摸屏的手势 -->
+    <script src="vendor/photoClip/lrz.all.bundle.js"></script>
+    <script src="vendor/photoClip/jquery.photoClip.js"></script>
+    <!-- 表单验证 -->
+    <link rel="stylesheet" type="text/css" href="vendor/Validform/Validform_v5.css">
+    <script type="text/javascript" src="vendor/Validform/Validform_v5.3.2.js"></script>
+
+    <!-- 
+       *
+       * 经常会用到
+       * 
+    -->
+    <!-- bootstrap 的 js -->
+    <script src="vendor/bootstrap/bootstrap.js"></script>
+    <script src="vendor/bootstrap/bootstrap-hover-dropdown.js"></script>
+    <!-- echarts美化插件 -->
+    <script type="text/javascript" src="vendor/echarts/4.0.4/echarts.min.js"></script>
+    <!-- 使用jQuery监听DOM元素大小变化 -->
+    <script type="text/javascript" src="vendor/ba-resize/jquery.ba-resize.js"></script>
+    <!-- 轮播图 -->
+    <link rel="stylesheet" type="text/css" href="vendor/pgwSlideshow/pgwslideshow.css" />
+    <script type="text/javascript" src="vendor/pgwSlideshow/pgwslideshow.js"></script>
+    <!-- jquery-ui-abridged 由于jq-ui的方法很多用不上还会占用资源和与别的插件冲突，把不用的移除了 -->
+    <script type="text/javascript" src="vendor/jquery-ui-1.9.2/jquery-ui-abridged.js"></script>
+    <!-- 响应式图片 picture标签 解决IE等浏览器不支持 的问题 -->
+    <script type="text/javascript" src="vendor/picturefill/picturefill.min.js"></script>
+    <!-- js实现复制到剪贴板功能，兼容所有浏览器 -->
+    <script type="text/javascript" src="vendor/clipboard/clipboard.min.js"></script>
+    <!-- jQuery图片延迟加载插件jQuery.lazyload -->
+    <script type="text/javascript" src="vendor/jquery.lazyload/jquery.lazyload.js"></script>
+    
+    <!-- 导出 XLS XLSX XML JSON PDF PNG等 -->
+    <script type="text/javascript" src="vendor/tableExport/libs/FileSaver/FileSaver.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/libs/js-xlsx/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/tableExport.js"></script>
+    <!-- 两种字体图标 -->
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons/css/glyphicons.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <!-- css3 动画库 -->
+    <link rel="stylesheet" type="text/css" href="styles/animate.css" />
+    
+    <!-- 
+       *
+       * 基本不会使用
+       * 
+    -->
+    <!-- h5量子背景 -->
+    <script type="text/javascript" src="vendor/quantum.js"></script>
+    <!-- 显示代码插件 -->
+    <link rel="stylesheet" href="vendor/prismjs/prism-coy.css">
+    <script src="vendor/prismjs/prism.js" defer async></script>
+    
+    <!-- 
+       *
+       * 放到最后
+       * 
+    -->
+    <!-- 项目需求的特殊样式 -->
+    <link rel="stylesheet" type="text/css" href="styles/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="styles/css/item.css" />
+    <script type="text/javascript" src="scripts/common.min.js"></script>
+    <!--[/include]-->
+
+</head>
+
+<body class="page-bg-default">
+    <!-- page-container start -->
+    <section id="page-container">
+        <!-- page-header start -->
+        <!--[include "./public/page-header.html"]-->
+        <header id="page-header">
+            <div class="header-top">
+                <div class="mine">
+                    <a class="mine-list" href="javascript:;">
+                        <span>王升库</span>
+                   </a>
+                    <a class="mine-list" href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        <span>个人设置</span>
+                    </a>
+                    <a class="mine-list" href="javascript:;">
+                        <i class="fa fa-power-off"></i>
+                        <span>退出系统</span>
+                    </a>
+               </div>
+            </div>
+            <div class="header-navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo-fchsoft.png" alt=""></a>
+                </div>
+
+                <nav class="header-nav">
+                    <div class="header-pane">
+                        <div class="header-menu">
+                            <a class="header-menu-item active" href="index.html"><span>首页</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全预警</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>应急处置</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产指挥</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产分析</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>部门考核</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>干部履职</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>簿册管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>施工管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>设备管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>基础管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全预警</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>应急处置</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产指挥</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产分析</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>部门考核</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>干部履职</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>簿册管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>施工管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>设备管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>基础管理-l</span></a>
+                        </div>
+                    </div>
+                    <div class="header-pane-toggle"><i class="icon"></i></div>
+                </nav>
+            </div>
+        </header>
+        <!--[/include]-->
+        <!-- page-header end -->
+        <!-- page-bodier start -->
+        <article id="page-bodier">
+            <!-- sidebar start -->
+            <aside id="sidebar">
+                <!--[include "./public/page-left-nav.html"]-->
+                <div class="left-nav left-nav-default" data-toggle="left-nav">
+                    <ul>
+                        <li><a href="index.html"><i class="icon icon-books"></i>index<i class="caret caret-up"></i></a>
+                            <ul>
+                                <li><a href="index.html#flying">与双飞翼布局相关的</a></li>
+                                <li><a href="index.html#flexbox">flexbox布局</a></li>
+                                <li><a href="index.html#grid">与栅格系统相关的</a></li>
+                                <li><a href="index.html#panel">panel面版</a></li>
+                                <li><a href="index.html#toggle">toggle 显示隐藏</a></li>
+                                <li><a href="index.html#section">boxes 盒 section 模块</a></li>
+                                <li><a href="index.html#breadcrumb">路径导航</a></li>
+                                <li><a href="index.html#nav">nav</a></li>
+                                <li><a href="index.html#title">标题相关的</a></li>
+                                <li><a href="index.html#article">article 文章</a></li>
+                                <li><a href="index.html#describe">describe 描述</a></li>
+                                <li><a href="index.html#list">list 列表</a></li>
+                                <li><a href="index.html#Alert">Alert 警告</a></li>
+                                <li><a href="index.html#text-list">text-list 文字列表</a></li>
+                                <li><a href="index.html#tag">tag 标签</a></li>
+                                <li><a href="index.html#badge">badge 徽章</a></li>
+                                <li><a href="index.html#rating">rating 评分</a></li>
+                                <li><a href="index.html#btn">与 按钮 相关的</a></li>
+                                <li><a href="index.html#callout">callout</a></li>
+                                <li><a href="index.html#step">流程进度条</a></li>
+                                <li><a href="index.html#progress">进度条</a></li>
+                                <li><a href="index.html#range">range 滑动条</a></li>
+                                <li><a href="index.html#divider">与横向分隔条相关的</a></li>
+                                <li><a href="index.html#media">与媒体对象相关的</a></li>
+                                <li><a href="index.html#pagination">与分页器相关的</a></li>
+                                <li><a href="index.html#card">card 卡片</a></li>
+                                <li><a href="index.html#list-item"> list（列表）</a></li>
+                                <li><a href="index.html#timeline">与 时间轴 相关的</a></li>
+                                <li><a href="index.html#clipboard">复制到剪贴板功能</a></li>
+                                <li><a href="index.html#smartMenu">鼠标右键菜单</a></li>
+                                <li><a href="index.html#iframe">iframe 引入页</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="table.html"><i class="icon icon-books"></i>table</a></li>
+                        <li><a href="form.html"><i class="icon icon-books"></i>form</a></li>
+                        <li><a href="text.html"><i class="icon icon-books"></i>text 文字相关的</a></li>
+                        <li><a href="bootstrap.html"><i class="icon icon-books"></i>bootstrap</a></li>
+                        <li><a href="icons.html"><i class="icon icon-books"></i>icons</a></li>
+                        
+                        <li><a href="widget.html"><i class="icon icon-books"></i>widget</a></li>
+                        <li><a href="Container.html"><i class="icon icon-books"></i>Container</a></li>
+                        <li><a href="sublime3-config.html"><i class="icon icon-books"></i>配置sublime3的插件</a></li>
+                        <li><a href="javascript:;"><i class="icon icon-books"></i>帮助文件</a>
+                            <ul>
+                                <li><a href="帮助文档-项目规则.html">项目规则</a></li>
+                                <li><a href="帮助文档-修改日志.html">修改日志</a></li>
+                                <li><a href="帮助文档-英文单词.html">英文单词</a></li>
+                                <li><a href="帮助文档-辅助类.html">辅助类</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    // 左导航进行添加选中
+                    var arrUrl = window.location.href.split("/");
+                    var pageText = arrUrl[arrUrl.length - 1];
+                    if ( pageText.indexOf("?") !== -1 ) {
+                        pageText = pageText.split("?")[0];
+                    }else if ( pageText.indexOf("#") !== -1 ) {
+                        pageText = pageText.split("#")[0];
+                    }
+                    $('[data-toggle="left-nav"] li>a').each(function(index, el) {
+                        var pageBtn = $(el).attr('href');
+                        if ( pageText == pageBtn ) {
+                            $(el).addClass('active');
+                            return false;
+                        }
+                    });
+                </script>
+                <!--[/include]-->
+            </aside>
+            <!-- sidebar end -->
+
+            <!-- content start -->
+            <main id="content">
+                <div id="wrapper">
+                    <div class="content-body">
+                        <!-- form-basic start -->
+                        <div class="panel panel-default">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">与form-basics相关的</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-basics" data-Validform="Validform" data-beforeCheck="beforeCheckFun" data-beforeSubmit="beforeSubmitFun" data-callback="callbackFun">
+
+                                    <div class="form-group">
+                                        <label class="form-label">上传头像：<a class="link" href="http://www.jq22.com/jquery-info7428" target="_blank">api 教程 案例</a></label>
+                                        <div class="form-content">
+                                            <div class="photoClip-box">
+                                                <div class="photoClip-img">
+                                                    <div class="photoClip-view" id="clipView"></div>
+                                                </div>
+                                                <div class="photoClip-file">
+                                                    <span>上传头像</span>
+                                                    <input type="file" id="clipFile">
+                                                </div>
+                                            </div>
+                                            <script>
+                                                $(function(){
+
+                                                    /**
+                                                     * @date        2018/9/12
+                                                     * @author      moc
+                                                     * @effect      添加了放大按钮、缩小按钮、旋转按钮、最大缩放比例
+                                                     */
+
+                                                    //document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+                                                    var clipArea = new bjj.PhotoClip("#clipArea", {
+                                                        size: [160, 160],                           // 截取框的宽和高组成的数组。默认值为[260,260]
+                                                        outputSize: [320, 320],                     // 输出图像的宽和高组成的数组。默认值为[0,0]，表示输出图像原始大小
+                                                        outputType: "jpg",                          // 指定输出图片的类型，可选 "jpg" 和 "png" 两种种类型，默认为 "jpg"
+                                                        file: "#clipFile",                          // 上传图片的<input type="file">控件的选择器或者DOM对象
+                                                        view: "#clipView",                          // 显示截取后图像的容器的选择器或者DOM对象
+                                                        ok: "#clipBtn",                             // 确认截图按钮的选择器或者DOM对象                             
+                                                        rotaBtn:'#rotaBtn',                         // 旋转按钮（后添加的）
+                                                        bigBtn:'#bigImg',                           // 放大按钮（后添加的）
+                                                        smallBtn:'#smallImg',                       // 缩小按钮（后添加的）
+                                                        loadStart: function(file) {
+                                                            // 开始加载的回调函数。this指向 fileReader 对象，并将正在加载的 file 对象作为参数传入                     
+                                                            $("#photoClipModal").modal('show');
+                                                            console.log("照片读取中");
+                                                        },
+                                                        loadComplete: function(src) {
+                                                            // 加载完成的回调函数。this指向图片对象，并将图片地址作为参数传入
+                                                            console.log("照片读取完成");
+                                                        },
+                                                        loadError: function(event) {
+                                                            // 加载失败的回调函数。this指向 fileReader 对象，并将错误事件的 event 对象作为参数传入
+
+                                                        }, 
+                                                        clipFinish: function(dataURL) {
+                                                            // 裁剪完成的回调函数。this指向图片对象，会将裁剪出的图像数据DataURL作为参数传入
+                                                            // console.log(dataURL);
+                                                        }
+                                                    });
+                                                    //clipArea.destroy();
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label">账号：</label>
+                                        <div class="form-content">
+                                            <div class="input-box">
+                                                <input type="text" class="text" datatype="m" nullmsg="当表单元素值为空时的提示信息，不绑定，默认提示 '请填入信息！'。" sucmsg="当表单元素通过验证时的提示信息，不绑定，默认提示'通过信息验证！'。" errormsg="输入内容不能通过验证时的提示信息，默认提示'请输入正确信息！'。">
+                                                <span class="feedback">元</span>
+                                            </div>
+                                            <p class="form-checktip">输入框的提示信息</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">密码：</label>
+                                        <div class="form-content">
+                                            <div class="input-box">
+                                                <input class="text" type="password" name="userpassword" value="" placeholder="请输入密码" datatype="*6-16" nullmsg="请设置密码！" errormsg="密码范围在6~16位之间！">
+                                            </div>
+                                            <p class="form-checktip"></p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">确认密码：</label>
+                                        <div class="form-content">
+                                            <div class="input-box">
+                                                <input class="text" type="password" name="userpassword2" value="" placeholder="请确认密码" datatype="*" recheck="userpassword" nullmsg="请再输入一次密码！" errormsg="您两次输入的账号密码不一致！">
+                                            </div>
+                                            <p class="form-checktip"></p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label class="form-label">时间框：</label>
+                                        <div class="form-content">
+                                            <div class="input-box">
+                                                <input type="text" class="date" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">下拉（单选）：</label>
+                                        <div class="form-content">
+                                            <div class="select-box">
+                                                <select class="select-2" datatype="n">
+                                                    <option>请选择11</option>
+                                                    <option value="1">角色</option>
+                                                    <option value="2">普通性1</option>
+                                                    <option value="3">普通性2</option>
+                                                </select>
+                                            </div>
+                                            <p class="form-checktip">输入框的提示信息</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">下拉（多选）：</label>
+                                        <div class="form-content">
+                                            <div class="select-box">
+                                                <select class="select-2" multiple="multiple">
+                                                    <option value="0">角色</option>
+                                                    <option value="1">普通性1</option>
+                                                    <option value="2">普通性2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">单选：</label>
+                                        <div class="form-content">
+                                            <div class="icheck-box">
+                                                <label class="icheck-label">
+                                                    <input class="icheck-primary-call" name="demo.ceshi" value="保密" type="radio" datatype="*">保密
+                                                </label>
+                                                <label class="icheck-label">
+                                                    <input class="icheck-primary-call" name="demo.ceshi" value="男" type="radio" datatype="*">男
+                                                </label>
+                                                <label class="icheck-label">
+                                                    <input class="icheck-primary-call" name="demo.ceshi" value="女" type="radio" datatype="*">女
+                                                </label>
+                                            </div>
+                                            <p class="form-checktip">不好用</p>
+                                        </div>
+                                        <script>
+                                            $('[name="demo.ceshi"]').on('ifChanged', function(event){
+                                                console.log( $('[name="demo.ceshi"]:checked').val() );
+                                            });
+                                        </script>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">多选：</label>
+                                        <div class="form-content">
+                                            <div class="icheck-box">
+                                                <label class="icheck-label">
+                                                    <input type="checkbox" class="icheck-primary-call" name="checknames" value="1" datatype="*" ichecked-for="hou">全选
+                                                </label>
+                                                <label class="icheck-label">
+                                                    <input type="checkbox" class="icheck-primary-call" name="checknames" value="2" datatype="*" ichecked-val="hou">多选
+                                                </label>
+                                                <label class="icheck-label">
+                                                    <input type="checkbox" class="icheck-primary-call" name="checknames" value="3" datatype="*" ichecked-val="hou">多选
+                                                </label>
+                                                <label class="icheck-label">
+                                                    <input type="checkbox" class="icheck-primary-call" name="checknames" value="4" datatype="*" ichecked-val="hou">多选
+                                                </label>
+                                            </div>
+                                            <p class="form-checktip">不好用</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">普通文本域:</label>
+                                        <div class="form-content">
+                                            <div class="textarea-box">
+                                                <textarea class="textarea" rows="4"></textarea>
+                                            </div>
+                                            <p class="form-checktip checktip-wrong">不可以输入特殊字符</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-btns">
+                                        <button class="btn btn-primary" onclick="templatefn.formRoutineCall('.form-basics')" type="button">调用 iCheck</button>
+
+
+                                        <button class="btn btn-primary" onclick="iCheckfun()" type="button">移除 iCheck</button>
+
+
+                                        <button class="btn btn-default" type="button">按钮</button>
+                                        <a class="btn btn-success" href="javascript:;">按钮</a>
+                                        <a class="btn btn-error" href="javascript:;">按钮</a>
+                                        <a class="btn btn-info" href="javascript:;">按钮</a>
+                                        <a class="btn btn-warning" href="javascript:;">按钮</a>
+                                        <a class="btn btn-danger" href="javascript:;">按钮</a>
+                                        <a class="btn btn-muted" href="javascript:;">按钮</a>
+                                        <a class="btn btn-link" href="javascript:;">（链接）Link</a>
+                                    </div>
+
+                                    <div class="divider-horizontal m-t-40">
+                                        <b class="divider-txt">操控表单验证 Validform</b>
+                                    </div>
+                                    <div class="form-btns">
+                                        <button class="btn btn-primary" type="submit">提交</button>
+                                        <button class="btn btn-default" type="reset">重置</button>
+                                        <a class="btn btn-primary" id="validFormSubmit" href="javascript:;">ID提交</a>
+                                        <a class="btn btn-default" id="validFormReset" href="javascript:;">ID重置表单验证状</a>
+                                    </div>
+                                </form>
+
+                                <div class="form-btns m-t-20">
+                                    <a class="btn btn-primary" onclick="submitfn()" href="javascript:;">Fun提交</a>
+                                    <a class="btn btn-default" onclick="resetFormfn()" href="javascript:;">Fun重置表单验证状</a>
+                                    <script>
+                                        function resetFormfn(){
+                                            $('[data-Validform="Validform"]').Validform().resetForm();
+                                        }
+                                        function submitfn(){
+                                            $('[data-Validform="Validform"]').submit();
+                                        }
+                                        function beforeCheckFun(callData){
+                                            console.log($(callData).attr('id'));
+                                            alert("在表单提交执行验证之前执行的函数"+callData);
+                                        }
+                                        function beforeSubmitFun(callData){
+                                            alert("在验证成功后，表单提交前执行的函数"+callData);
+                                        }
+                                        function callbackFun(callData){
+                                            alert("返回数据data是json对象"+callData);
+                                        }
+
+                                        function iCheckfun(callData){
+                                            $(".icheck-primary-call").iCheck('destroy');
+                                        }
+                                        
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- form-basic end -->
+                        
+                        <!-- form-line start -->
+                        <div class="panel panel-default">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">与form-line相关的</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body p-0">
+                                <section class="condition-box">
+                                    <form class="form-line">
+                                        <div class="row">
+                                            <div class="form-group">
+                                                <label class="form-label">输入框：</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text">
+                                                        <span class="feedback">元</span>
+                                                    </div>
+                                                    <p class="form-checktip checktip-wrong">输入框的提示信息</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">输入框：</label>
+                                                <div class="form-content">
+                                                    <p class="form-text">显示文字信息</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">输入框：</label>
+                                                <div class="form-content">
+                                                    <p class="form-text">显示文字信息</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="form-label">输入框：</label>
+                                                <div class="form-content">
+                                                    <div class="search-item">
+                                                        <div class="search-hd">
+                                                            <div class="search-select">
+                                                                <input type="hidden" readonly="readonly">
+                                                                <a href="javascript:;">全部</a>
+                                                                <ul>
+                                                                    <li>全部</li>
+                                                                    <li>内容</li>
+                                                                    <li>标题</li>
+                                                                    <li>备注</li>
+                                                                    <li>评论</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="search-bd">
+                                                            <input type="search">
+                                                            <i class="icon icon-books"></i>
+                                                        </div>
+                                                        <div class="search-ft">
+                                                            <a href="javascript:;" class="btn">搜索</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">输入框：</label>
+                                            <div class="form-content">
+                                                <div class="input-box w-300">
+                                                    <input type="text" class="text">
+                                                    <span class="feedback">元</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-content">
+                                                <div class="input-box">
+                                                    <input type="text" class="text">
+                                                    <span class="feedback">元</span>
+                                                </div>
+                                            </div>
+                                            <div class="form-content">
+                                                <div class="input-box">
+                                                    <input type="text" class="text">
+                                                    <span class="feedback">元</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">时间框：</label>
+                                            <div class="form-content">
+                                                <div class="input-box">
+                                                    <input type="text" class="date" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+                                                </div>
+                                            </div>
+                                            <label class="form-label-static">至</label>
+                                            <div class="form-content">
+                                                <div class="input-box">
+                                                    <input type="text" class="date" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" disabled="disabled">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">下拉（单选）：</label>
+                                            <div class="form-content">
+                                                <div class="select-box">
+                                                    <select class="select-2">
+                                                        <option selected="selected" value="0">请选择</option>
+                                                        <option value="1">普通性1</option>
+                                                        <option value="2">普通性2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">下拉（多选）：</label>
+                                            <div class="form-content">
+                                                <div class="select-box w-260">
+                                                    <select class="select-2" multiple="multiple">
+                                                        <option selected="selected" value="0">角色</option>
+                                                        <option value="1">普通性1</option>
+                                                        <option value="2">普通性2</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">单选：</label>
+                                            <div class="form-content">
+                                                <div class="icheck-box">
+                                                    <label class="icheck-label">
+                                                        <input class="icheck-primary" name="demo.radio" type="radio">保密
+                                                    </label>
+                                                    <label class="icheck-label">
+                                                        <input class="icheck-primary" name="demo.radio" type="radio">男
+                                                    </label>
+                                                    <label class="icheck-label">
+                                                        <input class="icheck-primary" name="demo.radio" type="radio">女
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">多选：</label>
+                                            <div class="form-content">
+                                                <div class="icheck-box">
+                                                    <label class="icheck-label">
+                                                        <input type="checkbox" class="icheck-primary" name="checknames" value="all">多选
+                                                    </label>
+                                                    <label class="icheck-label">
+                                                        <input type="checkbox" class="icheck-primary" name="checknames" value="all">多选
+                                                    </label>
+                                                    <label class="icheck-label">
+                                                        <input type="checkbox" class="icheck-primary" name="checknames" value="all">多选
+                                                    </label>
+                                                    <label class="icheck-label">
+                                                        <input type="checkbox" class="icheck-primary" name="checknames" value="all">多选
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-btns">
+                                            <a class="btn btn-default" href="javascript:;">按钮</a>
+                                            <a class="btn btn-muted" href="javascript:;">按钮</a>
+                                            <a class="btn btn-primary" href="javascript:;">按钮</a>
+                                            <a class="btn btn-success" href="javascript:;">按钮</a>
+                                            <a class="btn btn-info" href="javascript:;">按钮</a>
+                                            <a class="btn btn-warning" href="javascript:;">按钮</a>
+                                            <a class="btn btn-danger" href="javascript:;">按钮</a>
+                                            <a class="btn btn-link" href="javascript:;">（链接）Link</a>
+                                        </div>
+                                    </form>
+                                </section>
+                            </div>
+                        </div>
+                        <!-- form-line end -->
+                        
+                        <!-- form-horizontal start -->
+                        <div class="panel panel-default">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">与form-horizontal相关的</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-horizontal label-width-160">
+                                    <div class="row">
+                                        <div class="col-4 form-group label-width-80">
+                                            <label class="form-label">文字展示:</label>
+                                            <div class="form-content">
+                                                <p class="form-text">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p> 
+                                            </div>
+                                        </div>
+                                        <div class="col-6 col-offset-2 form-group">
+                                            <label class="form-label">文字展示:</label>
+                                            <div class="form-content">
+                                                <p class="form-text">文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面文字展示页面</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <form class="form-horizontal" data-Validform="Validform">
+                                    <div class="form-tit">
+                                        <h5 class="form-tit-text">我是一个小小的标题</h5>
+                                    </div>
+                                    <fieldset>
+                                        <legend>输入框和其演变的</legend>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">文本输入框相关的</h5>
+                                        </div>
+                                        <div class="row label-width-140 form-label-left">
+                                            <div class="col-3 form-group">
+                                                <label class="form-label ">普通文本输入:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text" datatype="m">
+                                                        <div class="feedback">元</div>
+                                                    </div>
+                                                    <p class="form-checktip checktip-right">不可以输入特殊字符</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-3 form-group label-width-80">
+                                                <label class="form-label">disabled:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text" disabled="disabled">
+                                                        <div class="feedback">元</div>
+                                                    </div>
+                                                    <p class="form-checktip checktip-right">不可以输入特殊字符</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-3 form-group">
+                                                <label class="form-label">readonly:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text" readonly="readonly" value="2017-08-30">
+                                                        <div class="feedback red">*</div>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-3 form-group">
+                                                <label class="form-label">readonly:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text disabled" readonly="readonly" value="2017-08-30">
+                                                        <div class="feedback red">*</div>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3 form-group label-width-140">
+                                                <label class="form-label">前8位不可以改变:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text" data-unchanged-length="8" value="2017-08-30">
+                                                        <div class="feedback red">*</div>
+                                                    </div>
+                                                    <p class="form-checktip">value值的位数不得少于data-unchanged-length数</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-3 form-group label-width-160">
+                                                <label class="form-label">在前面添加 2017-08-:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text" data-unchanged-value="2017-08-" value="">
+                                                        <div class="feedback red">*</div>
+                                                    </div>
+                                                    <p class="form-checktip">会将value的前面几位替换data-unchanged-value</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">输入框input输入内容格式限制插件</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3 form-group">
+                                                <label class="form-label">电话号：</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text" value="" data-inputmask="'mask':'(9{0,4})-9999-9{0,4}'">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-3 form-group">
+                                                <label class="form-label">手机号：</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text" value="" data-inputmask="'mask':'+86 199-9999-9999'">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-3 form-group">
+                                                <label class="form-label">email：</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text" value="" data-inputmask="'alias': 'email'" >
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-3 form-group">
+                                                <label class="form-label">银行卡：</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                       <input type="text" class="text" value="" data-inputmask="'mask':'9999 9999 9999 (9{1,3})|(9{4} 9{0,3})|(9{4} 9{4} 9{0,3})'">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div> 
+                                            </div>
+                                            <div class="col-3 form-group">
+                                                <label class="form-label">日期：</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                       <input type="text" class="text" value="" data-inputmask="'mask': '9999-99-99','placeholder':'yyyy-mm-dd'">
+                                                    </div>
+
+                                                    <p class="form-checktip"></p>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">tips</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-4">
+                                                <label class="form-label">普通文本输入:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text">
+                                                    </div>
+                                                    <p class="form-checktip checktip-right">输入正确 输入正确 输入正确</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-4">
+                                                <label class="form-label">普通文本输入:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="text">
+                                                    </div>
+                                                    <p class="form-checktip checktip-wrong">输入错误 输入错误 输入错误</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-4">
+                                                <label class="form-label">普通文本输入:</label>
+                                                <div class="form-content">
+                                                    <div class="row grid-gutter-10">
+                                                        <div class="input-box col-4">
+                                                            <input type="text" class="text">
+                                                        </div>
+                                                        <div class="input-box col-4">
+                                                            <input type="text" class="text">
+                                                        </div>
+                                                        <div class="input-box col-4">
+                                                            <input type="text" class="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-4">
+                                                <label class="form-label">Input success:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box input-success">
+                                                        <input type="text" class="text" value="2017-08-30">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-4">
+                                                <label class="form-label">Input warning:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box input-warning">
+                                                        <input type="text" class="text" value="2017-08-30">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-4">
+                                                <label class="form-label">Input error:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box input-error">
+                                                        <input type="text" class="text" value="2017-08-30">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">输入框变形</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-4">
+                                                <label class="form-label">两边标识:</label>
+                                                <div class="form-content">
+                                                    <div class="input-media">
+                                                        <div class="input-media-addon">@</div>
+                                                        <div class="input-media-body">
+                                                            <input type="text" class="text" placeholder="兼容到IE8及以上">
+                                                        </div>
+                                                        <div class="input-media-addon">.com</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-4">
+                                                <label class="form-label">左侧标识:</label>
+                                                <div class="form-content">
+                                                    <div class="input-media">
+                                                        <div class="input-media-addon">@</div>
+                                                        <div class="input-media-body">
+                                                            <input type="text" class="text" placeholder="兼容到IE8及以上">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-4">
+                                                <label class="form-label">右侧标识:</label>
+                                                <div class="form-content">
+                                                    <div class="input-media">
+                                                        <div class="input-media-body">
+                                                            <input type="text" class="text" placeholder="兼容到IE8及以上">
+                                                        </div>
+                                                        <div class="input-media-addon">.com</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-4">
+                                                <label class="form-label">两边按钮:</label>
+                                                <div class="form-content">
+                                                    <div class="input-media">
+                                                        <div class="input-media-btn">
+                                                            <a class="btn btn-success" href="javascript:;">确定</a>
+                                                        </div>
+                                                        <div class="input-media-body">
+                                                            <input type="text" class="text" placeholder="兼容到IE8及以上">
+                                                        </div>
+                                                        <div class="input-media-btn">
+                                                            <a class="btn btn-success" href="javascript:;">确定</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-4">
+                                                <label class="form-label">左侧按钮:</label>
+                                                <div class="form-content">
+                                                    <div class="input-media">
+                                                        <div class="input-media-btn">
+                                                            <a class="btn btn-success" href="javascript:;">确定</a>
+                                                        </div>
+                                                        <div class="input-media-body">
+                                                            <input type="text" class="text" placeholder="兼容到IE8及以上">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-4">
+                                                <label class="form-label">右侧按钮:</label>
+                                                <div class="form-content">
+                                                    <div class="input-media">
+                                                        <div class="input-media-body">
+                                                            <input type="text" class="text" placeholder="兼容到IE8及以上">
+                                                        </div>
+                                                        <div class="input-media-btn">
+                                                            <a class="btn btn-success" href="javascript:;">确定</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">输入框扩展</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-3">
+                                                <label class="form-label">下拉框输入:</label>
+                                                <div class="form-content">
+                                                    <div class="input-dropdown-media">
+                                                        <div class="input-dropdown-left">
+                                                            <div class="input-dropdown">
+                                                                <a href="javascript:;" class="input-dropdown-toggle"><span></span><i class="caret caret-up"></i></a>
+                                                                <ul class="input-dropdown-menu">
+                                                                    <li class="input-dropdown-btn active"><span>Action</span></li>
+                                                                    <li class="input-dropdown-btn"><span>Another action</span></li>
+                                                                    <li class="input-dropdown-btn"><span>Something else here</span></li>
+                                                                    <li class="input-dropdown-divider"></li>
+                                                                    <li class="input-dropdown-btn"><span>Separated link</span></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                        <div class="input-dropdown-body">
+                                                            <div class="input-box">
+                                                                <input type="text" class="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <script>
+                                                        $(function () {
+                                                            // input-dropdown-media 的结构和类名不可以变
+                                                            $(".input-dropdown-media").mocSelectInput({
+                                                                beforeOpen:function(self){
+                                                                    console.log(self);
+                                                                },
+                                                                activeCallback:function(self){
+                                                                    console.log(self);
+                                                                }
+                                                            });
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group col-3">
+                                                <label class="form-label">模糊查询:</label>
+                                                <div class="form-content">
+                                                    <div class="fuzzy-box">
+                                                        <input class="fuzzy-input" type="text" placeholder="测试">
+                                                        <ul class="fuzzy-dropdown">
+                                                            <li class="fuzzy-list">a</li>
+                                                            <li class="fuzzy-list">b</li>
+                                                            <li class="fuzzy-list">c</li>
+                                                            <li class="fuzzy-list">d</li>
+                                                            <li class="fuzzy-list">e</li>
+                                                            <li class="fuzzy-list">f</li>
+                                                            <li class="fuzzy-list">g</li>
+                                                            <li class="fuzzy-list">h</li>
+                                                            <li class="fuzzy-list">ace</li>
+                                                        </ul>
+                                                    </div>
+                                                    <script>
+                                                        $(function () {
+                                                            // fuzzy-box 的结构和类名不可以变
+                                                            $(".fuzzy-box").mocFuzzy({
+                                                                activeCallback:function(self){
+                                                                    console.log(self);
+                                                                }
+                                                            });
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">可选输入框:</label>
+                                                <div class="form-content">
+                                                    <div class="versatility-box">
+                                                        <div class="versatility-group">
+                                                            <input type="text" class="versatility-input">
+                                                            <a href="javascript:;" class="versatility-toggle">...</a>
+                                                        </div>
+                                                        <div class="versatility-dropdown">
+                                                            <div class="versatility-seach">
+                                                                <input type="text" class="versatility-search-input">
+                                                            </div>
+                                                            <ul class="versatility-results">
+                                                                <li class="versatility-results-list active">角色1</li>
+                                                                <li class="versatility-results-list">角色2</li>
+                                                                <li class="versatility-results-list">角色3</li>
+                                                                <li class="versatility-results-list">角色4</li>
+                                                                <li class="versatility-results-list">角色5</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <script>
+                                                        $(function () {
+                                                            // versatility-box 里面的结构和类名不可以变
+                                                            $(".versatility-box").mocVersatility({
+                                                                beforeOpen:function(self){
+                                                                    console.log(self);
+                                                                },
+                                                                activeCallback:function(self){
+                                                                    console.log(self);
+                                                                }
+                                                            });
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">计数器:</label>
+                                                <div class="form-content">
+                                                    <div class="inputNumber-box" data-min="-20" data-max="28" data-step="2.1">
+                                                        <input type="number" class="inputNumber-input" value="5.5">
+                                                        <span class="inputNumber-increase">+</span>
+                                                        <span class="inputNumber-decrease">-</span>
+                                                    </div>
+                                                    <script>
+                                                        $(function () {
+                                                            // versatility-box 里面的结构和类名不可以变
+                                                            $(".inputNumber-box").mocInputNumber({
+                                                                min: 2,
+                                                                max: 7,
+                                                                precision: 2,
+                                                                beforeCallBack:function(num){
+
+                                                                    console.log( $(this).text(),num );
+                                                                },
+                                                                afterCallBack:function(num){
+                                                                    console.log( $(this).text(),num );
+                                                                }
+                                                            });
+                                                        });
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">时间插件</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-3">
+                                                <label class="form-label">日期时间:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="date" onClick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss',lang:'en'})">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">日期:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="date" onClick="WdatePicker({dateFmt:'yyyy-MM-dd',lang:'en'})">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">时间:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="date" onClick="WdatePicker({dateFmt:'HH:mm:ss'})">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">月份:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="date" onClick="WdatePicker({dateFmt:'yyyy-MM'})">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-3">
+                                                <label class="form-label">日期时间:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="date" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">日期(disabled):</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="date" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" disabled="disabled">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">时间(readonly):</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="date" onClick="WdatePicker({dateFmt:'yyyy-MM-dd'})" readonly="readonly">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group label-width-140 col-3">
+                                                <label class="form-label">readonly(.disabled):</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input type="text" class="date disabled" onClick="WdatePicker({dateFmt:'yyyy-MM'})" readonly="readonly">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">下拉插件</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-3">
+                                                <label class="form-label">下拉选框:</label>
+                                                <div class="form-content">
+                                                    <div class="select-box">
+                                                        <select class="select-2">
+                                                            <option>请选择</option>
+                                                            <optgroup label="直辖市">
+                                                                <option value="1">北京</option>
+                                                                <option value="2">上海</option>
+                                                                <option value="3">天津</option>
+                                                                <option value="4">重庆</option>
+                                                            </optgroup>
+                                                            <optgroup label="东三省">
+                                                                <option value="5">辽宁省</option>
+                                                                <option value="6">吉林省</option>
+                                                                <option value="7">黑龙江省</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">不带搜索:</label>
+                                                <div class="form-content">
+                                                    <div class="select-box">
+                                                        <select class="select-2ns">
+                                                            <option>请选择</option>
+                                                            <optgroup label="直辖市">
+                                                                <option value="1">北京</option>
+                                                                <option value="2">上海</option>
+                                                                <option value="3">天津</option>
+                                                                <option value="4">重庆</option>
+                                                            </optgroup>
+                                                            <optgroup label="东三省">
+                                                                <option value="5">辽宁省</option>
+                                                                <option value="6">吉林省</option>
+                                                                <option value="7">黑龙江省</option>
+                                                            </optgroup>
+                                                        </select>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">下拉多选:</label>
+                                                <div class="form-content">
+                                                    <div class="select-box">
+                                                        <select class="select-2" multiple="multiple">
+                                                            <option value="0">角色</option>
+                                                            <option value="1">普通性1</option>
+                                                            <option value="2">普通性2</option>
+                                                        </select>
+                                                    </div>
+                                                    <p class="form-checktip checktip-wrong">不可以不选择</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">不关下拉:</label>
+                                                <div class="form-content">
+                                                    <div class="select-box">
+                                                        <select class="select-2nc" multiple="multiple">
+                                                            <option value="0">角色</option>
+                                                            <option value="1">普通性1</option>
+                                                            <option value="2">普通性2</option>
+                                                        </select>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-3">
+                                                <label class="form-label">可自定义选项:</label>
+                                                <div class="form-content">
+                                                    <div class="select-box">
+                                                        <select class="select-2tag">
+                                                            <option value="0">角色</option>
+                                                            <option value="1">普通性1</option>
+                                                            <option value="2">普通性2</option>
+                                                        </select>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">可自定义选项:</label>
+                                                <div class="form-content">
+                                                    <div class="select-box">
+                                                        <select class="select-2tag" multiple="multiple">
+                                                            <option value="0">角色</option>
+                                                            <option value="1">普通性1</option>
+                                                            <option value="2">普通性2</option>
+                                                        </select>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group label-width-160 col-6">
+                                                <label class="form-label">可自定义选项（不关）:</label>
+                                                <div class="form-content">
+                                                    <div class="select-box">
+                                                        <select class="select-2nc-tag" multiple="multiple">
+                                                            <option value="0">角色</option>
+                                                            <option value="1">普通性1</option>
+                                                            <option value="2">普通性2</option>
+                                                        </select>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">级联选择器</h5>
+                                        </div>
+                                        <div class="callout">
+                                            <h3 class="callout-tit">Cascader 级联选择器</h3>
+                                            <p class="callout-txt">当一个数据集合有清晰的层级结构时，可通过级联选择器逐级查看并选择。</p>
+                                            <ul class="callout-list-group">
+                                                <li class="callout-list-item">里面共有2个 <code>input</code> 分别用来存放label和value的值。</li>
+                                                <li class="callout-list-item">可以通过 <code>name</code> 给里面的input配置name。</li>
+                                                <li class="callout-list-item">可以通过 <code>data-options="数组"</code> 来进行配置data。类型：Array</li>
+                                                <li class="callout-list-item">可以通过 <code>data-value="['beijing', 'gugong']"</code> 来进行配置默认值。类型：Array</li>
+                                                <li class="callout-list-item">可以通过 <code>disabled</code> 来进行配置是否可用。</li>
+                                                <li class="callout-list-item">可以通过 <code>changeSelect="true"</code> 点选每级菜单选项值都会发生变化。</li>
+                                                <li class="callout-list-item">可以通过 <code>trigger="hover"</code> 次级菜单展开方式，可选值为 click 或 hover。</li>
+                                            </ul>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group label-width-120 col-3">
+                                                <label class="form-label">click 触发子菜单:</label>
+                                                <div class="form-content">
+                                                    <div class="cascader" name='aaa'></div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group label-width-120 col-3">
+                                                <label class="form-label">hover 触发子菜单:</label>
+                                                <div class="form-content">
+                                                    <div class="cascader" name='aaa' trigger="hover"></div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">禁用:</label>
+                                                <div class="form-content">
+                                                    <div class="cascader" name='aaa' disabled></div>
+                                                    <p class="form-checktip checktip-wrong"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">默认值:</label>
+                                                <div class="form-content">
+                                                    <div class="cascader" name='aaa' data-value="['beijing', 'tiantan' ]"></div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group label-width-120 col-3">
+                                                <label class="form-label">选择即改变:</label>
+                                                <div class="form-content">
+                                                    <div class="cascader" name='aaa' changeSelect="true"></div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group label-width-120 col-3">
+                                                <label class="form-label">禁用选项:</label>
+                                                <div class="form-content">
+                                                    <div class="cascader" name='aaa' data-options="[{
+                                                        value: 'beijing',
+                                                        label: '北京',
+                                                        disabled: true,
+                                                        children: [
+                                                            {
+                                                                value: 'gugong',
+                                                                label: '故宫'
+                                                            },
+                                                            {
+                                                                value: 'tiantan',
+                                                                label: '天坛'
+                                                            },
+                                                            {
+                                                                value: 'wangfujing',
+                                                                label: '王府井'
+                                                            }
+                                                        ],
+                                                        data:{
+                                                            rank:'直辖市',
+                                                            area:'0.8万平方千米',
+                                                            population:'1800万'
+                                                        }
+                                                    }, {
+                                                        value: 'jiangsu',
+                                                        label: '江苏',
+                                                        children: [
+                                                            {
+                                                                value: 'nanjing',
+                                                                label: '南京',
+                                                                children: [
+                                                                    {
+                                                                        value: 'fuzimiao',
+                                                                        label: '夫子庙',
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                value: 'suzhou',
+                                                                label: '苏州',
+                                                                children: [
+                                                                    {
+                                                                        value: 'zhuozhengyuan',
+                                                                        label: '拙政园',
+                                                                    },
+                                                                    {
+                                                                        value: 'shizilin',
+                                                                        label: '狮子林',
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ],
+                                                        data:{
+                                                            rank:'直辖市',
+                                                            area:'0.8万平方千米',
+                                                            population:'1800万'
+                                                        }
+                                                    }, {
+                                                        value: 'zhejiang',
+                                                        label: '浙江',
+                                                        children: [
+                                                            {
+                                                                value: 'ningbo',
+                                                                label: '宁波',
+                                                                children: [
+                                                                    {
+                                                                        value: 'ninghaixian',
+                                                                        label: '宁海县',
+                                                                    },
+                                                                    {
+                                                                        value: 'zhenhaiqu',
+                                                                        label: '镇海区',
+                                                                    },
+                                                                    {
+                                                                        value: 'fenghuaqu',
+                                                                        label: '奉化区',
+                                                                    },
+                                                                    {
+                                                                        value: 'cixishi',
+                                                                        label: '慈溪市',
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                value: 'hangzhou',
+                                                                label: '杭州',
+                                                                children: [
+                                                                    {
+                                                                        value: 'xihu',
+                                                                        label: '西湖',
+                                                                    },
+                                                                    {
+                                                                        value: 'lingyinsi',
+                                                                        label: '灵隐寺',
+                                                                    },
+                                                                    {
+                                                                        value: 'beigaofeng',
+                                                                        label: '北高峰',
+                                                                    },
+                                                                    {
+                                                                        value: 'nansongyujie',
+                                                                        label: '南宋御街',
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ],
+                                                        data:{
+                                                            rank:'直辖市',
+                                                            area:'0.8万平方千米',
+                                                            population:'1800万'
+                                                        }
+                                                    }]"></div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">综合运用:</label>
+                                                <div class="form-content">
+                                                    <div class="cascader" name='aaa' disabled data-value="['jiangsu', 'nanjing', 'fuzimiao', 'zh']" data-options="[{
+                                                        value: 'beijing',
+                                                        label: '北京',
+                                                        disabled: true,
+                                                        children: [
+                                                            {
+                                                                value: 'gugong',
+                                                                label: '故宫'
+                                                            },
+                                                            {
+                                                                value: 'tiantan',
+                                                                label: '天坛'
+                                                            },
+                                                            {
+                                                                value: 'wangfujing',
+                                                                label: '王府井'
+                                                            }
+                                                        ],
+                                                        data:{
+                                                            rank:'直辖市',
+                                                            area:'0.8万平方千米',
+                                                            population:'1800万'
+                                                        }
+                                                    }, {
+                                                        value: 'jiangsu',
+                                                        label: '江苏',
+                                                        children: [
+                                                            {
+                                                                value: 'nanjing',
+                                                                label: '南京',
+                                                                children: [
+                                                                    {
+                                                                        value: 'fuzimiao',
+                                                                        label: '夫子庙',
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                value: 'suzhou',
+                                                                label: '苏州',
+                                                                children: [
+                                                                    {
+                                                                        value: 'zhuozhengyuan',
+                                                                        label: '拙政园',
+                                                                    },
+                                                                    {
+                                                                        value: 'shizilin',
+                                                                        label: '狮子林',
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ],
+                                                        data:{
+                                                            rank:'直辖市',
+                                                            area:'0.8万平方千米',
+                                                            population:'1800万'
+                                                        }
+                                                    }, {
+                                                        value: 'zhejiang',
+                                                        label: '浙江',
+                                                        children: [
+                                                            {
+                                                                value: 'ningbo',
+                                                                label: '宁波',
+                                                                children: [
+                                                                    {
+                                                                        value: 'ninghaixian',
+                                                                        label: '宁海县',
+                                                                    },
+                                                                    {
+                                                                        value: 'zhenhaiqu',
+                                                                        label: '镇海区',
+                                                                    },
+                                                                    {
+                                                                        value: 'fenghuaqu',
+                                                                        label: '奉化区',
+                                                                    },
+                                                                    {
+                                                                        value: 'cixishi',
+                                                                        label: '慈溪市',
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                value: 'hangzhou',
+                                                                label: '杭州',
+                                                                children: [
+                                                                    {
+                                                                        value: 'xihu',
+                                                                        label: '西湖',
+                                                                    },
+                                                                    {
+                                                                        value: 'lingyinsi',
+                                                                        label: '灵隐寺',
+                                                                    },
+                                                                    {
+                                                                        value: 'beigaofeng',
+                                                                        label: '北高峰',
+                                                                    },
+                                                                    {
+                                                                        value: 'nansongyujie',
+                                                                        label: '南宋御街',
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ],
+                                                        data:{
+                                                            rank:'直辖市',
+                                                            area:'0.8万平方千米',
+                                                            population:'1800万'
+                                                        }
+                                                    }]">
+                                                    </div>
+                                                    <p class="form-checktip checktip-wrong"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">综合运用:</label>
+                                                <div class="form-content">
+                                                    <div class="cascader" name='bbb' trigger="hover" changeSelect="true" data-options="[{
+                                                            value: 'beijing',
+                                                            label: '北京',
+                                                            children: [
+                                                                {
+                                                                    value: 'gugong',
+                                                                    label: '故宫'
+                                                                },
+                                                                {
+                                                                    value: 'tiantan',
+                                                                    label: '天坛'
+                                                                },
+                                                                {
+                                                                    value: 'wangfujing',
+                                                                    label: '王府井'
+                                                                }
+                                                            ],
+                                                            data:{
+                                                                rank:'直辖市',
+                                                                area:'0.8万平方千米',
+                                                                population:'1800万'
+                                                            }
+                                                        }, {
+                                                            value: 'jiangsu',
+                                                            label: '江苏',
+                                                            children: [
+                                                                {
+                                                                    value: 'nanjing',
+                                                                    label: '南京',
+                                                                    children: [
+                                                                        {
+                                                                            value: 'fuzimiao',
+                                                                            label: '夫子庙',
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                {
+                                                                    value: 'suzhou',
+                                                                    label: '苏州',
+                                                                    children: [
+                                                                        {
+                                                                            value: 'zhuozhengyuan',
+                                                                            label: '拙政园',
+                                                                        },
+                                                                        {
+                                                                            value: 'shizilin',
+                                                                            label: '狮子林',
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            data:{
+                                                                rank:'直辖市',
+                                                                area:'0.8万平方千米',
+                                                                population:'1800万'
+                                                            }
+                                                        }]">
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-btns">
+                                            <a class="btn btn-default destroy-btn" href="javascript:;">销毁插件</a>
+                                            <a class="btn btn-primary call-btn" href="javascript:;">调用插件</a>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">icheck美化形式</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-3">
+                                                <label class="form-label">单选:</label>
+                                                <div class="form-content">
+                                                    <div class="icheck-box">
+                                                        <label class="icheck-label">
+                                                            <input class="icheck-primary" name="demo.radio" type="radio">保密
+                                                        </label>
+                                                        <label class="icheck-label">
+                                                            <input class="icheck-primary" name="demo.radio" type="radio">男
+                                                        </label>
+                                                        <label class="icheck-label">
+                                                            <input class="icheck-primary" name="demo.radio" type="radio">女
+                                                        </label>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">多选:</label>
+                                                <div class="form-content">
+                                                    <div class="icheck-box">
+                                                        <label class="icheck-label">
+                                                            <input type="checkbox" class="icheck-primary" name="ifcheckedname" value="0">多选
+                                                        </label>
+                                                        <label class="icheck-label">
+                                                            <input type="checkbox" class="icheck-primary" name="ifcheckedname" value="1">多选
+                                                        </label>
+                                                        <label class="icheck-label">
+                                                            <input type="checkbox" class="icheck-primary" name="ifcheckedname" value="2">多选
+                                                        </label>
+                                                        <label class="icheck-label">
+                                                            <input type="checkbox" class="icheck-primary" name="ifcheckedname" value="3">多选
+                                                        </label>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">多选（块）:</label>
+                                                <div class="form-content">
+                                                    <div class="icheck-box icheck-block">
+                                                        <label class="icheck-label">
+                                                            <input type="checkbox" class="icheck-primary" ichecked-for="blue">全选
+                                                        </label>
+                                                        <label class="icheck-label">
+                                                            <input type="checkbox" class="icheck-primary" name="checknames" value="0" ichecked-val="blue">多选
+                                                        </label>
+                                                        <label class="icheck-label">
+                                                            <input type="checkbox" class="icheck-primary" name="checknames" value="1" ichecked-val="blue">多选
+                                                        </label>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="divider-horizontal">
+                                            <h4 class="divider-txt">美化的样式</h4>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-3">
+                                                <label class="form-label">primary 美化:</label>
+                                                <div class="form-content">
+                                                    <div class="icheck-box">
+                                                        <label class="icheck-label">
+                                                            <input class="icheck-primary" name="demo.radio1" type="radio">单选
+                                                        </label>
+                                                        <label class="icheck-label">
+                                                            <input class="icheck-primary" name="demo.checkbox1" type="checkbox">多选
+                                                        </label>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-3">
+                                                <label class="form-label">success 美化:</label>
+                                                <div class="form-content">
+                                                    <div class="icheck-box">
+                                                        <label class="icheck-label">
+                                                            <input class="icheck-success" name="demo.radio1" type="radio" disabled checked>单
+                                                        </label>
+                                                        <label class="icheck-label">
+                                                            <input class="icheck-success" name="demo.radio1" type="radio">单
+                                                        </label>
+                                                        <label class="icheck-label">
+                                                            <input class="icheck-success" name="demo.checkbox1" type="checkbox" disabled checked>多
+                                                        </label>
+                                                        <label class="icheck-label">
+                                                            <input class="icheck-success" name="demo.checkbox1" type="checkbox">多
+                                                        </label>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">check 美化</h5>
+                                        </div>
+                                        <div class="callout">
+                                            <h3 class="callout-tit">check 美化</h3>
+                                            <p class="callout-txt">模仿iCheck插件写的其他形式的 <code>radio</code> / <code>checkbox</code> 的美化。</p>
+                                            
+                                            <h4 class="callout-txt">参数</h4>
+                                            <ul class="callout-list-group">
+                                                <li class="callout-list-item"><code>type</code>参数 分别是： 
+                                                    <code>simple 是仿 simple_switch</code>&ensp;&ensp;&ensp;&ensp;
+                                                    <code>strap 是仿 bootstrap-switch</code>
+                                                </li>
+                                                <li class="callout-list-item"><code>theme</code>添加皮肤 在生成的div上添加类名</li>
+                                                <li class="callout-list-item">
+                                                    <code>switchOnText</code>
+                                                    <code>switchLabelText</code>
+                                                    <code>switchOffText</code>
+                                                    显示的文字。
+                                                </li>
+                                            </ul>
+
+                                            <h4 class="callout-txt">回调事件</h4>
+                                            <p class="callout-txt">提供了大量回调事件，都可以用来监听change事件。</p>
+                                            <ul class="callout-list-group">
+                                                <li class="callout-list-item"><code>ifClicked</code> 用户点击了自定义的输入框或与其相关联的label</li>
+                                                <li class="callout-list-item"><code>ifChanged</code> 输入框的 checked 或 disabled 状态改变了</li>
+                                                <li class="callout-list-item"><code>ifChecked</code> 输入框的状态变为 checked</li>
+                                                <li class="callout-list-item"><code>ifUnchecked</code> checked 状态被移除</li>
+                                                <li class="callout-list-item"><code>ifDisabled</code> 输入框状态变为 disabled</li>
+                                                <li class="callout-list-item"><code>ifEnabled</code> disabled 状态被移除</li>
+                                                <li class="callout-list-item"><code>ifCreated</code> 输入框被应用了 mocCheck 样式</li>
+                                                <li class="callout-list-item"><code>ifDestroyed</code> mocCheck 样式被移除</li>
+                                            </ul>
+                                            <p class="callout-txt">使用on()方法绑定事件</p>
+                                            <p class="callout-txt">ifCreated 事件应该在插件初始化之前绑定。</p>
+                                            <pre>
+                                                $('input').on('ifChecked', function(event){
+                                                    alert(event.type + ' callback');
+                                                });
+                                            </pre>
+
+                                            <h4 class="callout-txt">方法</h4>
+                                            <p class="callout-txt">下面这些方法可以用来通过编程方式改变输入框状态（可以使用任何选择器）：</p>
+                                            <ul class="callout-list-group">
+                                                <li class="callout-list-item"><code>$('input').mocCheck('check');</code> 将输入框的状态设置为checked</li>
+                                                <li class="callout-list-item"><code>$('input').mocCheck('uncheck');</code> 移除 checked 状态</li>
+                                                <li class="callout-list-item"><code>$('input').mocCheck('toggle');</code> toggle checked state</li>
+                                                <li class="callout-list-item"><code>$('input').mocCheck('disable');</code> 将输入框的状态设置为 disabled</li>
+                                                <li class="callout-list-item"><code>$('input').mocCheck('enable');</code> 移除 disabled 状态</li>
+                                                <li class="callout-list-item"><code>$('input').mocCheck('destroy');</code> 移除 mocCheck 样式</li>
+                                            </ul>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group label-width-40 col-3">
+                                                <label class="form-label">单选:</label>
+                                                <div class="form-content">
+                                                    <div class="icheck-box">
+                                                        <input class="mocCheck-simple" name="checkname2" value="1" type="radio">
+                                                        <input class="mocCheck-simple" name="checkname2" value="2" type="radio">
+                                                        <input class="mocCheck-simple" name="checkname2" value="3" type="radio">
+                                                        <input class="mocCheck-simple" name="checkname2" value="4" type="radio" checked disabled>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group label-width-40 col-3">
+                                                <label class="form-label">多选:</label>
+                                                <div class="form-content">
+                                                    <div class="icheck-box">
+                                                        <input class="mocCheck-simple" name="checkname1" value="5" type="checkbox" >
+                                                        <input class="mocCheck-simple" name="checkname1" value="6" type="checkbox">
+                                                        <input class="mocCheck-simple" name="checkname1" value="7" type="checkbox" disabled>
+                                                        <input class="mocCheck-simple" name="checkname1" value="8" type="checkbox" disabled checked>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group label-width-40 col-3">
+                                                <label class="form-label">多选:</label>
+                                                <div class="form-content">
+                                                    <div class="icheck-box">
+                                                        <input class="mocCheck-ball" type="checkbox" value="09">
+                                                        <input class="mocCheck-ball" type="checkbox" value="10">
+                                                        <input class="mocCheck-ball" type="checkbox" value="11" disabled>
+                                                        <input class="mocCheck-ball" type="checkbox" value="12" checked disabled>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group label-width-40 col-3">
+                                                <label class="form-label">多选:</label>
+                                                <div class="form-content">
+                                                    <div class="icheck-box">
+                                                        <input class="mocCheck-bootstrap" type="checkbox" value="09">
+                                                        <input class="mocCheck-bootstrap" type="checkbox" value="10">
+                                                        <input class="mocCheck-bootstrap" type="checkbox" value="11" disabled>
+                                                        <input class="mocCheck-bootstrap" type="checkbox" value="12" checked disabled>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group label-width-40 col-3">
+                                                <label class="form-label">多选:</label>
+                                                <div class="form-content">
+                                                    <div class="icheck-box">
+                                                        <input class="mocCheck-simple-test" value="1" name="radioTest" type="radio" checked>
+                                                        <input class="mocCheck-simple-test" id="radioTestFunId" value="2" name="radioTest" type="radio">
+                                                        <input class="mocCheck-simple-test" value="3" name="radioTest" type="radio">
+                                                        <input class="mocCheck-simple-test" value="4" name="radioTest" type="radio" disabled>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group label-width-40 col-3">
+                                                <label class="form-label">多选:</label>
+                                                <div class="form-content">
+                                                    <div class="icheck-box">
+                                                        <input class="mocCheck-strap-test" value="5" type="checkbox" checked>
+                                                        <input class="mocCheck-strap-test" value="6" type="checkbox">
+                                                        <input class="mocCheck-strap-test" value="7" type="checkbox">
+                                                        <input class="mocCheck-strap-test" value="8" type="checkbox" disabled>
+                                                    </div>
+                                                    <p class="form-checktip"></p>
+                                                </div>
+                                            </div>
+                                            <script>
+                                                $(function(){
+                                                    $('.mocCheck-simple-test').mocCheck();
+                                                    $('.mocCheck-strap-test').mocCheck({
+                                                        type:'strap'
+                                                    });
+
+
+                                                    $(".mocCheck-strap-test").on('ifClicked', function(event) {
+                                                        event.preventDefault();
+                                                        console.log("ifClicked");
+                                                    });
+                                                    $(".mocCheck-strap-test").on('ifChanged', function(event) {
+                                                        event.preventDefault();
+                                                        console.log("ifChanged");
+                                                    });
+                                                    $(".mocCheck-strap-test").on('ifChecked', function(event) {
+                                                        event.preventDefault();
+                                                        console.log("ifChecked");
+                                                    });
+                                                    $(".mocCheck-strap-test").on('ifUnchecked', function(event) {
+                                                        event.preventDefault();
+                                                        console.log("ifUnchecked");
+                                                    });
+                                                    $(".mocCheck-strap-test").on('ifDisabled', function(event) {
+                                                        event.preventDefault();
+                                                        console.log("ifDisabled");
+                                                    });
+                                                    $(".mocCheck-strap-test").on('ifEnabled', function(event) {
+                                                        event.preventDefault();
+                                                        console.log("ifEnabled");
+                                                    });
+                                                    $(".mocCheck-strap-test").on('ifCreated', function(event) {
+                                                        event.preventDefault();
+                                                        console.log("ifCreated");
+                                                    });
+                                                    $(".mocCheck-strap-test").on('ifDestroyed', function(event) {
+                                                        event.preventDefault();
+                                                        console.log("ifDestroyed");
+                                                    });
+                                                })
+                                                function mocCheckcheckfn(){
+                                                    $(".mocCheck-simple-test").mocCheck('check');
+                                                    $('.mocCheck-strap-test').mocCheck('check');
+                                                }
+                                                function mocCheckuncheckfn(){
+                                                    $(".mocCheck-simple-test").mocCheck('uncheck');
+                                                    $('.mocCheck-strap-test').mocCheck('uncheck');
+                                                }
+                                                function mocChecktogglefn(){
+                                                    $(".mocCheck-simple-test").mocCheck('toggle');
+                                                    $('.mocCheck-strap-test').mocCheck('toggle');
+                                                }
+
+                                                function mocCheckdisablefn(){
+                                                    $(".mocCheck-simple-test").mocCheck('disable');
+                                                    $('.mocCheck-strap-test').mocCheck('disable');
+                                                }
+                                                function mocCheckenablefn(){
+                                                    $(".mocCheck-simple-test").mocCheck('enable');
+                                                    $('.mocCheck-strap-test').mocCheck('enable');
+                                                }
+
+                                                function mocCheckdestroyfn(){
+                                                    $(".mocCheck-simple-test").mocCheck('destroy');
+                                                    $('.mocCheck-strap-test').mocCheck('destroy');
+                                                }
+                                                function mocCheckmocCheckfn(){
+                                                    $(".mocCheck-simple-test").mocCheck();
+                                                    $('.mocCheck-strap-test').mocCheck({
+                                                        type:'strap'
+                                                    });
+                                                }
+
+
+                                                function radiocheckfn(){
+                                                    $("#radioTestFunId").mocCheck('check');
+                                                }
+                                                function radiouncheckfn(){
+                                                    $("#radioTestFunId").mocCheck('uncheck');
+                                                }
+                                                function radiotogglefn(){
+                                                    $("#radioTestFunId").mocCheck('toggle');
+                                                }
+
+                                            </script>
+                                        </div>
+                                        <div class="form-btns">
+                                            <a class="btn btn-default" onclick="mocCheckcheckfn()" href="javascript:;">设置为checked</a>
+                                            <a class="btn btn-primary" onclick="mocCheckuncheckfn()" href="javascript:;">移除 checked 状态</a>
+                                            <a class="btn btn-primary" onclick="mocChecktogglefn()" href="javascript:;">toggle checked state</a>
+
+                                            <a class="btn btn-primary" onclick="mocCheckdisablefn()" href="javascript:;">设置为 disabled</a>
+                                            <a class="btn btn-primary" onclick="mocCheckenablefn()" href="javascript:;">移除 disabled 状态</a>
+                                            
+                                            <a class="btn btn-primary" onclick="mocCheckdestroyfn()" href="javascript:;">移除mocCheckBtn样式</a>
+                                            <a class="btn btn-primary" onclick="mocCheckmocCheckfn()" href="javascript:;">调用mocCheckBtn样式</a>
+
+                                        </div>
+                                        <div class="divider-horizontal">
+                                            <span class="divider-txt">单选测试</span>
+                                        </div>
+                                        <div class="form-btns">
+                                            <a class="btn btn-default" onclick="radiocheckfn()" href="javascript:;">设置为checked</a>
+                                            <a class="btn btn-primary" onclick="radiouncheckfn()" href="javascript:;">移除 checked 状态</a>
+                                            <a class="btn btn-primary" onclick="radiotogglefn()" href="javascript:;">toggle checked state</a>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">文本域相关的</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-5">
+                                                <label class="form-label">普通文本域:</label>
+                                                <div class="form-content">
+                                                    <div class="textarea-box">
+                                                        <textarea class="textarea" rows="4"></textarea>
+                                                    </div>
+                                                    <p class="form-checktip checktip-wrong">不可以输入特殊字符</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group label-width-150 col-6 col-offset-1">
+                                                <label class="form-label">最大高度160文本域:</label>
+                                                <div class="form-content">
+                                                    <div class="textarea-box">
+                                                        <textarea class="textarea textarea-autosize" rows="4"></textarea>
+                                                    </div>
+                                                    <p class="form-checktip checktip-wrong">不可以输入特殊字符</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group label-width-130 col-5">
+                                                <label class="form-label">无最大高度文本域:</label>
+                                                <div class="form-content">
+                                                    <div class="textarea-box">
+                                                        <textarea class="textarea textarea-automax" rows="4"></textarea>
+                                                    </div>
+                                                    <p class="form-checktip checktip-wrong">不可以输入特殊字符</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group label-width-140 col-6">
+                                                <label class="form-label">div模拟输入框:</label>
+                                                <div class="form-content">
+                                                    <div class="contenteditable-box">
+                                                        <div class="contenteditable-true" contenteditable="true" placeholder="data-words要输入的最大文字数，data-location可以控制最大字数的位置，after在后面 before在前面，默认：after" data-words="10" data-location="after"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group label-width-130 col-12">
+                                                <label class="form-label">富文本编辑器:</label>
+                                                <div class="form-content">
+                                                    <div class="textarea-box">
+                                                        <script id="editor" type="text/plain" style="height:220px;"></script>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    var ue = UE.getEditor('editor',{
+                                                        maximumWords: 9999999,
+                                                        toolbars: [     // https://wenku.baidu.com/view/1ace3a21c77da26925c5b0ad.html
+                                                            ['fullscreen', 'source', 'undo', 'redo', 'bold', 'italic', 'underline','fontborder', 'backcolor', 'customstyle', 'paragraph', 'fontsize', 'fontfamily', 'justifyleft', 'justifyright','justifycenter', 'justifyjustify', 'strikethrough','superscript', 'subscript', 'removeformat', 'formatmatch','autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor','insertorderedlist', 'insertunorderedlist','selectall', 'cleardoc', 'insertimage', 'link', 'unlink','emotion', 'help'
+                                                            ]
+                                                        ]
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">文字展示页面</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-4">
+                                                <label class="form-label">文字展示:</label>
+                                                <div class="form-content">
+                                                    <p class="form-text">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p> 
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-4">
+                                                <label class="form-label">去掉换行符:</label>
+                                                <div class="form-content">
+                                                    <p class="form-text">1.默认的文字显示方式，空白会被浏览器忽略。
+                                                    2.这是我们最常用的显示方式。</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-4">
+                                                <label class="form-label">保留换行符:</label>
+                                                <div class="form-content">
+                                                    <p class="form-pre">1.合并空白符序列，但是保留换行符。
+                                                    2.这样对格式要求比较严格，建议只有是文本域（textarea）的文字显示的时候使用。
+                                                    3.是 CSS 2.1 中新增的。
+                                                    4.文本域（textarea）存储的文字显示的时候使用。</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">下拉树</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group label-width-140 col-5">
+                                                <label class="form-label">带搜索的下拉树:</label>
+                                                <div class="form-content">
+                                                    <div class="select-ztree">
+                                                        <input class="select-ztree-input" id="selectZtreeInput" onclick="zTreeShowMenu(this,event);" type="text" readonly>
+                                                        <div class="select-ztree-dropdown">
+                                                            <div class="select-ztree-seach">
+                                                                <input type="text" id="key" class="select-ztree-seach-txt" placeholder="zTree Search">
+                                                                <a class="select-ztree-seach-btn" onclick="zTreeSearchNode('treeDemoxl','key', zTreeSelectSetting2, zTreeNodes2)" href="javascript:;">搜索</a>
+                                                            </div>
+                                                            <div class="select-ztree-box">
+                                                                <ul id="treeDemoxl" class="ztree"></ul>
+                                                            </div>
+                                                            <div class="select-ztree-btns">
+                                                                <a class="btn btn-default" onClick="zTreeDropdownClose()" href="javascript:;">取消</a>
+                                                                <a class="btn btn-primary" onclick="zTreeDropdownConfirm('treeDemoxl'),'#selectZtreeInput', true" href="javascript:;">确定</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p class="form-checktip checktip-wrong"></p>
+                                                </div>
+                                            </div>
+                                            <div class="col-2" location="before">
+                                                <a class="clone-add-btn form-text" data-afterCallback="zTreeSelectCallback" href="zTreeTemplate">增加一组</a>
+                                            </div>
+                                            <div class="form-group label-width-140 col-5 clone-template" id="zTreeTemplate">
+                                                <label class="form-label">带搜索的下拉树:</label>
+                                                <div class="form-content">
+                                                    <div class="select-ztree">
+                                                        <input class="select-ztree-input" onclick="zTreeShowMenu(this,event);" type="text" readonly>
+                                                        <div class="select-ztree-dropdown">
+                                                            <div class="select-ztree-seach">
+                                                                <input type="text" id="key" class="select-ztree-seach-txt" placeholder="zTree Search">
+                                                                <a class="select-ztree-seach-btn" onclick="zTreeSearchNode('treeDemoxl','key')" href="javascript:;">搜索</a>
+                                                            </div>
+                                                            <div class="select-ztree-box">
+                                                                <ul id="treeDemoxl" class="ztree"></ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <p class="form-checktip checktip-wrong"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">文件上传</h5>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-6">
+                                                <label class="form-label">多文件上传:</label>
+                                                <div class="form-content">
+                                                    <div class="upload-box" id="upload">
+                                                        <div id="webuploader"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label class="form-label">多文件上传11111111:</label>
+                                                <div class="form-content">
+                                                    <div class="upload-box">
+                                                        <div id="webuploader1"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-6">
+                                                <label class="form-label">条件:</label>
+                                                <div class="form-content">
+                                                    <div class="input-box">
+                                                        <input class="date" id="condition" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-tit">
+                                            <h5 class="form-tit-text">新增一项/一行</h5>
+                                        </div>
+                                        
+                                        <section class="callout">
+                                            <h4 class="callout-tit">复制一行和复制一块</h4>
+                                            <p class="callout-txt">使用方法及原理</p>
+                                            <ul class="callout-list-group">
+                                                <li>新增的按钮类名是<code>clone-add-btn</code>，通过<code>for(href)</code>获取到所要复制的内容的模板，<code>for(href)</code>里面是模板的<code>id</code>。</li>
+                                                <li>通过按钮向上查询，获得<code>[location]</code>节点，这个是要添加到的位置。可以传递参数<code>("before"、"after"、"append"、"prepend")</code>，默认是这<code>"before"</code></li>
+                                                <li>模板必须包含类名是<code>"clone-template"</code>(隐藏模板)，里面含有从新调用插件的，在原类名上跟随<code>-template</code>。例如：<code>class="select-2"</code> 变为<code>class="select-2-template"</code></li>
+                                            </ul>
+
+                                            <h4 class="callout-tit">删除本行和复制本块</h4>
+                                            <p class="callout-txt">使用方法及原理</p>
+                                            <ul class="callout-list-group">
+                                                <li>删除按钮的类名是<code>clone-remove-btn</code>，向上查找（父级），找到最近的带有<code>self-is-clone</code>类名的父级，进行删除。</li>
+                                            </ul>
+
+                                            <h4 class="callout-tit">复制 and 删除 的回调</h4>
+                                            <p class="callout-txt">使用方法及原理</p>
+                                            <ul class="callout-list-group">
+                                                <li>新增 and 删除的回调：<code>data-beforeCallback</code>新增之前（删除之前）的回调，新增有两个参数（self，cloneDom）按钮本身 and 赋值出来的结构。删除只有一个参数（self）按钮本身。</li>
+                                                <li>新增 and 删除的回调：<code>data-afterCallback</code>新增之后（删除之后）的回调，有一个参数（self）按钮本身。</li>
+                                            </ul>
+                                        </section>
+                                        
+                                        <section class="clone-section">
+                                            <div class="clone-location" location="append">
+                                                <div class="clone-group">
+                                                    <div class="clone-group-content">
+                                                        <div class="row">
+                                                            <div class="form-group col-3">
+                                                                <label class="form-label">输入框：</label>
+                                                                <div class="form-content">
+                                                                    <div class="input-box">
+                                                                        <input type="text" class="text">
+                                                                        <span class="feedback">元</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-3">
+                                                                <label class="form-label">时间框：</label>
+                                                                <div class="form-content">
+                                                                    <div class="input-box">
+                                                                        <input type="text" class="date" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group col-3">
+                                                                <label class="form-label">下拉选框:</label>
+                                                                <div class="form-content">
+                                                                    <div class="select-box">
+                                                                        <select class="select-2">
+                                                                            <option value="0">请选择</option>
+                                                                            <optgroup label="直辖市">
+                                                                                <option selected="selected" value="1">北京</option>
+                                                                                <option value="2">上海</option>
+                                                                                <option value="3">天津</option>
+                                                                                <option value="4">重庆</option>
+                                                                            </optgroup>
+                                                                            <optgroup label="东三省">
+                                                                                <option value="5">辽宁省</option>
+                                                                                <option value="6">吉林省</option>
+                                                                                <option value="7">黑龙江省</option>
+                                                                            </optgroup>
+                                                                        </select>
+                                                                    </div>
+                                                                    <p class="form-checktip"></p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="clone-location" location="append">
+                                                            <div class="clone-row">
+                                                                <div class="clone-row-content">
+                                                                    <div class="row">
+                                                                        <div class="form-group col-3">
+                                                                            <label class="form-label">输入框：</label>
+                                                                            <div class="form-content">
+                                                                                <div class="input-box">
+                                                                                    <input type="text" class="text">
+                                                                                    <span class="feedback">元</span>
+                                                                                </div>
+                                                                                <p class="form-checktip checktip-wrong">输入错误</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col" location="before">
+                                                                            <div class="form-text">
+                                                                                <a class="clone-add-btn" href="cloneTemplate-item">[新增]</a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="clone-row-tools">
+                                                                    <a class="clone-add-btn" href="cloneTemplate-row">[新增一行]</a>
+                                                                </div>  
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                        
+                                                    <div class="clone-group-tools">
+                                                        <a class="clone-add-btn" href="cloneTemplate">[新增一组]</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                              
+                                        </section>
+
+                                        <div class="clone-group clone-template" id="cloneTemplate">
+                                            <div class="clone-group-content">
+                                                <div class="row">
+                                                    <div class="form-group col-3">
+                                                        <label class="form-label">输入框：</label>
+                                                        <div class="form-content">
+                                                            <div class="input-box">
+                                                                <input type="text" class="text">
+                                                                <span class="feedback">元</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-3">
+                                                        <div class="form-group">
+                                                            <label class="form-label">时间框：</label>
+                                                            <div class="form-content">
+                                                                <div class="input-box">
+                                                                    <input type="text" class="date" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-3">
+                                                        <div class="form-group">
+                                                            <label class="form-label">下拉选框:</label>
+                                                            <div class="form-content">
+                                                                <div class="select-box">
+                                                                    <select class="select-2-template">
+                                                                        <option value="0">请选择</option>
+                                                                        <optgroup label="直辖市">
+                                                                            <option selected="selected" value="1">北京</option>
+                                                                            <option value="2">上海</option>
+                                                                            <option value="3">天津</option>
+                                                                            <option value="4">重庆</option>
+                                                                        </optgroup>
+                                                                        <optgroup label="东三省">
+                                                                            <option value="5">辽宁省</option>
+                                                                            <option value="6">吉林省</option>
+                                                                            <option value="7">黑龙江省</option>
+                                                                        </optgroup>
+                                                                    </select>
+                                                                </div>
+                                                                <p class="form-checktip"></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clone-group-tools">
+                                                <a class="clone-remove-btn" data-beforeCallback="beforeRemoveRow" data-afterCallback="afterRemoveRow" href="javascript:;">[删除本组]</a>
+                                                <a class="clone-add-btn" href="cloneTemplate" data-beforeCallback="beforeAddRow" data-afterCallback="afterAddRow">[新增一组]</a>
+                                            </div>
+                                        </div>
+                                        <div class="clone-row clone-template" id="cloneTemplate-row">
+                                            <div class="clone-row-content">
+                                                <div class="row">
+                                                    <div class="form-group col-3">
+                                                        <label class="form-label">输入框：</label>
+                                                        <div class="form-content">
+                                                            <div class="input-box">
+                                                                <input type="text" class="text">
+                                                                <span class="feedback">元</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clone-row-tools">
+                                                <a class="clone-remove-btn" href="javascript:;">[删除本行]</a>
+                                            </div>  
+                                        </div>
+                                        <div class="form-group col-3 clone-template" id="cloneTemplate-item">
+                                            <label class="form-label">输入框：</label>
+                                            <div class="form-content">
+                                                <div class="input-box">
+                                                    <input type="text" class="text">
+                                                    <span class="feedback m-r-40">元</span>
+                                                </div>
+                                                <p class="form-checktip checktip-wrong">输入错误</p>
+                                            </div>
+                                            <div class="clone-item-tools">
+                                                <p class="form-text"><a class="clone-remove-btn" href="javascript:;">[删除]</a></p>
+                                            </div>
+                                        </div>
+
+
+                                        <script type="text/javascript">
+                                            function beforeRemoveRow(self){
+                                                console.log("删除前执行："+$(self).text() );
+                                            }
+                                            function afterRemoveRow(self){
+                                                console.log("删除后执行："+$(self).text() );
+                                            }
+
+                                            function beforeAddRow(clone,self){
+                                                // 新增一组，准备完成，的时候执行，已经克隆和调用插件完成
+                                                console.log( clone );
+                                                console.log( self );
+                                            }
+                                            function afterAddRow(clone){
+                                                // 彻底完成后执行
+                                                $(clone).find('.text').val('111');
+                                            }
+
+                                        </script>
+                                            
+                                        
+                                        
+                                        <div class="form-btns">
+                                            <a class="btn" href="javascript:;">（基础样式）basic</a>
+                                            <a class="btn btn-default" href="javascript:;">（默认样式）Default</a>
+                                            <a class="btn btn-primary" href="javascript:;">（首选项）Primary</a>
+                                            <a class="btn btn-success" href="javascript:;">（成功）Success</a>
+                                            <a class="btn btn-info" href="javascript:;">（一般信息）Info</a>
+                                            <a class="btn btn-warning" href="javascript:;">（警告）Warning</a>
+                                            <a class="btn btn-danger" href="javascript:;">（危险）Danger</a>
+                                            <a class="btn btn-muted" href="javascript:;">（模糊不清）muted</a>
+                                        </div>
+                                        
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- form-horizontal end -->
+
+                    </div>
+                </div>
+            </main>
+            <!-- content end -->
+            
+            <!-- assist start -->
+            <aside id="assist">
+                <!-- 右侧内容区域 -->
+            </aside>
+            <!-- assist end -->
+        </article>
+        <!-- page-bodier end -->
+    </section>
+
+    <div class="modal" id="photoClipModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <ul class="list-type-disc">
+                        <li>在移动设备上双指捏合为缩放，双指旋转可根据旋转方向每次旋转90度</li>
+                        <li>在PC设备上鼠标滚轮为缩放，每次双击则顺时针旋转90度</li>
+                    </ul>
+                    <div class="photoClip-area" id="clipArea"></div>
+                    <div class="photoClip-btns">
+                        <button type="button" class="btn btn-primary" id="rotaBtn">旋转</button>
+                        <button type="button" class="btn btn-primary" id="bigImg">放大</button>
+                        <button type="button" class="btn btn-primary" id="smallImg">缩小</button>
+                        <button type="button" class="btn btn-primary" id="clipBtn" data-dismiss="modal">保存头像</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>        
+    
+    <script type="text/javascript">
+        // ztree的配置
+        var zTreeSelectSetting2 = {
+            check: { // 带有复选框
+                enable: true,
+                chkboxType: {
+                    "Y": "ps",
+                    "N": "ps"
+                }
+            },
+            view: {
+                dblClickExpand: false,
+                fontCss: zTreeSetHighlight // 高亮一定要设置，setHighlight是自定义方法
+            },
+            data: {
+                simpleData: {
+                    enable: true
+                }
+            },
+            callback: {
+                beforeClick: zTreeBeforeClick,
+                onClick: zTreeOnClick
+            }
+        };
+        // ztree的数据
+        var zTreeNodes2 = [
+            {
+                id: 1,
+                pId: 0,
+                name: "北京"
+            }, {
+                id: 2,
+                pId: 0,
+                name: "天津"
+            }, {
+                id: 3,
+                pId: 0,
+                name: "上海"
+            }, {
+                id: 6,
+                pId: 0,
+                name: "重庆"
+            }, {
+                id: 4,
+                pId: 0,
+                name: "河北省",
+                open: true
+            }, {
+                id: 41,
+                pId: 4,
+                name: "石家庄"
+            }, {
+                id: 42,
+                pId: 4,
+                name: "保定"
+            }, {
+                id: 43,
+                pId: 4,
+                name: "邯郸"
+            }, {
+                id: 44,
+                pId: 4,
+                name: "承德"
+            }, {
+                id: 5,
+                pId: 0,
+                name: "广东省",
+                open: true
+            }, {
+                id: 51,
+                pId: 5,
+                name: "广州"
+            }, {
+                id: 52,
+                pId: 5,
+                name: "深圳"
+            }, {
+                id: 53,
+                pId: 5,
+                name: "东莞"
+            }, {
+                id: 54,
+                pId: 5,
+                name: "佛山"
+            }, {
+                id: 6,
+                pId: 0,
+                name: "福建省",
+                open: true
+            }, {
+                id: 61,
+                pId: 6,
+                name: "福州"
+            }, {
+                id: 62,
+                pId: 6,
+                name: "厦门"
+            }, {
+                id: 63,
+                pId: 6,
+                name: "泉州"
+            }, {
+                id: 64,
+                pId: 6,
+                name: "三明"
+            }
+        ];
+
+        $(function() {
+            // ztree的调用
+            $.fn.zTree.init($("#treeDemoxl"), zTreeSelectSetting2, zTreeNodes2);
+        });
+        function zTreeSelectCallback(cloneDom){
+            var timestamp = new Date().getTime();
+            var zTreeId = "zTree"+timestamp;
+            $(cloneDom).find('.ztree').attr('id', zTreeId);
+            $.fn.zTree.init($("#"+zTreeId), zTreeSelectSetting2, zTreeNodes2);
+        }
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            /*
+             * 服务器地址,成功返回,失败返回参数格式依照jquery.ajax习惯;
+             * 其他参数同WebUploader
+             */
+            $('#webuploader').diyUpload({
+                url: 'webuploader/server/fileupload.php',
+                formData : { 'xxsm': 22, 'userId': 9 },
+                uploadBeforeSend: function(data){
+                    console.info(data);
+                },
+                success: function(data) {
+                    console.info(data);
+                },
+                error: function(err) {
+                    console.info(err);
+                }
+            });
+
+
+            var inVal = 22;
+            $("#condition").on('blur', function(event) {
+                event.preventDefault();
+                inVal = $("#condition").val();
+            });
+
+            $('#webuploader1').diyUpload({
+                url: 'webuploader/server/fileupload.php',
+                // 是否自动上传
+                auto: true,
+                buttonText: '选择文件',
+                formData : { 'xxsm': inVal },
+                fileNumLimit: 1,                    // 允许上传的张数
+                fileSizeLimit: 5000 * 1024000,      // 验证文件总大小是否超出限制, 超出则不允许加入队列
+                fileSingleSizeLimit: 50 * 1024000,  // 验证单个文件大小是否超出限制, 超出则不允许加入队列。
+                chunked: false,                     // 是否要分片处理大文件上传。
+                chunkSize: 512 * 1024000,           // 如果要分片，分多大一片？ 默认大小为5M.
+                // accept {Arroy} [可选] [默认值：null] 指定接受哪些类型的文件
+                //类型限制;
+                accept:{
+                    title:"Images",
+                    extensions:"gif,jpg,jpeg,bmp,png",
+                    mimeTypes:"image/*"
+                },
+                uploadBeforeSend: function(data){
+                    console.info(data);
+                },
+                beforeQueued: function(flie) {
+                    if(  inVal == "" ){
+                        alert("请输入信息");
+                        return false;
+                    }
+                },
+                // 提示信息
+                success: function(data) {
+                    console.info(data);
+                },
+                // 错误的提示信息
+                error: function(err) {
+                    console.info(err);
+                }
+            });
+
+            
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(function() {
+            var Cascader = $(".cascader").mocCascader({
+                data:[{
+                    value: 'beijing',
+                    label: '北京',
+                    children: [
+                        {
+                            value: 'gugong',
+                            label: '故宫'
+                        },
+                        {
+                            value: 'tiantan',
+                            label: '天坛'
+                        },
+                        {
+                            value: 'wangfujing',
+                            label: '王府井'
+                        }
+                    ],
+                    data:{
+                        rank:'直辖市',
+                        area:'0.8万平方千米',
+                        population:'1800万'
+                    }
+                }, {
+                    value: 'jiangsu',
+                    label: '江苏',
+                    children: [
+                        {
+                            value: 'nanjing',
+                            label: '南京',
+                            children: [
+                                {
+                                    value: 'fuzimiao',
+                                    label: '夫子庙',
+                                }
+                            ]
+                        },
+                        {
+                            value: 'suzhou',
+                            label: '苏州',
+                            children: [
+                                {
+                                    value: 'zhuozhengyuan',
+                                    label: '拙政园',
+                                },
+                                {
+                                    value: 'shizilin',
+                                    label: '狮子林',
+                                    children: [
+                                        {
+                                            value: '小狮子',
+                                            label: '大狮子',
+                                        },
+                                        {
+                                            value: 'dashizi',
+                                            label: '小狮子',
+                                        },
+                                        {
+                                            value: 'shishizi',
+                                            label: '石狮子',
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    data:{
+                        rank:'直辖市',
+                        area:'0.8万平方千米',
+                        population:'1800万'
+                    }
+                }, {
+                    value: 'zhejiang',
+                    label: '浙江',
+                    children: [
+                        {
+                            value: 'ningbo',
+                            label: '宁波',
+                            children: [
+                                {
+                                    value: 'ninghaixian',
+                                    label: '宁海县',
+                                },
+                                {
+                                    value: 'zhenhaiqu',
+                                    label: '镇海区',
+                                },
+                                {
+                                    value: 'fenghuaqu',
+                                    label: '奉化区',
+                                },
+                                {
+                                    value: 'cixishi',
+                                    label: '慈溪市',
+                                }
+                            ]
+                        },
+                        {
+                            value: 'hangzhou',
+                            label: '杭州',
+                            children: [
+                                {
+                                    value: 'xihu',
+                                    label: '西湖',
+                                },
+                                {
+                                    value: 'lingyinsi',
+                                    label: '灵隐寺',
+                                },
+                                {
+                                    value: 'beigaofeng',
+                                    label: '北高峰',
+                                },
+                                {
+                                    value: 'nansongyujie',
+                                    label: '南宋御街',
+                                }
+                            ]
+                        }
+                    ],
+                    data:{
+                        rank:'直辖市',
+                        area:'0.8万平方千米',
+                        population:'1800万'
+                    }
+                }],                             // 可选项的数据源，格式参照示例说明  类型：Array  默认值：[]
+                value:[],                       // 当前已选项的数据，格式参照示例说明  类型：Array  默认值：[]
+                name:'cascader',                // 输入框的name  类型：String  默认值：' cascader '
+                separator: ' / ',               // 选项分隔符  类型：String  默认值：' / '
+                trigger: 'click',               // 次级菜单展开方式，可选值为 click 或 hover  类型：String  默认值：click
+                changeSelect: false,            // 是否允许选择任意一级的选项  类型：Boolean  默认值：true
+                clearable: true,                // 是否支持清除  类型：Boolean  默认值：true
+                disabled: false,                // 是否禁用选择器  类型：Boolean  默认值：false
+                placeholder: '请选择',           // 输入框占位符  类型：String  默认值：请选择
+                beforeShow:function(){          // 下拉框显示前触发的事件
+                    
+                },
+                changeCallBack:function(value){ // 当绑定值变化时触发的事件
+                    
+                }           
+            });
+
+            // 销毁插件
+            $(".destroy-btn").on('click', function(event) {
+                event.preventDefault();
+                Cascader.destroy()
+            });
+            $(".call-btn").on('click', function(event) {
+                event.preventDefault();
+                Cascader.init()
+            });
+
+
+
+        });
+    </script>
+    
+</body>
+</html>

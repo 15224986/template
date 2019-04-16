@@ -1,0 +1,95 @@
+/* iCheck plugin Square skin, blue
+----------------------------------- */
+.checkbox-primary,
+.radio-primary {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 22px;
+    height: 22px;
+    margin-right: 6px;
+    cursor: pointer;
+    background: url(icheck.png) no-repeat;
+    vertical-align: middle;
+}
+
+.checkbox-primary {
+    background-position: 0 0;
+}
+    .checkbox-primary.hover {
+        background-position: -24px 0;
+    }
+    .checkbox-primary.checked {
+        background-position: -48px 0;
+    }
+    .checkbox-primary.disabled {
+        background-position: -72px 0;
+        cursor: default;
+    }
+    .checkbox-primary.checked.disabled {
+        background-position: -96px 0;
+    }
+.radio-primary {
+    background-position: -120px 0;
+}
+    .radio-primary.hover {
+        background-position: -144px 0;
+    }
+    .radio-primary.checked {
+        background-position: -168px 0;
+    }
+    .radio-primary.disabled {
+        background-position: -192px 0;
+        cursor: default;
+    }
+    .radio-primary.checked.disabled {
+        background-position: -216px 0;
+    }
+
+
+.checkbox-success,
+.radio-success {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+    cursor: pointer;
+    background: url(icheck-success.png) no-repeat;
+    vertical-align: middle;
+}
+
+.checkbox-success {
+    background-position: 0 0;
+}
+    .checkbox-success.hover {
+        background-position: -18px 0;
+    }
+    .checkbox-success.checked {
+        background-position: -36px 0;
+    }
+    .checkbox-success.disabled {
+        background-position: -54px 0;
+        cursor: default;
+    }
+    .checkbox-success.checked.disabled {
+        background-position: -72px 0;
+    }
+.radio-success {
+    background-position: -90px 0;
+}
+    .radio-success.hover {
+        background-position: -108px 0;
+    }
+    .radio-success.checked {
+        background-position: -126px 0;
+    }
+    .radio-success.disabled {
+        background-position: -144px 0;
+        cursor: default;
+    }
+    .radio-success.checked.disabled {
+        background-position: -162px 0;
+    }
+

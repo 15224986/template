@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+// **************************** breadcrumb 路径导航的样式 **********************************
+.breadcrumb{
+    padding: 8px 15px;
+    background-color: #f5f5f5;
+    @include border-radius;
+    @extend %clearfix;
+
+    line-height: 24px;
+}
+.breadcrumb-tit{
+    float: left;
+    font-weight: 700;
+}
+.breadcrumb-nav {
+    float: left;
+    &>li {
+        display: inline-block
+    }
+    &>li+li:before {
+        @include lineblock;
+        width: 30px;
+        text-align: center;
+        color: #ccc;
+        content: ">>"
+    }
+    &>.active {
+        color: #777
+    }
+}
+
+.breadcrumb-tools{
+    float: right;
+}
+// 结束
+
+
+
+
+
+
+
+
+

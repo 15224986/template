@@ -1,0 +1,83 @@
+@charset "utf-8";
+
+// **************************** 不固定宽度的轮播图  listSlider **********************************
+.moc-listSlider-win{
+    overflow: hidden;
+}
+.moc-listSlider-group{
+    width: 999999px;
+    @extend %clearfix;
+}
+.moc-listSlider-list{
+    float: left;
+    margin-left: 10px;
+}
+.moc-listSlider-list:first-child{
+    margin-left: 0;
+}
+/* 导航按钮的样式 navigation */
+.moc-listSlider-navigation {
+    text-align: center;
+    padding: 10px 16px;
+}
+.moc-listSlider-navigation ul{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    margin-left: 6px;
+}
+.moc-listSlider-navigation li {
+    float: left;
+    margin-left: 6px;
+}
+
+.moc-listSlider-navigation li span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #e5e7e9;
+    cursor: pointer;
+    overflow: hidden;
+    line-height: 500%;
+}
+.moc-listSlider-navigation li.on span,.moc-listSlider-navigation li:hover span {
+    background-color: #e34710;
+}
+
+/* 上一个和下一个 按钮的样式 prev next */
+.moc-listSlider-prev{
+    display: block;
+    width: 40px;
+    height: 66px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -33px;
+    background-color: #f00;
+    z-index: 110;
+}
+.moc-listSlider-next{
+    display: block;
+    width: 40px;
+    height: 66px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -33px;
+    background-color: #f00;
+    z-index: 110;
+}
+.moc-listSlider-prev.disabled, .moc-listSlider-next.disabled{
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    cursor: not-allowed;
+}
+
+
+
+
+
+
+
+
+

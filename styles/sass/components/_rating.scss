@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+// ***************************** moc-rating 评分 ***********************************
+.moc-rating-box{
+    line-height: 0;
+}
+.moc-rating{
+    @include lineblock;
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 1000px;
+    background-image: url('../../images/icons.png');
+    background-position: -120px -170px;
+    cursor: pointer;
+    position: relative;
+    & + .moc-rating{
+        margin-left: 4px;
+    }
+    &.disabled{
+        @include opacity(0.8);
+    }
+    &.active{
+        background-position: -179px -170px;
+    }
+    &.allow-half{
+        background-position: -179px -221px;
+    }
+    &.hover{
+        background-position: -242px -170px;
+    }
+    &.allow-half-hover{
+        background-position: -242px -221px;
+    }
+}
+.moc-rating-half{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+}
+.moc-rating-text{
+    height: 26px;
+    line-height: 26px;
+    vertical-align: middle;
+    margin-left: 6px;
+    display: none;
+}
+// 结束
+
+
+
+
+
+
+
+

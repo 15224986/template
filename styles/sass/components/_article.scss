@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+// ***************************** article 文章 ***********************************
+.article-head{
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.article-title {
+    padding: 20px 0 10px 0;
+    text-align: center;
+}
+.article-meta {
+    line-height: 18px;
+    color: #999;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.article-body{
+    line-height: 1.75;
+    letter-spacing: .5px;
+}
+.article-tit{
+    margin-bottom: 4px;
+}
+.article-lead,
+.article-divider,
+.article-text,
+.article-img{
+    margin-bottom: 10px;
+}
+.article-lead {
+    color: #222;
+}
+.article-divider {
+    border-top: #e5e5e5 1px dashed;
+}
+.article-text{
+    text-indent: 2em;
+    color: #222;
+    *{
+        text-indent: 0;
+    }
+}
+.article-img{
+    text-align: center;
+}
+// 结束
+
+
+
+
+
+
+
+

@@ -1,0 +1,212 @@
+@charset "utf-8";
+
+// ************************* panel 面版的样式 ****************************
+.panel{
+    border: 1px solid #e2e2e2;
+
+    margin-bottom: 20px;
+}
+.panel-head, .panel-body{
+    @include clearfix;
+}
+.panel-head{
+    position: relative;
+}
+.panel-inner{
+    color: #046aaf;
+    padding-left: 14px;
+    padding-right: 120px;
+    border: 1px solid #ffffff;
+    background-color: #eef0f2;
+}
+.panel-inner .icon{
+    vertical-align: 0;
+}
+.panel-title{
+    @include lineblock;
+    margin: 11px 0 11px 0;
+    height: 14px;
+    line-height: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    border-left: #046aaf 4px solid;
+    padding-left: 6px;
+}
+.icon +.panel-title{
+    border-left: 0 none;
+    padding-left: 0;
+}
+.panel-tools{
+    position: absolute;
+    right: 4px;
+    top: 0;
+    line-height: 38px;
+}
+.panel-btn{
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    color: #666;
+    font-size: 16px;
+    margin-right: 12px;
+    &:hover{
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+}
+.panel-head + .panel-body{
+    border-top: #e5e5e5 1px solid;
+}
+.panel-body{
+    padding: 20px;
+    background-color: #fff;
+}
+.panel-foot{
+    padding: 8px 10px;
+    border-top: 1px solid #e5e5e5;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-color: #fff;
+}
+// 结束
+
+
+
+.module {
+    position: relative;
+    border-radius: 3px;
+    background: #ffffff;
+    border-top: 3px solid #d2d6de;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    @each $colorClass in $module-colors{
+        $class: nth($colorClass,1);         // 获取在数组中的值
+        $color: nth($colorClass,2);
+        &.module-#{$class} {
+            border-top-color: $color;
+        }
+    }
+}
+.module-head {
+    color: #444;
+    display: block;
+    padding: 10px 20px;
+    position: relative;
+    &.with-border {
+        border-bottom: 1px solid rgba($borColor, .5);
+    }
+    .module-title {
+        margin: 0;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+    }
+    .module-tools{
+        position: absolute;
+        right: 20px;
+        top: 0;
+        line-height: 44px;
+    }
+}
+.module-body {
+    padding: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.module-foot {
+    padding: 10px 20px;
+    border-top: 1px solid rgba($borColor, .5);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+
+.module-tabs{
+    background: #fff;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+.module-tabs-head{
+    @include clearfix;
+    border-bottom: 1px solid rgba($borColor, .5);
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.module-tabs-nav{
+    float: left;
+    >li{
+        float: left;
+        border-top: 3px solid transparent;
+        margin-bottom: -2px;
+        margin-right: 5px;
+        >a{
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+            margin: 0;
+            line-height: 24px;
+            color: #444;
+            border-radius: 0;
+            background: transparent;
+            border: 1px solid transparent;
+        }
+        &.active {
+            border-top-color: #3c8dbc;
+            >a{
+                color: #444;
+                background-color: #fff;
+                border-left-color: rgba($borColor, .5);
+                border-right-color: rgba($borColor, .5);
+            }
+        }
+        &:first-child.active>a {
+            border-left-color: transparent;
+        }
+    }
+}
+
+.module-tabs-inner{
+    float: left;
+    padding: 12px 20px 8px;
+    .module-tabs-title{
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 26px;
+    }
+}
+.module-tabs-inner + .module-tabs-nav{
+    float: right;
+    >li{
+        margin-right: 0;
+        margin-left: 5px;
+        &:first-child.active>a {
+            border-left-color: rgba($borColor, .5);
+        }
+        &:last-child.active>a {
+            border-right-color: transparent;
+        }
+    }
+}
+
+
+.module-tabs-body{
+    padding: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.module-tabs-pane{
+    display: none;
+    
+    &.active{
+        display: block;
+    }
+}

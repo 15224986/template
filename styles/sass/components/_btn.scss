@@ -1,0 +1,327 @@
+@charset "utf-8";
+
+// **************************** btn 按钮样式 **********************************
+.btn{
+    @include lineblock;
+    @include boxSizing;
+    padding: 5px 26px;
+    margin-bottom: 0;
+    color: #555;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    background-color: #fff;
+    border: 1px solid #C9C9C9;
+    @include border-radius;
+    transition: all .5s;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    -ms-transition: all .5s;
+    &+.btn{
+        margin-left: 6px;
+    }
+    &.active,
+    &:hover,
+    &:focus{
+        text-decoration: none;
+        color: #409eff;
+        background-color: #ecf5ff;
+        border-color: #c6e2ff;
+    }
+    &.disabled,
+    &:disabled{
+        color: #333;
+        background-color: #fff;
+        border-color: #d6d6d6;
+        cursor: not-allowed;
+        @include opacity;
+    }
+}
+
+@each $colorClass in $btn-colors{    // 循环数组
+    $class: nth($colorClass,1);         // 获取在数组中的值
+    $hostColor: nth($colorClass,2);
+    $assistantColor: nth($colorClass,3);
+    
+    .btn-#{$class}{
+        color: $assistantColor;
+        background-color: $hostColor;
+        border-color: darken($hostColor,10%);
+        &.active,
+        &:hover,
+        &:focus{
+            color: lighten($assistantColor,10%);   // 颜色亮度提高
+            background-color: darken($hostColor,10%);    // 颜色亮度降低
+            border-color: darken($hostColor,10%);
+        }
+        &.disabled,
+        &:disabled{
+            color: $assistantColor;
+            background-color: $hostColor;
+            border-color: darken($hostColor,10%);
+        }
+    }
+    .btn-line-#{$class}{
+        @if #{$class} == default {
+            color: $assistantColor;
+            border-color: $hostColor;
+        } @else {
+            color: $hostColor;
+            background-color: rgba($hostColor,.05);
+            border-color: rgba($hostColor,.5);
+        }
+        &:hover,
+        &:focus{
+            @if #{$class} == default {
+                color: $assistantColor;
+                background-color: rgba($hostColor,.3);
+                border-color: rgba($assistantColor,.4);
+            } @else {
+                color: $hostColor;
+                background-color: rgba($hostColor,.2);
+                border-color: rgba($hostColor,.5);
+            }
+        }
+        &.active{
+            color: $assistantColor;
+            background-color: $hostColor;
+            border-color: $hostColor;
+        }
+        &.disabled,
+        &:disabled{
+            color: $hostColor;
+            background-color: $assistantColor;
+            border-color: $hostColor;
+        }
+    }
+}
+.btn-link,
+.btn-line-link{
+    color: #3084dc;
+    border-color: transparent;
+    background-color: transparent;
+    &.active,
+    &:hover,
+    &:focus{
+        color: #337ab7;
+        border-color: transparent;
+        background-color: transparent;
+        text-decoration: underline;
+    }
+    &.disabled,
+    &:disabled{
+        color: #3084dc;
+        border-color: transparent;
+        text-decoration: none;
+    }
+}
+
+// 预定义尺寸
+.btn-lg {
+    padding: 8px 38px;
+    font-size: 18px;
+    @include border-radius(6px);
+}
+.btn-md {
+    padding: 6px 32px;
+    font-size: 16px;
+    @include border-radius(6px);
+}
+.btn-sm {
+    padding: 4px 20px;
+    font-size: 12px;
+}
+.btn-xs {
+    padding: 2px 14px;
+    font-size: 12px;
+}
+
+// 按钮组的样式
+.btn-group{
+    @include lineblock;
+    line-height: 0;
+    font-size: 0;
+    vertical-align: middle;
+    &+.btn-group,
+    &+.btn{
+        margin-left: 6px;
+    }
+    
+    .btn{
+        border-radius: 0;
+        &+.btn{
+            margin-left: -1px;
+        }
+        &:first-child{
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        &:last-child{
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    } 
+}
+// 按钮垂直排列
+.btn-vertical{
+    @include lineblock;
+    .btn{
+        display: block;
+        margin-left: 0;
+        border-radius: 0;
+        &+.btn{
+            margin-top: 6px;
+        }
+    }
+    &.btn-group{
+        .btn{
+            float: none;
+            &+.btn{
+                margin-left: 0;
+                margin-top: -1px;
+            }
+            &:first-child{
+                border-top-left-radius: 4px;
+                border-top-right-radius: 4px;
+                border-bottom-left-radius: 0;
+            }
+            &:last-child{
+                border-bottom-left-radius: 4px;
+                border-bottom-right-radius: 4px;
+                border-top-right-radius: 0;
+            }
+            &:only-child{
+                border-top-right-radius: 4px;
+            }
+        }
+    }
+}
+
+// 一排多少个按钮组
+@for $i from 1 through 10 {
+    .btns-#{$i}{
+        @extend %block;
+        .btn{
+            width:100%/$i;
+        }
+    }
+}
+
+// 按钮切换为正在加载中
+.btn-loading{
+    position: relative;
+    color: rgba(0,0,0,0);
+    &:hover,
+    &:focus{
+        color: rgba(0,0,0,0);
+    }
+}
+.btn-loading:before {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    border-radius: 50%;
+    border: 2px solid rgba(0,0,0,.15);
+}
+.btn-loading:after {
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    margin-left: -10px;
+    margin-top: -10px;
+    -webkit-animation: button-spin .6s linear;
+    animation: button-spin .6s linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    border-radius: 50%;
+    border-color: #FFF transparent transparent;
+    border-style: solid;
+    border-width: 2px;
+    box-shadow: 0 0 0 1px transparent;
+}
+@-webkit-keyframes button-spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+@keyframes button-spin {
+    0% {
+        -webkit-transform: rotate(0);
+        transform: rotate(0)
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+// 文字按钮
+button.btn-text{
+    padding: 0;
+    display: inline;
+    background-color: transparent;
+    border: 0 none;
+}
+
+.btn-text{
+    color: #4183C4;
+    cursor: pointer;
+    &+.btn-text{
+        margin-left: 10px;
+    }
+    &:hover,
+    &:focus{
+        text-decoration: underline;
+    }
+    &.disabled,
+    &:disabled{
+        cursor: not-allowed;
+        text-decoration: none;
+        @include opacity;
+    }
+}
+@each $colorClass in $btn-colors{    // 循环数组
+    $class: nth($colorClass,1);         // 获取在数组中的值
+    $textColor: nth($colorClass,2);
+    .btn-text-#{$class}{
+        @if #{$class} == default {
+            color:darken($textColor,25%);
+        }@else{
+            color:$textColor;
+        }
+        
+    }
+}
+// 结束
+
+
+
+
+
+
+

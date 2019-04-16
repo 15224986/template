@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!--[include "./public/head-meta.html"]-->
+    <meta charset="utf-8" />
+    <!-- 使用最新版的IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 国产浏览器高速模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 在手机上原比例显示，不可以放大缩小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+    <!-- 则手机号码不被显示为拨号链接 -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览 -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- iphone的私有标签，它指定的iphone中safari顶端的状态条的样式 -->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!-- 去除Android平台中对邮箱地址的识别 -->
+    <meta content="email=no" name="format-detection" />
+    <!-- 清除浏览器中的缓存，它和其它几句合起来用，就可以使你再次进入曾经访问过的页面时，ie浏览器必须从服务端下载最新的内容，达到刷新的效果。 -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- 浏览器窗口 图标 -->
+    <link rel="shortcut icon" href="images/favicon/favicon-1.ico" type="image/x-icon">
+    <!--[/include]-->
+    <title>项目规则</title>
+
+    <!--[include "./public/head-link.html"]-->
+    <!-- IE 老版本浏览器支持css的新属性 html5shiv 支持 html5标签 respond 支持 @media 媒体查询 -->
+    <!--[if lt IE 10]>
+        <script src="vendor/html5/html5shiv.min.js" type="text/javascript"></script>
+        <script src="vendor/html5/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+    <script type="text/javascript" src="vendor/jquery-1.11.3.min.js"></script>
+    <!-- 项目封装 -->
+    <script type="text/javascript" src="scripts/widget.min.js"></script>
+    
+    <!-- 
+       *
+       * 与form表单相关
+       * 
+    -->
+    <!-- 输入框input输入内容格式限制插件 -->
+    <script type="text/javascript" src="vendor/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <script type="text/javascript" src="vendor/inputmask/min/inputmask/bindings/inputmask.binding.min.js"></script>
+    <!-- 日期处理类库 -->
+    <script type="text/javascript" src="vendor/moment/moment.min.js"></script>
+    <!-- 时间插件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="vendor/My97DatePicker/WdatePicker.js"></script>
+    <!-- 下拉插件 多选 -->
+    <link rel="stylesheet" type="text/css" href="vendor/select2-4.0.2/select2.css">
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2-Initials.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/i18n/zh-CN.js"></script><!-- 中文提示 -->
+    <!-- 多选和单选的美化 -->
+    <link rel="stylesheet" type="text/css" href="vendor/icheck/icheck.css">
+    <script type="text/javascript" src="vendor/icheck/icheck.js"></script>
+    <!-- 上传附件的组件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/webuploader/diyUpload.css">
+    <script type="text/javascript" src="vendor/webuploader/webuploader.js"></script>
+    <script type="text/javascript" src="vendor/webuploader/diyUpload.js"></script>
+    <!-- 富文本编辑器  -->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <!-- ztree的组件 -->
+    <link rel="stylesheet" href="vendor/ztree/css/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="vendor/ztree/jquery.ztree.all-3.5.min.js"></script>
+    <!-- 上传头像 -->
+    <script src="vendor/photoClip/iscroll-zoom.js"></script>
+    <script src="vendor/photoClip/hammer.min.js"></script><!-- 触摸屏的手势 -->
+    <script src="vendor/photoClip/lrz.all.bundle.js"></script>
+    <script src="vendor/photoClip/jquery.photoClip.js"></script>
+    <!-- 表单验证 -->
+    <link rel="stylesheet" type="text/css" href="vendor/Validform/Validform_v5.css">
+    <script type="text/javascript" src="vendor/Validform/Validform_v5.3.2.js"></script>
+
+    <!-- 
+       *
+       * 经常会用到
+       * 
+    -->
+    <!-- bootstrap 的 js -->
+    <script src="vendor/bootstrap/bootstrap.js"></script>
+    <script src="vendor/bootstrap/bootstrap-hover-dropdown.js"></script>
+    <!-- echarts美化插件 -->
+    <script type="text/javascript" src="vendor/echarts/4.0.4/echarts.min.js"></script>
+    <!-- 使用jQuery监听DOM元素大小变化 -->
+    <script type="text/javascript" src="vendor/ba-resize/jquery.ba-resize.js"></script>
+    <!-- 轮播图 -->
+    <link rel="stylesheet" type="text/css" href="vendor/pgwSlideshow/pgwslideshow.css" />
+    <script type="text/javascript" src="vendor/pgwSlideshow/pgwslideshow.js"></script>
+    <!-- jquery-ui-abridged 由于jq-ui的方法很多用不上还会占用资源和与别的插件冲突，把不用的移除了 -->
+    <script type="text/javascript" src="vendor/jquery-ui-1.9.2/jquery-ui-abridged.js"></script>
+    <!-- 响应式图片 picture标签 解决IE等浏览器不支持 的问题 -->
+    <script type="text/javascript" src="vendor/picturefill/picturefill.min.js"></script>
+    <!-- js实现复制到剪贴板功能，兼容所有浏览器 -->
+    <script type="text/javascript" src="vendor/clipboard/clipboard.min.js"></script>
+    <!-- jQuery图片延迟加载插件jQuery.lazyload -->
+    <script type="text/javascript" src="vendor/jquery.lazyload/jquery.lazyload.js"></script>
+    
+    <!-- 导出 XLS XLSX XML JSON PDF PNG等 -->
+    <script type="text/javascript" src="vendor/tableExport/libs/FileSaver/FileSaver.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/libs/js-xlsx/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/tableExport.js"></script>
+    <!-- 两种字体图标 -->
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons/css/glyphicons.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <!-- css3 动画库 -->
+    <link rel="stylesheet" type="text/css" href="styles/animate.css" />
+    
+    <!-- 
+       *
+       * 基本不会使用
+       * 
+    -->
+    <!-- h5量子背景 -->
+    <script type="text/javascript" src="vendor/quantum.js"></script>
+    <!-- 显示代码插件 -->
+    <link rel="stylesheet" href="vendor/prismjs/prism-coy.css">
+    <script src="vendor/prismjs/prism.js" defer async></script>
+    
+    <!-- 
+       *
+       * 放到最后
+       * 
+    -->
+    <!-- 项目需求的特殊样式 -->
+    <link rel="stylesheet" type="text/css" href="styles/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="styles/css/item.css" />
+    <script type="text/javascript" src="scripts/common.min.js"></script>
+    <!--[/include]-->
+
+    <style>
+        code{
+            padding: 2px 4px;
+            font-size: 90%;
+            color: #c7254e;
+            background-color: #f9f2f4;
+            border-radius: 4px;
+        }
+    </style>
+
+</head>
+<body id="page-help">
+    <header id="page-header">
+        <p class="page-txt">moc-template--项目规则</p>
+        
+        <!--[include "./public/help-page-btn.html"]-->
+        <div class="page-btn-box">
+            <a href="index.html">index</a>
+            <a href="帮助文档-项目规则.html">项目规则</a>
+            <a href="帮助文档-修改日志.html">修改日志</a>
+            <a href="帮助文档-英文单词.html">英文单词</a>
+            <a href="帮助文档-辅助类.html">辅助类</a>
+        </div>
+        <script type="text/javascript">
+            /**
+             * 给切换按钮添加状态
+             */
+            var pageText = $("title").text();
+            $(".page-btn-box a").each(function(index, el) {
+                var pageBtn = $(el).text();
+                if ( pageText == pageBtn ) {
+                    $(el).addClass('active');
+                    return false;
+                }
+            });
+        </script>
+        <!--[/include]-->
+        
+    </header>
+
+    <main id="page-bodier" class="Snack-Helper default">
+
+        <!--z-index 的使用规则 start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">z-index 的使用规则</h2>
+                </div>
+            </div>
+            <div class="panel-body">
+                <dl class="describe">
+                    <dt>在做大型的项目中，由于页面多、结构复杂、功能多，如果z-index没有使用好，会造成后期调节层级比较麻烦，特别是需要兼容IE浏览器的情况下。</dt>
+                    <dd class="list-type-disc">1.弹出框如：modal、Alert、Messager等（多为使用fixed定位），使用的z-index是999~1099之间。</dd>
+                    <dd class="list-type-circle">2.弹出框如：tooltip、popover 、dropdown、select2、模拟的弹出框等（多为使用absolute定位），使用的z-index是800~900之间。</dd>
+                    <dd class="list-type-square">3.页面分为两部分，下部分是一个绝对定位的可拖动地图等，需要给上部分加z-index时，上部的z-index使用是：500~700之间。 下部分的z-index使用是：100~199以内，里面的浮动点、线等多为字默认图层（如果需要多为：9、19、29~99）。</dd>
+                </dl>
+            </div>
+        </div>
+        <!-- z-index 的使用规则 end -->
+
+        <!--公共方法的调用 start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">公共方法的调用</h2>
+                </div>
+            </div>
+            <div class="panel-body">
+                <dl class="describe">
+                    <dt>以后所有的js方法都是用<code>data-toggle=""</code>这个进行公共调用，去除<code>class类名</code>的调用，<code>class类名</code>负责样式。</dt>
+                </dl>
+            </div>
+        </div>
+        <!-- 公共方法的调用 end -->
+
+        <!--文件结构 start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">文件结构</h2>
+                </div>
+            </div>
+            <div class="panel-body">
+                <dl class="describe">
+                    <dt>所有项目的前端资源都存在于project文件夹</dt>
+                    <dd class="list-type-disc">1.内部的具体项目名称（例如：百度-百度传课、网易-网易云课堂、腾讯视频等）</dd>
+                    <dd class="list-type-disc">2.项目内部分为：文档-doc、设计图-psd、静态页-html</dd>
+                    <dd class="list-type-disc">3.设计图-psd内部分为：images给app做的切片、web电脑端设计图、app设计图、WeChat微信设计图、admin网站后台设计图</dd>
+                    <dd class="list-type-disc">4.html内部分为：web电脑端静态页、phone手机端静态页、admin网站后台静态页</dd>
+                    
+                    <dt>开发目录结构为：</dt>
+                    <dd class="list-type-disc">1.data 前端一些数据或者模拟后台返回的json</dd>
+                    <dd class="list-type-disc">2.fonts 字体文件</dd>
+                    <dd class="list-type-disc">3.files 模拟上传的文件，与页面无关</dd>
+                    <dd class="list-type-disc">4.Images 图片文件</dd>
+                    <dd class="list-type-disc">5.Images/icon 图标文件</dd>
+                    <dd class="list-type-disc">6.scripts 自己写的js文件</dd>
+                    <dd class="list-type-disc">7.vendor 插件库</dd>
+                    <dd class="list-type-disc">8.styles 样式文件（sass存放scss文件、css存放css文件、sass/components存放的sass组件、*.css下载的css库）</dd>
+                    <dd class="list-type-disc">9.public HTML 静态文件局部模板</dd>
+                    <dd class="list-type-disc">10.XX模块-XX模块-XX模块-XXX-列表（详情、表单）.html</dd>
+                </dl>
+            </div>
+        </div>
+        <!-- 文件结构 end -->
+        
+        <!--命名方式 start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">命名方式</h2>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="m-b-10">
+                    <h4>参考 <a class="link" href="javascript:;">http://www.css88.com/archives/5361</a></h4>
+                </div>
+                <dl class="describe">
+                    <dt>根据不同文件不同用途选择不同命名形式</dt>
+                    <dd class="list-type-disc">snake_case: 蛇形小写 用于连接单词</dd>
+                    <dd class="list-type-disc">camelCase: 驼峰命名 用于js中方法名</dd>
+                    <dd class="list-type-disc">PascalCase: 帕斯卡命名 用于js中类名、id名</dd>
+                    <dd class="list-type-disc">dot.case: 点分命名 用于html文件中元素的name属性</dd>
+                    <dd class="list-type-disc">dash-case: 线分命名 用于html、css、js、img文件名和css中的class名</dd>
+                    <dd class="list-type-disc">separate words: 独立单词 用对js中对象的键或其他</dd>
+                </dl>
+            </div>
+        </div>
+        <!-- 命名方式 end -->
+
+        <!-- 通用原则 start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">通用原则</h2>
+                </div>
+                <div class="panel-tools">
+                </div>
+            </div>
+            <div class="panel-body">
+                <dl class="describe">
+                    <dt>源文件和生成文件分离，避免大小写混用，避免单复数混用，避免中英混用</dt>
+                    <dd class="list-type-disc">html文件中禁止出现行内样式，不推荐页内样式，页内样式尽快提取到css文件中</dd>
+                    <dd class="list-type-disc">html文件中的自定义属性前需加data-前缀，以区别于html的原生属性</dd>
+                    <dd class="list-type-disc">html保持结构简洁明了、协调一致、富含语义和可扩展性，尽量少引入装饰性的图片</dd>
+                    <dd class="list-type-disc">css基于css3标准去写，不考虑不支持css3的浏览器，私有前缀通过插件去加</dd>
+                    <dd class="list-type-disc">css样式命名参照bootstrap，保持兼容和方便上手</dd>
+                    <dd class="list-type-disc">js基于es5、es6去使用方法，不支持的方法做polyfill</dd>
+                    <dd class="list-type-disc">除非必须不要修改第三方库的源码以及，应在外部打补丁，方便后续升级</dd>
+                </dl>
+            </div>
+        </div>
+        <!-- 通用原则 end -->
+
+        <!-- css文件组织 start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">css文件组织</h2>
+                </div>
+                <div class="panel-tools">
+                </div>
+            </div>
+            <div class="panel-body">
+                <dl class="describe">
+                    <dt>css文件组织。</dt>
+                    <dd class="list-type-disc">global.css 页面的组件样式库。</dd>
+                    <dd class="list-type-disc">item.css 根据项目需求，修改的特殊样式或定义更高级的样式。（放到最后）</dd>
+                    <dd class="list-type-disc">index.css 首页样式</dd>
+                    <dd class="list-type-disc">login.css 登录页样式</dd>
+                    <dd class="list-type-disc">admin.css 后台样式</dd>
+                    <dd class="list-type-disc">helpers.scss 辅助样式 </dd>
+                    <dd class="list-type-disc">reset.scss 重置样式</dd>
+                    <dd class="list-type-disc">mixin.scss 定义sass的变量</dd>
+                </dl>
+            </div>
+        </div>
+        <!-- css文件组织 end -->
+
+        <!-- js文件组织 start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">js文件组织</h2>
+                </div>
+                <div class="panel-tools">
+                </div>
+            </div>
+            <div class="panel-body">
+                <dl class="describe">
+                    <dd class="list-type-disc">common.js 自定义的一些方法，插件的公共调用等。</dd>
+                    <dd class="list-type-disc">widget.js 定义的插件，与组件相关的方法 复用性高的方法等。</dd>
+                    <dd class="list-type-disc">utils.js 辅助函数，项目无关。</dd>
+                    <dd class="list-type-disc">is.js 各种校验 http://is.js.org/</dd>
+                    <dd class="list-type-disc">jquery.js dom操作库，注意版本号</dd>
+                    <dd class="list-type-disc">underscore.js 数组集合对象的函数式操作库 http://www.bootcss.com/p/underscore/</dd>
+                    <dd class="list-type-disc">moment.js 日期操作库 http://momentjs.cn/</dd>
+                    <dd class="list-type-disc">三方库以文件夹的形式可移入scripts文件夹，超大库如arcgis可独立文件夹，数据文件放入data文件夹</dd>
+                </dl>
+            </div>
+        </div>
+        <!-- js文件组织 end -->
+
+        <!-- html文件组织 start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">html文件组织</h2>
+                </div>
+            </div>
+            <div class="panel-body">
+                <dl class="describe">
+                    <dd class="list-type-disc">html代码公用部分需预留钩子 方便整体替换</dd>
+                    <dd class="list-type-disc">html文件名用-分割单词 避免出现各种括号空格</dd>
+                    <dd class="list-type-disc">html文件中避免页内样式 少写页面脚本</dd>
+                    <dd class="list-type-disc">通用的组件调用要写到common.js中</dd>
+                    <dd class="list-type-disc">当前页面的高亮样式用js去实现判断</dd>
+                    <dd class="list-type-disc">echarts以及其他组件的通用配置部分提取出公用</dd>
+                    <dd class="list-type-disc">减少页面中的全局变量，可以挂载到命名空间下</dd>
+                    <dd class="list-type-disc">非首屏需要js、css文件移到body结束之前</dd>
+                </dl>
+            </div>
+        </div>
+        <!-- html文件组织 end -->
+
+        <!-- html文件组织 start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">img文件组织</h2>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <div>* 图标图片加 <code>icon-</code> 前缀，且放置在images/icon文件夹中</div>
+                    <div>* 背景图片加 <code>bg-</code> 前缀</div>
+                    <div>* 按钮图片加 <code>btn-</code> 前缀</div>
+                    <div>* 内容图片加 <code>img-</code> 前缀</div>
+                    <div>* 相关图片通过命名处于相邻位置</div>
+                    <div>* 图片的状态放在文件名的最后，如btn-delete-on.png</div>
+                    <div>* 状态名称准确命名，如on/off/active/hover/disabled/focused</div>
+                    <div>* 多从html和css的属性中去找单词，而不是自己生造</div>
+                </div>
+            </div>
+        </div>
+        <!-- html文件组织 end -->
+
+        <!-- panel start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">代码规范</h2>
+                </div>
+            </div>
+            <div class="panel-body">
+                <h3>参考<a href="参考https://alloyteam.github.io/CodeGuide/">Code Guide by @AlloyTeam</a></h3>
+                <div>
+                    <div>* 缩进：html标签的子标签不缩进，即head、body和html对齐，head、body的子标签要缩进，影响范围大务必遵守</div>
+                    <div>* 缩进：使用soft tab（4个空格），1个tab=4个空格，将tab转为空格，缩进只有空格，保持各编辑器中格式统一</div>
+                    <div>* 空白：head和body之间空一行，html、css、js文件中连续空行不要多于一行，无意义</div>
+                    <div>* 符号：html中属性值用双引号（""）包围，js中的字符串用单引号（''）包围，对象中的键非必须不要加引号</div>
+                    <div>* 符号：html中script和style标签的内容缩进，css属性末尾都要加分号，js要加分号</div>
+                    <div>* 结构：结构保持通用，少用JS生成，减少数量层级，事件、循环、遍历的形参要统一</div>
+                    <div>* 推荐使用Sublime Text的HTML-CSS-JS Prettify插件去格式化</div>
+                    <div>* 注释要恰到好处，既说明问题，又不显啰嗦，不能成垃圾代码</div>
+                </div>
+            </div>
+        </div>
+        <!-- panel end -->
+
+        <!-- panel start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">html标签属性顺序</h2>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <ul class="list-group">
+                        <li>class</li>
+                        <li>id</li>
+                        <li>name</li>
+                        <li>data-*</li>
+                        <li>src, for, type, href, value , max-length, max, min, pattern</li>
+                        <li>placeholder, title, alt</li>
+                        <li>aria-*, role</li>
+                        <li>required, readonly, disabled</li>
+                    </ul>
+                    <div>* class是为高可复用组件设计的，所以应处在第一位；</div>
+                    <div>* id更加具体且应该尽量少使用，所以将它放在第二位。</div>
+                    <div>* boolean属性指不需要声明取值的属性，<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/common-microsyntaxes.html#boolean-attributes">WhatWG section on boolean attributes</a>。boolean属性的存在表示取值为true，不存在则表示取值为false。</div>
+                </div>
+            </div>
+        </div>
+        <!-- panel end -->
+
+        <!-- panel start -->
+        <div class="panel">
+            <div class="panel-head">
+                <div class="panel-inner">
+                    <h2 class="panel-title">css属性顺序</h2>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <ul>
+                        <li>1.位置属性(position, top, right, z-index, display, float等)</li>
+                        <li>2.大小(width, height, padding, margin)        </li>
+                        <li>3.文字系列(font, line-height, letter-spacing, color- text-align等)        </li>
+                        <li>4.背景(background, border等)</li>
+                        <li>5.其他(animation, transition等)</li>
+                    </ul>
+                    <div>* 有相应插件如理，如csscomb </div>
+                </div>
+            </div>
+        </div>
+        <!-- panel end -->
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+@charset "utf-8";
+
+/**************************** reset **********************************/ 
+body, dl, dd, h1, h2, h3, h4, h5, h6, p, form{
+    margin:0;
+}
+html, body, form, fieldset, p, div, h1, h2, h3, h4, h5, h6 {
+    -webkit-text-size-adjust: none; //取消浏览器最小字体限制
+    -ms-text-size-adjust: none;
+}
+html{
+    font-size: 10px;
+}
+body{
+    font-family: $font-family;
+    color: #333333;
+    font-size: 14px;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: $font-family;
+    line-height: 1.4;
+}
+.h1,h1 {
+    font-size: 36px
+}
+.h2,h2 {
+    font-size: 30px
+}
+.h3,h3 {
+    font-size: 24px
+}
+.h4,h4 {
+    font-size: 18px
+}
+.h5,h5 {
+    font-size: 14px
+}
+.h6,h6 {
+    font-size: 12px
+}
+small {
+    font-size: 80%
+}
+ol, ul{
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+fieldset,legend{
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: 0 none;
+    -webkit-padding-start: 0;
+    -webkit-padding-end: 0;
+}
+legend {
+    *display: inline-block;
+    *zoom: 1;
+    *display: inline;
+    font-weight: 700;
+}
+a {
+    color: #4183C4;
+    text-decoration: none;
+}
+a:hover, a:active {
+    // text-decoration: underline;
+}
+hr{
+    height:0;
+    border:0 none;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+img{
+    border: 0 none;
+}
+select{
+    outline:none;
+    border: solid 1px #000;
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    background:#ffffff;
+    padding-right: 14px;
+}
+select::-ms-expand {
+    display: none;
+}
+textarea{
+    padding: 0;
+    outline:none;
+    resize:none;
+    overflow: auto;
+}
+select,textarea{
+    font-family: $font-family;
+    font-size: 14px;
+    border: 0 none;
+}
+button,select {
+    text-transform: none
+}
+input {
+    padding: 0;
+    margin: 0;
+    outline:none;
+    border: 0 none;
+}
+a:focus,
+button:focus,
+input:focus,
+[contenteditable="true"]:focus {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline:none;
+    outline-offset: 0;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=tel]::-webkit-inner-spin-button,
+input[type=password]::-webkit-inner-spin-button,
+input[type=search]::-webkit-inner-spin-button,
+input[type=text]::-webkit-outer-spin-button,
+input[type=number]::-moz-inner-spin-button,
+input[type=tel]::-moz-inner-spin-button,
+input[type=password]::-moz-inner-spin-button,
+input[type=search]::-moz-inner-spin-button,
+input[type=text]::-moz-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+}
+// chrome表单自动填充去掉input黄色背景
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px rgba(#fff, 1) inset;
+    background-color: rgba(#fff, 1);
+    -webkit-text-fill-color: #666666; //设置文字颜色
+}
+// 去除火狐浏览器的padding值
+input::-moz-focus-inner,
+button::-moz-focus-inner { 
+    border: 0;
+    padding: 0;
+}
+button{
+    overflow: visible;
+}
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    cursor: pointer
+}
+
+
+/* html5新标签 */
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary {
+    display: block;
+}
+
+
+
+
+
+
+

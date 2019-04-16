@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+// ***************************** 盒子 模块 ***********************************
+.boxes,
+.section{
+    margin-bottom: 20px;
+}
+
+
+
+
+// 展示作用
+%exhibits-item{
+    display: none;
+}
+@for $i from 1 through 10 {
+    .exhibits-item-#{$i} {
+        @extend %exhibits-item;
+    }
+    [exhibits-show="#{$i}"] {
+        .exhibits-item-#{$i} {
+            display: block;
+        }
+    }
+}
+
+
+// 结束
+
+
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+@charset "utf-8";
+
+// ***************************** list-index 数字顺序列表的样式 ***********************************
+[list-index]{
+    &:before{
+        content: attr(list-index);
+        @include lineblock;
+        width: 20px;
+        line-height: 20px;
+        margin-top: -4px;
+        margin-right: 4px;
+        font-size: 12px;
+        color: #fff;
+        text-align: center;
+        vertical-align: middle;
+        background-color: #8eb9f5;
+    }
+}
+.list-index-hot{
+    [list-index]{
+        &:nth-child(1):before{
+            background-color: #f54545;
+        }
+        &:nth-child(2):before{
+            background-color: #ff8547;
+        }
+        &:nth-child(3):before{
+            background-color: #ffac38;
+        }
+    }
+}
+
+
+
+
+
+
+
+.list-index { 
+  padding-left: 20px; 
+  counter-reset: jishuqi;
+}
+.list-index-item:before { 
+  content: counters(jishuqi, '-') '. '; 
+  counter-increment: jishuqi;
+}
+
+// 结束
+
+
+
+
+
+
+
+
+

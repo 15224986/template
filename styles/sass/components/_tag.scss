@@ -1,0 +1,68 @@
+@charset "utf-8";
+
+// ***************************** tag 标签 ***********************************
+.tag-item {
+    @include lineblock;
+    padding: 6px 10px;
+    line-height: 1;
+    border-radius: 4px;
+    color: #409eff;
+    background-color: rgba(#409eff,.1);
+    border: 1px solid rgba(#409eff,.2);
+    margin-right: 6px;
+    &:last-child{
+        margin-right: 0;
+    }
+    .tag-close {
+        @include lineblock;
+        font-style:normal;
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+        text-align: center;
+        vertical-align: middle;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 50%;
+        margin-left: 6px;
+        margin-top: -4px;
+        &:hover{
+            background-color: rgba(64,158,255,.2);
+        }
+    }
+}
+
+/**
+ * color 颜色
+ */
+@each $tagTypeStyleList in $tag-type-colors{    // 循环数组
+    $class: nth($tagTypeStyleList,1);         // 获取在数组中的值
+    $color: nth($tagTypeStyleList,2);
+    .tag-#{$class}{
+        color: $color;
+        background-color: rgba($color,.1);
+        border-color: rgba($color,.2);
+    }
+}
+
+/**
+ * 大小
+ */
+
+@each $tagSizeList in $tag-sizes{    // 循环数组
+    $class: nth($tagSizeList,1);         // 获取在数组中的值
+    $height: nth($tagSizeList,2);
+    $width: nth($tagSizeList,3);
+    .tag-#{$class}{
+        padding: $height $width;
+    }
+}
+// 结束
+
+
+
+
+
+
+
+

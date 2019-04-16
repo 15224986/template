@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<!--[include "./public/head-meta.html"]-->
+    <meta charset="utf-8" />
+    <!-- 使用最新版的IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 国产浏览器高速模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 在手机上原比例显示，不可以放大缩小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+    <!-- 则手机号码不被显示为拨号链接 -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览 -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- iphone的私有标签，它指定的iphone中safari顶端的状态条的样式 -->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!-- 去除Android平台中对邮箱地址的识别 -->
+    <meta content="email=no" name="format-detection" />
+    <!-- 清除浏览器中的缓存，它和其它几句合起来用，就可以使你再次进入曾经访问过的页面时，ie浏览器必须从服务端下载最新的内容，达到刷新的效果。 -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- 浏览器窗口 图标 -->
+    <link rel="shortcut icon" href="images/favicon/favicon-1.ico" type="image/x-icon">
+	<!--[/include]-->
+	<title>英文单词</title>
+
+	<!-- IE 老版本浏览器支持css的新属性 -->
+    <!--[if lt IE 10]>
+        <script src="vendor/html5/html5shiv.js" type="text/javascript"></script>
+        <script src="vendor/html5/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="styles/css/global.css" />
+    <script type="text/javascript" src="vendor/jquery-1.11.3.min.js"></script>
+    <!-- h5量子背景 -->
+    <script src="scripts/quantum.js"></script>
+
+    <!-- 项目需求的特殊样式 （放到最后） -->
+    <link rel="stylesheet" type="text/css" href="styles/css/item.css"/>
+    <script type="text/javascript" src="scripts/common.js"></script>
+
+</head>
+<body id="page-help">
+	<header id="page-header">
+		<p class="page-txt">moc-template--英文单词</p>
+		
+		<!--[include "./public/help-page-btn.html"]-->
+        <div class="page-btn-box">
+            <a href="index.html">index</a>
+            <a href="帮助文档-项目规则.html">项目规则</a>
+            <a href="帮助文档-修改日志.html">修改日志</a>
+            <a href="帮助文档-英文单词.html">英文单词</a>
+            <a href="帮助文档-辅助类.html">辅助类</a>
+        </div>
+        <script type="text/javascript">
+            /**
+             * 给切换按钮添加状态
+             */
+            var pageText = $("title").text();
+            $(".page-btn-box a").each(function(index, el) {
+                var pageBtn = $(el).text();
+                if ( pageText == pageBtn ) {
+                    $(el).addClass('active');
+                    return false;
+                }
+            });
+        </script>
+		<!--[/include]-->
+
+	</header>
+	<main id="page-bodier">
+		<!-- table start -->
+        <section class="table-box">
+        	<div class="table-body">
+				<table class="table table-bordered">
+					<colgroup>
+						<col width="30">
+						<col width="100">
+						<col width="180">
+						<col width="260">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>适用</th>
+							<th>英文</th>
+							<th>中文</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td rowspan="4" class="order"></td>
+							<td rowspan="4">主体结构</td>
+							<td>content container boxes</td>
+							<td>内容; 满足; （书等的） 目录; 容量;</td>
+						</tr>
+						<tr>
+							<td>hd head header roof</td>
+							<td>常用头部</td>
+						</tr>
+						<tr>
+							<td>bd body bodier room</td>
+							<td>常用中间</td>
+						</tr>
+						<tr>
+							<td>ft foot footer ground</td>
+							<td>常用底部</td>
+						</tr>
+
+						<tr>
+							<td rowspan="3" class="order"></td>
+							<td rowspan="3">模块结构</td>
+							<td>section , menu</td>
+							<td>区域、区段&ensp;&ensp;&ensp;&ensp;按钮</td>
+						</tr>
+						<tr>
+							<td>box group wrap sack segment</td>
+							<td>常用模块</td>
+						</tr>
+						<tr>
+							<td>list item card</td>
+							<td>常用子模块</td>
+						</tr>
+
+						<tr>
+							<td rowspan="15" class="order"></td>
+							<td rowspan="15">各个组件的不同样式</td>
+							<td>default</td>
+							<td>默认样式</td>
+						</tr>
+						<tr>
+							<td>primary</td>
+							<td>首选项</td>
+						</tr>
+						<tr>
+							<td>success</td>
+							<td>成功</td>
+						</tr>
+						<tr>
+							<td>info</td>
+							<td>一般信息</td>
+						</tr>
+						<tr>
+							<td>warning</td>
+							<td>警告</td>
+						</tr>
+						<tr>
+							<td>muted</td>
+							<td>模糊不清</td>
+						</tr>
+						<tr>
+							<td>danger</td>
+							<td>危险</td>
+						</tr>
+						<tr>
+							<td>error</td>
+							<td>错误，过失;</td>
+						</tr>
+						<tr>
+							<td>link</td>
+							<td>链接</td>
+						</tr>
+						<tr>
+							<td>surprise</td>
+							<td>惊喜</td>
+						</tr>
+						<tr>
+							<td>dream</td>
+							<td>梦幻</td>
+						</tr>
+						<tr>
+							<td>cool</td>
+							<td>炫酷</td>
+						</tr>
+						<tr>
+							<td>arrogant</td>
+							<td>高傲</td>
+						</tr>
+
+						<tr>
+							<td>trick or treat</td>
+							<td>不请吃就捣蛋</td>
+						</tr>
+						<tr>
+							<td>inverted</td>
+							<td>颠倒的事物;变性者</td>
+						</tr>
+
+						<tr>
+							<td rowspan="5" class="order"></td>
+							<td rowspan="5">各个组件的尺寸大小</td>
+							<td>xs</td>
+							<td>超小屏幕</td>
+						</tr>
+						<tr>
+							<td>sm</td>
+							<td>小屏幕</td>
+						</tr>
+						<tr>
+							<td>默认的大小</td>
+							<td>默认的（正常大小）</td>
+						</tr>
+						<tr>
+							<td>md</td>
+							<td>大屏幕</td>
+						</tr>
+						<tr>
+							<td>lg</td>
+							<td>超大屏幕</td>
+						</tr>
+						<!-- 下面是语气命名 -->
+						<tr>
+							<td rowspan="21" class="order"></td>
+							<td rowspan="21">各种颜色</td>
+							<td><span class="text-default">default</td></span>
+							<td>
+								<div class="word-item-bg bg-default"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-muted">muted</td></span>
+							<td>
+								<div class="word-item-bg bg-muted"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-primary">primary</td></span>
+							<td>
+								<div class="word-item-bg bg-primary"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-success">success</td></span>
+							<td>
+								<div class="word-item-bg bg-success"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-info">info</td></span>
+							<td>
+								<div class="word-item-bg bg-info"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-warning">warning</td></span>
+							<td>
+								<div class="word-item-bg bg-warning"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-danger">danger</td></span>
+							<td>
+								<div class="word-item-bg bg-danger"></div>
+							</td>
+						</tr>
+						<!-- 下面是颜色命名 -->
+						<tr>
+							<td><span class="text-red">red</td></td>
+							<td>
+								<div class="word-item-bg bg-red"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-orange">orange</td></span>
+							<td>
+								<div class="word-item-bg bg-orange"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-yellow">yellow</td></span>
+							<td>
+								<div class="word-item-bg bg-yellow"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-olive">olive</td></span>
+							<td>
+								<div class="word-item-bg bg-olive"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-green">green</td></span>
+							<td>
+								<div class="word-item-bg bg-green"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-teal">teal</td></span>
+							<td>
+								<div class="word-item-bg bg-teal"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-aqua">aqua</td></span>
+							<td>
+								<div class="word-item-bg bg-aqua"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-blue">blue</td></span>
+							<td>
+								<div class="word-item-bg bg-blue"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-violet">violet</td></span>
+							<td>
+								<div class="word-item-bg bg-violet"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-purple">purple</td></span>
+							<td>
+								<div class="word-item-bg bg-purple"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-pink">pink</td></span>
+							<td>
+								<div class="word-item-bg bg-pink"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-brown">brown</td></span>
+							<td>
+								<div class="word-item-bg bg-brown"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-grey">grey</td></span>
+							<td>
+								<div class="word-item-bg bg-grey"></div>
+							</td>
+						</tr>
+						<tr>
+							<td><span class="text-black">black</td></span>
+							<td>
+								<div class="word-item-bg bg-black"></div>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="order"></td>
+							<td>是否是堆积在一起的</td>
+							<td>stacked</td>
+							<td>堆积</td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td>有没有标记</td>
+							<td>徽章，像章，奖章; 象征，标记; </td>
+							<td>badge</td>
+						</tr>
+
+						<tr>
+							<td rowspan="2" class="order"></td>
+							<td rowspan="2">有针对性的样式</td>
+							<td>striped</td>
+							<td>有条纹的; 有斑纹的;</td>
+						</tr>
+						<tr>
+							<td>raised</td>
+							<td>凸起的; 浮雕的; 有凸起花纹的; 发酵的;</td>
+						</tr>
+
+						<tr>
+							<td rowspan="2" class="order"></td>
+							<td rowspan="2">方向 </td>
+							<td>vertical</td>
+							<td>垂直的，竖立的;纵长的;</td>
+
+						</tr>
+						<tr>
+							<td>horizontal</td>
+							<td>水平的，卧式的; 地平线的;</td>
+						</tr>
+
+						<tr>
+							<td rowspan="3" class="order"></td>
+							<td rowspan="3">主次关系</td>
+							<td>positive</td>
+							<td>正面; 正片; [语] 原级形容词; [数] 正量;</td>
+						</tr>
+						<tr>
+							<td>secondary</td>
+							<td>副手，代理人;</td>
+						</tr>
+						<tr>
+							<td>basic</td>
+							<td>基本的; 基础，基本; 基本原则，基本原理，基本规律; 要素; 基础训练;</td>
+						</tr>
+
+						<tr>
+							<td rowspan="4" class="order"></td>
+							<td rowspan="4">看着顺眼</td>
+							<td>single</td>
+							<td>单一的; （打斗、比赛等） 一对一的; 惟一的; 适于一人的;</td>
+						</tr>
+						<tr>
+							<td>extra</td>
+							<td>额外的，补充的，附加的; 特大的，特别的;</td>
+						</tr>
+						<tr>
+							<td>outline</td>
+							<td>概述; 略述; 画轮廓，打草图，描略图;</td>
+						</tr>
+						<tr>
+							<td>actions</td>
+							<td>行动，活动; 功能，作用; 手段; [法] 诉讼;</td>
+						</tr>
+
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td class="order"></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+        <!-- table end -->
+	</main>
+
+	<script type="text/javascript">
+		$(function(){
+			$(".order").each(function(index, el) {
+				$(el).text(index+1);
+			});
+		});
+	</script>
+</body>
+</html>

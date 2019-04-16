@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+// ***************************** callout ***********************************
+.callout{
+    padding: 0 20px 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-left-color: #1b809e;
+    @include border-radius;
+    a:hover,
+    a:focus{
+        text-decoration: underline;
+    }
+
+    pre{
+        margin: 10px 0 18px;
+        padding: 8px 0 9px 17px;
+        font: 14px/20px 'MontserratRegular', Helvetica, Arial, sans-serif;
+        color: #777;
+        background: #f1f1f1;
+        border-left: 3px solid #d7d5cb;
+
+        white-space: pre;
+        white-space: pre-line;
+        word-wrap: break-word;
+    }
+}
+.callout-tit{
+    color: #1b809e;
+    line-height: 1.75;
+    margin-top: 20px;
+}
+.callout-txt{
+    line-height: 1.75;
+    margin-bottom: 6px;
+}
+.callout-txt:last-child {
+    margin-bottom: 0;
+}
+.callout-list-group{
+    line-height: 1.75;
+    margin-bottom: 6px;
+    padding-left: 20px;
+    list-style: disc;
+}
+.callout-list-group:last-child {
+    margin-bottom: 0;
+}
+.callout-list-item{
+    @include margin(4px,bottom);
+}
+.callout-tit,
+.callout-txt,
+.callout-list-group {
+    code{
+        padding: 2px 4px;
+        font-size: 90%;
+        color: #c7254e;
+        background-color: #f9f2f4;
+        @include border-radius;
+    }
+}
+// 结束
+
+
+
+
+
+
+
+
+

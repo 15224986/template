@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <!--[include "./public/head-meta.html"]-->
+    <meta charset="utf-8" />
+    <!-- 使用最新版的IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 国产浏览器高速模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 在手机上原比例显示，不可以放大缩小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+    <!-- 则手机号码不被显示为拨号链接 -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览 -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- iphone的私有标签，它指定的iphone中safari顶端的状态条的样式 -->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!-- 去除Android平台中对邮箱地址的识别 -->
+    <meta content="email=no" name="format-detection" />
+    <!-- 清除浏览器中的缓存，它和其它几句合起来用，就可以使你再次进入曾经访问过的页面时，ie浏览器必须从服务端下载最新的内容，达到刷新的效果。 -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- 浏览器窗口 图标 -->
+    <link rel="shortcut icon" href="images/favicon/favicon-1.ico" type="image/x-icon">
+    <!--[/include]-->
+
+    <title>Template-公司加减分</title>
+    
+    <!--[include "./public/head-link.html"]-->
+    <!-- IE 老版本浏览器支持css的新属性 html5shiv 支持 html5标签 respond 支持 @media 媒体查询 -->
+    <!--[if lt IE 10]>
+        <script src="vendor/html5/html5shiv.min.js" type="text/javascript"></script>
+        <script src="vendor/html5/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+    <script type="text/javascript" src="vendor/jquery-1.11.3.min.js"></script>
+    <!-- 项目封装 -->
+    <script type="text/javascript" src="scripts/widget.min.js"></script>
+    
+    <!-- 
+       *
+       * 与form表单相关
+       * 
+    -->
+    <!-- 输入框input输入内容格式限制插件 -->
+    <script type="text/javascript" src="vendor/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <script type="text/javascript" src="vendor/inputmask/min/inputmask/bindings/inputmask.binding.min.js"></script>
+    <!-- 日期处理类库 -->
+    <script type="text/javascript" src="vendor/moment/moment.min.js"></script>
+    <!-- 时间插件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="vendor/My97DatePicker/WdatePicker.js"></script>
+    <!-- 下拉插件 多选 -->
+    <link rel="stylesheet" type="text/css" href="vendor/select2-4.0.2/select2.css">
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2-Initials.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/i18n/zh-CN.js"></script><!-- 中文提示 -->
+    <!-- 多选和单选的美化 -->
+    <link rel="stylesheet" type="text/css" href="vendor/icheck/icheck.css">
+    <script type="text/javascript" src="vendor/icheck/icheck.js"></script>
+    <!-- 上传附件的组件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/webuploader/diyUpload.css">
+    <script type="text/javascript" src="vendor/webuploader/webuploader.js"></script>
+    <script type="text/javascript" src="vendor/webuploader/diyUpload.js"></script>
+    <!-- 富文本编辑器  -->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <!-- ztree的组件 -->
+    <link rel="stylesheet" href="vendor/ztree/css/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="vendor/ztree/jquery.ztree.all-3.5.min.js"></script>
+    <!-- 上传头像 -->
+    <script src="vendor/photoClip/iscroll-zoom.js"></script>
+    <script src="vendor/photoClip/hammer.min.js"></script><!-- 触摸屏的手势 -->
+    <script src="vendor/photoClip/lrz.all.bundle.js"></script>
+    <script src="vendor/photoClip/jquery.photoClip.js"></script>
+    <!-- 表单验证 -->
+    <link rel="stylesheet" type="text/css" href="vendor/Validform/Validform_v5.css">
+    <script type="text/javascript" src="vendor/Validform/Validform_v5.3.2.js"></script>
+
+    <!-- 
+       *
+       * 经常会用到
+       * 
+    -->
+    <!-- bootstrap 的 js -->
+    <script src="vendor/bootstrap/bootstrap.js"></script>
+    <script src="vendor/bootstrap/bootstrap-hover-dropdown.js"></script>
+    <!-- echarts美化插件 -->
+    <script type="text/javascript" src="vendor/echarts/4.0.4/echarts.min.js"></script>
+    <!-- 使用jQuery监听DOM元素大小变化 -->
+    <script type="text/javascript" src="vendor/ba-resize/jquery.ba-resize.js"></script>
+    <!-- 轮播图 -->
+    <link rel="stylesheet" type="text/css" href="vendor/pgwSlideshow/pgwslideshow.css" />
+    <script type="text/javascript" src="vendor/pgwSlideshow/pgwslideshow.js"></script>
+    <!-- jquery-ui-abridged 由于jq-ui的方法很多用不上还会占用资源和与别的插件冲突，把不用的移除了 -->
+    <script type="text/javascript" src="vendor/jquery-ui-1.9.2/jquery-ui-abridged.js"></script>
+    <!-- 响应式图片 picture标签 解决IE等浏览器不支持 的问题 -->
+    <script type="text/javascript" src="vendor/picturefill/picturefill.min.js"></script>
+    <!-- js实现复制到剪贴板功能，兼容所有浏览器 -->
+    <script type="text/javascript" src="vendor/clipboard/clipboard.min.js"></script>
+    <!-- jQuery图片延迟加载插件jQuery.lazyload -->
+    <script type="text/javascript" src="vendor/jquery.lazyload/jquery.lazyload.js"></script>
+    
+    <!-- 导出 XLS XLSX XML JSON PDF PNG等 -->
+    <script type="text/javascript" src="vendor/tableExport/libs/FileSaver/FileSaver.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/libs/js-xlsx/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/tableExport.js"></script>
+    <!-- 两种字体图标 -->
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons/css/glyphicons.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <!-- css3 动画库 -->
+    <link rel="stylesheet" type="text/css" href="styles/animate.css" />
+    
+    <!-- 
+       *
+       * 基本不会使用
+       * 
+    -->
+    <!-- h5量子背景 -->
+    <script type="text/javascript" src="vendor/quantum.js"></script>
+    <!-- 显示代码插件 -->
+    <link rel="stylesheet" href="vendor/prismjs/prism-coy.css">
+    <script src="vendor/prismjs/prism.js" defer async></script>
+    
+    <!-- 
+       *
+       * 放到最后
+       * 
+    -->
+    <!-- 项目需求的特殊样式 -->
+    <link rel="stylesheet" type="text/css" href="styles/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="styles/css/item.css" />
+    <script type="text/javascript" src="scripts/common.min.js"></script>
+    <!--[/include]-->
+
+</head>
+
+<body class="page-bg-default">
+    <!-- page-container start -->
+    <section id="page-container">
+
+        <!-- page-header start -->
+        <!--[include "./public/page-header.html"]-->
+        <header id="page-header">
+            <div class="header-top">
+                <div class="mine">
+                    <a class="mine-list" href="javascript:;">
+                        <span>王升库</span>
+                   </a>
+                    <a class="mine-list" href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        <span>个人设置</span>
+                    </a>
+                    <a class="mine-list" href="javascript:;">
+                        <i class="fa fa-power-off"></i>
+                        <span>退出系统</span>
+                    </a>
+               </div>
+            </div>
+            <div class="header-navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo-fchsoft.png" alt=""></a>
+                </div>
+
+                <nav class="header-nav">
+                    <div class="header-pane">
+                        <div class="header-menu">
+                            <a class="header-menu-item active" href="index.html"><span>首页</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全预警</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>应急处置</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产指挥</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产分析</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>部门考核</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>干部履职</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>簿册管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>施工管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>设备管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>基础管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全预警</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>应急处置</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产指挥</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产分析</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>部门考核</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>干部履职</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>簿册管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>施工管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>设备管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>基础管理-l</span></a>
+                        </div>
+                    </div>
+                    <div class="header-pane-toggle"><i class="icon"></i></div>
+                </nav>
+            </div>
+        </header>
+        <!--[/include]-->
+        <!-- page-header end -->
+
+        <!-- page-bodier start -->
+        <article id="page-bodier">
+            <!-- sidebar start -->
+            <aside id="sidebar">
+                <!--[include "./public/page-left-nav.html"]-->
+                <div class="left-nav left-nav-default" data-toggle="left-nav">
+                    <ul>
+                        <li><a href="index.html"><i class="icon icon-books"></i>index<i class="caret caret-up"></i></a>
+                            <ul>
+                                <li><a href="index.html#flying">与双飞翼布局相关的</a></li>
+                                <li><a href="index.html#flexbox">flexbox布局</a></li>
+                                <li><a href="index.html#grid">与栅格系统相关的</a></li>
+                                <li><a href="index.html#panel">panel面版</a></li>
+                                <li><a href="index.html#toggle">toggle 显示隐藏</a></li>
+                                <li><a href="index.html#section">boxes 盒 section 模块</a></li>
+                                <li><a href="index.html#breadcrumb">路径导航</a></li>
+                                <li><a href="index.html#nav">nav</a></li>
+                                <li><a href="index.html#title">标题相关的</a></li>
+                                <li><a href="index.html#article">article 文章</a></li>
+                                <li><a href="index.html#describe">describe 描述</a></li>
+                                <li><a href="index.html#list">list 列表</a></li>
+                                <li><a href="index.html#Alert">Alert 警告</a></li>
+                                <li><a href="index.html#text-list">text-list 文字列表</a></li>
+                                <li><a href="index.html#tag">tag 标签</a></li>
+                                <li><a href="index.html#badge">badge 徽章</a></li>
+                                <li><a href="index.html#rating">rating 评分</a></li>
+                                <li><a href="index.html#btn">与 按钮 相关的</a></li>
+                                <li><a href="index.html#callout">callout</a></li>
+                                <li><a href="index.html#step">流程进度条</a></li>
+                                <li><a href="index.html#progress">进度条</a></li>
+                                <li><a href="index.html#range">range 滑动条</a></li>
+                                <li><a href="index.html#divider">与横向分隔条相关的</a></li>
+                                <li><a href="index.html#media">与媒体对象相关的</a></li>
+                                <li><a href="index.html#pagination">与分页器相关的</a></li>
+                                <li><a href="index.html#card">card 卡片</a></li>
+                                <li><a href="index.html#list-item"> list（列表）</a></li>
+                                <li><a href="index.html#timeline">与 时间轴 相关的</a></li>
+                                <li><a href="index.html#clipboard">复制到剪贴板功能</a></li>
+                                <li><a href="index.html#smartMenu">鼠标右键菜单</a></li>
+                                <li><a href="index.html#iframe">iframe 引入页</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="table.html"><i class="icon icon-books"></i>table</a></li>
+                        <li><a href="form.html"><i class="icon icon-books"></i>form</a></li>
+                        <li><a href="text.html"><i class="icon icon-books"></i>text 文字相关的</a></li>
+                        <li><a href="bootstrap.html"><i class="icon icon-books"></i>bootstrap</a></li>
+                        <li><a href="icons.html"><i class="icon icon-books"></i>icons</a></li>
+                        
+                        <li><a href="widget.html"><i class="icon icon-books"></i>widget</a></li>
+                        <li><a href="Container.html"><i class="icon icon-books"></i>Container</a></li>
+                        <li><a href="sublime3-config.html"><i class="icon icon-books"></i>配置sublime3的插件</a></li>
+                        <li><a href="javascript:;"><i class="icon icon-books"></i>帮助文件</a>
+                            <ul>
+                                <li><a href="帮助文档-项目规则.html">项目规则</a></li>
+                                <li><a href="帮助文档-修改日志.html">修改日志</a></li>
+                                <li><a href="帮助文档-英文单词.html">英文单词</a></li>
+                                <li><a href="帮助文档-辅助类.html">辅助类</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    // 左导航进行添加选中
+                    var arrUrl = window.location.href.split("/");
+                    var pageText = arrUrl[arrUrl.length - 1];
+                    if ( pageText.indexOf("?") !== -1 ) {
+                        pageText = pageText.split("?")[0];
+                    }else if ( pageText.indexOf("#") !== -1 ) {
+                        pageText = pageText.split("#")[0];
+                    }
+                    $('[data-toggle="left-nav"] li>a').each(function(index, el) {
+                        var pageBtn = $(el).attr('href');
+                        if ( pageText == pageBtn ) {
+                            $(el).addClass('active');
+                            return false;
+                        }
+                    });
+                </script>
+                <!--[/include]-->
+            </aside>
+            <!-- sidebar end -->
+            <!-- content start -->
+            <main id="content">
+                <article id="wrapper">
+                    <!-- 根据设计等需求可以再包裹一层 -->
+                    <div class="content-wrap"></div>
+                    <div class="content-head"></div>
+                    <div class="content-body">
+
+                        <!-- 个人岗位职责 end -->
+                        <div class="panel" id="01">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">个人岗位职责</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p class="h5">1.完成部门经理安排的前端工作。</p>
+                                <p class="h5">2.部门内部同事前端技能的带动提高。</p>
+                                <p class="h5">3.前段基础框架的整理丰富完善。</p>
+                                <p class="h5">4.项目启动初期代码主体结构的制ekpkpr 定。</p>
+                                <p class="h5">5.沈局车务、安监项目配合开发。</p>
+                            </div>
+                        </div>
+                        <!-- 个人岗位职责 end -->
+
+                        <!-- 日常加减分条例 end -->
+                        <div class="panel" id="02">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">日常加减分条例</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body alert-case">
+                                <div class="divider-horizontal">
+                                    <h4 class="txt">1.加分八条</h4>
+                                </div>
+                                <p class="h5">1.发现本人工作中的重大失误，不遮丑、不瞒报、不推卸责任，第一时间向上级领导汇报，并采取积极措施，主动弥补过失，未给公司带来实际损失的，每次加1分。</p>
+                                <p class="h5">2.发现同事或上级领导犯有错误，劝阻无效的，本着对公司忠诚，对事业负责的态度，积极检举揭发。查明属实的，每次加 10 分；查明不实或不准的，不追责。</p>
+                                <p class="h5">3.为了完成公司交办的任务，不计个人得失，克服万难，取得优异成绩，有目共睹的，视任务的价值和重要程度、员工所付出的努力，每次加3或5分。</p>
+                                <p class="h5">4.为客户提供周到细致的服务，受到客户表扬的，每次加 1 分；收到书面表扬信或客户高层领导表扬的，每次加 3 分；连锁为公司取得其他实质收益的，每次加5分。</p>
+                                <p class="h5">5.在完成本职工作之余，积极找事做，发现公司经营中的空位，协助其他同事，取得较好效果的，发现一次加 3 分。</p>
+                                <p class="h5">6.利用业余时间宣传公司业务，为公司取得辅营收入的，视收入多寡，每次加 1 至 5 分。</p>
+                                <p class="h5">7.为保守公司机密、保全公司财产或维护公司利益，被迫承受委屈，承担不白之冤的，凡意志坚定、能抗住压力者，事后视立功表现，每次加 1-10 分。</p>
+                                <p class="h5">8.在本职工作中尽心尽力，取得重大技术、营销、管理、服务突破的，视成果重要程度，每次加5-10分。</p>
+                                <div class="divider-horizontal">
+                                    <h4 class="txt">2.减分八条</h4>
+                                </div>
+                                <p class="h5">1.弄虚作假，欺瞒谎报，不当得利，发现一次直接开除。</p>
+                                <p class="h5">2.贪污受贿，出卖公司，损公肥私，发现一次直接开除。</p>
+                                <p class="h5">3.消极怠工，敷衍塞责，对工作进度上推下卸，不担斤两，发现一次扣10分。</p>
+                                <p class="h5">4.粗心大意，滥竽充数，对工作结果得过且过，漏斗百出，发现一次扣10分。</p>
+                                <p class="h5">5.捕风捉影，捏造谣言，-5分。道听途说，传播小道消息，发现一次-3分。</p>
+                                <p class="h5">6.秽言污语、缺乏教养，莽撞客户或上级的，发现一次减 3 分；有辱人格的，发现一次减 5 分。</p>
+                                <p class="h5">7.勾心斗角，设置障碍，互相拆台，结党串联，每次-5分。</p>
+                                <p class="h5">8.拖泥带水、磨磨唧唧，畏惧沟通，缺乏必胜信心的，发现一次减 1 分。</p>
+                            </div>
+                        </div>
+                        <!-- 日常加减分条例 end -->
+
+                        <!-- 风驰研究院员工加减分条款 end -->
+                        <div class="panel" id="03">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">风驰研究院员工加减分条款</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body alert-case">
+                                <div class="divider-horizontal">
+                                    <h4 class="txt">加分5条</h4>
+                                </div>
+                                <p class="h5">1.主动学习新技术、有效提高研发效率的每次加1-3分。</p>
+                                <p class="h5">2.主动学习铁路业务，掌握关键业务流程的，每次加1-3分。</p>
+                                <p class="h5">3.攻克技术难点，突破公司面临技术问题的，每次加3-5 分；特别重大问题，每次加 10 分。 </p>
+                                <p class="h5">4.申请专利并受理的，实用新型和外观专利每次加3分；发明专利每次加5分。 </p>
+                                <p class="h5">5.成功对接技术资源，每次加3-5分。</p>
+                                <div class="divider-horizontal">
+                                    <h4 class="txt">减分6条</h4>
+                                </div>
+                                <p class="h5">1.由于个人执行不力、粗心大意、考虑不周、缺乏沟通等原因导致工作出现失误造成进度延后， 每次减 1 分；造成未能按时交付的，每次减 3 分；造成严重影响，当月失格。</p>
+                                <p class="h5">2.编码质量低影响使用的，每次减 1 分；无法使用需重写的，每次减 3 分。 </p>
+                                <p class="h5">3.对自己设计开发的铁路业务不了解的，发现一次减 3 分。</p>
+                                <p class="h5">4.没有按照要求使用实验设备，每次-1分，造成一定影响每次-3分，造成严重后果每次-5分。</p>
+                                <p class="h5">5.违反公司技术保密手册的，视危害程度每次减 3-10 分。</p>
+                                <p class="h5">6.代码、文档不及时提交 SVN，影响工作的每次减 1-3 分。</p>
+                            </div>
+                        </div>
+                        <!-- 风驰研究院员工加减分条款 end -->
+
+                        <!-- 部门间横向加减分条款 end -->
+                        <div class="panel" id="04">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">部门间横向加减分条款</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body alert-case">
+                                <div class="divider-horizontal">
+                                    <h4 class="txt">加分3条</h4>
+                                </div>
+                                <p class="h5">1.项目经理按合同约定时间准时收回款项的，每次加 1 分 </p>
+                                <p class="h5">2.员工积极参加公司或部门组织的员工培训课程，每人每次加 1 分。</p>
+                                <p class="h5">3.在资质或项目申报过程中，积极配合做出贡献的，每次加 1-3 分。</p>
+
+                                <div class="divider-horizontal">
+                                    <h4 class="txt">减分27条</h4>
+                                </div>
+                                <p class="h6">财务6条</p>
+                                <p class="h5">1.员工无故在财务室逗留驱赶无效的，随意翻看财务人员手机的，每次减 1 分。向财务人员套取他人工资、收入等信息，翻看财务人员记事本、以任何理由使用财务电脑的，每次减 3 分。</p>
+                                <p class="h5">2.员工对公借款超期未还借款的，每月减 3 分。</p>
+                                <p class="h5">3.员工合同审批单中基础信息填写错误的，审批流程中经手人每次减 1 分。</p>
+                                <p class="h5">4.付款申请单中发票及付款信息填写错误的，每次减 1 分；对公司造成经济损失的，每次减 5 分。</p>
+                                <p class="h5">5.开票申请单填写中，信息填写错误的，每次减 1 分；给公司造成经济损失的，每次减 5 分。</p>
+                                <p class="h5">6.项目经理未按合同约定时间及时收回款项的，超过 1-20 个工作日的，每次减 1 分；审计每次减 3 分。</p>
+                                <p class="h6">人事6条</p>
+                                <p class="h5">7.培训期间不认真听讲，混课时，减 1 分。</p>
+                                <p class="h5">8.员工上班时间不着工装或正装，不带工牌，梳奇异发型等，没发现一次-1分。</p>
+                                <p class="h5">9.员工请假单，外出单提交或补交未在一周内完成，外出无签到、签退记录，绩效考核处理不及时，对人事考核汇总造成一定影响，每次减1分。</p>
+                                <p class="h5">10.各部门小组早会无故未展开，每次减1分。</p>
+                                <p class="h5">11.每月4日前未发布绩效公告，减3分；因各级领导耽误发布公告的，对领导减5分。</p>
+                                <p class="h5">12.每月 7 日前员工要确认个人工资，超过每月 7 日未确定工资的，工资缓发一个月，且当事人减 1 分。</p>
+                                <p class="h6">行政9条</p>
+                                <p class="h5">13.错误提交用印且审批人尚未发现，提交人、审批人每次减1分，对公司造成经济损失的每次减3分。借用公司证照，印章后随意放置，未经公司允许私拿公司证照、印章每次减3分。未经公司允许，私自将公司证照、印章外带超过8小时，每次减3分。</p>
+                                <p class="h5">14.未经允许随意出入行政库房，私拿库房物品每次减1分。</p>
+                                <p class="h5">15.不爱护公司办公资产，私自将办公物品租凭、外借他人，每次减1分，发现恶意破坏资产，对公司造成财产损失的每次减3分。</p>
+                                <p class="h5">16.浪费办公用品、低值消耗品每次减1分。发现私用、偷盗的行为，根据公司制度，给予失格的处罚，并追究刑事责任。</p>
+                                <p class="h5">17.午休及下班后办公设备停止使用时，没有及时关闭电源，过夜设备标签书写不规范或没有黏贴过夜标签的，每次减1分。所产生的耗电费用由责任人承担。</p>
+                                <p class="h5">18.不爱护公共环境，随手乱扔垃圾，对保洁清扫造成负担，每次减1分。</p>
+                                <p class="h5">19.借用公司爱心雨伞，未能及时归还，因个人保管不当，造成雨伞损坏的，每次减1分。</p>
+                                <p class="h5">20.综合保障部人员包保的固定资产出现问题，包保人每次减3分，使用包保物资的责任人每次减1分。</p>
+                                <p class="h5">21.在项目资质申报过程中，配合态度不积极的，每次减1分；影响进度的每次减3分；造成申报失败的每次减5分。</p>
+                                <p class="h6">其他6条</p>
+                                <p class="h5">22.公司研究院、计划财务部未能及时配合销售业务推进，造成销售工作受阻，或违背同客户承诺的时间，视情节严重，每次减 3-10 分；若有不配合的，给予失格处分。</p>
+                                <p class="h5">23.研究院推出新产品不召开内部产品发布会的，产品负责人减 1 分。员工无故不参加研究院召开的内部产品发布会的，每次减 1 分。</p>
+                                <p class="h5">24.对于同一个问题，第二次提问，仍未能回答或对于同一件事情，第二次追责仍未办理，会议上 布置的内容，会后责任人未认真落实，未做到上情下达的视问题或事件的重要程度每次减 1-5 分。</p>
+                                <p class="h5">25.由于个人原因，致使办公 ukey 丢失的，每次减 3 分。本人长时间离开座位不拔 ukey 或随意放置的，视情况每次减 3 分。</p>
+                                <p class="h5">26.合同、费用报销不按公司规定流程提交，各部门审批过程不认真、敷衍了事、流于形式的，经查实，视情况给予提交人或审批人每次减 1-3 分。</p>
+                                <p class="h5">27.公司员工不遵守公司保密制度，随意泄露公司保密信息的，视危害程度每次减 3-10 分，情节严重的当月失格。</p>
+                            </div>
+                        </div>
+                        <!-- 部门间横向加减分条款 end -->
+
+                        <!-- 技术保密守则 end -->
+                        <div class="panel" id="05">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">技术保密守则</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body alert-case">
+                                <p class="h5">1.严禁将公司技术、商业资料上传互联网。</p>
+                                <p class="h5">2.严禁在公共场所、家属及亲友面前讨论公司、客户机密。</p>
+                                <p class="h5">3.严禁在朋友圈、微博、QQ、论坛等网络媒体传播公司承担的项目、采用的技术路线、客户情况等信息；</p>
+
+                                <p class="h5">4.严禁未经允许向客户或他人透露公司的技术来源、技术合作伙伴；</p>
+                                <p class="h5">5.严禁向客户或他人透露公司的供应商信息，严禁向供应商提供客户的地址、电话等联系方式。</p>
+                                <p class="h5">6.严禁将存储公司机密的笔记本电脑、U 盘、记事本等资料随意放置在客户现场或转借他人。笔记本电脑必须设置锁屏密码，做到人走屏锁。</p>
+
+                                <p class="h5">7.严禁向客户或他人透露自己或其他同事的入职年限、工作经验、薪酬等敏感信息。</p>
+                                <p class="h5">8.严禁主动向客户透露公司人员调整和变动情况。</p>
+                            </div>
+                        </div>
+                        <!-- 技术保密守则 end -->
+                    </div>
+                    <div class="content-foot"></div>
+                </article>
+            </main>
+            <!-- content end -->
+        </article>
+        <!-- page-bodier end -->
+    </section>
+    <!-- page-container end -->
+
+</body>
+
+</html>

@@ -1,0 +1,393 @@
+@charset "utf-8";
+
+// **************************** table 表格的样式 **********************************
+/**
+ * 表格外部框架的样式
+ */
+.table-head{
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 50px;
+}
+.table-body{
+    overflow: auto;
+}
+/**
+ * 表格的样式
+ */
+.table,
+.tp-table{
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    caption{
+        font-size: 20px;
+        padding-bottom: 8px;
+        font-weight: 700;
+    }
+    thead{
+        border-bottom: #cccccc 2px solid;
+    }
+    &>thead>tr:first-child>th {
+        border-top: 0;
+    }
+    tr{
+        
+    }
+    th,td{
+        line-height: 22px;
+        vertical-align:middle;
+        border-top: #cccccc 1px solid;
+    }
+    th{
+        height: 40px;
+        background-color: #f8f8f8;
+    }
+    &>tbody{
+       th{
+         height: 34px;
+       }
+    }
+    td{
+        height: 34px;
+    }
+
+    /* 文字的位置 */
+    // 文字在左侧
+    &.text-left td,
+    &.text-left th,
+    .text-left td,
+    .text-left th{
+        text-align: left;
+        padding-left: .8em;
+    }
+    .text-left{
+        padding-left: .8em;
+    }
+    // 文字在左侧上对齐
+    &.text-top td,
+    &.text-top th,
+    .text-top td,
+    .text-top th{
+        vertical-align: top;
+    }
+    .text-top{
+        vertical-align: top;
+    }
+    // 文字在右侧
+    &.text-right td,
+    &.text-right th,
+    .text-right td,
+    .text-right th{
+        padding-right: 0.8em;
+        text-align: right;
+    }
+    .text-right{
+        padding-right: .8em;
+    }
+    // 文字在中间，给td或th上加，等级最高
+    .text-center,
+    .text-center td,
+    .text-center th{
+        text-align: center;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    // 最后一列 操作按钮的样式
+    .btn-text {
+        @include lineblock;
+        padding: 0 12px;
+        height: 10px;
+        line-height: 8px;
+        border-left: #ddd 1px solid;
+        margin-left: 0;
+        font-weight: 400;
+        &:first-child{
+            border-left: 0 none;
+        }
+    }
+
+    /* 状态类 */
+    @each $tableTypeStyleList in $table-type-colors{    // 循环数组
+        $class: nth($tableTypeStyleList,1);         // 获取在数组中的值
+        $background: nth($tableTypeStyleList,2);
+        .table-#{$class}{
+            background-color:$background;
+            &:hover{
+                background-color: darken($background, 5%);;
+            }
+        }
+    }
+
+    // icheck 插件的修改
+    .checkbox-primary,
+    .radio-primary {
+        margin-right: 0;
+    }
+}
+
+/**
+ * 表格的固定大小
+ */
+.table-fixed{
+    table-layout: fixed;
+}
+.table-excel{
+    width: auto;
+    table-layout: fixed;
+}
+/**
+ * 表格的边框
+ */
+.table-border,
+.tp-table {
+    >thead>tr>th,
+    >thead>tr>td,
+    >tbody>tr>th,
+    >tbody>tr>td,
+    >tfoot>tr>th,
+    >tfoot>tr>td,
+    >tr>th,
+    >tr>td{
+        border-left: #cccccc 1px solid;
+    }
+    &>thead>tr,
+    &>tbody>tr{
+        &>th:first-child,
+        &>td:first-child{
+            border-left: 0 none;
+        }
+    }
+    &>thead>tr:first-child>th,
+    &>thead>tr:first-child>td,
+    &>tbody>tr:first-child>th,
+    &>tbody>tr:first-child>td {
+        border-top: 0 none;
+    }
+}
+.table-bordered,
+.tp-table {
+    border: 1px solid #cccccc;
+    >thead>tr>th,
+    >thead>tr>td,
+    >tbody>tr>th,
+    >tbody>tr>td,
+    >tfoot>tr>th,
+    >tfoot>tr>td,
+    >tr>th,
+    >tr>td{
+        border: #cccccc 1px solid;
+    }
+}
+
+.dataTables_scrollBody{
+    thead{
+        td,th{
+            border: 0 none;
+        }
+    }
+}
+
+
+/**
+ *表格的隔行变色
+ */
+.table-striped,
+.tp-table {
+    tr:nth-child(2n){
+        td{
+            background-color: #f7f8fb;
+        }
+    }
+}
+
+/**
+ * 鼠标经过 行变色
+ */
+.table-hover,
+.tp-table{
+    &>tbody{
+        tr:hover{
+            th,
+            td{
+                background-color: #f2f2f2;
+            }
+        }
+    }
+}
+
+/**
+ * 表格的行高
+ */
+@each $item in $table-line-height{
+    $class: nth($item,1);
+    $th: nth($item,2);
+    $td: nth($item,3);
+    .table-#{$class}{
+        th{
+            height: #{$th}px;
+        }
+        &>tbody{
+           th{
+             height: #{$td}px;
+           }
+        }
+        td{
+            height: #{$td}px;
+        }
+    }
+}
+
+/**
+ * 表格排序
+ */
+.table-sort {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -3px;
+
+    .table-sort-up,
+    .table-sort-down {
+        height: 6px;
+        line-height: 6px;
+        color: #aaa;
+        &:hover,
+        &.active{
+            color: #f00;
+        }
+    }
+    .table-sort-up{
+        margin-bottom: 3px;
+    }
+}
+
+/**
+ * 使用固定表头插件需要添加的样式
+ */
+.table-fixed,
+.mocFixedtable .table{
+    table-layout: fixed;
+    background-color: #ffffff;
+}
+// 结束
+
+
+
+
+
+
+
+
+/**************************** 各种合并单元格&固定表头 mocFixedtable **********************************/
+/* mocFixedtable */
+.mocFixedtable{
+    overflow: hidden;
+    position: relative;
+}
+.mocFixedtable-width{
+    display: block;
+    height: 0;
+    border:0 none;
+}
+/* view */
+.mocFixedtable-view{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+.mocFixedtable-view-w{
+    height: 0;
+    width: 100%;
+    display: none;
+}
+.mocFixedtable-view-h{
+    height: 100%;
+    width: 0;
+    display: none;
+}
+/* head */
+.mocFixedtable-head{
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+.mocFixedtable-head-inner{
+    width: 50000px;
+}
+/* left */
+.mocFixedtable-left{
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+.mocFixedtable-left-inner{
+    height: 150000px;
+}
+/* left-head */
+.mocFixedtable-left-head{  
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+/* foot */
+.mocFixedtable-foot{
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+.mocFixedtable-foot-inner{
+    height: 150000px;
+}
+/* left-foot */
+.mocFixedtable-left-foot{
+    position: absolute;
+    left: 0;
+    overflow: hidden;
+}
+/* right */
+.mocFixedtable-right{
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+}
+.mocFixedtable-right-inner{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 150000px;
+}
+
+/* right-head */
+.mocFixedtable-right-head{  
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+}
+.mocFixedtable-right-head-inner{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+/* right-foot */
+.mocFixedtable-right-foot{
+    position: absolute;
+    overflow: hidden;
+}
+.mocFixedtable-right-foot-inner{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+
+
+
+
+
+

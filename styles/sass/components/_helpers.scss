@@ -1,0 +1,444 @@
+@charset "utf-8";
+
+/***************************** 浮动 and 显示隐藏 ***********************************/
+.pull-left,
+.fl-l {
+    float: left !important;
+}
+.pull-right,
+.fl-r {
+    float: right !important;
+}
+.pull-none{
+    float: none !important;
+}
+.clearfix{
+    @include clearfix;
+}
+.hide {
+    display: none !important;
+}
+.show {
+    display: block !important;
+}
+.visible{
+    visibility: visible;
+}
+.invisible{
+    visibility: hidden;
+}
+// 当内容溢出元素框时发生的事情
+.ov-h{
+    overflow: hidden;
+}
+.ov-v{
+    overflow: visible;
+}
+.ov-a{
+    overflow: auto;
+}
+.ov-s{
+    overflow: scroll;
+}
+// 结束
+
+
+/***************************** 定位方式 ***********************************/
+.pos {
+    position: static !important;
+}
+.por {
+    position: relative !important;
+}
+.poa {
+    position: absolute !important;
+}
+.pof {
+    position: fixed !important;
+}
+// 结束
+
+
+/***************************** 光标形状 ***********************************/
+.cur-d{
+    cursor: default;
+}
+.cur-a{
+    cursor: auto;
+}
+.cur-c{
+    cursor: crosshair;
+}
+.cur-p {
+    cursor: pointer;
+}
+.cur-m {
+    cursor: move;
+}
+.cur-t {
+    cursor: text;
+}
+.cur-w{
+    cursor: wait;
+}
+.cur-h{
+    cursor: help;
+}
+.cur-n{
+    cursor: not-allowed;
+}
+// 结束
+
+
+/***************************** 定义宽度 width ***********************************/
+@for $i from 0 through 60 {
+    .w-#{$i*5} {
+        width: #{$i*5}px !important;
+    }
+}
+.w-full{
+    width: 100% !important;
+}
+// 结束
+
+
+/***************************** 定义高度 height ***********************************/
+@for $i from 0 through 60 {
+    .h-#{$i*5} {
+        height: #{$i*5}px !important;
+    }
+}
+.h-full{
+    height: 100% !important;
+}
+// 结束
+
+
+/***************************** Paddings ***********************************/
+$spacing: (xl 40) (lg 30) (md 20) (sm 10) (xs 5) !default;
+// padding
+@each $padding in $spacing{
+    $class: nth($padding,1);
+    $val: nth($padding,2);
+    .p-#{$class}{
+        padding: #{$val}px !important;
+    }
+    .p-l-#{$class}{
+        padding-left: #{$val}px !important;
+    }
+    .p-r-#{$class}{
+        padding-right: #{$val}px !important;
+    }
+    .p-t-#{$class}{
+        padding-top: #{$val}px !important;
+    }
+    .p-b-#{$class}{
+        padding-bottom: #{$val}px !important;
+    }
+}
+@for $i from 0 through 8 {
+    @if $i % 2 == 0 {
+        .p-#{$i} {
+            padding: #{$i}px !important;
+        }
+        // padding-top
+        .p-t-#{$i} {
+            padding-top: #{$i}px !important;
+        }
+        // padding-bottom
+        .p-b-#{$i} {
+            padding-bottom: #{$i}px !important;
+        }
+        // padding-left
+        .p-l-#{$i} {
+            padding-left: #{$i}px !important;
+        }
+        // padding-right
+        .p-r-#{$i} {
+            padding-right: #{$i}px !important;
+        }
+    }
+}
+@for $i from 1 through 5 {
+    .p-#{$i*10} {
+        padding: #{$i*10}px !important;
+    }
+    // padding-top
+    .p-t-#{$i*10} {
+        padding-top: #{$i*10}px !important;
+    }
+    // padding-bottom
+    .p-b-#{$i*10} {
+        padding-bottom: #{$i*10}px !important;
+    }
+    // padding-left
+    .p-l-#{$i*10} {
+        padding-left: #{$i*10}px !important;
+    }
+    // padding-right
+    .p-r-#{$i*10} {
+        padding-right: #{$i*10}px !important;
+    }
+    // padding-top-bottom
+    .p-l-r-#{$i*10}{
+        padding-left: #{$i*10}px !important;
+        padding-right: #{$i*10}px !important;
+    }
+    // padding-top-bottom
+    .p-t-b-#{$i*10}{
+        padding-top: #{$i*10}px !important;
+        padding-bottom: #{$i*10}px !important;
+    }
+}
+// padding-auto
+.p-auto{
+    padding: auto !important;
+}
+// 结束
+
+/***************************** Margins ***********************************/
+// margin
+@each $margin in $spacing{
+    $class: nth($margin,1);
+    $val: nth($margin,2);
+    .m-#{$class}{
+        margin: #{$val}px !important;
+    }
+    .m-l-#{$class}{
+        margin-left:  #{$val}px !important;
+    }
+    .m-r-#{$class}{
+        margin: #{$val}px !important;
+    }
+    .m-t-#{$class}{
+        margin-top: #{$val}px !important;
+    }
+    .m-b-#{$class}{
+        margin-bottom: #{$val}px !important;
+    }
+}
+@for $i from 0 through 8 {
+    @if $i % 2 == 0 {
+        .m-#{$i} {
+            margin: #{$i}px !important;
+        }
+        // margin-top
+        .m-t-#{$i} {
+            margin-top: #{$i}px !important;
+        }
+        // margin-bottom
+        .m-b-#{$i} {
+            margin-bottom: #{$i}px !important;
+        }
+        // margin-left
+        .m-l-#{$i} {
+            margin-left: #{$i}px !important;
+        }
+        // margin-right
+        .m-r-#{$i} {
+            margin-right: #{$i}px !important;
+        }
+    }
+}
+@for $i from 1 through 5 {
+   .m-#{$i*10} {
+        margin: #{$i*10}px !important;
+    }
+    // margin-top
+    .m-t-#{$i*10} {
+        margin-top: #{$i*10}px !important;
+    }
+    // margin-bottom
+    .m-b-#{$i*10} {
+        margin-bottom: #{$i*10}px !important;
+    }
+    // margin-left
+    .m-l-#{$i*10} {
+        margin-left: #{$i*10}px !important;
+    }
+    // margin-right
+    .m-r-#{$i*10} {
+        margin-right: #{$i*10}px !important;
+    }
+    // margin-left-right
+    .m-l-r-#{$i*10}{
+        margin-left: #{$i*10}px !important;
+        margin-right: #{$i*10}px !important;
+    }
+    // margin-top-bottom
+    .m-t-b-#{$i*10}{
+        margin-top: #{$i*10}px !important;
+        margin-bottom: #{$i*10}px !important;
+    }
+}
+// margin-auto
+.m-auto{
+    margin: auto !important;
+}
+// 结束
+
+
+/***************************** Borders ***********************************/
+// border
+.b-0{
+    border: 0 none !important;
+}
+.b-1{
+    border: #e5e5e5 1px solid !important;
+}
+// border-top
+.b-t-0{
+    border-top: 0 none !important;
+}
+.b-t-1{
+    border-top: #e5e5e5 1px solid !important;
+}
+// border-bottom
+.b-b-0{
+    border-bottom: 0 none !important;
+}
+.b-b-1{
+    border-bottom: #e5e5e5 1px solid !important;
+}
+// border-left
+.b-l-0{
+    border-left: 0 none !important;
+}
+.b-l-1{
+    border-left: #e5e5e5 1px solid !important;
+}
+// border-right
+.b-r-0{
+    border-right: 0 none !important;
+}
+.b-r-1{
+    border-right: #e5e5e5 1px solid !important;
+}
+// 结束
+
+
+
+/***************************** fonts ***********************************/
+// ***
+// *** 文字大小 font-size 
+// ***
+.h1 {
+  font-size: 36px !important;
+}
+.h2 {
+  font-size: 30px !important;
+}
+.h3 {
+  font-size: 24px !important;
+}
+.h4 {
+  font-size: 16px !important;
+}
+.h5 {
+  font-size: 14px !important;
+}
+.h6 {
+  font-size: 12px !important;
+}
+@for $i from 1 through 6 {
+    .h#{$i} {
+        .small,small{
+            font-size: 65% !important;
+            font-weight: 400;
+        }
+    }
+}
+
+
+// ***
+// *** 文字粗细 font-weight 
+// ***
+.text-bold{
+    font-weight: 700 !important;
+}
+.text-light{
+    font-weight: 400 !important;
+}
+
+// ***
+// *** 文字位置 text-align
+// ***
+.text-left{
+    text-align: left !important;
+}
+.text-center{
+    text-align: center !important;
+}
+.text-right{
+    text-align: right !important;
+}
+// 结束
+
+// ***
+// *** 文字大小写 text-transform
+// ***
+/* 所有英文大写 */
+.text-lowercase {
+    text-transform: lowercase;
+}
+/* 所有英文小写 */
+.text-uppercase {
+    text-transform: uppercase;
+}
+/* 首字母大写 */
+.text-capitalize {
+    text-transform: capitalize;
+}
+abbr[data-original-title], abbr[title] {
+    cursor: help;
+    border-bottom:#777 1px dotted;
+}
+// 结束
+
+
+/***************************** css3动画效果 ***********************************/
+// 缩放
+.scale{
+    -webkit-transition: all .2s ease-out;
+    -moz-transition: all .2s ease-out;
+    -ms-transition: all .2s ease-out;
+    -o-transition: all .2s ease-out;
+    transition: all 0.2s ease-out;
+}
+.scale:hover{
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
+// 旋转
+.rotate{
+    -webkit-transition: all .4s;
+    -moz-transition: all .4s;
+    -o-transition: all .4s;
+    -ms-transition: all .4s;
+    transition: all .4s;
+}
+.rotate:hover{
+    transform:rotate(180deg);
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform:rotate(180deg);
+    -ms-transform:rotate(180deg);
+    // 旋转的中心点
+    transform-origin:50% 50%;
+    -webkit-transform-origin:50% 50%;
+    -moz-transform-origin:50% 50%;
+    -o-transform-origin:50% 50%;
+    -ms-transform-origin:50% 50%;
+}
+// 结束
+
+
+
+
+
+
+
+

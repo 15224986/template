@@ -1,0 +1,118 @@
+@charset "utf-8";
+
+// ***************************** timeline 时间轴的样式 ***********************************
+.timeline{
+    position: relative;
+    padding: 20px 0 20px;
+    &:before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 3px;
+        margin-left: -1.5px;
+        background-color: #ccc;
+    }
+}
+.timeline-list{
+    position: relative;
+    margin-bottom: 20px;
+    @include clearfix;
+}
+.tlmeline-item{
+    width: 50%;
+}
+.timeline-badge{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    margin-left: -25px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    text-align: center;
+    line-height: 50px;
+    background-color: #999999;
+    z-index: 9;
+}
+.timeline-panel{
+    margin-right: 44px;
+    position: relative;
+    padding: 20px;
+    border: #e5e5e5 1px solid;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    &:before {
+        content: " ";
+        display: inline-block;
+        position: absolute;
+        top: 26px;
+        right: -15px;
+        border-top: 15px solid transparent;
+        border-right: 0 solid #ccc;
+        border-bottom: 15px solid transparent;
+        border-left: 15px solid #ccc;
+    }
+    &:after {
+        content: " ";
+        display: inline-block;
+        position: absolute;
+        top: 27px;
+        right: -14px;
+        border-top: 14px solid transparent;
+        border-right: 0 solid #fff;
+        border-bottom: 14px solid transparent;
+        border-left: 14px solid #fff;
+    }
+}
+.timeline-inverted{
+    .tlmeline-item{
+        float: right;
+    }
+    .timeline-panel{
+        margin-left: 44px;
+        margin-right: 0;
+        &:before {
+            right: auto;
+            left: -15px;
+            border-right-width: 15px;
+            border-left-width: 0;
+        }
+        &:after {
+            right: auto;
+            left: -14px;
+            border-right-width: 14px;
+            border-left-width: 0;
+        }
+    }
+}
+%timelineMarginBottom{
+    margin-bottom: 10px;
+}
+.timeline-tit{
+    @extend %timelineMarginBottom;
+}
+.timeline-subhead{
+    @extend %timelineMarginBottom;
+    color: #888;
+    font-size: 85%;
+}
+.timeline-text{
+    text-indent: 2em;
+    &+.timeline-text{
+        margin-top: 10px;
+    }
+}
+// 结束
+
+
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+@charset "utf-8";
+
+// ***************************** color 各种颜色（背景色、文字颜色）的样式 ***********************************
+// ***
+// *** 文字颜色
+// ***
+.text-default{
+    color: #333333;
+}
+.text-muted {
+    color: #767676;
+}
+.text-primary {
+    color: #337ab7;
+}
+.text-success {
+    color: #3c763d;
+}
+.text-info {
+    color: #31708f;
+}
+.text-warning {
+    color: #8a6d3b;
+}
+.text-danger {
+    color: #a94442;
+}
+// 颜色名称命名 预定义样式
+@each $Colors in $ColorsArr{
+    $colorClass: nth($Colors,1);
+    $color: nth($Colors,2);
+    .text-#{$colorClass} {
+        color: $color !important;
+    }
+}
+// 结束
+
+
+// ***
+// *** 背景颜色
+// ***
+.bg-default {
+    background-color: #f2f2f2;
+}
+.bg-muted {
+    background-color: #e1e1e8;
+}
+.bg-primary {
+    background-color: #337ab7;
+}
+.bg-success {
+    background-color: #dff0d8;
+}
+.bg-info {
+    background-color: #d9edf7;
+}
+.bg-warning {
+    background-color: #fcf8e3;
+}
+.bg-danger {
+    background-color: #f2dede;
+}
+// 颜色名称命名 预定义样式
+@each $Colors in $ColorsArr{
+    $colorClass: nth($Colors,1);
+    $color: nth($Colors,2);
+    .bg-#{$colorClass}{
+       background-color: $color !important;
+    }
+}
+// 结束
+
+
+
+
+
+
+
+

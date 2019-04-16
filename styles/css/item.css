@@ -1,0 +1,605 @@
+@charset "UTF-8";
+/***************************** 登录页 ***********************************/
+.login-content {
+  width: 600px;
+  height: 510px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -255px;
+  margin-left: -300px;
+  background-color: #fff;
+}
+
+.login-title h2 {
+  text-align: center;
+  line-height: 44px;
+  padding-top: 30px;
+}
+.login-title h4 {
+  text-align: center;
+}
+
+.login-input {
+  border: #ccc 1px solid;
+}
+
+/***************************** icon ***********************************/
+.fa-icons-box {
+  color: #666;
+}
+
+.icon-mail {
+  width: 26px;
+  height: 24px;
+  background-position: -12px -13px;
+}
+
+.icon-folder {
+  width: 26px;
+  height: 24px;
+  background-position: -62px -13px;
+}
+
+.icon-notepad {
+  width: 26px;
+  height: 24px;
+  background-position: -112px -13px;
+}
+
+.icon-user {
+  background-position: -206px -3px;
+}
+
+/***************************** 布局容器页面的样式 ***********************************/
+.container-layout {
+  width: 1200px;
+  text-align: center;
+  padding: 30px;
+  background-color: #fff;
+  margin: 0 auto 20px;
+}
+.container-layout #page-container {
+  background-color: #888;
+}
+.container-layout #page-header {
+  height: 80px;
+  line-height: 80px;
+  background-color: #f00;
+}
+.container-layout #wrapper,
+.container-layout #sidebar,
+.container-layout #assist {
+  height: 360px;
+}
+.container-layout #wrapper {
+  margin-top: 0;
+  background-color: #eee;
+}
+.container-layout #sidebar {
+  background-color: #00afff;
+}
+.container-layout #assist {
+  background-color: #71ebb0;
+}
+.container-layout p {
+  line-height: 120px;
+}
+
+/***************************** 根据项目需求单独修改的“栅格系统”的样式 ***********************************/
+.grid-system {
+  padding: 40px 0;
+}
+.grid-system .h5 {
+  color: #666;
+}
+.grid-system .grid {
+  padding: 30px 0;
+}
+.grid-system .grid h2 {
+  padding-top: 30px;
+}
+.grid-system .row + .row {
+  margin-top: 20px;
+}
+.grid-system h2 + .row, .grid-system h5 + .row {
+  margin-top: 8px;
+}
+.grid-system .col-content {
+  background-color: #eee;
+  border: #ccc 1px solid;
+  padding: 10px;
+}
+
+/***************************** icons 的样式 ***********************************/
+.icons-box {
+  padding: 20px 0 0 0;
+}
+.icons-box .panel-body {
+  padding: 10px 20px 20px;
+}
+
+/***************************** step-btn-box 的样式 ***********************************/
+.step-btn-box {
+  text-align: center;
+  padding-bottom: 20px;
+}
+.step-btn-box .btn-group {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+.step-btn-box .btn-list {
+  float: left;
+  margin-left: 16px;
+}
+.step-btn-box .btn-list:first-child {
+  margin-left: 0;
+}
+
+.button-box, .btn-box {
+  padding: 20px 0;
+}
+
+.extravasation .btn {
+  margin-bottom: 10px;
+}
+
+/***************************** dropdown-btn 的样式 ***********************************/
+.dropdown-btns {
+  padding: 20px;
+  text-align: center;
+}
+
+.dropdown-btn {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/***************************** 辅助页面 的样式 ***********************************/
+#page-help {
+  background-image: url(../../files/body-bg/a.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+#page-help #page-header {
+  height: auto;
+  background-color: #3498db;
+  position: relative;
+  z-index: 5;
+}
+#page-help #page-header:before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url("../../files/bs-docs-masthead-pattern.png") repeat center center;
+  opacity: .8;
+  z-index: -1;
+}
+#page-help .page-txt {
+  font-size: 36px;
+  text-align: center;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 80px;
+  padding-top: 20px;
+}
+#page-help .page-btn-box {
+  text-align: center;
+  padding-bottom: 60px;
+}
+#page-help .page-btn-box a {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  padding: 6px 14px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  color: #eee;
+  border: 1px solid #0065a9;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  -webkit-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+}
+#page-help .page-btn-box a.active,
+#page-help .page-btn-box a:hover {
+  background-color: #0065a9;
+}
+#page-help #page-bodier {
+  width: 1300px;
+  padding: 50px;
+  margin: 20px auto;
+  position: relative;
+  z-index: 5;
+  background-color: #fff;
+}
+#page-help .content-body {
+  width: 1200px;
+  margin: 20px auto;
+  position: relative;
+  z-index: 5;
+}
+
+@media screen and (max-width: 1440px) {
+  #page-help #page-bodier {
+    width: 1060px;
+  }
+}
+/***************************** 英文单词 的样式 ***********************************/
+.word-item-bg {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 100px;
+  height: 20px;
+  vertical-align: -5px;
+}
+
+/***************************** 修改日志 的样式 ***********************************/
+.actions-group + .actions-group {
+  margin-top: 30px;
+}
+.actions-group .list .tit {
+  margin-top: 10px;
+  color: #333;
+  font-size: 16px;
+}
+.actions-group .list .txt {
+  color: #888;
+  font-size: 14px;
+  margin-top: 6px;
+  padding-left: 1em;
+}
+
+/******************** 辅助类 页面的样式 ********************/
+.Snack-Helper .panel-body {
+  padding: 20px 30px;
+}
+.Snack-Helper .row + .row, .Snack-Helper .panel + .panel {
+  margin-top: 20px;
+}
+.Snack-Helper .list-group .list-item:first-child {
+  background-color: #2185D0;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+}
+.Snack-Helper.default {
+  padding: 0 !important;
+  background-color: transparent !important;
+}
+
+.funSpan {
+  margin-left: 10px;
+  background-color: #eee;
+}
+
+.scrollbox {
+  width: 1034px;
+  height: 300px;
+  overflow: auto;
+  border: #ccc 10px solid;
+  margin: 20px auto;
+}
+
+.imgbox {
+  width: 160px;
+  height: 160px;
+  border: red 4px solid;
+  background: #cccccc;
+  float: left;
+  margin-left: 20px;
+  text-align: center;
+}
+.imgbox img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
+/**************************** 不固定宽度的轮播图--类名调用的插件 **********************************/
+.news-listSlider {
+  padding: 20px;
+  background-color: #999;
+  padding-bottom: 0px;
+}
+
+.news-listSlider .moc-listSlider-win {
+  background-color: #fff;
+}
+
+.news-listSlider .moc-listSlider-list {
+  width: 240px;
+  height: 320px;
+  background-color: #c3d4f6;
+  text-align: center;
+  line-height: 320px;
+  font-size: 36px;
+}
+
+.culture-listSlider {
+  width: 660px;
+  margin: 20px auto 0;
+  padding: 20px;
+  background-color: #999;
+  padding-bottom: 0px;
+}
+
+.culture-listSlider .moc-listSlider-win {
+  background-color: #fff;
+}
+
+.culture-listSlider .moc-listSlider-list {
+  width: 255px;
+  height: 320px;
+  background-color: #c3d4f6;
+  text-align: center;
+  line-height: 320px;
+  font-size: 36px;
+}
+
+/**************************** 向上无缝滚动（翻滚）或向左无缝滚动 **********************************/
+.tvbox {
+  width: 360px;
+  height: 32px;
+  margin: 0 auto;
+  border: #cccccc 20px solid;
+  overflow: hidden;
+}
+
+.SScroll {
+  height: 32px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.SScroll li {
+  float: left;
+  margin-right: 20px;
+  line-height: 32px;
+}
+
+.SScroll-top {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.SScroll-top li {
+  margin: 0 20px;
+  line-height: 32px;
+  text-align: center;
+}
+
+/**************************** 对话框里面的内容 **********************************/
+.alertres {
+  width: 2600px;
+  height: 3360px;
+  background: #ffffff;
+  display: none;
+}
+
+.alertre2 {
+  width: 500px;
+  height: 260px;
+  background: #ffffff;
+}
+
+.alertre3 {
+  display: none;
+}
+
+.mocDialog .cl {
+  margin-top: 30px;
+}
+
+.mocDialog .tit {
+  float: left;
+  width: 140px;
+  padding-right: 6px;
+  text-align: right;
+  line-height: 38px;
+}
+
+.mocDialog .select-box {
+  float: left;
+  width: 372px;
+  height: 36px;
+  border: #aaa 1px solid;
+}
+
+.mocDialog .select-box .select2 {
+  width: 100%;
+}
+
+.mocDialog .cl .select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 36px;
+}
+
+.lightbox-box img {
+  width: 140px;
+  height: 160px;
+}
+
+.scrollspy-box {
+  height: 360px;
+  overflow: auto;
+  text-align: center;
+  position: relative;
+  margin: 20px 40px;
+  border: #ccc 6px solid;
+}
+.scrollspy-box > section {
+  margin-top: 20px;
+}
+
+.describe dt + dd.list-type-disc {
+  margin-top: 6px;
+}
+.describe dd.list-type-disc + dt {
+  margin-top: 16px;
+}
+
+/**
+ * @effect      自定义常用通用样式 and CSS3动画效果
+ * @author      作者
+ * @version     版本号
+ * @date        修改时间
+ * @param       参数
+ * @example     例子
+ * @link        链接
+ * @namespace   命名空间
+ * @requires    依赖
+ * @return      返回值
+ * 
+ */
+/******************** CSS3动画 ********************/
+@-webkit-keyframes scaleUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    -o-transform: scale(0.85);
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-moz-keyframes scaleUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    -o-transform: scale(0.85);
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-o-keyframes scaleUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    -o-transform: scale(0.85);
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-ms-keyframes scaleUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    -o-transform: scale(0.85);
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    -ms-transform: scale(0.85);
+    -o-transform: scale(0.85);
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+.css3 {
+  float: left;
+  margin: 20px 20px 0 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  animation: scaleUp 1s linear;
+  -moz-animation: scaleUp 1s linear;
+  -webkit-animation: scaleUp 1s linear;
+  -o-animation: scaleUp 1s linear;
+  animation-fill-mode: both;
+  -webkit-animation-fill-mode: both;
+  -moz-animation-fill-mode: both;
+  -ms-animation-fill-mode: both;
+  -o-animation-fill-mode: both;
+  text-align: center;
+  line-height: 30px;
+  font-size: 16px;
+}
+.css3 span {
+  display: block;
+  height: 20px;
+}
+
+.bg-color .css3 {
+  color: #fff;
+}
+
+.colors {
+  width: 156px;
+  height: 156px;
+  margin: 30px auto 10px;
+  border-radius: 50%;
+  line-height: 156px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  text-transform: lowercase;
+}
+
+.wordsLength {
+  line-height: 32px;
+}
+
+/*# sourceMappingURL=item.css.map */

@@ -1,0 +1,73 @@
+                <div class="left-nav left-nav-default" data-toggle="left-nav">
+                    <ul>
+                        <li><a href="index.html"><i class="icon icon-books"></i>index<i class="caret caret-up"></i></a>
+                            <ul>
+                                <li><a href="index.html#flying">与双飞翼布局相关的</a></li>
+                                <li><a href="index.html#flexbox">flexbox布局</a></li>
+                                <li><a href="index.html#grid">与栅格系统相关的</a></li>
+                                <li><a href="index.html#panel">panel面版</a></li>
+                                <li><a href="index.html#toggle">toggle 显示隐藏</a></li>
+                                <li><a href="index.html#section">boxes 盒 section 模块</a></li>
+                                <li><a href="index.html#breadcrumb">路径导航</a></li>
+                                <li><a href="index.html#nav">nav</a></li>
+                                <li><a href="index.html#title">标题相关的</a></li>
+                                <li><a href="index.html#article">article 文章</a></li>
+                                <li><a href="index.html#describe">describe 描述</a></li>
+                                <li><a href="index.html#list">list 列表</a></li>
+                                <li><a href="index.html#Alert">Alert 警告</a></li>
+                                <li><a href="index.html#text-list">text-list 文字列表</a></li>
+                                <li><a href="index.html#tag">tag 标签</a></li>
+                                <li><a href="index.html#badge">badge 徽章</a></li>
+                                <li><a href="index.html#rating">rating 评分</a></li>
+                                <li><a href="index.html#btn">与 按钮 相关的</a></li>
+                                <li><a href="index.html#callout">callout</a></li>
+                                <li><a href="index.html#step">流程进度条</a></li>
+                                <li><a href="index.html#progress">进度条</a></li>
+                                <li><a href="index.html#range">range 滑动条</a></li>
+                                <li><a href="index.html#divider">与横向分隔条相关的</a></li>
+                                <li><a href="index.html#media">与媒体对象相关的</a></li>
+                                <li><a href="index.html#pagination">与分页器相关的</a></li>
+                                <li><a href="index.html#card">card 卡片</a></li>
+                                <li><a href="index.html#list-item"> list（列表）</a></li>
+                                <li><a href="index.html#timeline">与 时间轴 相关的</a></li>
+                                <li><a href="index.html#clipboard">复制到剪贴板功能</a></li>
+                                <li><a href="index.html#smartMenu">鼠标右键菜单</a></li>
+                                <li><a href="index.html#iframe">iframe 引入页</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="table.html"><i class="icon icon-books"></i>table</a></li>
+                        <li><a href="form.html"><i class="icon icon-books"></i>form</a></li>
+                        <li><a href="text.html"><i class="icon icon-books"></i>text 文字相关的</a></li>
+                        <li><a href="bootstrap.html"><i class="icon icon-books"></i>bootstrap</a></li>
+                        <li><a href="icons.html"><i class="icon icon-books"></i>icons</a></li>
+                        
+                        <li><a href="widget.html"><i class="icon icon-books"></i>widget</a></li>
+                        <li><a href="Container.html"><i class="icon icon-books"></i>Container</a></li>
+                        <li><a href="sublime3-config.html"><i class="icon icon-books"></i>配置sublime3的插件</a></li>
+                        <li><a href="javascript:;"><i class="icon icon-books"></i>帮助文件</a>
+                            <ul>
+                                <li><a href="帮助文档-项目规则.html">项目规则</a></li>
+                                <li><a href="帮助文档-修改日志.html">修改日志</a></li>
+                                <li><a href="帮助文档-英文单词.html">英文单词</a></li>
+                                <li><a href="帮助文档-辅助类.html">辅助类</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    // 左导航进行添加选中
+                    var arrUrl = window.location.href.split("/");
+                    var pageText = arrUrl[arrUrl.length - 1];
+                    if ( pageText.indexOf("?") !== -1 ) {
+                        pageText = pageText.split("?")[0];
+                    }else if ( pageText.indexOf("#") !== -1 ) {
+                        pageText = pageText.split("#")[0];
+                    }
+                    $('[data-toggle="left-nav"] li>a').each(function(index, el) {
+                        var pageBtn = $(el).attr('href');
+                        if ( pageText == pageBtn ) {
+                            $(el).addClass('active');
+                            return false;
+                        }
+                    });
+                </script>

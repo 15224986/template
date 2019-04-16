@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+// **************************** card 卡片的样式 **********************************
+.card{
+    padding:0 10px;
+    background-color: #127bc1;
+    color: #fff;
+}
+.card-head{
+    line-height: 58px;
+    position: relative;
+    border-bottom: 2px solid rgba(255,255,255,.3);
+    @extend %clearfix;
+}
+.card-tools{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.card-tools a{
+    color: #fff;
+}
+.card-title{
+    font-size: 24px;
+    font-weight: 700;
+}
+// 结束
+
+
+
+
+
+
+
+

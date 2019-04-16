@@ -1,0 +1,329 @@
+@charset "utf-8";
+
+/**
+ * 页面的背景样式
+ */
+.page-bg-default{
+    background-color: #f5f5f5;
+}
+
+/**************************** 页面布局 **********************************/
+$sidebar-width: 250px;
+$assist-width: 0;
+
+#page-bodier{
+    position: relative;
+}
+#content{
+    margin-left: $sidebar-width + 20px;
+    margin-right: $assist-width + 20px;
+}
+#wrapper{
+    padding-top: 20px;
+    padding-bottom: 1px;
+    @include boxSizing;
+    &.container {
+        padding-bottom: 30px;
+    }
+}
+#sidebar{
+    width: $sidebar-width;
+    position: absolute;
+    left:0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+}
+#assist{
+    width: $assist-width;
+    position: absolute;
+    right:0;
+    top: 0;
+    bottom: 0;
+}
+#page-footer{
+    color: #fff;
+    height: 40px;
+    text-align: center;
+}
+.contentFoot{
+
+}
+// 结束
+
+
+// 双飞翼布局
+.container-flying{
+    $assist-width: 220px;
+    #content{
+        margin-right: $assist-width + 20px;
+    }
+    #assist{
+        width: $assist-width;
+    }
+}
+// 垂直布局
+.container-vertical{
+    #sidebar{
+        display: none;
+    }
+    #content {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+// 左右布局
+.container-fluid{
+    #page-header{
+        display: none;
+    }
+}
+// 全屏布局
+.container-full{
+    #page-header,
+    #sidebar{
+        display: none;
+    }
+    #content {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+
+.container {
+    padding: 30px;
+    margin: 20px auto;
+    background-color: #fff;
+}
+@media (min-width: 768px) {
+    .container {
+        width:750px
+    }
+}
+@media (min-width: 992px) {
+    .container {
+        width:970px
+    }
+}
+@media (min-width: 1200px) {
+    .container {
+        width:1170px
+    }
+}
+@media (min-width: 1300px) {
+    .container {
+        width:1300px
+    }
+}
+@media (min-width: 1880px) {
+    .container {
+        width:1440px
+    }
+}
+
+
+
+
+
+
+
+/***************************** 页面顶部 ***********************************/
+.header-top{
+    @extend %clearfix;
+    background-color: #222;
+    border-color: #080808;
+    .mine{
+        float: right;
+    }
+    .mine-list{
+        float: left;
+        margin-right: 20px;
+        color: #999;
+        line-height: 30px;
+        &:hover,
+        &:focus{
+            color: #fff;
+        }
+    }
+}
+.header-navbar{
+    height: 60px;
+    background-color: #fff;
+    border-bottom: #e2e2e2 3px solid;
+    .logo{
+        float: left;
+        margin-top: 6px;
+        margin-left: 30px;
+        a,
+        img{
+            display: block;
+            height: 50px;
+        }
+    }
+    .header-nav{
+        margin-left: 400px;
+        margin-right: 50px;
+        position: relative;
+    }
+    .header-pane{
+        height: 63px;
+        overflow: hidden;
+        position: relative;
+    }
+    .header-menu{
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .header-menu-item{
+        display: block;
+        min-width: 66px;
+        text-align: center;
+        float: left;
+        font-size: 16px;
+        font-weight: 700;
+        color: #666;
+        line-height: 63px;
+        padding: 0 14px;
+        position: relative;
+
+        &:after{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: #0889d4;
+            content: '';
+            -webkit-transition: all 0.4s;
+            transition: all 0.4s;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+        }
+        &:hover,
+        &.active{
+            color: #333;
+            &:after{
+                -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+            }
+        }
+    }
+    .header-pane-toggle{
+        width: 30px;
+        height: 41px;
+        position: absolute;
+        right: -40px;
+        top: 50%;
+        margin-top: -20px;
+        cursor: pointer;
+        color: #fff;
+        line-height: 40px;
+        text-align: center;
+        background-color: #0889d4;
+        display: none;
+        .icon{
+            top: 3px;
+            left: 1px;
+            background-position: -308px -178px;
+        }
+        &.active{
+            background-color: #0889d4;
+            .icon{
+                background-position: -369px -178px;
+            }
+        }
+    }
+}
+
+
+// 结束
+
+
+
+
+
+
+
+
+
+
+
+
+/**************************** left-nav 左侧导航的样式 **********************************/
+.left-nav-default{
+    background-color: #fff;
+    a{
+        display: block;
+    }
+    >ul ul{
+        display: none;
+        &.open{
+            display: block;
+        }
+    }
+    // 一级导航
+    >ul>li>a{
+        padding-left: 20px;
+        line-height: 40px;
+        color: #333;
+        font-weight: 700;
+        position: relative;
+        &:hover,
+        &.active{
+            color: #fff;
+            background-color: #0ba0e5;
+        }
+        &>.icon{
+            margin-right: 6px;
+        }
+        >.caret{
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            margin-top: -3px;
+        }
+    }
+
+    // 二级导航
+    >ul>li>ul>li>a{
+        padding-left: 60px;
+        line-height: 30px;
+        color: #666;
+        &:hover,
+        &.active{
+            background-color: rgba(#0ba0e5,.5);
+        }
+    }
+    // 三级导航
+    >ul>li>ul>li>ul>li>a{
+        padding-left: 80px;
+        line-height: 30px;
+        color: #666;
+        &:hover,
+        &.active{
+            background-color: rgba(#0ba0e5,.3);
+        }
+    }
+    // 四级导航
+    >ul>li>ul>li>ul>li>ul>li>a{
+        padding-left: 110px;
+        line-height: 30px;
+        color: #666;
+        &:hover,
+        &.active{
+            background-color: rgba(#f6f6f6,1);
+        }
+    }
+}
+// 结束
+
+
+
+
+
+
+

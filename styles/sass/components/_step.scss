@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+// ***************************** step 流程进度条的样式 ***********************************
+.step{
+    
+}
+.step-header{
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+.step-group{
+    overflow: hidden;
+    padding: 0;
+}
+.step-item{
+    list-style-type:none;
+    text-align: center;
+    float: left;
+    position: relative;
+    &:first-child{
+        &:before{
+            content: " ";
+            display: block;
+            width: 50%;
+            height: 26px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #ffffff;
+        }
+    }
+    &:last-child{
+        &:after{
+            content: " ";
+            display: block;
+            width: 50%;
+            height: 26px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #ffffff;
+        }
+    }
+}
+.step-txt{
+    margin-top: 5px;
+    color: #888;
+}
+.step-order{
+    position: relative;
+    margin: 0 auto;
+    font-family: Arial;
+    color: #fff;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    line-height: 25px;
+    background: #cdcdcd;
+    display: inline-block;
+    cursor: pointer;
+    z-index: 3;
+}
+.step-active {
+    .step-order{
+        background: #1685d6;
+    }
+    .step-txt{
+        color: #1685d6;
+    }
+}
+.step-active-last{
+    .step-order{
+        background: #25bb9b;
+        color: white;
+    }
+    .step-txt{
+        color: #25bb9b;
+    }
+}
+.step-bar,.step-bar-active{
+    height: 13px;
+    border-radius: 12px;
+}
+.step-bar{
+    width:100%;
+    background: #cdcdcd;
+    position: absolute;
+    border-radius: 12px;
+    height: 5px;
+    top: 10px;
+    left: 0;
+}
+.step-bar-active{
+    width: 0px;
+    background: #1685d6 ;
+    height: 100%;
+}
+.step-list{
+    display: none;
+    clear: both;
+
+    .text{
+        text-align: center;
+        line-height: 96px;
+        font-size: 36px;
+    }
+}
+// 结束
+
+
+
+
+
+
+
+

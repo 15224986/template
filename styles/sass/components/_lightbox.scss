@@ -1,0 +1,150 @@
+@charset "utf-8";
+
+// **************************** lightbox图片放大 **********************************
+.moc-lightbox-show{
+    overflow: hidden;
+}
+#moc-lightbox-bg {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../images/widget/transparent-black.png');
+    z-index: 990;
+    display: none;
+}
+#moc-lightbox {
+    width: 600px;
+    height: 480px;
+    margin-left: -300px;
+    margin-top: -240px;
+    overflow: hidden;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 6px;
+    z-index: 999;
+    @include boxSizing($boxmodel:content-box);
+}
+.moc-lightbox-body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url(../../images/widget/loading.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: none;
+}
+.moc-lightbox-img-box{
+    width: 100%;
+    height: 100%;
+}
+.moc-lightbox-img {
+    display: block;
+}
+.moc-lightbox-prev,
+.moc-lightbox-next {
+    width: 40%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    z-index: 8;
+    background-image: url(../../images/widget/transparent.png);
+}
+.moc-lightbox-prev {
+    left: 0px;
+}
+.moc-lightbox-next {
+    right: 0px;
+}
+.moc-lightbox-prev-btn,
+.moc-lightbox-next-btn {
+    display: block;
+    width: 37px;
+    height: 45px;
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    display: none;
+}
+.moc-lightbox-prev-btn{
+    background: url('../../images/widget/prev.png');
+    left: 20px;
+}
+.moc-lightbox-next-btn {
+    background: url('../../images/widget/next.png');
+    right: 20px;
+}
+.moc-lightbox-prev:hover .moc-lightbox-prev-btn:not(.disabled){
+    display: block;
+}
+.moc-lightbox-next:hover .moc-lightbox-next-btn:not(.disabled){
+    display: block;
+}
+.light-box-zoom{
+    .moc-lightbox-prev,
+    .moc-lightbox-next{
+        width: 1px;
+    }
+    .moc-lightbox-prev-btn:not(.disabled),
+    .moc-lightbox-next-btn:not(.disabled){
+        display: block;
+    }
+}
+.moc-lightbox-foot {
+    height: auto;
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    background-image: url('../../images/widget/transparent-black.png');
+}
+.moc-lightbox-notes {
+    padding: 5px 10px;
+}
+.moc-lightbox-title {
+    line-height: 22px;
+    font-size: 16px;
+    color: #f2f2f2;
+    font-weight: 700;
+}
+.moc-lightbox-text {
+    line-height: 22px;
+    font-size: 14px;
+    color: #d1d1d1;
+}
+.moc-lightbox-address {
+    line-height: 22px;
+    font-size: 12px;
+    color: #b0b0b0;
+}
+.moc-lightbox-address span{
+    padding-left: 10px;
+}
+.moc-lightbox-close-btn {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    width: 27px;
+    height: 27px;
+    background-image: url(../../images/widget/close.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.65;
+    z-index: 9;
+}
+.moc-lightbox-close-btn:hover {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+

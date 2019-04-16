@@ -1,0 +1,259 @@
+@charset "utf-8";
+
+/**
+ * link
+ */
+.link{
+    display: inline-block;
+    position: relative;
+    color: #4183C4;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+    &:after{
+        position: absolute;
+        top: auto;
+        bottom: 1px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #4183C4;
+        content: '';
+        -webkit-transition: all 0.45s;
+        transition: all 0.45s;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+    }
+    &:hover{
+        color: #4183C4;
+        &:after{
+            -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+        }
+    }
+}
+// 结束
+
+/**
+ * media 媒体对象的样式
+ */
+.media, .media-body {
+    zoom: 1;
+}
+.media-body, .media-left, .media-right {
+    display: table-cell;
+    vertical-align: top;
+}
+.media-body {
+    width: 10000px;
+}
+// 结束
+
+/**
+ * overlay 遮罩层
+ */
+.overlay{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 990;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    &.active{
+        display: block;
+    }
+}
+// 结束
+
+/**
+ * iframe 引用模块
+ */
+.iframe-box{
+    height: 360px;
+    position: relative;
+    iframe{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        border: 0 none;
+    }
+}
+// 结束
+
+/**
+ * toggle 的样式
+ */
+.toggle-body{
+    height: 30px;
+    overflow: hidden; 
+}
+.toggle-auto{
+    height: auto !important;
+}
+// 结束
+
+
+/**
+ * fixed-center 的样式
+ */
+.fixed-center{
+    @include transform-center;
+
+    z-index: 990;
+
+    background: green;
+    padding: 10px;
+}
+// 结束
+
+
+/**
+ * placeholder
+ */
+.wrap-placeholder{
+    position:absolute;
+    overflow:hidden;
+    color: #ACA899;
+}
+// 结束
+
+
+/**
+ * go Top
+ */
+.moc-goTop{
+    display: none;
+    width: 40px;
+    height: 40px;
+    background: #888;
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
+    z-index: 918;
+    span{
+        /* position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: red; */
+    }
+}
+// 结束
+
+
+/**
+ * 正在加载中的功能 
+ */
+.moc-Loading-parent{
+    position: relative;
+}
+.moc-Loading{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: url('../../images/widget/transparent-black.png');
+    z-index: 999;
+}
+.moc-Loading-parent{
+    .moc-Loading{
+        position: absolute;
+    }
+}
+.moc-page-Loading-show{
+    overflow: hidden;
+}
+.moc-Loading-content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -62px 0 0 -62px;
+}
+.moc-Loading-img{
+    width: 124px;
+    height: 124px;
+    margin: 0 auto;
+    background: url('../../images/widget/page-loading.gif');
+}
+.moc-Loading-text{
+    padding-top: 14px;
+    text-align: center;
+    white-space:nowrap;
+}
+.Loading-small{
+    .moc-Loading-content{
+        margin: -16px 0 0 -16px;
+    }
+    .moc-Loading-img{
+        width: 32px;
+        height: 32px;
+        margin: 0 auto;
+        background: url('../../images/widget/loading.gif');
+    }   
+}
+// 结束
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * css3 
+ */
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity .15s linear;
+    -o-transition: opacity .15s linear;
+    transition: opacity .15s linear
+}
+.fade.in {
+    opacity: 1
+}
+
+
+
+
+
+
+

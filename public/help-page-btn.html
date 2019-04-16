@@ -1,0 +1,20 @@
+        <div class="page-btn-box">
+            <a href="index.html">index</a>
+            <a href="帮助文档-项目规则.html">项目规则</a>
+            <a href="帮助文档-修改日志.html">修改日志</a>
+            <a href="帮助文档-英文单词.html">英文单词</a>
+            <a href="帮助文档-辅助类.html">辅助类</a>
+        </div>
+        <script type="text/javascript">
+            /**
+             * 给切换按钮添加状态
+             */
+            var pageText = $("title").text();
+            $(".page-btn-box a").each(function(index, el) {
+                var pageBtn = $(el).text();
+                if ( pageText == pageBtn ) {
+                    $(el).addClass('active');
+                    return false;
+                }
+            });
+        </script>

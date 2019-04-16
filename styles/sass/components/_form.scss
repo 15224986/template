@@ -1,0 +1,984 @@
+@charset "utf-8";
+
+// **************************** form 表单相关的样式 **********************************
+@mixin input-effect(){
+    &:focus,
+    &:hover{
+        border: $form-border-focus-color 1px solid;
+    }
+    &:disabled, &.disabled{
+        border-color: $form-border-color;
+        background-color: #ebebe4;
+    }
+}
+@mixin input($height:$form-group-height){
+    display: block;
+    width: 100%;
+    height: $height;
+    line-height: $height - 2;
+    text-indent: $text-indent;
+    border: $form-border-color 1px solid;
+    color: $form-text-color;
+    @if $form-bg {
+        background-color: $form-bg-color;
+    }
+    @include placeholder(#aaa);
+    @include boxSizing;
+    @include input-effect;
+}
+
+.input-box{
+    position: relative;
+    .text,
+    .date{
+        @include input;
+    }
+    .date{
+        background-image: url(../../images/Inptime.png);
+        background-repeat: no-repeat;
+        background-position: right center;
+    }
+    .feedback{
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        color: $form-feedback-color;
+        line-height: $form-group-height;
+        padding-right: 10px;
+        &.red{
+            color: #ff0000;
+        }
+    }
+}
+
+// 校验状态
+@mixin input-type($color:#76c530){
+    color: $color;
+    border-color: $color;
+    padding-right: 30px;
+    &:focus,
+    &:hover{
+        border-color: $color;
+    }
+}
+%input-type-after{
+    content: " ";
+    display: block;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 9px;
+    top: 50%;
+    margin-top: -8px;
+    background: url('../../images/icons.png');
+}
+
+.input-success{
+    .text{
+        @include input-type(#76c530);
+    }
+    &:after{
+        @extend %input-type-after;
+        background-position: -67px -124px;
+    }
+}
+
+.input-warning{
+    .text{
+        @include input-type(#deb40d);
+    }
+    &:after{
+        @extend %input-type-after;
+        background-position: -68px -176px;
+    }
+}
+
+.input-error{
+    .text{
+        @include input-type(#d60505);
+    }
+    &:after{
+        @extend %input-type-after;
+        background-position: -127px -125px;
+    }
+}
+
+// 结束
+
+/**************************** 文本域组件 **********************************/
+.textarea-box{
+    position: relative;
+    .textarea{
+        display: block;
+        width: 100%;
+        line-height: 22px;
+        padding-left: $text-indent;
+        border: $form-border-color 1px solid;
+        color: $form-text-color;
+        @if $form-bg {
+            background-color: $form-bg-color;
+        }
+        @include boxSizing;
+        @include input-effect;
+    }
+    .textarea-autosize{
+        max-height: 160px;
+    }
+    .textarea-automax{
+        max-height: none;
+    }
+}
+// 结束
+
+/**************************** 两面带提示的输入组件 **********************************/
+.input-media-body,
+.input-media-addon,
+.input-media-btn {
+    display: table-cell;
+    vertical-align: top;
+}
+.input-media-body {
+    width: 10000px;
+    .text{
+        @include input;
+    }
+}
+.input-media-addon{
+    height: 30px;
+    padding: 0 8px;
+    color: $form-text-color;
+    line-height: 30px;
+    border: $form-border-color 1px solid;
+    background-color: $toggle-bg-cpolor;
+}
+.input-media-addon:first-child{
+    border-right: 0 none;
+}
+.input-media-addon:last-child{
+    border-left: 0 none;
+}
+.input-media-btn{
+    .btn{
+        border-radius: 0;
+    }
+}
+
+
+
+// 结束
+
+/**************************** 两侧带下拉的输入组件 **********************************/
+.input-dropdown-media, .input-dropdown-body {
+    zoom: 1;
+}
+.input-dropdown-body, .input-dropdown-left, .input-dropdown-right {
+    display: table-cell;
+    vertical-align: top;
+}
+.input-dropdown-body {
+    width: 10000px;
+}
+.input-dropdown {
+    position: relative;
+}
+.input-dropdown-toggle{
+    display: block;
+    height: $form-group-height - 2;
+    padding: 0 24px 0 8px;
+    color: $form-text-color;
+    line-height: $form-group-height - 2;
+    border: $form-border-color 1px solid;
+    background-color: $toggle-bg-cpolor;
+    white-space: nowrap;
+    .caret{
+        position: absolute;
+        right: 6px;
+        top: 50%;
+    }
+}
+.input-dropdown.open{
+    .badge{
+        border-top: 0 none;
+        @include caret(bottom);
+    }
+}
+.media-left{
+    .input-dropdown-toggle{
+        border-right: 0 none;
+    }
+}
+.media-right{
+    .input-dropdown-toggle{
+        border-left: 0 none;
+    }
+}
+.input-dropdown-menu {
+    min-width: 160px;
+    padding: 6px 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 2px 0 0;
+    z-index: 90;
+    text-align: left;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: $form-border-color 1px solid;
+    border-radius: 4px;
+    background-color: $dropdown-bg-color;
+    @include box-shadow-botttom;
+    display: none;
+}
+.open>.input-dropdown-menu {
+    display: block;
+    z-index: 99;
+}
+.input-dropdown-menu-show{
+    display: block;
+}
+.input-dropdown-menu-right{
+    left: auto;
+    right: 0;
+}
+.input-dropdown-menu-top{
+    top: auto;
+    bottom: 100%;
+    margin: 0 0 2px;
+}
+.input-dropdown-divider {
+    height: 1px;
+    margin: 6px 0;
+    overflow: hidden;
+    background-color: $form-border-color;
+}
+.input-dropdown-btn {
+    display: block;
+    padding: 0 20px;
+    clear: both;
+    font-weight: 400;
+    color: $form-text-color;
+    line-height: $form-group-height;
+    white-space: nowrap;
+    cursor: pointer;
+    &:focus,
+    &:hover {
+        text-decoration: none;
+        background-color: $dropdown-hover-color;
+    }
+    &.active{
+        color: #fff;
+        background-color: $dropdown-active-color;
+    }
+}
+    
+// 结束
+
+/**************************** 下拉框组件 及 插件的调整 **********************************/
+.select-box{
+    min-height: $form-group-height - 2;
+    line-height: $form-group-height - 2;
+    border: $form-border-color 1px solid;
+    &:hover{
+        border: $form-border-focus-color 1px solid;
+    }
+    select{
+        width: 100%;
+    }
+    .select2-container {
+        display: block;
+        width: 100% !important;
+    }
+    .select2-selection__rendered{
+        background-color: $form-bg-color;
+    }
+    .select2-container--default .select2-search--inline .select2-search__field{
+        text-indent: 6px;
+        @include placeholder(#333);
+    }
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: $form-text-color;
+        height: $form-group-height - 2;
+        line-height: $form-group-height - 2;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow {
+        right: 5px;
+    }
+    .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        border-color: $form-border-color transparent transparent transparent;
+        border-width: 8px 6px 0 6px;
+    }
+    .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b {
+        border-color: transparent transparent $form-border-color transparent;
+        border-width: 0 6px 8px 6px;
+    }
+}
+// 结束
+
+/**************************** 单选多选组件 **********************************/
+
+//
+// iCheck 美化
+//
+.icheck-box{
+    line-height: $form-group-height;
+}
+.icheck-label{
+    margin-right: 20px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.icheck-block{
+    @include lineblock;
+    .icheck-label{
+        display: block;
+        margin-right: 0;       
+    }
+}
+// 结束
+
+
+/**************************** fuzzy 模糊搜索组件 **********************************/
+.fuzzy-box{
+    position: relative;
+    margin-right: 2px;
+}
+.fuzzy-input{
+    @include input;
+}
+.fuzzy-dropdown{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: 1px;
+    border: $form-border-color 1px solid;
+    border-top: 0 none;
+    border-bottom: 0 none;
+    background-color: $dropdown-bg-color;
+    z-index: 99;
+}
+.fuzzy-list{
+    display: none;
+    line-height: $form-group-height - 4;
+    padding-left: 16px;
+    cursor: pointer;
+    border-top: $form-border-color 1px solid;
+    border-bottom: $form-border-color 1px solid;
+    margin-top: -1px;
+    &:focus,
+    &:hover {
+        text-decoration: none;
+        background-color: $dropdown-hover-color;
+    }
+    &.active{
+        color: #fff;
+        background-color: $dropdown-active-color;
+    }
+}
+// 结束
+
+/**************************** versatility 可输入可选择组件 **********************************/
+.versatility-box {
+    position: relative;
+}
+.versatility-group {
+    padding-right: 40px;
+}
+.versatility-input{
+    @include input;
+}
+.versatility-toggle{
+    display: block;
+    width: 39px;
+    height: $form-group-height - 2;
+    line-height: 22px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: $form-border-color 1px solid;
+    border-left: 0 none;
+    background-color: $toggle-bg-cpolor;
+    font-size: 18px;
+    color: $form-text-color;
+    text-align: center;
+}
+.versatility-dropdown{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin-top: -1px;
+    border: $form-border-color 1px solid;
+    background-color: $form-bg-color;
+    z-index: 99;
+    @include boxSizing;
+    display: none;
+}
+.versatility-seach{
+    margin: 6px;
+}
+.versatility-search-input{
+    @include input;
+
+    height: $form-group-height - 4;
+    line-height: $form-group-height - 4;
+}
+.versatility-results-list{
+    padding: 6px 6px 6px 8px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    &:hover{
+        background-color: $dropdown-hover-color;
+    }
+    &.active{
+        color: white;
+        background-color: $dropdown-active-color;
+    }
+}
+// 结束
+
+/**************************** InputNumber 计数器 **********************************/
+.inputNumber-box{
+    padding-right: 40px;
+    position: relative;
+}
+.inputNumber-input{
+    @include input;
+}
+.inputNumber-increase,
+.inputNumber-decrease{
+    width: 39px;
+    height: 50%;
+    position: absolute;
+    right: 0;
+    background-color: #f2f2f2;
+    border: #e5e5e5 1px solid;
+    border-left: 0 none;
+    text-align: center;
+    line-height: 16px;
+    cursor: pointer;
+    &:hover{
+        background-color: $dropdown-hover-color;
+    }
+    &.disabled{
+        opacity: 0.5;
+    }
+}
+.inputNumber-increase{
+    top: 0;
+}
+.inputNumber-decrease{
+    bottom: 0;
+    height: calc( 50% - 1px);
+}
+
+// 结束
+
+/**************************** 下拉树的样式 **********************************/
+.select-ztree{
+    position: relative;
+    border: $form-border-color 1px solid;
+    @include input-effect;
+}
+.select-ztree-input{
+    display: block;
+    width: 100%;
+    height: $form-group-height - 2;
+    line-height: $form-group-height - 2;
+    text-indent: $text-indent;
+}
+.select-ztree-dropdown{
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 1px;
+    margin-left: -1px;
+    background-color: $dropdown-bg-color;
+    border: $form-border-color 1px solid;
+    z-index: 90;
+    display: none;
+}
+.select-ztree-seach{
+    margin: 10px;
+    padding-right: 56px;
+    position: relative;
+}
+.select-ztree-seach-txt{
+    @include input;
+
+    height: $form-group-height - 4;
+    line-height: $form-group-height - 4;
+}
+.select-ztree-seach-btn{
+    display: block;
+    width: 56px;
+    height: 100%;
+    background-color: $form-border-focus-color;
+    color: #fff;
+    text-align: center;
+    line-height: $form-group-height - 4;
+    position: absolute;
+    right: 0;
+    top: 0;
+    &:hover{
+        color: #ffffff;
+    }
+}
+.select-ztree-box{
+    width: 100%;
+    height: 320px;
+    overflow: auto;
+    border-top: $form-border-color 1px solid;
+}
+.select-ztree-btns{
+    text-align: center;
+    padding: 10px 0;
+    border-top: $form-border-color 1px solid;
+}
+.select-ztree .ztree {
+    padding: 10px 15px;
+}
+// 结束
+
+/**************************** div模拟输入框 **********************************/
+.contenteditable-box{
+    position: relative;
+}
+.contenteditable-true{
+    user-select:text;
+    -webkit-user-select:text;
+    word-wrap : break-word;
+    white-space:normal;
+
+    min-height: 80px;
+    line-height: 22px;
+    padding:4px;
+    border: $form-border-color 1px solid;
+    @include input-effect;
+}
+.has-placeholder:before{
+    content: attr(placeholder);
+    color:#bbb;
+    position: absolute;
+}
+.contenteditable-length{
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    color: #f00;
+}
+// 结束
+
+/**************************** 上传组件的样式 **********************************/
+.upload-box{
+    line-height: 0;
+    .webuploader-container{
+        @include lineblock;
+        .webuploader-pick + div{
+            width: auto !important;
+            height: auto !important;
+            right: 0 !important;
+            bottom: 0 !important;
+        }
+    }
+    .webuploader-pick {
+        display: block;
+        line-height: $form-group-height;
+        padding: 0 15px;
+    }
+    .parentFileBox>.fileBoxUl>li{
+        margin-left: 0;
+        margin-right: 5px;
+    }
+}
+
+// 上传文件，使用webuploader插件的样式
+.webuploader-list-item{
+    margin-top: 6px;
+}
+.webuploader-list-info{
+    line-height: 22px;
+}
+.webuploader-list-state{
+    font-size: 12px;
+    margin-left: 12px;
+    color: #999;
+
+    &.upload-success{
+        color: #06ad17;
+    }
+    &.upload-error{
+        color: #e1410c;
+    }
+}
+.webuploader-list-remove{
+    font-size: 12px;
+    margin-left: 12px;
+    color: #f00;
+    display: none;
+    &:hover{
+        color: #d90000;
+        text-decoration: underline;
+    }
+}
+
+.webuploader-progress{
+    height: 14px;
+    line-height: 14px;
+    border-radius: 3px;
+    background-color: #eee;
+    position: relative;
+}
+.webuploader-progress-bar {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 10px;
+    background-color: #f00;
+    text-align: center;
+    line-height: 16px;
+}
+// 结束
+
+/**************************** 上传头像的样式 **********************************/
+#photoClipModal{
+    .modal-dialog{
+        width: 960px;
+    }
+    .list-type-disc{
+        margin-bottom: 6px;
+    }
+}
+.photoClip-img{
+    width: 160px;
+    height: 160px;
+    border: $borColor 1px solid;
+}
+.photoClip-view{
+    width: 100%;
+    height: 100%;
+    background-image: url(../../images/photoClip-view.png);
+    background-size: 100% 100%;
+}
+.photoClip-file{
+    width: 140px;
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: #5bc0de;
+    border: #31b0d5 1px solid;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    position: relative;
+    [type="file"]{
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+    }
+}
+.photoClip-area{
+    height: 460px;
+}
+.photoClip-btns{
+    text-align: center;
+    margin-top: 15px;
+}
+// 插件生成的结构的样式
+.photo-clip-view{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+.photo-clip-mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.photo-clip-mask-left{
+    position: absolute;
+    left: 0;
+    right:50%;
+    top: 50%;
+    bottom: 50%;
+    width: auto;
+    background-color: rgba(0,0,0,.5);
+}
+.photo-clip-mask-right{
+    position: absolute;
+    left: 50%;
+    right: 0;
+    top: 50%;
+    bottom: 50%;
+    width: auto;
+    background-color: rgba(0,0,0,.5);
+}
+.photo-clip-mask-top{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 50%;
+    background-color: rgba(0,0,0,.5);
+}
+.photo-clip-mask-bottom{
+    position: absolute,;
+    left: 0,;
+    right: 0,;
+    top: 50%,;
+    bottom: 0,;
+    background-color: rgba(0,0,0,.5);
+}
+.photo-clip-area{
+    border: 1px dashed #ddd;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+// 结束
+
+/**************************** 文字详情的样式 **********************************/
+.form-text,
+.form-pre{
+    line-height: $form-group-height - 8;
+    padding: 4px 0px;
+    color: #888888;
+    word-wrap: break-word;
+    white-space: normal;
+}
+.form-pre{
+    white-space: pre;
+    white-space: pre-line;
+}
+// 结束
+
+/**************************** 新增一行 and 删除本行 **********************************/
+.clone-template{
+    display: none;
+}
+.clone-section{
+    margin-bottom: 20px;
+}
+// 一组
+.clone-group+.clone-group{
+    margin-top: 10px;
+}
+.clone-group-content{
+    padding: 18px 0 0;
+    position: relative;
+    background-color: rgba(#eee,.4);
+}
+.clone-group-tools{
+    text-align: right;
+    line-height: 28px;
+}
+// 一行
+.clone-row-tools{
+    padding-bottom: 22px;
+    margin-left: 104px;
+}
+// 块
+.clone-item-tools{
+    position: absolute;
+    top: 0;
+    right: 26px;
+}
+
+// 按钮
+.clone-remove-btn,
+.clone-add-btn{
+    @include lineblock;
+    white-space: nowrap;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+.clone-add-btn{
+    color: #00baff;
+}
+.clone-remove-btn{
+    color: #ff2136;
+}
+// 结束
+
+/**************************** form 相关的 **********************************/
+fieldset,
+.fieldset{
+    border: $form-border-color 1px dashed;
+    margin-bottom: 26px;
+    padding: 0 30px;
+}
+legend,
+.legend {
+    padding: 0 14px;
+    margin-left: -10px;
+    margin-bottom: 14px;
+}
+// form 标题
+.form-tit{
+    border-bottom: darken($form-border-color,6%) 1px dashed;
+    margin-bottom: 20px;
+    @extend %clearfix;
+}
+.form-tit-text{
+    float: left;
+    border-left: #148ebb 6px solid;
+    line-height: 1;
+    padding-left: 6px;
+    margin: 8px 0px;
+    padding-bottom: 1px;
+    font-weight: 700;
+}
+.form-tit-tools{
+    float: right;
+}
+// 组成的结构
+.form-group{
+
+}
+.form-label{
+    @include lineblock;
+    text-align: right;
+}
+.form-label-left{
+    .form-label{
+        text-align: left;
+    }
+}
+.form-content{
+    position: relative;
+}
+.form-content{
+    padding-bottom: 16px;
+}
+
+// 输入提示
+.form-checktip{
+    width: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    min-height: 12px;
+    margin-bottom: -12px;
+    color: #aaa;
+    &.checktip-wrong,
+    &.Validform_wrong{
+        color: #f00;
+    }
+    &.checktip-right,
+    &.Validform_right{
+        color: #71b83d;
+    }
+}
+
+
+.form-basics{ // 这个类名轻易不要嵌套样式，请将样式写到 search-box，或添加使用模块的前缀
+    .form-label{
+        padding-bottom: 5px;
+    }
+}
+
+.form-line{ // 这个类名轻易不要嵌套样式，请将样式写到 search-box，或添加使用模块的前缀
+    .form-group,
+    .form-btns,
+    .form-label,
+    .form-content{
+        @include lineblock;
+        vertical-align: top;
+    }
+    .form-group{
+        margin-right: 20px;
+    }
+    .form-label{
+        line-height: $form-group-height;
+    }
+    .form-label-static{
+        line-height: $form-group-height;
+        margin: 0 6px;
+    }
+    .input-box,
+    .select-box{
+        width: 184px;
+    }
+}
+
+.form-horizontal{ // 这个类名轻易不要嵌套样式，请将样式写到 form-box，或添加使用模块的前缀
+    .form-group{
+        min-height: 10px;
+    }
+    .form-label{
+        width: 100px;
+        float: left;
+        line-height: $form-group-height;
+    }
+    .form-label + .form-content{
+        margin-left: 104px;
+    }
+    @for $i from 0 through 30 {
+        &.label-width-#{ $i * 10 },
+        .label-width-#{ $i * 10 },
+        .form-group.label-width-#{ $i * 10 } {
+            .form-label{
+                width: $i * 10 + px;
+            }
+            .form-label + .form-content,
+            .clone-row-tools{
+                margin-left: $i * 10 + 4 + px;
+            }
+
+        }
+
+    }
+    &.label-width-0,
+    .label-width-0,
+    .form-group.label-width-0 {
+        .form-content{
+            margin-left: 0;
+        }
+    }
+    .form-btns{
+        text-align: center;
+        padding: 10px 0 30px;
+    }
+}
+@media (max-width: 1360px) {
+    .form{
+        .form-label{
+            float: none;
+            position: relative;
+            width: auto;
+            padding-left: 20px;
+            text-align: left;
+        }
+        .form-content{
+            display: block;
+            margin-left: 20px;
+        }
+    }
+}
+// 结束
+
+
+// **************************** 条件 **********************************
+.condition-box{
+    padding: 20px 20px 0;
+    .form-btns{
+        margin-bottom: 24px;
+    }
+    .form-content{
+        padding-bottom: 14px;
+    }
+}
+

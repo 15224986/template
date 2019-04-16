@@ -1,0 +1,1455 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <!--[include "./public/head-meta.html"]-->
+    <meta charset="utf-8" />
+    <!-- 使用最新版的IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 国产浏览器高速模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 在手机上原比例显示，不可以放大缩小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+    <!-- 则手机号码不被显示为拨号链接 -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览 -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- iphone的私有标签，它指定的iphone中safari顶端的状态条的样式 -->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!-- 去除Android平台中对邮箱地址的识别 -->
+    <meta content="email=no" name="format-detection" />
+    <!-- 清除浏览器中的缓存，它和其它几句合起来用，就可以使你再次进入曾经访问过的页面时，ie浏览器必须从服务端下载最新的内容，达到刷新的效果。 -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- 浏览器窗口 图标 -->
+    <link rel="shortcut icon" href="images/favicon/favicon-1.ico" type="image/x-icon">
+    <!--[/include]-->
+    <title>Template-bootstrap</title>
+    <!--[include "./public/head-link.html"]-->
+    <!-- IE 老版本浏览器支持css的新属性 html5shiv 支持 html5标签 respond 支持 @media 媒体查询 -->
+    <!--[if lt IE 10]>
+        <script src="vendor/html5/html5shiv.min.js" type="text/javascript"></script>
+        <script src="vendor/html5/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+    <script type="text/javascript" src="vendor/jquery-1.11.3.min.js"></script>
+    <!-- 项目封装 -->
+    <script type="text/javascript" src="scripts/widget.min.js"></script>
+    
+    <!-- 
+       *
+       * 与form表单相关
+       * 
+    -->
+    <!-- 输入框input输入内容格式限制插件 -->
+    <script type="text/javascript" src="vendor/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <script type="text/javascript" src="vendor/inputmask/min/inputmask/bindings/inputmask.binding.min.js"></script>
+    <!-- 日期处理类库 -->
+    <script type="text/javascript" src="vendor/moment/moment.min.js"></script>
+    <!-- 时间插件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="vendor/My97DatePicker/WdatePicker.js"></script>
+    <!-- 下拉插件 多选 -->
+    <link rel="stylesheet" type="text/css" href="vendor/select2-4.0.2/select2.css">
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2-Initials.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/i18n/zh-CN.js"></script><!-- 中文提示 -->
+    <!-- 多选和单选的美化 -->
+    <link rel="stylesheet" type="text/css" href="vendor/icheck/icheck.css">
+    <script type="text/javascript" src="vendor/icheck/icheck.js"></script>
+    <!-- 上传附件的组件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/webuploader/diyUpload.css">
+    <script type="text/javascript" src="vendor/webuploader/webuploader.js"></script>
+    <script type="text/javascript" src="vendor/webuploader/diyUpload.js"></script>
+    <!-- 富文本编辑器  -->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <!-- ztree的组件 -->
+    <link rel="stylesheet" href="vendor/ztree/css/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="vendor/ztree/jquery.ztree.all-3.5.min.js"></script>
+    <!-- 上传头像 -->
+    <script src="vendor/photoClip/iscroll-zoom.js"></script>
+    <script src="vendor/photoClip/hammer.min.js"></script><!-- 触摸屏的手势 -->
+    <script src="vendor/photoClip/lrz.all.bundle.js"></script>
+    <script src="vendor/photoClip/jquery.photoClip.js"></script>
+    <!-- 表单验证 -->
+    <link rel="stylesheet" type="text/css" href="vendor/Validform/Validform_v5.css">
+    <script type="text/javascript" src="vendor/Validform/Validform_v5.3.2.js"></script>
+
+    <!-- 
+       *
+       * 经常会用到
+       * 
+    -->
+    <!-- bootstrap 的 js -->
+    <script src="vendor/bootstrap/bootstrap.js"></script>
+    <script src="vendor/bootstrap/bootstrap-hover-dropdown.js"></script>
+    <!-- echarts美化插件 -->
+    <script type="text/javascript" src="vendor/echarts/4.0.4/echarts.min.js"></script>
+    <!-- 使用jQuery监听DOM元素大小变化 -->
+    <script type="text/javascript" src="vendor/ba-resize/jquery.ba-resize.js"></script>
+    <!-- 轮播图 -->
+    <link rel="stylesheet" type="text/css" href="vendor/pgwSlideshow/pgwslideshow.css" />
+    <script type="text/javascript" src="vendor/pgwSlideshow/pgwslideshow.js"></script>
+    <!-- jquery-ui-abridged 由于jq-ui的方法很多用不上还会占用资源和与别的插件冲突，把不用的移除了 -->
+    <script type="text/javascript" src="vendor/jquery-ui-1.9.2/jquery-ui-abridged.js"></script>
+    <!-- 响应式图片 picture标签 解决IE等浏览器不支持 的问题 -->
+    <script type="text/javascript" src="vendor/picturefill/picturefill.min.js"></script>
+    <!-- js实现复制到剪贴板功能，兼容所有浏览器 -->
+    <script type="text/javascript" src="vendor/clipboard/clipboard.min.js"></script>
+    <!-- jQuery图片延迟加载插件jQuery.lazyload -->
+    <script type="text/javascript" src="vendor/jquery.lazyload/jquery.lazyload.js"></script>
+    
+    <!-- 导出 XLS XLSX XML JSON PDF PNG等 -->
+    <script type="text/javascript" src="vendor/tableExport/libs/FileSaver/FileSaver.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/libs/js-xlsx/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/tableExport.js"></script>
+    <!-- 两种字体图标 -->
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons/css/glyphicons.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <!-- css3 动画库 -->
+    <link rel="stylesheet" type="text/css" href="styles/animate.css" />
+    
+    <!-- 
+       *
+       * 基本不会使用
+       * 
+    -->
+    <!-- h5量子背景 -->
+    <script type="text/javascript" src="vendor/quantum.js"></script>
+    <!-- 显示代码插件 -->
+    <link rel="stylesheet" href="vendor/prismjs/prism-coy.css">
+    <script src="vendor/prismjs/prism.js" defer async></script>
+    
+    <!-- 
+       *
+       * 放到最后
+       * 
+    -->
+    <!-- 项目需求的特殊样式 -->
+    <link rel="stylesheet" type="text/css" href="styles/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="styles/css/item.css" />
+    <script type="text/javascript" src="scripts/common.min.js"></script>
+    <!--[/include]-->
+</head>
+
+<body id="app" class="page-bg-default">
+    <section id="page-container">
+        <!-- page-header start -->
+        <!--[include "./public/page-header.html"]-->
+        <header id="page-header">
+            <div class="header-top">
+                <div class="mine">
+                    <a class="mine-list" href="javascript:;">
+                        <span>王升库</span>
+                   </a>
+                    <a class="mine-list" href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        <span>个人设置</span>
+                    </a>
+                    <a class="mine-list" href="javascript:;">
+                        <i class="fa fa-power-off"></i>
+                        <span>退出系统</span>
+                    </a>
+               </div>
+            </div>
+            <div class="header-navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo-fchsoft.png" alt=""></a>
+                </div>
+
+                <nav class="header-nav">
+                    <div class="header-pane">
+                        <div class="header-menu">
+                            <a class="header-menu-item active" href="index.html"><span>首页</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全预警</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>应急处置</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产指挥</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产分析</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>部门考核</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>干部履职</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>簿册管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>施工管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>设备管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>基础管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全预警</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>应急处置</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产指挥</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产分析</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>部门考核</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>干部履职</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>簿册管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>施工管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>设备管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>基础管理-l</span></a>
+                        </div>
+                    </div>
+                    <div class="header-pane-toggle"><i class="icon"></i></div>
+                </nav>
+            </div>
+        </header>
+        <!--[/include]-->
+        <!-- page-header end -->
+        <!-- page-bodier start -->
+        <article id="page-bodier">
+            <!-- sidebar start -->
+            <aside id="sidebar">
+                <!--[include "./public/page-left-nav.html"]-->
+                <div class="left-nav left-nav-default" data-toggle="left-nav">
+                    <ul>
+                        <li><a href="index.html"><i class="icon icon-books"></i>index<i class="caret caret-up"></i></a>
+                            <ul>
+                                <li><a href="index.html#flying">与双飞翼布局相关的</a></li>
+                                <li><a href="index.html#flexbox">flexbox布局</a></li>
+                                <li><a href="index.html#grid">与栅格系统相关的</a></li>
+                                <li><a href="index.html#panel">panel面版</a></li>
+                                <li><a href="index.html#toggle">toggle 显示隐藏</a></li>
+                                <li><a href="index.html#section">boxes 盒 section 模块</a></li>
+                                <li><a href="index.html#breadcrumb">路径导航</a></li>
+                                <li><a href="index.html#nav">nav</a></li>
+                                <li><a href="index.html#title">标题相关的</a></li>
+                                <li><a href="index.html#article">article 文章</a></li>
+                                <li><a href="index.html#describe">describe 描述</a></li>
+                                <li><a href="index.html#list">list 列表</a></li>
+                                <li><a href="index.html#Alert">Alert 警告</a></li>
+                                <li><a href="index.html#text-list">text-list 文字列表</a></li>
+                                <li><a href="index.html#tag">tag 标签</a></li>
+                                <li><a href="index.html#badge">badge 徽章</a></li>
+                                <li><a href="index.html#rating">rating 评分</a></li>
+                                <li><a href="index.html#btn">与 按钮 相关的</a></li>
+                                <li><a href="index.html#callout">callout</a></li>
+                                <li><a href="index.html#step">流程进度条</a></li>
+                                <li><a href="index.html#progress">进度条</a></li>
+                                <li><a href="index.html#range">range 滑动条</a></li>
+                                <li><a href="index.html#divider">与横向分隔条相关的</a></li>
+                                <li><a href="index.html#media">与媒体对象相关的</a></li>
+                                <li><a href="index.html#pagination">与分页器相关的</a></li>
+                                <li><a href="index.html#card">card 卡片</a></li>
+                                <li><a href="index.html#list-item"> list（列表）</a></li>
+                                <li><a href="index.html#timeline">与 时间轴 相关的</a></li>
+                                <li><a href="index.html#clipboard">复制到剪贴板功能</a></li>
+                                <li><a href="index.html#smartMenu">鼠标右键菜单</a></li>
+                                <li><a href="index.html#iframe">iframe 引入页</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="table.html"><i class="icon icon-books"></i>table</a></li>
+                        <li><a href="form.html"><i class="icon icon-books"></i>form</a></li>
+                        <li><a href="text.html"><i class="icon icon-books"></i>text 文字相关的</a></li>
+                        <li><a href="bootstrap.html"><i class="icon icon-books"></i>bootstrap</a></li>
+                        <li><a href="icons.html"><i class="icon icon-books"></i>icons</a></li>
+                        
+                        <li><a href="widget.html"><i class="icon icon-books"></i>widget</a></li>
+                        <li><a href="Container.html"><i class="icon icon-books"></i>Container</a></li>
+                        <li><a href="sublime3-config.html"><i class="icon icon-books"></i>配置sublime3的插件</a></li>
+                        <li><a href="javascript:;"><i class="icon icon-books"></i>帮助文件</a>
+                            <ul>
+                                <li><a href="帮助文档-项目规则.html">项目规则</a></li>
+                                <li><a href="帮助文档-修改日志.html">修改日志</a></li>
+                                <li><a href="帮助文档-英文单词.html">英文单词</a></li>
+                                <li><a href="帮助文档-辅助类.html">辅助类</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    // 左导航进行添加选中
+                    var arrUrl = window.location.href.split("/");
+                    var pageText = arrUrl[arrUrl.length - 1];
+                    if ( pageText.indexOf("?") !== -1 ) {
+                        pageText = pageText.split("?")[0];
+                    }else if ( pageText.indexOf("#") !== -1 ) {
+                        pageText = pageText.split("#")[0];
+                    }
+                    $('[data-toggle="left-nav"] li>a').each(function(index, el) {
+                        var pageBtn = $(el).attr('href');
+                        if ( pageText == pageBtn ) {
+                            $(el).addClass('active');
+                            return false;
+                        }
+                    });
+                </script>
+                <!--[/include]-->
+            </aside>
+            <!-- sidebar end -->
+            <!-- content start -->
+            <main id="content">
+                <div id="wrapper">
+                    <div class="content-body">
+                        <!-- page-tit start -->
+                        <section class="animated bounce">
+                            <div class="title-group">
+                                <h2>选择了bootstrap插件中的一些好用的常用的就js插件</h2>
+                            </div>
+                        </section>
+                        <!-- page-tit end -->
+                        <!-- 调用bootstrap中的modal start -->
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title"><strong>bootstrap中的modal插件</strong></h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="button-box">
+                                    <div class="divider-horizontal">
+                                        <span class="divider-txt">&lt;button&gt;等非&lt;a&gt;标签调用</span>
+                                    </div>
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">调用bootstrap中的modal</button>
+                                    <button type="button" class="btn btn-primary" onclick="openModal()">调用bootstrap中的modal2</button>
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal3">调用bootstrap中的modal3</button>
+                                    <div class="divider-horizontal">
+                                        <span class="divider-txt">&lt;a&gt;标签调用</span>
+                                    </div>
+                                    <a class="btn btn-default" data-toggle="modal" href="#myModal">调用bootstrap中的modal</a>
+                                    <a class="btn btn-success" data-toggle="modal" href="#myModal3">调用bootstrap中的modal3</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 调用bootstrap中的modal end -->
+                        <!-- bootstrap 工具提示 tooltip start -->
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title"><strong>bootstrap 工具提示 tooltip</strong></h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <h3>工具提示（Tooltip）插件 - 锚</h3> 这是一个 <a href="#" class="tooltip-test" data-toggle="tooltip" title="默认的 Tooltip">默认的 Tooltip</a>. 这是一个 <a href="#" class="tooltip-test" data-toggle="tooltip" data-placement="left" title="左侧的 Tooltip">左侧的 Tooltip</a>. 这是一个 <a href="#" data-toggle="tooltip" data-placement="top" title="顶部的 Tooltip">顶部的 Tooltip</a>. 这是一个 <a href="#" data-toggle="tooltip" data-placement="bottom" title="底部的 Tooltip">底部的 Tooltip</a>. 这是一个 <a href="#" data-toggle="tooltip" data-placement="right" title="右侧的 Tooltip">右侧的 Tooltip</a>
+                                <br>
+                                <br>
+                                <h3>工具提示（Tooltip）插件 - 按钮</h3>
+                                <div class="clearfix">
+                                    <button type="button" class="btn btn-default" data-toggle="tooltip" data-container="body" title="默认的 Tooltip"> 默认的 Tooltip</button>
+                                    <button type="button" class="btn btn-success" data-toggle="tooltip" data-container="body" data-placement="left" title="左侧的 Tooltip">左侧的 Tooltip
+                                    </button>
+                                    <button type="button" class="btn btn-primary" data-toggle="tooltip" data-container="body" data-placement="top" title="顶部的 Tooltip">顶部的 Tooltip
+                                    </button>
+                                    <button type="button" class="btn btn-warning" data-toggle="tooltip" data-container="body" data-placement="bottom" title="底部的 Tooltip">底部的 Tooltip
+                                    </button>
+                                    <button type="button" class="btn btn-info" data-toggle="tooltip" data-container="body" data-placement="right" title="右侧的 Tooltip">右侧的 Tooltip</button>
+                                </div>
+                                <section class="table-box m-t-20">
+                                    <div class="table-body">
+                                        <table class="table table-striped table-bordered table-left">
+                                            <caption>1.参数</caption>
+                                            <thead>
+                                                <tr>
+                                                    <th>选项名称</th>
+                                                    <th>类型/默认值</th>
+                                                    <th> Data 属性名称</th>
+                                                    <th>描述</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td> animation</td>
+                                                    <td>boolean <br><em>默认值：true</em></td>
+                                                    <td>data-animation</td>
+                                                    <td>提示工具使用 CSS 渐变滤镜效果。</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>html</td>
+                                                    <td>boolean <br><em>默认值：false</em></td>
+                                                    <td>data-html</td>
+                                                    <td>向提示工具插入 HTML。如果为 false，jQuery 的 text 方法将被用于向 dom 插入内容。如果您担心 XSS 攻击，请使用 text。</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>placement</td>
+                                                    <td>string|function <br><em>默认值：top</em></td>
+                                                    <td>data-placement</td>
+                                                    <td>规定如何定位提示工具（即 top|bottom|left|right|auto）。<br> 当指定为&nbsp;<em>auto</em>&nbsp;时，会动态调整提示工具。例如，如果 placement 是 "auto left"，提示工具将会尽可能显示在左边，在情况不允许的情况下它才会显示在右边。</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>selector</td>
+                                                    <td>string <br><em>默认值：false</em></td>
+                                                    <td>data-selector</td>
+                                                    <td>如果提供了一个选择器，提示工具对象将被委派到指定的目标。</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>title</td>
+                                                    <td>string | function <br><em>默认值：''</em></td>
+                                                    <td>data-title</td>
+                                                    <td>如果未指定&nbsp;<em>title</em>&nbsp;属性，则 title 选项是默认的 title 值。</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>trigger</td>
+                                                    <td>string <br><em>默认值：'hover focus'</em></td>
+                                                    <td>data-trigger</td>
+                                                    <td>定义如何触发提示工具：<strong>&nbsp;click| hover | focus | manual</strong>。您可以传递多个触发器，每个触发器之间用空格分隔。</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>content</td>
+                                                    <td>string | function <br><em>默认值：''</em></td>
+                                                    <td>
+                                                        data-content</td>
+                                                    <td>如果未指定&nbsp;<em>data-content</em>&nbsp;属性，则使用默认的 content 值。</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>delay</td>
+                                                    <td>number | object <br><em>默认值：0</em></td>
+                                                    <td>data-delay</td>
+                                                    <td>延迟显示和隐藏提示工具的毫秒数 - 对 manual 手动触发类型不适用。如果提供的是一个数字，那么延迟将会应用于显示和隐藏。如果提供的是对象，结构如下所示：
+                                                        <pre>
+                                                            <code class="language-html" data-lang="html">
+                                                                delay:{ show: 500, hide: 100 }
+                                                            </code>
+                                                        </pre>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>container</td>
+                                                    <td>string | false <br><em>默认值：false</em></td>
+                                                    <td>data-container</td>
+                                                    <td>向指定元素追加提示工具。 <br> 实例： container: 'body'</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                                <section class="table-box m-t-20">
+                                    <div class="table-body">
+                                        <table class="table table-striped table-bordered table-left">
+                                            <caption>2.方法</caption>
+                                            <thead>
+                                                <tr>
+                                                    <th>方法</th>
+                                                    <th>描述</th>
+                                                    <th>实例</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>Options:</strong>&nbsp;.tooltip(options)</td>
+                                                    <td>向元素集合附加提示工具句柄。</td>
+                                                    <td>
+                                                        <pre>
+                                                            <code class="language-html" data-lang="html">
+                                                                $('#element').tooltip(options)
+                                                            </code>
+                                                        </pre>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Toggle:</strong>&nbsp;.tooltip('toggle')</td>
+                                                    <td>切换显示/隐藏元素的提示工具。</td>
+                                                    <td>
+                                                        <pre>
+                                                            <code class="language-html" data-lang="html">
+                                                                $('#element').tooltip('toggle')
+                                                            </code>
+                                                        </pre>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Show:</strong>&nbsp;.tooltip('show')</td>
+                                                    <td>显示元素的提示工具。</td>
+                                                    <td>
+                                                        <pre>
+                                                            <code class="language-html" data-lang="html">
+                                                                $('#element').tooltip('show')
+                                                            </code>
+                                                        </pre>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Hide:</strong>&nbsp;.tooltip('hide')</td>
+                                                    <td>隐藏元素的提示工具。</td>
+                                                    <td>
+                                                        <pre class="prettyprint"></pre>
+                                                        <pre>
+                                                            <code class="language-html" data-lang="html">
+                                                                $('#element').tooltip('hide')
+                                                            </code>
+                                                        </pre>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Destroy:</strong>&nbsp;.tooltip('destroy')</td>
+                                                    <td>隐藏并销毁元素的提示工具。</td>
+                                                    <td>
+                                                        <pre class="prettyprint"></pre>
+                                                        <pre>
+                                                            <code class="language-html" data-lang="html">
+                                                                $('#element').tooltip('destroy')
+                                                            </code>
+                                                        </pre>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                                <section class="table-box m-t-20">
+                                    <div class="table-body">
+                                        <table class="table table-striped table-bordered table-left">
+                                            <caption>3.事件</caption>
+                                            <thead>
+                                                <tr>
+                                                    <th>事件</th>
+                                                    <th>描述</th>
+                                                    <th>实例</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody style="border:0px;">
+                                                <tr>
+                                                    <td>show.bs.tooltip</td>
+                                                    <td>当调用 show 实例方法时立即触发该事件。</td>
+                                                    <td>
+                                                        <pre>
+                                                            <code class="language-html" data-lang="html">
+                                                                $('#myTooltip').on('show.bs.tooltip', function () {
+                                                                    // 执行一些动作...
+                                                                })
+                                                            </code>
+                                                        </pre>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>shown.bs.tooltip</td>
+                                                    <td>当提示工具对用户可见时触发该事件（将等待 CSS 过渡效果完成）。</td>
+                                                    <td>
+                                                        <pre>
+                                                            <code class="language-html" data-lang="html">
+                                                                $('#myTooltip').on('shown.bs.tooltip', function () {
+                                                                    // 执行一些动作...
+                                                                })
+                                                            </code>
+                                                        </pre>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>hide.bs.tooltip</td>
+                                                    <td>当调用 hide 实例方法时立即触发该事件。</td>
+                                                    <td>
+                                                        <pre>
+                                                            <code class="language-html" data-lang="html">
+                                                                $('#myTooltip').on('hide.bs.tooltip', function () {
+                                                                    // 执行一些动作...
+                                                                })
+                                                            </code>
+                                                        </pre>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>hidden.bs.tooltip</td>
+                                                    <td> 当提示工具对用户隐藏时触发该事件（将等待 CSS 过渡效果完成）。</td>
+                                                    <td>
+                                                        <pre>
+                                                            <code class="language-html" data-lang="html">
+                                                                $('#myTooltip').on('hidden.bs.tooltip', function () {
+                                                                    // 执行一些动作...
+                                                                })
+                                                            </code>
+                                                        </pre>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <!-- bootstrap 工具提示 tooltip end -->
+                        <!-- Bootstrap 实例 - 弹出框（Popover）插件 start -->
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title"><strong>bootstrap 中的 popover 插件</strong></h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="divider-horizontal">
+                                    <span class="divider-txt">触发方式</span>
+                                </div>
+                                <div class="button-box tac p-t-0">
+                                    <a class="btn btn-default" data-toggle="popover" data-container="body" title="Popover title" data-content="我是 click 触发的" href="javascript:;">点击触发</a>
+                                    <a class="btn btn-primary" data-toggle="popover" data-trigger="hover" data-container="body" title="Popover title" data-content="我是 hover 触发的" href="javascript:;">经过触发</a>
+                                    <a class="btn btn-success" data-toggle="popover" data-trigger="focus" data-container="body" title="Popover title" data-content="我是 focus 触发的" href="javascript:;">焦点触发</a>
+                                </div>
+                                <div class="divider-horizontal">
+                                    <span class="divider-txt">4个弹出方向</span>
+                                </div>
+                                <div class="button-box tac p-t-0">
+                                    <a class="btn btn-default" data-toggle="popover" data-container="body" data-placement="left" title="Popover title" data-content="左侧的 Popover 中的一些内容" href="javascript:;">左侧的 Popover</a>
+                                    <a class="btn btn-success" data-toggle="popover" data-container="body" data-placement="top" title="Popover title" data-content="顶部的 Popover 中的一些内容" href="javascript:;">顶部的 Popover</a>
+                                    <a class="btn btn-primary" data-toggle="popover" data-container="body" data-placement="bottom" title="Popover title" data-content="底部的 Popover 中的一些内容" href="javascript:;">底部的 Popover</a>
+                                    <a class="btn btn-warning" data-toggle="popover" data-container="body" data-placement="right" title="Popover title" data-content="右侧的 Popover 中的一些内容" href="javascript:;">右侧的 Popover</a>
+                                </div>
+                                <div class="divider-horizontal">
+                                    <span class="divider-txt">以js的形式调用，内容为html</span>
+                                </div>
+                                <div class="button-box tac p-t-0">
+                                    <a class="btn btn-default popover-trigger-btn" href="javascript:;">js调用</a>
+                                    <a class="btn btn-primary popover-trigger-btn" href="javascript:;">js调用</a>
+                                    <a class="btn btn-success popover-trigger-btn" href="javascript:;">js调用</a>
+                                </div>
+
+                                <div class="callout">
+                                    <h4 class="callout-tit">popover 的 参数，方法，事件与 tooltip 基本相同</h4>
+                                    <p class="callout-txt">参数，方法，事件的用法和可配置相基本相同，只有个别不同的地方。</p>
+                                    <ul class="callout-list-group">
+                                        <li class="callout-list-item">1.参数：多出一个参数，在下面</li>
+                                        <li class="callout-list-item">2.方法：传递的参数相同只是在调用的时候将 <code>$('#element').tooltip('')</code>改为<code>$('#element').popover('')</code></li>
+                                        <li class="callout-list-item">3.方法：使用的方法结构等是一样的，只是将<code>hidden.bs.tooltip</code>改为<code>hidden.bs.popover</code></li>
+                                    </ul>
+                                </div>
+                                <section class="table-box m-t-20">
+                                    <div class="table-body">
+                                        <table class="table table-striped table-bordered table-left">
+                                            <caption>1.与 tooltip 相比，多出的参数</caption>
+                                            <thead>
+                                                <tr>
+                                                    <th>选项名称</th>
+                                                    <th>类型/默认值</th>
+                                                    <th>Data 属性名称</th>
+                                                    <th>描述</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>content</td>
+                                                    <td>string | function<br><em>默认值：''</em></td>
+                                                    <td>data-content</td>
+                                                    <td>要显示的内容</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        <!-- Bootstrap 实例 - 弹出框（Popover）插件 end -->
+                        <!-- bootstrap 下拉菜单 dropdown 插件 start -->
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title"><strong>bootstrap 下拉菜单 dropdown 插件</strong></h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="dropdown-btns">
+                                    <div class="dropdown-btn">
+                                        <div class="dropdown">
+                                            <button class="btn btn-danger" type="button" data-toggle="dropdown">Dropdown（左下）<i class="caret caret-up"></i></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-btn">
+                                        <div class="dropup">
+                                            <button class="btn btn-primary" type="button" data-toggle="dropdown">dropup（左上）<i class="caret caret-up"></i></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-btn">
+                                        <div class="dropdown">
+                                            <button class="btn btn-success" type="button" data-toggle="dropdown">dropdown（右下）<i class="caret caret-up"></i></button>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-btn">
+                                        <div class="dropup">
+                                            <button class="btn btn-muted" type="button" data-toggle="dropdown">dropup（右上）<i class="caret caret-up"></i></button>
+                                            <ul class="dropdown-menu dropdown-menu-right">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="dropdown-btn">
+                                        <div class="dropup">
+                                            <button class="btn btn-warning" type="button" data-toggle="dropdown" data-hover="dropdown" data-delay="0">hover事件<i class="caret caret-up"></i></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">引入补充文件bootstrap-hover-dropdown.js</a></li>
+                                                <li><a href="#">data-hover 配置启动方式</a></li>
+                                                <li><a href="#">data-delay 配置离开后多久消失，默认是500ms</a></li>
+                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- bootstrap 下拉菜单 dropdown 插件 end -->
+                        <!-- bootstrap 下拉菜单 Collapse 插件 start -->
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title"><strong>bootstrap Collapse 插件</strong></h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample">Link with href</a>
+                                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample">Button with</button>
+                                <div class="collapse in" id="collapseExample">
+                                    <div class="collapse-body bg-default m-t-10">
+                                        <div class="callout bg-white">
+                                            <h4 class="callout-tit">通过类更改显示和隐藏另一个元素：</h4>
+                                            <ul class="callout-list-group">
+                                                <li class="callout-list-item"><code>.collapse</code> 隐藏的内容。</li>
+                                                <li class="callout-list-item"><code>.collapsing</code>在转换期间应用。</li>
+                                                <li class="callout-list-item"><code>.collapse.in</code>显示内容。</li>
+                                            </ul>
+                                            <h4 class="callout-tit">collapse的API</h4>
+                                            <ul class="callout-list-group">
+                                                <li class="callout-list-item"><code>data-toggle="collapse"</code> 触发collapse事件的按钮。</li>
+                                                <li class="callout-list-item"><code>data-target="#collapse01"</code> 找到需要控制的collapse的元素。如果是a标签可以用<code>href="#collapse01"</code>替换<code>data-target="#collapse01"</code>来实现。</li>
+                                                <li class="callout-list-item"><code>data-parent="#collapse01"</code> 需要相关的共同的父元素，实现手风琴效果。使用该效果，控制的子元素必须含有.panel类名。</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="divider-horizontal">
+                                    <span class="divider-txt">下面互相关联</span>
+                                </h5>
+                                <div class="collapse-group" id="accordion">
+                                    <div class="panel collapse-item">
+                                        <div class="collapse-head">
+                                            <p class="collapse-tit" data-toggle="collapse" data-target="#collapse01" data-parent="#accordion">Collapsible Group Item #01</p>
+                                        </div>
+                                        <div class="collapse in" id="collapse01">
+                                            <div class="collapse-body">
+                                                <div class="callout">
+                                                    <h4 class="callout-tit">collapse的API</h4>
+                                                    <ul class="callout-list-group">
+                                                        <li class="callout-list-item"><code>data-toggle="collapse"</code> 触发collapse事件的按钮。</li>
+                                                        <li class="callout-list-item"><code>data-target="#collapse01"</code> 找到需要控制的collapse的元素。如果是a标签可以用<code>href="#collapse01"</code>替换<code>data-target="#collapse01"</code>来实现。</li>
+                                                        <li class="callout-list-item"><code>data-target="#collapse01"</code> 需要相关的共同的父元素，实现手风琴效果。使用该效果，控制的子元素必须含有.panel类名。</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel collapse-item">
+                                        <div class="collapse-head">
+                                            <p class="collapse-tit" data-toggle="collapse" data-target="#collapse02" data-parent="#accordion">Collapsible Group Item #02</p>
+                                        </div>
+                                        <div class="collapse" id="collapse02">
+                                            <div class="collapse-body">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel collapse-item">
+                                        <div class="collapse-head">
+                                            <p class="collapse-tit">Collapsible Group Item #03 <a class="m-l-30" data-toggle="collapse" href="#collapse03" data-parent="#accordion">click me</a></p>
+                                        </div>
+                                        <div class="collapse" id="collapse03">
+                                            <div class="collapse-body">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="divider-horizontal">
+                                    <span class="divider-txt">下面三个不互相关联</span>
+                                </h5>
+                                <div class="collapse-group">
+                                    <div class="collapse-item">
+                                        <div class="collapse-head">
+                                            <p class="collapse-tit">Collapsible Group Item #1 <a class="m-l-30" data-toggle="collapse" href="#collapse1">click me</a></p>
+                                        </div>
+                                        <div class="collapse in" id="collapse1">
+                                            <div class="collapse-body">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="collapse-item">
+                                        <div class="collapse-head">
+                                            <p class="collapse-tit" data-toggle="collapse" data-target="#collapse2">Collapsible Group Item #2</p>
+                                        </div>
+                                        <div class="collapse" id="collapse2">
+                                            <div class="collapse-body">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="collapse-item">
+                                        <div class="collapse-head">
+                                            <p class="collapse-tit" data-toggle="collapse" data-target="#collapse3">Collapsible Group Item #3</p>
+                                        </div>
+                                        <div class="collapse" id="collapse3">
+                                            <div class="collapse-body">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h5 class="divider-horizontal">
+                                    <span class="divider-txt">页面循环刷新出来的，没有ID</span>
+                                </h5>
+                                <div class="collapse-group">
+                                    <div class="collapse-item">
+                                        <div class="collapse-head">
+                                            <p class="collapse-tit active" data-toggle="page-collapse">Collapsible Group Item #1</p>
+                                        </div>
+                                        <div class="collapse">
+                                            <div class="collapse-group p-20">
+                                                <div class="collapse-item">
+                                                    <div class="collapse-head">
+                                                        <p class="collapse-tit active" data-toggle="page-collapse" data-relevancy="true">Collapsible Group Item #1-1</p>
+                                                    </div>
+                                                    <div class="collapse">
+                                                        <div class="collapse-body">
+                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="collapse-item">
+                                                    <div class="collapse-head">
+                                                        <p class="collapse-tit" data-toggle="page-collapse" data-relevancy="true">Collapsible Group Item #1-2</p>
+                                                    </div>
+                                                    <div class="collapse">
+                                                        <div class="collapse-body">
+                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="collapse-item">
+                                                    <div class="collapse-head">
+                                                        <p class="collapse-tit" data-toggle="page-collapse" data-relevancy="true">Collapsible Group Item #1-3</p>
+                                                    </div>
+                                                    <div class="collapse">
+                                                        <div class="collapse-body">
+                                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="collapse-item">
+                                        <div class="collapse-head">
+                                            <p class="collapse-tit" data-toggle="page-collapse">Collapsible Group Item #2</p>
+                                        </div>
+                                        <div class="collapse">
+                                            <div class="collapse-body">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="collapse-item">
+                                        <div class="collapse-head">
+                                            <p class="collapse-tit" data-toggle="page-collapse">Collapsible Group Item #3</p>
+                                        </div>
+                                        <div class="collapse">
+                                            <div class="collapse-body">
+                                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <script type="text/javascript">
+                                    $(function() {
+                                        $('[data-toggle="page-collapse"]').mocCollapse({
+                                            showBack:function(){
+                                                console.log( 'showBack:'+$(this).text() );
+                                            },
+                                            shownBack:function(){
+                                                console.log( 'shownBack:'+$(this).text() );
+                                            },
+                                            hideBack:function(){
+                                                console.log( 'hideBack:'+$(this).text() );
+                                            },
+                                            hiddenBack:function(){
+                                                console.log( 'hiddenBack:'+$(this).text() );
+                                            }
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                        <!-- bootstrap 下拉菜单 Collapse 插件 end -->
+                        <!-- bootstrap 标签页（Tab）插件 start -->
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title"><strong>bootstrap 标签页（Tab）插件</strong></h2>
+                                </div>
+                            </div>
+                            <div class="panel-body" id="accordion">
+                                <ul class="tabs-nav">
+                                    <li class="tabs-nav-list active"><a data-toggle="tab" href="#home">菜鸟教程</a></li>
+                                    <li class="tabs-nav-list"><a data-toggle="tab" href="#ios">iOS</a></li>
+                                    <li class="tabs-nav-list dropdown">
+                                        <a href="#" data-toggle="dropdown">Java <i class="caret caret-up"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a data-toggle="tab" href="#jmeter">jmeter</a></li>
+                                            <li><a data-toggle="tab" href="#ejb">ejb</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="tabs-content">
+                                    <div class="tabs-content-list fade in active" id="home">
+                                        <p style="padding: 30px 60px;">菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
+                                    </div>
+                                    <div class="tabs-content-list fade" id="ios">
+                                        <p style="padding: 30px 60px;">iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+                                    </div>
+                                    <div class="tabs-content-list fade" id="jmeter">
+                                        <p style="padding: 30px 60px;">jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+                                    </div>
+                                    <div class="tabs-content-list fade" id="ejb">
+                                        <p style="padding: 30px 60px;">Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+                                        </p>
+                                    </div>
+                                </div>
+                            
+                                <ul class="tabs-nav">
+                                    <li class="tabs-nav-list active"><a href="#home1" data-toggle="tab">菜鸟教程</a></li>
+                                    <li class="tabs-nav-list"><a href="#ios1" data-toggle="tab">iOS</a></li>
+                                    <li class="tabs-nav-list dropdown">
+                                        <a href="#" id="myTabDrop1" data-toggle="dropdown">Java <i class="caret caret-up"></i></a>
+                                        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                                            <li><a href="#jmeter1" data-toggle="tab">jmeter</a></li>
+                                            <li><a href="#ejb1" data-toggle="tab">ejb</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <div class="tabs-content">
+                                    <div class="tabs-content-list fade in active" id="home1">
+                                        <p style="padding: 30px 60px;">菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
+                                    </div>
+                                    <div class="tabs-content-list fade" id="ios1">
+                                        <p style="padding: 30px 60px;">iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+                                    </div>
+                                    <div class="tabs-content-list fade" id="jmeter1">
+                                        <p style="padding: 30px 60px;">jMeter 是一款开源的测试软件。它是 100% 纯 Java 应用程序，用于负载和性能测试。</p>
+                                    </div>
+                                    <div class="tabs-content-list fade" id="ejb1">
+                                        <p style="padding: 30px 60px;">Enterprise Java Beans（EJB）是一个创建高度可扩展性和强大企业级应用程序的开发架构，部署在兼容应用程序服务器（比如 JBOSS、Web Logic 等）的 J2EE 上。
+                                        </p>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                    $(function() {
+                                        /**
+                                         * tab修改初始参数
+                                         */
+                                        $('.tabs-nav-list:eq(1) a').tab('show');
+
+                                        // 该事件在标签页显示时触发，但是必须在新标签页被显示之前。
+                                        $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+                                            // e.target 激活的标签页
+                                            // e.relatedTarget 前一个激活的标签页
+                                        });
+                                        // 该事件在标签页显示时触发，但是必须在某个标签页已经显示之后。
+                                        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+                                            // e.target 激活的标签页
+                                            // e.relatedTarget 前一个激活的标签页
+                                        });
+                                        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+                                            // 获取已激活的标签页的名称
+                                            var activeTab = $(e.target).text();
+                                            // 获取前一个激活的标签页的名称
+                                            var previousTab = $(e.relatedTarget).text();
+                                            // alert(activeTab);
+                                            // alert(previousTab);
+                                        });
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                        <!-- bootstrap 标签页（Tab）插件 end -->
+                        <!-- Bootstrap 按钮（Button）插件 start -->
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title"><strong>bootstrap中的button插件</strong></h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <h5 class="divider-horizontal">
+                                    <span class="divider-txt" onclick="radiofn();">按钮组件 单选按钮（Radio）</span>
+                                </h5>
+                                <div class="button-box">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-line-danger">
+                                            <input type="radio" name="options" value="1"> 选项 1</label>
+                                        <label class="btn btn-line-danger active">
+                                            <input type="radio" name="options" value="2" checked="checked"> 选项 2</label>
+                                        <label class="btn btn-line-danger">
+                                            <input type="radio" name="options" value="3"> 选项 3</label>
+                                        <label class="btn btn-line-danger">
+                                            <input type="radio" name="options" value="4"> 选项 4</label>
+                                        <label class="btn btn-line-danger">
+                                            <input type="radio" name="options" value="5"> 选项 5</label>
+                                        <label class="btn btn-line-danger">
+                                            <input type="radio" name="options" value="6"> 选项 6</label>
+                                    </div>
+                                </div>
+                                <h5 class="divider-horizontal">
+                                    <span class="divider-txt" onclick="checkboxfn();">按钮组件 复选按钮（Checkbox）</span>
+                                </h5>
+                                <div class="button-box">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-line-danger">
+                                            <input type="checkbox" name="checkbox.name" value="1"> 选项 1</label>
+                                        <label class="btn btn-line-danger">
+                                            <input type="checkbox" name="checkbox.name" value="2"> 选项 2</label>
+                                        <label class="btn btn-line-danger active">
+                                            <input type="checkbox" name="checkbox.name" value="3" checked="checked"> 选项 3</label>
+                                        <label class="btn btn-line-danger">
+                                            <input type="checkbox" name="checkbox.name" value="4"> 选项 4</label>
+                                        <label class="btn btn-line-danger">
+                                            <input type="checkbox" name="checkbox.name" value="5"> 选项 5</label>
+                                        <label class="btn btn-line-danger">
+                                            <input type="checkbox" name="checkbox.name" value="6"> 选项 6</label>
+                                    </div>
+                                </div>
+                                <h5 class="divider-horizontal">
+                                    <span class="divider-txt">单个切换</span>
+                                </h5>
+                                <div class="button-box">
+                                    <button class="btn btn-success" data-toggle="button" href="javascript:;">按钮</button>
+                                    <button class="btn btn-success" data-toggle="button" href="javascript:;">按钮</button>
+                                    <button class="btn btn-success" data-toggle="button" href="javascript:;">按钮</button>
+                                </div>
+                                <div class="button-box">
+                                    <button id="fat-btn" class="btn btn-default" data-loading-text="Loading..." type="button">被控制的按钮</button>
+                                    <button id="fat-btn1" class="btn btn-primary" type="button">正在加载中</button>
+                                    <button id="fat-btn2" class="btn btn-primary" type="button">恢复原样，停止加载</button>
+                                </div>
+                                <div class="button-box">
+                                    <h2>点击每个按钮查看方法效果</h2>
+                                    <h4>演示 .button('toggle') 方法</h4>
+                                    <div id="myButtons1" class="bs-example">
+                                        <button type="button" class="btn btn-primary">原始</button>
+                                    </div>
+                                    <h4>演示 .button('loading') 方法</h4>
+                                    <div id="myButtons2" class="bs-example">
+                                        <button type="button" class="btn btn-primary" data-loading-text="Loading...">原始</button>
+                                    </div>
+                                    <h4>演示 .button('reset') 方法</h4>
+                                    <div id="myButtons3" class="bs-example">
+                                        <button type="button" class="btn btn-primary" data-loading-text="Loading...">原始</button>
+                                    </div>
+                                    <h4>演示 .button(string) 方法</h4>
+                                    <button type="button" class="btn btn-primary" id="myButton4" data-complete-text="Loading finished">请点击我</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Bootstrap 按钮（Button）插件 end -->
+                        <!-- Bootstrap 滚动监听（scrollspy）插件 start -->
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title"><strong>Bootstrap 滚动监听（scrollspy）插件</strong></h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+
+                                <div class="callout">
+                                    <h4 class="callout-tit">通过 JavaScript 调用</h4>
+                                    <p class="callout-txt">在 CSS 中添加 <code>position: relative;</code> 之后，通过 JavaScript 代码启动滚动监听插件：<code></code></p>
+                                    <pre>
+                                        <code class="language-html" data-lang="html" style="color: #333">
+                                            $('body').scrollspy({ target: '#navbar-example' })
+                                        </code>
+                                    </pre>
+                                    <h4 class="callout-tit">方法</h4>
+                                    <p class="callout-txt"><code>.scrollspy('refresh')</code></p>
+                                    <p class="callout-txt">当使用滚动监听插件的同时在 DOM 中添加或删除元素后，你需要像下面这样调用此刷新（ refresh） 方法：</p>
+                                    <pre>
+                                        <code class="language-html" data-lang="html">
+                                            $('[data-spy="scroll"]').each(function () {
+                                                var $spy = $(this).scrollspy('refresh')
+                                            })
+                                        </code>
+                                    </pre>
+                                    <h4 class="callout-tit">参数</h4>
+                                    <p class="callout-txt">可以通过 data 属性或 JavaScript 传递参数。对于 data 属性，其名称是将参数名附着到 data- 后面组成，例如 data-offset=""。</p>
+                                    <section class="table-box">
+                                        <div class="table-body">
+                                            <table class="table table-bordered table-left">
+                                                <thead>
+                                                    <tr>
+                                                        <th>名称</th>
+                                                        <th>类型</th>
+                                                        <th>默认值</th>
+                                                        <th>描述</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>offset</td>
+                                                        <td>number</td>
+                                                        <td>10</td>
+                                                        <td>计算滚动位置时相对于顶部的偏移量（像素数）。</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                    <h4 class="callout-tit">事件</h4>
+                                    <section class="table-box">
+                                        <div class="table-body">
+                                            <table class="table table-bordered table-left">
+                                                <thead>
+                                                    <tr>
+                                                        <th>事件类型</th>
+                                                        <th>描述</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>activate.bs.scrollspy</td>
+                                                        <td>每当一个新条目被激活后都将由滚动监听插件触发此事件。</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                    <pre>
+                                        <code class="language-html" data-lang="html">
+                                            $('#myScrollspy').on('activate.bs.scrollspy', function () {
+                                                // do something…
+                                            })
+                                        </code>
+                                    </pre>
+                                </div>
+
+                                <nav class="top-nav-default">
+                                    <div class="nav nav-bar">
+                                        <ul class="nav-group">
+                                            <li class="nav-item"><a href="#scrollspyHome">首页</a></li>
+                                            <li class="nav-item"><a href="#scrollspyContact">联系我们</a></li>
+                                            <li class="nav-item dropdown">
+                                                <a data-toggle="dropdown" href="#">产品分类 <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#scrollspyMusic">音乐</a></li>
+                                                    <li><a href="#scrollVideo">视频</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                                <div class="scrollspy-box" data-spy="scroll" data-target=".top-nav-default" data-offset="60">
+                                    <section id="scrollspyHome">
+                                        <h2>欢迎来到饭盒儿的世界</h2>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                        <p>拥抱气味相投的有趣之人；订阅一个灵魂共振的星球；捕捉那些砰然心动的瞬间；我们只邂逅可爱的陌生人。</p>
+                                    </section>
+                                    <section id="scrollspyContact">
+                                        <h2>联系我们</h2>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                        <p>我知道我不是一个很好的记录者，但我比任何人都喜欢回首自己来时的路，我不但的回首，伫足，然手时光仍下我轰轰烈烈的向前奔去。</p>
+                                    </section>
+                                    <section id="scrollspyMusic">
+                                        <h2>音乐</h2>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                        <p>我想有一天，我和一个人足够契合，我们可以一整天听着音乐，吃着好吃的，天南地北地聊着，哪怕两两相望静静坐着也不会尴尬不会无聊。友情也好，爱情也好。</p>
+                                    </section>
+                                    <section id="scrollVideo">
+                                        <h2>视频</h2>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                        <p>那朵叫青春的云，曾经飘过我们的天空，淋湿了我们的心情，却和岁月一起馈赠给我们两个字——成长。只在此刻，与时光许下诺言，相期，莫违。</p>
+                                    </section>
+                                </div>
+
+                                <script>
+                                    $('.top-nav-default').on('activate.bs.scrollspy', function () {
+                                        console.log("触发了滚动监听");
+                                    })
+                                </script>
+                            </div>
+                        </div>
+                        <!-- Bootstrap 滚动监听（scrollspy）插件 end -->
+                    </div>
+                </div>
+            </main>
+            <!-- content end -->
+        </article>
+        <!-- page-bodier end -->
+    </section>
+    <!-- page-container end -->
+    <!-- 模态框（Modal） start -->
+    <div class="modal fade" id="myModal" data-backdrop="true">
+        <div class="modal-dialog modal-draggable" style="width: 80%;">
+            <!-- 有这个类名：modal-draggable可以拖动（没有不可以） 依赖jq-ui的js -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题11111（可以拖拽）</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="f-s-30 tac"><a onclick="closeModal()" href="javascript:;">点我关闭</a></p>
+                    <div class="callout">
+                        <h4 class="callout-tit">modal的API</h4>
+                        <ul class="callout-list-group">
+                            <li class="callout-list-item"><code>data-toggle="modal"</code> 触发modal事件的条件，通过<code>data-target="#myModal2"</code> 或 <code>href="#myModal2"</code> 找到modal的元素</li>
+                            <li class="callout-list-item"><code>data-dismiss="modal"</code> 关闭modal的按钮（只有medal的内部元素有作用）</li>
+                            <li class="callout-list-item"><code>tabindex="-1"</code> 不设置tabindex="-1"，可以通过tab键切换除模态框外的其他元素的焦点，模态框设置了tabindex='-1'，tab键只能切换模态框内的元素的焦点。</li>
+                        </ul>
+                        <p class="callout-txt"><strong>通过js控制modal</strong></p>
+                        <ul class="callout-list-group">
+                            <li class="callout-list-item"><code>$("#myModal").modal();</code> modal框的调用</li>
+                            <li class="callout-list-item"><code>$("#myModal").modal('hide');</code> modal框的关闭</li>
+                        </ul>
+                        <p class="callout-txt"><strong>通过class控制modal</strong></p>
+                        <ul class="callout-list-group">
+                            <li class="callout-list-item"><code>fade</code> 带有动画效果</li>
+                            <li class="callout-list-item"><code>modal-draggable</code> 带有拖拽功能</li>
+                            <li class="callout-list-item"><code>modal-static</code> 添加后，没有遮罩层，可以操控后面的页面，但是当modal框超出屏幕的时候，不会出现滚动条，所以当modal框超出屏幕的时候不可以使用。</li>
+                        </ul>
+                        <h4 class="callout-tit">与遮罩层相关的</h4>
+                        <ul class="callout-list-group">
+                            <li class="callout-list-item"><code>data-backdrop="false"</code> 禁止遮罩层的显示，并且点击外部不触发模态框关闭</li>
+                            <li class="callout-list-item"><code>data-backdrop="static"</code> 显示遮罩层，击外部不触发模态框关闭</li>
+                            <li class="callout-list-item"><code>data-backdrop="true"</code> 显示遮罩层，击外部触发模态框关闭</li>
+                        </ul>
+                        <h4 class="callout-tit">盲人或者一些可读设备设置的</h4>
+                        <ul class="callout-list-group">
+                            <li class="callout-list-item"><code>role="dialog"</code> 是告诉设备这是弹出框</li>
+                            <li class="callout-list-item"><code>aria-labelledby=".."</code> 里面是描述信息<code>aria-hidden="true"</code> 再把它隐藏掉，一般人用不到，这样写比较规范</li>
+                            <li class="callout-list-item"><code>aria-describedby</code> 为模态框 .modal 添加描述性信息。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-muted" onclick="alertfun()">关闭</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">提交更改</button>
+                </div>
+            </div>
+        </div>
+    </div>          
+    <div class="modal fade" id="myModal2" data-backdrop="static">
+        <div class="modal-dialog modal-draggable" style="width: 60%;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="modal-close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题2222（可以拖拽）</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="height: 120px;">在这里添加一些文本</p>
+                    <p style="height: 120px;">在这里添加一些文本</p>
+                    <p style="height: 120px;">在这里添加一些文本</p>
+                    <p style="height: 120px;">在这里添加一些文本</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-muted" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">打开myModal3</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="myModal3">
+        <div class="modal-dialog" style="width: 1200px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="modal-close" type="button" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">模态框（Modal）标题3333（不可以拖拽）</h4>
+                </div>
+                <div class="modal-body">
+                    <p style="height: 120px;">在这里添加一些文本</p>
+                    <p style="height: 120px;">在这里添加一些文本</p>
+                    <p style="height: 120px;">在这里添加一些文本</p>
+                    <p style="height: 120px;">在这里添加一些文本</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-muted" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">提交更改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 模态框（Modal） end -->
+    <script type="text/javascript">
+
+        function alertfun(){
+            $.mocAlert({
+                content: '<p style="color: red;">您删除了一个图片</p>'    //提示对方的内容
+            }).done(function() {
+                $("#myModal").modal('hide');
+            });
+        }
+
+        // modal框的调用
+        function openModal() {
+            $("#myModal2").modal();
+        };
+        // modal框的关闭
+        function closeModal() {
+            $("#myModal").modal('hide');
+        };
+    </script>
+
+    <script type="text/javascript">
+        $(function() {
+            /**
+             * popover的调用
+             */
+            $('.popover-trigger-btn').popover({
+                trigger: 'click', // 触发方式
+                placement: 'top', // 弹出结构的方向
+                delay: 0, // 触发显示的延迟
+                container: 'body', // 生成结构所在的位置
+                animation: true, // 为弹出框赋予淡出的 CSS 动画效果。
+                title: '标题', // 设置 弹出框 的标题
+                html: true, // 为true的话，data-content里就能放html代码了
+                content: '<div class="popover-txt"><p class="popover-dt text-red">html</p><div class="popover-dd">触发方式</div></div>' //这里可以直接写字符串，也可以 是一个函数，该函数返回一个字符串；
+            });
+        });
+    </script>
+    
+    <script type="text/javascript">
+        function radiofn() {
+            var txt = [];
+            var dom = $('[name="options"]:checked');
+            dom.each(function(index, el) {
+                txt.push($(el).val());
+            });
+            console.log(txt);
+        }
+        function checkboxfn() {
+            var txt = [];
+            var dom = $('[name="checkbox.name"]:checked');
+            dom.each(function(index, el) {
+                txt.push($(el).val());
+            });
+            console.log(txt);
+        }
+        $(function() {
+            $("#myButtons1 .btn").click(function() {
+                $(this).button('toggle');
+            });
+        });
+        $(function() {
+            $("#myButtons2 .btn").click(function() {
+                $(this).button('loading').delay(1000).queue(function() {});
+            });
+        });
+        $(function() {
+            $("#myButtons3 .btn").click(function() {
+                $(this).button('loading').delay(1000).queue(function() {
+                    $(this).button('reset');
+                });
+            });
+        });
+        $(function() {
+            $("#myButton4").click(function() {
+                $(this).button('loading').delay(1000).queue(function() {
+                    $(this).button('complete');
+                });
+            });
+        });
+        $(function() {
+            // 通过别的控制
+            $("#fat-btn1").click(function() {
+                $("#fat-btn").button('loading');
+            });
+            $("#fat-btn2").click(function() {
+                $("#fat-btn").button('reset');
+                $("#fat-btn").dequeue();
+            });
+        });
+    </script>
+</body>
+
+</html>

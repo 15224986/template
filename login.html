@@ -1,0 +1,96 @@
+<!doctype html>
+<html class="full-screen" lang="zh-CN">
+
+<head>
+    <!--[include "./public/head-meta.html"]-->
+    <meta charset="utf-8" />
+    <!-- 使用最新版的IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 国产浏览器高速模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 在手机上原比例显示，不可以放大缩小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+    <!-- 则手机号码不被显示为拨号链接 -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览 -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- iphone的私有标签，它指定的iphone中safari顶端的状态条的样式 -->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!-- 去除Android平台中对邮箱地址的识别 -->
+    <meta content="email=no" name="format-detection" />
+    <!-- 清除浏览器中的缓存，它和其它几句合起来用，就可以使你再次进入曾经访问过的页面时，ie浏览器必须从服务端下载最新的内容，达到刷新的效果。 -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- 浏览器窗口 图标 -->
+    <link rel="shortcut icon" href="images/favicon/favicon-1.ico" type="image/x-icon">
+    <!--[/include]-->
+
+    <title>Template-login</title>
+
+    <!-- IE 老版本浏览器支持css的新属性 -->
+    <!--[if lt IE 10]>
+        <script src="vendor/html5/html5shiv.js" type="text/javascript"></script>
+        <script src="vendor/html5/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="styles/css/global.css"/>
+    <script type="text/javascript" src="vendor/jquery-1.8.3.min.js"></script>
+    <!-- 多选和单选的美化 -->
+    <link rel="stylesheet" type="text/css" href="vendor/icheck/icheck.css">
+    <script type="text/javascript" src="vendor/icheck/icheck.js"></script>
+    <!-- 项目需求的特殊样式 （放到最后） -->
+    <link rel="stylesheet" type="text/css" href="styles/css/item.css"/>
+    <script type="text/javascript" src="scripts/common.js"></script>
+
+</head>
+
+<body class="page-bg-default">
+
+    <div class="login-content">
+        <header class="login-head">
+            <div class="login-item login-title">
+                <h2 >html5中视频的播放与停止</h2>
+                <h4>调进视频点击按钮才能控制播放跟暂停</h4>
+            </div>
+        </header>
+        <main class="login-body">
+            <form class="login-form">
+                <div class="login-item login-user">
+                    <p class="login-label">登录账号：</p>
+                    <div class="login-value">
+                        <input class="login-input" type="text" value="" placeholder="用户名">
+                    </div>
+                </div>
+                <div class="login-item login-password">
+                    <p class="login-label">登录密码：</p>
+                    <div class="login-value">
+                        <input class="login-input" type="password" placeholder="登录密码">
+                    </div>
+                </div>
+                <div class="login-item login-tool">
+                    <label class="icheck-label">
+                        <input class="icheck-login" name="checknames" value="" type="checkbox" checked>记住密码
+                    </label>
+                </div>
+                <div class="login-item login-btns">
+                    <a class="login-btn" href="javascript:;">登 录</a>
+                </div>
+            </form>
+        </main>
+        <footer class="login-foot">
+            <div class="login-copyright">
+                <p>版权所有：沈阳铁路局</p>
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        $(function(){
+            $(".icheck-login").iCheck({
+                checkboxClass: 'checkbox-login'
+            });
+        });
+    </script>
+
+</body>
+</html>

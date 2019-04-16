@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+// ***************************** divider-horizontal 分隔条的样式 ***********************************
+.divider-horizontal{
+    display: table;
+    width: 100%;
+    min-height: 3px;
+    white-space: nowrap;
+    text-align: center;
+    margin: 10px 0;
+    height: auto;
+    &:before,&:after{
+        content: '';
+        display: table-cell;
+        width: 10000px;
+        background:transparent url('../../images/divider.png') left 0 top 50% repeat-x;
+    }
+    .divider-txt{
+        display: table-cell;
+        padding: 0 16px;
+    }
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,635 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <!--[include "./public/head-meta.html"]-->
+    <meta charset="utf-8" />
+    <!-- 使用最新版的IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 国产浏览器高速模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 在手机上原比例显示，不可以放大缩小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+    <!-- 则手机号码不被显示为拨号链接 -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览 -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- iphone的私有标签，它指定的iphone中safari顶端的状态条的样式 -->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!-- 去除Android平台中对邮箱地址的识别 -->
+    <meta content="email=no" name="format-detection" />
+    <!-- 清除浏览器中的缓存，它和其它几句合起来用，就可以使你再次进入曾经访问过的页面时，ie浏览器必须从服务端下载最新的内容，达到刷新的效果。 -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- 浏览器窗口 图标 -->
+    <link rel="shortcut icon" href="images/favicon/favicon-1.ico" type="image/x-icon">
+    <!--[/include]-->
+    <title>Template-text</title>
+    
+    <!--[include "./public/head-link.html"]-->
+    <!-- IE 老版本浏览器支持css的新属性 html5shiv 支持 html5标签 respond 支持 @media 媒体查询 -->
+    <!--[if lt IE 10]>
+        <script src="vendor/html5/html5shiv.min.js" type="text/javascript"></script>
+        <script src="vendor/html5/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+    <script type="text/javascript" src="vendor/jquery-1.11.3.min.js"></script>
+    <!-- 项目封装 -->
+    <script type="text/javascript" src="scripts/widget.min.js"></script>
+    
+    <!-- 
+       *
+       * 与form表单相关
+       * 
+    -->
+    <!-- 输入框input输入内容格式限制插件 -->
+    <script type="text/javascript" src="vendor/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <script type="text/javascript" src="vendor/inputmask/min/inputmask/bindings/inputmask.binding.min.js"></script>
+    <!-- 日期处理类库 -->
+    <script type="text/javascript" src="vendor/moment/moment.min.js"></script>
+    <!-- 时间插件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="vendor/My97DatePicker/WdatePicker.js"></script>
+    <!-- 下拉插件 多选 -->
+    <link rel="stylesheet" type="text/css" href="vendor/select2-4.0.2/select2.css">
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2-Initials.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/i18n/zh-CN.js"></script><!-- 中文提示 -->
+    <!-- 多选和单选的美化 -->
+    <link rel="stylesheet" type="text/css" href="vendor/icheck/icheck.css">
+    <script type="text/javascript" src="vendor/icheck/icheck.js"></script>
+    <!-- 上传附件的组件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/webuploader/diyUpload.css">
+    <script type="text/javascript" src="vendor/webuploader/webuploader.js"></script>
+    <script type="text/javascript" src="vendor/webuploader/diyUpload.js"></script>
+    <!-- 富文本编辑器  -->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <!-- ztree的组件 -->
+    <link rel="stylesheet" href="vendor/ztree/css/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="vendor/ztree/jquery.ztree.all-3.5.min.js"></script>
+    <!-- 上传头像 -->
+    <script src="vendor/photoClip/iscroll-zoom.js"></script>
+    <script src="vendor/photoClip/hammer.min.js"></script><!-- 触摸屏的手势 -->
+    <script src="vendor/photoClip/lrz.all.bundle.js"></script>
+    <script src="vendor/photoClip/jquery.photoClip.js"></script>
+    <!-- 表单验证 -->
+    <link rel="stylesheet" type="text/css" href="vendor/Validform/Validform_v5.css">
+    <script type="text/javascript" src="vendor/Validform/Validform_v5.3.2.js"></script>
+
+    <!-- 
+       *
+       * 经常会用到
+       * 
+    -->
+    <!-- bootstrap 的 js -->
+    <script src="vendor/bootstrap/bootstrap.js"></script>
+    <script src="vendor/bootstrap/bootstrap-hover-dropdown.js"></script>
+    <!-- echarts美化插件 -->
+    <script type="text/javascript" src="vendor/echarts/4.0.4/echarts.min.js"></script>
+    <!-- 使用jQuery监听DOM元素大小变化 -->
+    <script type="text/javascript" src="vendor/ba-resize/jquery.ba-resize.js"></script>
+    <!-- 轮播图 -->
+    <link rel="stylesheet" type="text/css" href="vendor/pgwSlideshow/pgwslideshow.css" />
+    <script type="text/javascript" src="vendor/pgwSlideshow/pgwslideshow.js"></script>
+    <!-- jquery-ui-abridged 由于jq-ui的方法很多用不上还会占用资源和与别的插件冲突，把不用的移除了 -->
+    <script type="text/javascript" src="vendor/jquery-ui-1.9.2/jquery-ui-abridged.js"></script>
+    <!-- 响应式图片 picture标签 解决IE等浏览器不支持 的问题 -->
+    <script type="text/javascript" src="vendor/picturefill/picturefill.min.js"></script>
+    <!-- js实现复制到剪贴板功能，兼容所有浏览器 -->
+    <script type="text/javascript" src="vendor/clipboard/clipboard.min.js"></script>
+    <!-- jQuery图片延迟加载插件jQuery.lazyload -->
+    <script type="text/javascript" src="vendor/jquery.lazyload/jquery.lazyload.js"></script>
+    
+    <!-- 导出 XLS XLSX XML JSON PDF PNG等 -->
+    <script type="text/javascript" src="vendor/tableExport/libs/FileSaver/FileSaver.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/libs/js-xlsx/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/tableExport.js"></script>
+    <!-- 两种字体图标 -->
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons/css/glyphicons.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <!-- css3 动画库 -->
+    <link rel="stylesheet" type="text/css" href="styles/animate.css" />
+    
+    <!-- 
+       *
+       * 基本不会使用
+       * 
+    -->
+    <!-- h5量子背景 -->
+    <script type="text/javascript" src="vendor/quantum.js"></script>
+    <!-- 显示代码插件 -->
+    <link rel="stylesheet" href="vendor/prismjs/prism-coy.css">
+    <script src="vendor/prismjs/prism.js" defer async></script>
+    
+    <!-- 
+       *
+       * 放到最后
+       * 
+    -->
+    <!-- 项目需求的特殊样式 -->
+    <link rel="stylesheet" type="text/css" href="styles/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="styles/css/item.css" />
+    <script type="text/javascript" src="scripts/common.min.js"></script>
+    <!--[/include]-->
+
+    <!-- 调用加载中的方法 -->
+    <script type="text/javascript">
+        $(function(){
+            /**
+             * 进入页面 开始时执行
+             */
+            $("body").mocLoading({
+                time  : 2000
+            });
+        });
+    </script>
+
+</head>
+
+<body class="page-bg-default">
+    <!-- page-container start -->
+    <div id="page-container">
+
+        <!-- page-header start -->
+        <!--[include "./public/page-header.html"]-->
+        <header id="page-header">
+            <div class="header-top">
+                <div class="mine">
+                    <a class="mine-list" href="javascript:;">
+                        <span>王升库</span>
+                   </a>
+                    <a class="mine-list" href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        <span>个人设置</span>
+                    </a>
+                    <a class="mine-list" href="javascript:;">
+                        <i class="fa fa-power-off"></i>
+                        <span>退出系统</span>
+                    </a>
+               </div>
+            </div>
+            <div class="header-navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo-fchsoft.png" alt=""></a>
+                </div>
+
+                <nav class="header-nav">
+                    <div class="header-pane">
+                        <div class="header-menu">
+                            <a class="header-menu-item active" href="index.html"><span>首页</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全预警</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>应急处置</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产指挥</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产分析</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>部门考核</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>干部履职</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>簿册管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>施工管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>设备管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>基础管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全预警</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>应急处置</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产指挥</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产分析</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>部门考核</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>干部履职</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>簿册管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>施工管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>设备管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>基础管理-l</span></a>
+                        </div>
+                    </div>
+                    <div class="header-pane-toggle"><i class="icon"></i></div>
+                </nav>
+            </div>
+        </header>
+        <!--[/include]-->
+        <!-- page-header end -->
+
+        <!-- page-bodier start -->
+        <article id="page-bodier">
+
+            <!-- sidebar start -->
+            <aside id="sidebar">
+                <!--[include "./public/page-left-nav.html"]-->
+                <div class="left-nav left-nav-default" data-toggle="left-nav">
+                    <ul>
+                        <li><a href="index.html"><i class="icon icon-books"></i>index<i class="caret caret-up"></i></a>
+                            <ul>
+                                <li><a href="index.html#flying">与双飞翼布局相关的</a></li>
+                                <li><a href="index.html#flexbox">flexbox布局</a></li>
+                                <li><a href="index.html#grid">与栅格系统相关的</a></li>
+                                <li><a href="index.html#panel">panel面版</a></li>
+                                <li><a href="index.html#toggle">toggle 显示隐藏</a></li>
+                                <li><a href="index.html#section">boxes 盒 section 模块</a></li>
+                                <li><a href="index.html#breadcrumb">路径导航</a></li>
+                                <li><a href="index.html#nav">nav</a></li>
+                                <li><a href="index.html#title">标题相关的</a></li>
+                                <li><a href="index.html#article">article 文章</a></li>
+                                <li><a href="index.html#describe">describe 描述</a></li>
+                                <li><a href="index.html#list">list 列表</a></li>
+                                <li><a href="index.html#Alert">Alert 警告</a></li>
+                                <li><a href="index.html#text-list">text-list 文字列表</a></li>
+                                <li><a href="index.html#tag">tag 标签</a></li>
+                                <li><a href="index.html#badge">badge 徽章</a></li>
+                                <li><a href="index.html#rating">rating 评分</a></li>
+                                <li><a href="index.html#btn">与 按钮 相关的</a></li>
+                                <li><a href="index.html#callout">callout</a></li>
+                                <li><a href="index.html#step">流程进度条</a></li>
+                                <li><a href="index.html#progress">进度条</a></li>
+                                <li><a href="index.html#range">range 滑动条</a></li>
+                                <li><a href="index.html#divider">与横向分隔条相关的</a></li>
+                                <li><a href="index.html#media">与媒体对象相关的</a></li>
+                                <li><a href="index.html#pagination">与分页器相关的</a></li>
+                                <li><a href="index.html#card">card 卡片</a></li>
+                                <li><a href="index.html#list-item"> list（列表）</a></li>
+                                <li><a href="index.html#timeline">与 时间轴 相关的</a></li>
+                                <li><a href="index.html#clipboard">复制到剪贴板功能</a></li>
+                                <li><a href="index.html#smartMenu">鼠标右键菜单</a></li>
+                                <li><a href="index.html#iframe">iframe 引入页</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="table.html"><i class="icon icon-books"></i>table</a></li>
+                        <li><a href="form.html"><i class="icon icon-books"></i>form</a></li>
+                        <li><a href="text.html"><i class="icon icon-books"></i>text 文字相关的</a></li>
+                        <li><a href="bootstrap.html"><i class="icon icon-books"></i>bootstrap</a></li>
+                        <li><a href="icons.html"><i class="icon icon-books"></i>icons</a></li>
+                        
+                        <li><a href="widget.html"><i class="icon icon-books"></i>widget</a></li>
+                        <li><a href="Container.html"><i class="icon icon-books"></i>Container</a></li>
+                        <li><a href="sublime3-config.html"><i class="icon icon-books"></i>配置sublime3的插件</a></li>
+                        <li><a href="javascript:;"><i class="icon icon-books"></i>帮助文件</a>
+                            <ul>
+                                <li><a href="帮助文档-项目规则.html">项目规则</a></li>
+                                <li><a href="帮助文档-修改日志.html">修改日志</a></li>
+                                <li><a href="帮助文档-英文单词.html">英文单词</a></li>
+                                <li><a href="帮助文档-辅助类.html">辅助类</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    // 左导航进行添加选中
+                    var arrUrl = window.location.href.split("/");
+                    var pageText = arrUrl[arrUrl.length - 1];
+                    if ( pageText.indexOf("?") !== -1 ) {
+                        pageText = pageText.split("?")[0];
+                    }else if ( pageText.indexOf("#") !== -1 ) {
+                        pageText = pageText.split("#")[0];
+                    }
+                    $('[data-toggle="left-nav"] li>a').each(function(index, el) {
+                        var pageBtn = $(el).attr('href');
+                        if ( pageText == pageBtn ) {
+                            $(el).addClass('active');
+                            return false;
+                        }
+                    });
+                </script>
+                <!--[/include]-->
+            </aside>
+            <!-- sidebar end -->
+
+            <!-- content start -->
+            <main id="content">
+                <div id="wrapper">
+                    <!-- 根据设计等需求可以再包裹一层 <div class="content-body"></div> -->
+                    <div class="content-wrap">
+                        
+                        <!-- h标签 start -->
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">h系列</h2>
+                                </div>
+                                <div class="panel-tools">
+                                    <a class="panel-btn panel-collapse" href="javascript:;"><i class="fa fa-minus"></i></a>
+                                    <a class="panel-btn panel-reload" href="javascript:;"><i class="fa fa-undo"></i></a>
+                                    <a class="panel-btn panel-close" data-dismiss="panel" href="javascript:;"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <h1>h1. <a href="#">Bootstrap</a> heading <small>Secondary text</small></h1>
+                                <h2>h2. Bootstrap heading <small>Secondary text</small></h2>
+                                <h3>h3. Bootstrap heading <small>Secondary text</small></h3>
+                                <h4>h4. Bootstrap heading <small>Secondary text</small></h4>
+                                <h5>h5. Bootstrap heading <small>Secondary text</small></h5>
+                                <h6>h6. Bootstrap heading <small>Secondary text</small></h6>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <h1>h1. <a href="#">Bootstrap</a> heading <small>Secondary text</small></h1>
+                                        <h2>h2. Bootstrap heading <small>Secondary text</small></h2>
+                                        <h3>h3. Bootstrap heading <small>Secondary text</small></h3>
+                                        <h4>h4. Bootstrap heading <small>Secondary text</small></h4>
+                                        <h5>h5. Bootstrap heading <small>Secondary text</small></h5>
+                                        <h6>h6. Bootstrap heading <small>Secondary text</small></h6>
+                                    </code>
+                                </pre>
+                                <p class="h1 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                <p class="h2 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                <p class="h3 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                <p class="h4 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                <p class="h5 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                <p class="h6 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p class="h1 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                        <p class="h2 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                        <p class="h3 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                        <p class="h4 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                        <p class="h5 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                        <p class="h6 m-b-10">设置文字大小 Example heading<span class="small">New</span></p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <!-- h标签 end -->
+
+                        <!-- 排版 start -->
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">中心内容</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">Marked text</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p>You can use the mark tag to
+                                    <mark>highlight</mark> text.</p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p>You can use the mark tag to <mark>highlight</mark> text.</p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">被删除的文本</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p>This line of text is
+                                    <del> meant to be treated as deleted text.</del>
+                                </p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p>This line of text is<del> meant to be treated as deleted text.</del></p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">无用文本</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p class="lead">This line of text is
+                                    <s> meant to be treated as no longer accurate.</s>
+                                </p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p class="lead">This line of text is<s> meant to be treated as no longer accurate.</s></p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">插入文本</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p class="lead">This line of text is
+                                    <ins>meant to be treated as an addition to the document.</ins>
+                                </p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p class="lead">This line of text is <ins>meant to be treated as an addition to the document.</ins></p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">带下划线的文本</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p><u>This line of text will render as underlined</u></p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p><u>This line of text will render as underlined</u></p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">小号文本</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p>This line of text is <small>meant to be treated as fine print.</small></p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p>This line of text is <small>meant to be treated as fine print.</small></p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">着重</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">斜体</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">改变大小写</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p class="text-lowercase">Lowercased text.（小写）</p>
+                                <p class="text-uppercase">Uppercased text.（大写）</p>
+                                <p class="text-capitalize">Capitalized text.（首字母大写）</p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p class="text-lowercase">Lowercased text.（小写）</p>
+                                        <p class="text-uppercase">Uppercased text.（大写）</p>
+                                        <p class="text-capitalize">Capitalized text.（首字母大写）</p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">缩略语</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p>An abbreviation of the word attribute is
+                                    <abbr title="attribute">attr</abbr>.</p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">连接 带动画效果</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p style="line-height: 26px;">An abbreviation of the word attribute is <a class="link" href="javascript:;">attributeattributeattribute</a> the word attribute is.</p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p>An abbreviation of the word attribute is <a class="link" href="javascript:;">attributeattributeattribute</a> the word attribute is.</p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">情境文本颜色</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <p class="text-default">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="text-primary">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="text-success">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="text-info">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="text-warning">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="text-danger">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p class="text-default">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="text-primary">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="text-success">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="text-info">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="text-warning">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="text-danger">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">情境文本颜色</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body bg-color">
+                                <p class="bg-default">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="bg-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="bg-primary">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="bg-success">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="bg-info">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="bg-warning">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <p class="bg-danger">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                <pre>
+                                    <code class="language-html" data-lang="html">
+                                        <p class="bg-default">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="bg-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="bg-primary">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="bg-success">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="bg-info">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="bg-warning">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                        <p class="bg-danger">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                        <!-- 排版 end -->
+
+                    </div>
+                </div>
+            </main>
+            <!-- content end -->
+            
+            <!-- assist start -->
+            <aside id="assist"></aside>
+            <!-- assist end -->
+        </article>
+        <!-- page-bodier end -->
+
+    </div>
+    <!-- page-container end -->
+
+    <!-- 调取代码插件 -->
+    <script type="text/javascript">
+        /**
+         *
+         * @effect 调取代码插件
+         * @requires   jQuery
+         * @date
+         *
+         */
+        var HtmlEncode = function(str) {
+            return str.replace(/\</g, '&lt;').replace(/\>/g, '&gt;');
+        }
+        $('.language-html').html(function() {
+            return HtmlEncode($(this).html());
+        });
+    </script>
+
+</body>
+
+</html>

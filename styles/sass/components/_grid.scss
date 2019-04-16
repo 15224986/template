@@ -1,0 +1,152 @@
+@charset "utf-8";
+
+// **************************** grid 栅格系统样式 **********************************
+$colSpacing: 20px;
+.row {
+    @include clearfix;
+    margin-right: -$colSpacing;
+}
+%col {
+    float: left;
+    position: relative;
+    @include boxSizing;
+}
+%rowcol{
+    padding-right: $colSpacing;
+}
+
+// 最多可分为24份
+$number: 24;
+@for $i from 0 through $number {
+    @if $i == 0 {
+        .col {
+            @extend %col;
+        }
+    }@else{
+        .col-#{$i} {
+            @extend %col;
+        }
+    }
+    .row{
+        @if $i == 0 {
+            &>.col {
+                @extend %rowcol;
+            }
+        }@else{
+            &>.col-#{$i} {
+                @extend %rowcol;
+            }
+        }
+    }
+}
+
+// 默认分成12份
+$number: 12;
+@for $i from 1 through $number {
+    .col-#{$i} {
+        float: left;
+        width: 100%/($number/$i);
+    }
+}
+@for $i from 1 to $number {
+    .col-offset-#{$i} {
+        margin-left: 100%/($number/$i);
+    }
+}
+
+// 分成10份
+$number: 10;
+@for $i from 1 through $number {
+    .grid-cols-#{$number}{
+        &>.col-#{$i} {
+            width: 100%/($number/$i) ;
+        }
+    }
+}
+@for $i from 1 to $number {
+    .grid-cols-#{$number}{
+        &>.col-offset-#{$i} {
+            margin-left: 100%/($number/$i);
+        }
+    }
+}
+
+// 分成7份
+$number: 7;
+@for $i from 1 through $number {
+    .grid-cols-#{$number}{
+        &>.col-#{$i} {
+            width: 100%/($number/$i) ;
+        }
+    }
+}
+@for $i from 1 to $number {
+    .grid-cols-#{$number}{
+        &>.col-offset-#{$i} {
+            margin-left: 100%/($number/$i);
+        }
+    }
+}
+
+
+//**
+//* 中间间隔的大小
+//*/
+@for $i from 0 through 5 {
+
+    $colSpacing: #{$i*10}px;
+
+    %padding-left-#{$i*10}{
+        padding-left: $colSpacing;
+    }
+    %padding-right-0{
+        padding-right: 0;
+    }
+    %padding-right-#{$i*10}{
+        padding-right: $colSpacing;
+    }
+    
+    @if $i != 2 {
+        .grid-gutter-#{$i*10}{
+            &.row {
+                margin-right: -$colSpacing;
+            }
+            &>.col {
+                @extend %padding-right-#{$i*10};
+            }
+            @for $j from 1 through $number {
+                &>.col-#{$j} {
+                   @extend %padding-right-#{$i*10};
+                }
+            }
+        }
+    }
+    .grid-gutter-left-#{$i*10}{
+        &.row {
+            margin-right: 0;
+        }
+        &>.col {
+            @extend %padding-right-0;
+        }
+        @for $j from 1 through $number {
+            &>.col-#{$j} {
+                @extend %padding-right-0;
+            }
+        }
+
+        &.row {
+            margin-left: -$colSpacing;
+        }
+        &>.col {
+            @extend %padding-left-#{$i*10};
+        }
+        @for $j from 1 through $number {
+            &>.col-#{$j} {
+               @extend %padding-left-#{$i*10};
+            }
+        }
+    }
+}
+// 结束
+
+

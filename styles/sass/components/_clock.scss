@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+// ***************************** callout ***********************************
+.clock-list{
+    float: left;
+    margin-right: 20px;
+}
+
+.clock-item{
+    width: 200px;
+    height: 200px;
+    border: 10px solid #8bf2f1;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px 3px #444 inset;
+    position: relative;
+    // 指示刻度
+    .clock-scale-box{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left:0;
+        top: 0;
+    }
+    .clock-scale {
+        width: 2px;
+        height: 100%;
+        z-index: 7;
+        position: absolute;
+        left: 99px;
+        top: 0;
+    }
+    .scale-show {
+        display: block;
+        width: 2px;
+        height: 12px;
+        background-color: #555;
+    }
+    .clock-number{
+         width: 4px;
+         left: 98px;
+         .scale-show {
+            width: 4px;
+            height: 22px;
+        }
+    }
+    // 数字刻度
+    .clock-dot-box{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left:0;
+        top: 0;
+    }
+    .clock-dot {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        font-size: 22px;
+        position: absolute;
+    }
+    .clock-dot-hot{
+        font-weight: 700;
+        color: #f00;
+    }
+    // 圆心
+    .clock-pointer-origin {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ff0000;
+        top: 95px;
+        left: 95px;
+        position: absolute;
+    }
+    // 指针
+    .clock-pointer>li {
+        position: absolute;
+        z-index: 20;
+    }
+    .clock-pointer-hour,
+    .clock-pointer-minute,
+    .clock-pointer-second{
+        width: 4px;
+        height: 100%;
+        position: absolute;
+        left: 98px;
+        top: 0;
+    }
+    .clock-pointer-hour {
+        span{
+            height: 40px;
+            width: 4px;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #000;
+            border-radius: 2px;
+        } 
+    }
+    .clock-pointer-minute {
+        span{
+            height: 60px;
+            width: 2px;
+            position: absolute;
+            top: 40px;
+            left: 1px;
+            background-color: #000;
+        }
+    }
+    .clock-pointer-second {
+        span{
+            height: 85px;
+            width: 2px;
+            position: absolute;
+            top: 25px;
+            left: 1px;
+            background-color: #f60;
+        }
+    }
+    // // 年月日 星期
+    .clock-info-sunday-week{
+        margin-top: 100px;
+        text-align: center;
+    }
+    .clock-info-sunday,
+    .clock-info-week{
+        @include lineblock;
+        line-height: 30px;
+        font-weight: 700;
+    }
+    .clock-info-week{
+        margin-left: 6px;
+    }
+    // 数字时间
+    .clock-time{
+        margin-top: 230px;
+        text-align: center;
+    }
+    .clock-time>li{
+        @include lineblock;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        color: #fff;
+        background-color: #8bf2f1;
+        &+li{
+            margin-left: 1px;
+        }
+    }
+    .clock-info-sunday-week + .clock-time{
+        margin-top: 0px;
+    }
+}
+// 结束
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+// ***************************** 简单显示日历 ***********************************
+.moc-kalendar-week,
+.moc-kalendar-day{
+	@include clearfix;
+}
+.moc-kalendar-week{
+	border-top: $borColor 1px solid;
+    border-left: $borColor 1px solid;
+    border-right: $borColor 1px solid;
+}
+.moc-kalendar-week-list{
+	width: calc(100%/7);
+	float: left;
+	text-align: center;
+	line-height: 30px;
+}
+.moc-kalendar-day{
+	border-top: $borColor 1px solid;
+    border-left: $borColor 1px solid;
+}
+.moc-kalendar-prev-day,
+.moc-kalendar-day-list,
+.moc-kalendar-next-day{
+	width: calc(100%/7);
+	float: left;
+	text-align: center;
+	line-height: 24px;
+	border-right: $borColor 1px solid;
+    border-bottom: $borColor 1px solid;
+	@include boxSizing;
+	span{
+		display: block;
+		cursor: pointer;
+		border: transparent 3px solid;
+	}
+	&:hover{
+		span{
+			background-color: #f8f8f8;
+		}
+	}
+}
+
+.moc-kalendar-prev-day,
+.moc-kalendar-next-day {
+	span{
+		color: #aaa;
+	}
+}
+.moc-kalendar-holiday {
+	span{
+		color: #e02d2d;
+	}
+}
+.moc-kalendar-now {
+	span{
+		color: #333;
+		background-color: #eee;
+	}
+}
+.moc-kalendar-active{
+	span{
+		color: #fff;
+		background-color: #046aaf;
+	}
+	&:hover{
+		span{
+			background-color: #046aaf;
+		}
+	}
+}
+
+
+
+
+
+
+
+

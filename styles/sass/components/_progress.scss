@@ -1,0 +1,76 @@
+@charset "utf-8";
+
+// ***************************** progress 进度条的样式 ***********************************
+// 普通进度条
+.progress{
+    height: 16px;
+    background-color: #eee;
+    position: relative;
+}
+.progress-item{
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #f00;
+    text-align: center;
+    line-height: 16px;
+    white-space: nowrap;
+}
+.progress-animation{
+    .progress-item{
+        &:after {
+            content: '';
+            opacity: 0;
+            width: 0;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #FFF;
+            border-radius: 0 8px 8px 0;
+            -webkit-animation: progress-active 2s ease infinite;
+            animation: progress-active 2s ease infinite
+        }
+    }
+}
+@-webkit-keyframes progress-active {
+    0% {
+        opacity: .6;
+        width: 0
+    }
+    100% {
+        opacity: 0;
+        width: 100%
+    }
+}
+@keyframes progress-active {
+    0% {
+        opacity: .6;
+        width: 0
+    }
+    100% {
+        opacity: 0;
+        width: 100%
+    }
+}
+
+.progress-default{
+    .progress-item{
+        background-color: #25bb9b;
+    }
+}
+// 环形进度条
+.indicatorContainer{
+    text-align: center;
+}
+// 结束
+
+
+
+
+
+
+
+

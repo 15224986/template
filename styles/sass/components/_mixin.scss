@@ -1,0 +1,258 @@
+@charset "utf-8";
+
+// 浏览器兼容性的的的设置
+$lte7: true !default;
+$lte8: true !default;
+
+// inline-block 兼容IE7
+@mixin lineblock {
+    display: inline-block;
+    @if $lte7 {
+        *display: inline;
+        *zoom:1;
+    }
+}
+
+// 传递多个参数
+@mixin center($width,$height){ // 必须有固定的宽度和高度
+    width: $width;
+    height: $height;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+@mixin transform-center(){  // 有半像素的虚影
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%); /* IE 9 */
+    -moz-transform: translate(-50%, -50%); /* Firefox */
+    -webkit-transform: translate(-50%, -50%); /* Safari and Chrome */
+    -o-transform: translate(-50%, -50%); /* Opera */
+}
+@mixin img-center(){  // 图片居中
+    position: relative;
+    img{
+        max-width: 100%;
+        max-height: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+}
+
+// 圆角的设定（客串参数的）
+@mixin border-radius($radius:4px){
+    border-radius: $radius;
+}
+@mixin border-top-radius($radius:4px){
+    border-top-right-radius: $radius;
+    border-top-left-radius: $radius;
+}
+@mixin border-right-radius($radius:4px){
+    border-bottom-right-radius: $radius;
+    border-top-right-radius: $radius;
+}
+@mixin border-bottom-radius($radius:4px){
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+}
+@mixin border-left-radius($radius:4px){
+    border-bottom-left-radius: $radius;
+    border-top-left-radius: $radius;
+}
+
+// 画三角形
+@mixin caret($fx:top,$size:6px){
+    @if ($fx == top) {
+        border-top: $size dashed currentColor;
+        border-right: $size solid transparent;
+        border-left: $size solid transparent;
+    }
+    @else if($fx == right){
+        border-right: $size dashed currentColor;
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+    }
+    @else if($fx == bottom){
+        border-bottom: $size dashed currentColor;
+        border-right: $size solid transparent;
+        border-left: $size solid transparent;
+    }
+    @else if($fx == left){
+        border-left: $size dashed currentColor;
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+    }
+}
+
+// 画圆形
+@mixin radius( $size:10px,$radian:50% ){
+    width: $size;
+    height: $size;
+    @include border-radius($radian);
+}
+
+// 边框和内边距与边框的关系
+@mixin boxSizing($boxmodel:border-box){
+    -webkit-box-sizing: $boxmodel;
+    -moz-box-sizing: $boxmodel;
+    box-sizing: $boxmodel;
+}
+
+// box布局
+@mixin displayFlex {
+    display: -o-box;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    
+}
+
+// 自动补满空余位置
+@mixin displayFlexNumber($number:1){
+    -webkit-box-flex: $number;
+    -webkit-flex: $number;
+    -moz-box-flex: $number;
+    -o-box-flex:$number;
+    -ms-flex: $number;
+    box-flex:$number;
+    flex: $number;
+}
+
+// box布局方向
+@mixin boxOrient($orient:vertical) {
+    -moz-box-orient:$orient;
+    -webkit-box-orient:$orient;
+    box-orient:$orient;
+    @if ($orient == vertical) {
+        -webkit-flex-direction:column;
+        -ms-flex-direction:column;
+        flex-direction:column;
+    }
+    @else{
+        -webkit-flex-direction:row;
+        -ms-flex-direction:row;
+        flex-direction:row;
+    }
+
+}
+
+// 文字过长用...替代多余的文字
+@mixin text-overflow{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+
+// 英文或数字自动换换
+@mixin break-word{
+    word-wrap:break-word;
+    white-space:normal;
+    word-break:break-all;
+}
+
+// 透明度
+@mixin opacity($opacity:0.6) {
+    opacity: $opacity;
+    @if $lte8 {
+        $opacityie: $opacity * 100;
+        filter: "alpha(opacity=#{$opacityie})";
+    }
+}
+
+// 尺寸助手
+@mixin size($width,$height) {
+    width: $width;
+    height: $height;
+}
+@mixin square($size) {
+    @include size($size,$size);
+}
+
+// 浮动助手
+@mixin margin($size:4px,$fx:left){ 
+    @if ($fx == left) {
+        margin-left: $size;
+        &:first-child{
+            margin-left: 0;
+        }
+    }
+    @else if($fx == right){
+        margin-right: $size;
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+    @else if($fx == top){
+        margin-top: $size;
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+    @else if($fx == bottom){
+        margin-bottom: $size;
+        &:last-child{
+            margin-bottom: 0;
+        }
+    }
+}
+
+// 清楚浮动的通用样式
+@mixin clearfix{
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    } 
+}
+
+// 提示文字的颜色浏览器统一
+@mixin placeholder($color:#aaaaaa){
+    &::-moz-placeholder           {
+        color: $color;
+    }
+    &::-ms-input-placeholder       {
+        color: $color;
+    }
+    &::-webkit-input-placeholder  {
+        color: $color;
+    }
+}
+
+// 底部阴影
+@mixin box-shadow-botttom{
+    -o-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    -ms-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    -moz-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+// css3 执行动画
+@mixin transition-all($time:.4s,$timing:ease){
+    transition: all $time $timing;
+    -moz-transition: all $time $timing;
+    -webkit-transition: all $time $timing;
+    -o-transition: all $time $timing;
+}
+
+// 不可被选中
+@mixin noselect(){
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}

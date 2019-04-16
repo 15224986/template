@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            max-width: 100%;
+            border: 1px solid #cccccc;
+        }
+        table thead{
+            border-bottom: #cccccc 2px solid;
+        }
+        table th{
+            line-height: 22px;
+            vertical-align: middle;
+            height: 40px;
+            background-color: #f8f8f8;
+            border: #cccccc 1px solid;
+        }
+        table td{
+            height: 34px;
+            line-height: 22px;
+            vertical-align: middle;
+            border: #cccccc 1px solid;
+        }
+        table tr:nth-child(2n) td{
+            background-color: #f7f8fb;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <ul class="dropdown-menu">
+        <li>
+            <a onClick="$('#stats_datatable').tableExport({type:'csv',escape:'false',filename:'(2016-02-29_2016-03-06)'});" href="#">
+                 CSV
+            </a>
+        </li>
+        <li>
+            <a onClick="$('#stats_datatable').tableExport({type:'txt',escape:'false',filename:'(2016-02-29_2016-03-06)'});" href="#">
+                TXT
+            </a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            <a onClick="$('#stats_datatable').tableExport({type:'excel',escape:'false',filename:'(2016-02-29_2016-03-06)'});" href="#">
+                Excel
+            </a>
+        </li>
+        <li>
+            <a onClick="$('#stats_datatable').tableExport({type:'doc',escape:'false',filename:'(2016-02-29_2016-03-06)'});" href="#">
+                Word
+            </a>
+        </li>
+        <li>
+            <a onClick="$('#stats_datatable').tableExport({type:'png',escape:'false',filename:'(2016-02-29_2016-03-06)'});" href="#">
+                 PNG
+            </a>
+        </li>
+    </ul>
+</div>
+ 
+<div class="panel-body">
+    <table id="stats_datatable" class="table datatable">
+        <thead>
+        <tr>
+            <th>名称</th>
+            <th>里程</th>
+            <th>次数</th>
+            <th>天数</th>
+            <th>签到</th>
+            <th>活动</th>
+            <th>时间周期</th>
+            <th>更新时间</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>单元格01</td>
+                <td>单元格02</td>
+                <td>单元格03</td>
+                <td>单元格04</td>
+                <td>单元格05</td>
+                <td>单元格06</td>
+                <td>单元格07</td>
+                <td>单元格08</td>
+            </tr>
+            <tr>
+                <td>单元格01</td>
+                <td>单元格02</td>
+                <td>单元格03</td>
+                <td>单元格04</td>
+                <td>单元格05</td>
+                <td>单元格06</td>
+                <td>单元格07</td>
+                <td>单元格08</td>
+            </tr>
+            <tr>
+                <td>单元格01</td>
+                <td>单元格02</td>
+                <td>单元格03</td>
+                <td>单元格04</td>
+                <td>单元格05</td>
+                <td>单元格06</td>
+                <td>单元格07</td>
+                <td>单元格08</td>
+            </tr>
+            <tr>
+                <td>单元格01</td>
+                <td>单元格02</td>
+                <td>单元格03</td>
+                <td>单元格04</td>
+                <td>单元格05</td>
+                <td>单元格06</td>
+                <td>单元格07</td>
+                <td>单元格08</td>
+            </tr>
+        </tbody>
+    </table>
+ 
+</div>
+<!-- START SCRIPTS -->
+<script src="jquery-1.11.3.min.js"></script>
+<!-- 数据表 -->
+<script src="tableExport.js"></script>
+<script src="libs/jquery.base64.js"></script>
+<script src="libs/html2canvas/html2canvas.min.js"></script>
+<script type="text/javascript" src="libs/jsPDF/jspdf.min.js"></script>
+<script type="text/javascript" src="libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>
+<script src="libs/mybase.js"></script>
+ 
+<script>
+    $(function(){
+        //=======让解码后中文不出现乱码的方法
+        data = $.base64({data:"已经编码过后的base64",type:1,unicode:true});
+ 
+        //=或
+        data = $.base64({data:"已经编码过后的base64",type:1});
+    });
+</script>
+</body>
+</html>

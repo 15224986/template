@@ -1,0 +1,320 @@
+@charset "utf-8";
+
+// ***************************** 页面导航的样式 ***********************************
+.nav {
+    .nav-item{
+        position: relative;
+        display: block;
+        float: left;
+        font-size: 14px;
+    }
+}
+/**
+ * 排列方式，清除浮动，竖向排列
+ */
+.nav-stacked  {
+    .nav-item{
+        float: none;
+    }
+}
+.nav-justified {
+    .nav-item{
+        float: none;
+        display: table-cell;
+        width: 1%;
+        text-align: center;
+    }
+}
+
+/**
+ * 不同的表现样式
+ */
+// 标签页
+.nav-tabs {
+    @extend %clearfix;
+    border-bottom: 1px solid $borColor;
+    line-height: 0;
+    font-size: 0;
+    text-align: center;
+    .nav-group{
+        @include lineblock;
+        @extend %clearfix;
+    }
+    .nav-item{
+        line-height: 1.42857143;
+        margin-bottom: -1px;
+        @include margin(4px,right);
+        &>a{
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+            border: 1px solid transparent;
+            @include border-top-radius;
+            color: #1685d6;
+            &:hover,
+            &:focus{
+                color: #555;
+                text-decoration: none;
+                background-color: $nav-bg-hover-color;
+                border-color: $borColor;
+            }
+        }
+        &.active{
+            &>a{
+                cursor: default;
+                background-color: #fff;
+                border: 1px solid $borColor;
+                border-bottom-color: transparent;
+                color: #555;
+                &:hover,
+                &:focus{
+                    background-color: #fff;
+                    border-bottom-color: transparent;
+                }
+            }
+        }
+    }
+    
+    // 竖直排列
+    &.nav-stacked{
+        border-bottom: 0 none;
+        border-right: 1px solid $borColor;
+        .nav-item{
+            margin-right: -1px;
+            @include margin(4px,top);
+            &>a{
+                @include border-top-radius(0);
+                @include border-left-radius;
+                &:hover,
+                &:focus{
+                    text-decoration: none;
+                    background-color: $nav-bg-hover-color;
+                    border-color: $borColor;
+                }
+            }
+            &.active{
+                &>a{
+                    cursor: default;
+                    background-color: #fff;
+                    border: 1px solid $borColor;
+                    border-right-color: transparent;
+                    &:hover,
+                    &:focus{
+                        background-color: #fff;
+                        border-bottom-color: $borColor;
+                    }
+                }
+            }
+        }  
+    }
+    // 两端对齐
+    &.nav-justified{
+        border-bottom: 0 none;
+        .nav-item{
+            margin: 0;
+            border-bottom: 1px solid $borColor;
+            &>a{
+                &:hover,
+                &:focus{
+                    background-color: #fff;
+                    border-bottom-color: #fff;
+                }
+            }
+        }
+        .active{
+            border-bottom: 1px solid #fff;
+            
+        }
+    }
+}
+// 卡片化
+.nav-card {
+    line-height: 0;
+    font-size: 0;
+    text-align: center;
+    border-bottom: $borColor 1px solid;
+    @extend %clearfix;
+    .nav-group{
+        @include lineblock;
+        @extend %clearfix;
+    }
+    .nav-item{
+        margin-bottom: -1px;
+        line-height: 39px;
+        border: $borColor 1px solid;
+        @include margin(-1px,right);
+        &>a{
+            display: block;
+            padding: 0 20px;
+            color: #666;
+        }
+        &:hover,
+        &:focus,
+        &.active{
+            &>a{
+                color: #1685d6;
+            }
+        }
+        &.active{
+            &>a{
+                cursor: default;
+            }
+            border-bottom-color: #fff;
+        }
+    }
+}
+// 胶囊式标签页
+.nav-pills{
+    line-height: 0;
+    font-size: 0;
+    text-align: center;
+    @extend %clearfix;
+    .nav-group{
+        @include lineblock;
+        @extend %clearfix;
+    }
+    .nav-item{
+        @include margin(4px,right);
+        line-height: 1.42857143;
+        @include border-radius;
+        &>a{
+            display: block;
+            padding: 10px 15px;
+        }
+        &:hover,
+        &:focus{
+            background-color: $nav-bg-hover-color;
+        }
+        &.active{
+            background-color: #337ab7;
+            &>a{
+                cursor: default;
+                color: #fff;
+            }
+        }
+    }
+    &.nav-stacked{
+        .nav-item{
+            @include margin(0,right);
+            @include margin(4px,top);
+            &:first-child{
+                @include border-left-radius(0);
+                @include border-top-radius;
+            }
+            &:last-child{
+                @include border-right-radius(0);
+                @include border-bottom-radius;
+            }
+        }  
+    }
+}
+// 下边框式标签页
+.nav-rim{
+    line-height: 0;
+    font-size: 0;
+    text-align: center;
+    border-bottom: $borColor 2px solid;
+    @extend %clearfix;
+    .nav-group{
+        @include lineblock;
+        @extend %clearfix;
+    }
+    .nav-item{
+        margin-bottom: -2px;
+        line-height: 39px;
+        border-bottom: transparent 2px solid;
+        &>a{
+            display: block;
+            padding: 0 20px;
+            color: #666;
+        }
+        &:hover,
+        &:focus,
+        &.active{
+            &>a{
+                color: #1685d6;
+            }
+        }
+        &.active{
+            &>a{
+                cursor: default;
+            }
+            border-color: #1685d6;
+        }
+    }
+    // 两端对齐
+    &.nav-justified{
+        border-bottom: 0 none;
+        .nav-item{
+            border-bottom: $borColor 2px solid;
+            &:hover,
+            &:focus{
+                color: #1685d6;
+            }
+            &.active{
+                cursor: default;
+                color: #1685d6;
+                border-color: #1685d6;
+            }
+        }
+    }
+}
+// 切换按钮式标签页
+.nav-bar{
+    line-height: 0;
+    font-size: 0;
+    text-align: center;
+    @extend %clearfix;
+    .nav-group{
+        @include lineblock;
+        @extend %clearfix;
+    }
+    .nav-item{
+        line-height: 38px;
+        border: $borColor 1px solid;
+        @include margin(-1px,right);
+        &>a{
+            display: block;
+            padding: 0 20px;
+            color: #666;
+        }
+        &:hover,
+        &:focus{
+            color: #1685d6;
+            background-color: $nav-bg-hover-color;
+        }
+        &.active{
+            cursor: default;
+            border-color: #1685d6;
+            background-color: #1685d6;
+            &>a{
+                cursor: default;
+                color: #fff;
+            }
+        }
+        &:first-child{
+            @include border-left-radius;
+        }
+        &:last-child{
+            @include border-right-radius;
+        }
+    }
+    &.nav-stacked{
+        .nav-item{
+            @include margin(0,right);
+            @include margin(-1px,top);
+            &:first-child{
+                @include border-left-radius(0);
+                @include border-top-radius;
+            }
+            &:last-child{
+                @include border-right-radius(0);
+                @include border-bottom-radius;
+            }
+        }  
+    }
+}
+// 结束
+
+
+

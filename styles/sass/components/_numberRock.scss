@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+// ***************************** callout ***********************************
+
+#dataNums{
+    padding-top: 50px;
+    line-height: 120px;
+}
+
+$numberRock-list-width: 50px;
+$numberRock-list-heught: 70px;
+.numberRock{
+    text-align: center;
+}
+.numberRock-list{
+    @include lineblock;
+    width: $numberRock-list-width;
+    height: $numberRock-list-heught;
+    @include margin(3px);
+}
+.numberRock-list-device{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #eee;
+}
+.numberRock-list-item{
+    position: absolute;
+    left: 0;
+    top: 0;
+    &>span{
+        display: block;
+        width: $numberRock-list-width;
+        height: $numberRock-list-heught;
+        line-height: $numberRock-list-heught;
+        font-size: 52px;
+        text-align: center;
+    }
+}
+// 结束
+
+
+
+
+
+
+
+
+

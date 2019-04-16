@@ -1,0 +1,24 @@
+@charset "utf-8";
+
+// **************************** list 列表的样式 **********************************
+.text-list {
+    @include lineblock;
+    @include margin(20px,right);
+}
+.text-list-box{
+	text-align: center;
+}
+
+/**
+ * 不同的样式
+ */
+
+// 结束
+
+
+
+
+
+
+
+

@@ -1,0 +1,73 @@
+@charset "utf-8";
+
+// **************************** list 列表的样式 **********************************
+.list-item {
+    position: relative;
+    display: block;
+}
+// 两种布局方式
+.list-vertical{
+    .list-item {
+    }
+}
+.list-horizontal {
+    @extend %clearfix;
+    .list-item{
+        float: left;
+    }
+}
+/**
+ * 不同的样式
+ */
+.list-default{
+    .list-item {
+        padding: 10px 15px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+    }
+    a.list-item {
+        color: #666;
+        &:hover{
+            background-color: #f6f6f6;
+        }
+        &.active{
+            color: #ffffff;
+            border: 1px solid #286090;
+            background-color: #286090;
+        }
+    }
+    &.list-vertical{
+        .list-item {
+            margin-bottom: -1px;
+            &:first-child {
+                @include border-top-radius;
+            }
+            &:last-child {
+                margin-bottom: 0;
+                @include border-bottom-radius;
+            }
+        }
+    }
+    &.list-horizontal {
+        .list-item{
+            margin-left: -1px;
+            &:first-child {
+                margin-left: 0;
+                @include border-left-radius;
+            }
+            &:last-child {
+                margin-bottom: 0;
+                @include border-right-radius;
+            }
+        }
+    }
+}
+// 结束
+
+
+
+
+
+
+
+

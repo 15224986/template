@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+// ***************************** alert 警告 ***********************************
+.alert-item{
+    padding: 8px 16px;
+    border-radius: 4px;
+    color: #878d99;
+    background-color: rgba(#878d99,.1);
+    position: relative;
+}
+.alert-item + .alert-item{
+    margin-top: 10px;
+}
+.alert-tools{
+    font-weight: 700;
+    font-size: 12px;
+    color: #000;
+    opacity: 1;
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    cursor: pointer;
+    opacity: 0.3;
+    filter: alpha(opacity=30);
+    &:focus, &:hover {
+        filter: alpha(opacity=50);
+        opacity: .5;
+    }
+}
+
+//**
+//* 各种样式
+//*/
+@each $style in $alert-colors{
+    $class: nth($style,1);
+    $hostColor: nth($style,2);
+    .alert-#{$class}{
+        color: $hostColor;
+        background-color: rgba($hostColor,.1);
+    }
+}
+// 结束
+
+
+
+
+
+
+
+

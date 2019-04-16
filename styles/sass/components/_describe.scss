@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+// ***************************** describe ***********************************
+.describe-basics{
+    line-height: 1.8;
+    &>dt{
+        font-weight: 700;
+    }
+    &>dd + dt{
+        margin-top: 8px;
+    }
+}
+
+.describe-gloup{
+    @extend %clearfix;
+    &>dt{
+        width: 160px;
+        float: left;
+        text-align: right;
+        font-weight: 700;
+    }
+    &>dd{
+        margin-left: 180px;
+    }
+    @for $i from 4 through 30 {
+        &.describe-dt-#{$i*10} {
+            &>dt{
+                width: #{$i*10} + px;
+            }
+            &>dd{
+                margin-left: #{$i*10 + 20} + px;
+            }
+        }
+    }
+}
+
+.describe-line{
+    &>dt{
+        padding-right: 10px;
+        font-weight: 700;
+        float: left;
+    }
+    &>dd{
+        overflow: hidden;
+    }
+}
+// 结束
+
+
+
+
+
+
+
+

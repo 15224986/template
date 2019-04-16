@@ -1,0 +1,86 @@
+@charset "utf-8";
+
+// ***************************** 原生ul，ol的样式 ***********************************
+$list-type: 30px;
+.list-type-disc{
+    list-style-type:disc;
+    margin-left: $list-type;
+}
+.list-type-disc:not(ul){
+    position: relative;
+    &:before{
+        content:"";
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        margin-left: -5px;
+        position: relative;
+        left: -10px;
+        top: -2px;
+        vertical-align: middle;
+        border-radius: 50%;
+        background-color: #666;
+    }
+}
+.list-type-circle{
+    list-style-type:circle;
+    margin-left: $list-type;
+}
+.list-type-circle:not(ul){
+    position: relative;
+    &:before{
+        content:"";
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        margin-left: -5px;
+        position: relative;
+        left: -10px;
+        top: -2px;
+        vertical-align: middle;
+        border-radius: 50%;
+        border: #666 1px solid;
+    }
+}
+.list-type-square{
+    list-style-type:square;
+    margin-left: $list-type;
+}
+.list-type-square:not(ul){
+    position: relative;
+    &:before{
+        content:"";
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        margin-left: -5px;
+        position: relative;
+        left: -10px;
+        top: -2px;
+        vertical-align: middle;
+        background-color: #666;
+    }
+}
+.list-type-roman{
+    list-style-type:upper-roman;
+    margin-left: $list-type - 4;
+    li{
+        padding-left: 4px;
+    }
+}
+.list-type-alpha{
+    list-style-type:lower-alpha;
+    margin-left: $list-type - 4;
+    li{
+        padding-left: 4px;
+    }
+}
+// 结束
+
+
+
+
+
+
+
+

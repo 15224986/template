@@ -1,0 +1,205 @@
+@charset "utf-8";
+// **************************** Switch开关插件 **********************************
+.mocCheck-strap{
+    @include lineblock;
+    width: 80px;
+    height: $form-group-height - 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: #cccccc 1px solid;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    vertical-align: middle;
+
+    &>input{
+        position: absolute;
+        clip: rect(0 0 0 0);
+    }
+    .mocCheck-util{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: 120px;
+        height: $form-group-height - 2;
+        line-height: $form-group-height - 2;
+        text-align: center;
+        margin-left: -40px;
+
+        transition: all .4s;
+        -webkit-transition: all .4s;
+        -moz-transition: all .4s;
+        -o-transition: all .4s;
+        -ms-transition: all .4s;
+    }
+    .mocCheck-util-on{
+        width: 40px;
+        min-height: 10px;
+        float: left;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #0ba0e5;
+    }
+    .mocCheck-util-label{
+        width: 40px;
+        min-height: 10px;
+        float: left;
+        background-color: #ffffff;
+    }
+    .mocCheck-util-off{
+        width: 40px;
+        min-height: 10px;
+        float: left;
+        font-size: 16px;
+        color: #ffffff;
+        background-color: #cccccc;
+    }
+    &.checked{
+        .mocCheck-util{
+            margin-left: 0;
+        }
+    }
+    &.disabled{
+        .mocCheck-util{
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+    }
+}
+
+// 另一种开关样式
+%mocCheck-btn-child{
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 14px;
+    top: 4px;
+    background-color: #f5a5a6;
+}
+.mocCheck-simple{
+    @include lineblock;
+    position: relative;
+    cursor: pointer;
+    vertical-align: middle;
+    *{
+        transition: all .4s;
+        -webkit-transition: all .4s;
+        -moz-transition: all .4s;
+        -o-transition: all .4s;
+        -ms-transition: all .4s;
+    }
+
+    &>input{
+        position: absolute;
+        clip: rect(0 0 0 0);
+    }
+    .mocCheck-util{
+        width: 80px;
+        height: $form-group-height;
+        background-color: #f5a5a6;
+        border-radius: 4px;
+        p{
+            width: 50%;
+            height: $form-group-height;
+            float: left;
+            line-height: $form-group-height;
+            text-align: center;
+            font-size: 16px;
+            color: #ffffff;
+        }
+    }
+    .mocCheck-btn{
+        position: absolute;
+        width: 35px;
+        height: $form-group-height - 10px;
+        left: 5px;
+        top: 5px;
+        z-index: 2;
+        background-color: #fff;
+        border-radius: 4px;
+
+        &:before {
+            @extend %mocCheck-btn-child;
+            left: 10px;
+        }
+        &:after {
+            @extend %mocCheck-btn-child;
+            left: 20px;
+        }
+    }
+    
+    &.checked{
+        .mocCheck-util{
+            background-color: #a7cce9;
+        }
+        .mocCheck-btn{
+            left: 40px;
+            &:before {
+                background-color: #a7cce9;
+            }
+            &:after {
+                background-color: #a7cce9;
+            }
+        }
+    }
+    &.disabled{
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+}
+
+// 另一种样式
+.mocCheck-simple-primary{
+    .mocCheck-util{
+        width: 58px;
+        height: 20px;
+        border: #0ba0e5 1px solid;
+        border-radius: 11px;
+        background-color: #fff;
+        p{
+            height: 20px;
+            line-height: 20px;
+            font-size: 12px;
+        }
+        .mocCheck-util-on{
+            border-radius: 11px 0 0 11px;
+        }
+        .mocCheck-util-off{
+            color: #0ba0e5;
+            border-radius: 0 11px 11px 0;
+        }
+    }
+    .mocCheck-btn{
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        left: 6px;
+        top: 5px;
+        z-index: 2;
+        background-color: #0ba0e5;
+        border-radius: 50%;
+        &::before,
+        &::after{
+            display: none;
+        }
+    }
+
+    &.checked{
+        .mocCheck-util{
+            background-color: #0ba0e5;
+        }
+        .mocCheck-btn{
+            left: 42px;
+            background-color: #fff;
+        }
+        .mocCheck-util-on{
+            color: #fff;
+        }
+    }
+}
+
+
+
+
+
+

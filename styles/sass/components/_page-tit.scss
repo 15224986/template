@@ -1,0 +1,55 @@
+@charset "utf-8";
+
+// **************************** page-tit **********************************
+// 大标题 文章标题等
+.title-group {
+    text-align: center;
+    margin: 40px 0 20px;
+    @for $i from 1 through 6 {
+        .h#{$i},
+        h#{$i} {
+            margin-bottom: 8px;
+        }
+    }
+}
+
+.title-primary {
+    text-align: center;
+    padding: 20px 0;
+    h4 {
+        color: #888;
+    }
+}
+
+/**
+ * 小标题 段落标题等
+ */
+.subhead{
+    padding-top: 16px;
+    margin-bottom: 6px;
+    @include clearfix;
+}
+.subhead-tit{
+    float: left;
+    font-size: 18px;
+    line-height: 40px;
+}
+.subhead-tools{
+    float: right;
+    margin-top: 4px;
+}
+
+.subhead-primary{
+    .subhead-tit{
+        color: #67c23a;
+    }
+}
+// 结束
+
+
+
+
+
+
+
+
