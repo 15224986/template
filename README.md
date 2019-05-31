@@ -39,7 +39,7 @@ git push
         cursor: move;
     }
 </style>
-
+// js 原生版本
 <script type="text/javascript">
         $(function() {
             let $ = document.querySelector.bind(document);
