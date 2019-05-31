@@ -41,51 +41,51 @@ git push
 </style>
 // js 原生版本
 <script type="text/javascript">
-        $(function() {
-            let $ = document.querySelector.bind(document);
-            
+        get('.move-handle').addEventListener('mousedown', function(e){
+            var e = e || window.event;
+            var $move = closest(e.target, '.move');
 
-            $('.move-handle').addEventListener('mousedown', function(e){
+            /**
+             * 计算出鼠标的位置距离要移动的dom的左顶点的距离
+             */
+            let mouseOffsetX = e.clientX - $move.offsetLeft;
+            let mouseOffsetY = e.clientY - $move.offsetTop;
+
+            /**
+             * 获取自身携带的marginLeft、marginTop值，并转化为数字
+             */
+            // 获取原有属性 ie dom元素.currentStyle 火狐谷歌 window.getComputedStyle(dom元素, null);
+            const sty = $move.currentStyle || window.getComputedStyle($move, null);
+            if( sty.margin.includes('px') ) {
+                var marginL = +sty.marginLeft.replace(/\px/g, '');
+                var marginT = +sty.marginTop.replace(/\px/g, '');
+            };
+
+            /**
+             * 鼠标移动事件
+             */
+            document.onmousemove = function (e) {
                 var e = e || window.event;
-                var $move = closest(e.target, '.move');
+                // 计算出当前位置
+                let moveX = e.clientX - mouseOffsetX - marginL;
+                let moveY = e.clientY - mouseOffsetY - marginT;
 
-                /**
-                 * 计算出鼠标的位置距离要移动的dom的左顶点的距离
-                 */
-                let mouseOffsetX = e.clientX - $move.offsetLeft;
-                let mouseOffsetY = e.clientY - $move.offsetTop;
+                console.log( e.clientX , mouseOffsetX , marginL );
 
-                /**
-                 * 获取自身携带的marginLeft、marginTop值，并转化为数字
-                 */
-                // 获取原有属性 ie dom元素.currentStyle 火狐谷歌 window.getComputedStyle(dom元素, null);
-                const sty = $move.currentStyle || window.getComputedStyle($move, null);
-                if( sty.margin.includes('px') ) {
-                    var marginL = +sty.marginLeft.replace(/\px/g, '');
-                    var marginT = +sty.marginTop.replace(/\px/g, '');
-                };
+                // 赋值
+                $move.style.left = moveX + 'px';
+                $move.style.top = moveY + 'px';
+            };
+            document.onmouseup = function (e) {
+                // 释放事件
+                document.onmousemove = null;
+                document.onmouseup = null;
+            };
+        })
 
-                /**
-                 * 鼠标移动事件
-                 */
-                document.onmousemove = function (e) {
-                    var e = e || window.event;
-                    // 计算出当前位置
-                    let moveX = e.clientX - mouseOffsetX - marginL;
-                    let moveY = e.clientY - mouseOffsetY - marginT;
-                    // 赋值
-                    $move.style.left = moveX + 'px';
-                    $move.style.top = moveY + 'px';
-                };
-                document.onmouseup = function (e) {
-                    // 释放事件
-                    document.onmousemove = null;
-                    document.onmouseup = null;
-                };
-            })
-
-        });
-
+        function get(selector){
+            return document.querySelector(selector);
+        }
         function closest(el, selector) {
             var matchesSelector = el.matches || el.webkitMatchesSelector || el.mozMatchesSelector || el.msMatchesSelector;
 
@@ -97,6 +97,7 @@ git push
             }
             return el;
         }
+
     </script>
 
 
