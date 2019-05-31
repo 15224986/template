@@ -46,7 +46,7 @@ git push
             
 
             $('.move-handle').addEventListener('mousedown', function(e){
-                var e = e || window.event;4
+                var e = e || window.event;
                 var $move = closest(e.target, '.move');
 
                 /**
