@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <!--[include "./public/head-meta.html"]-->
+    <meta charset="utf-8" />
+    <!-- 使用最新版的IE浏览器 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 国产浏览器高速模式 -->
+    <meta name="renderer" content="webkit">
+    <!-- 在手机上原比例显示，不可以放大缩小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+    <!-- 则手机号码不被显示为拨号链接 -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览 -->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- iphone的私有标签，它指定的iphone中safari顶端的状态条的样式 -->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <!-- 去除Android平台中对邮箱地址的识别 -->
+    <meta content="email=no" name="format-detection" />
+    <!-- 清除浏览器中的缓存，它和其它几句合起来用，就可以使你再次进入曾经访问过的页面时，ie浏览器必须从服务端下载最新的内容，达到刷新的效果。 -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <!-- 浏览器窗口 图标 -->
+    <link rel="shortcut icon" href="images/favicon/favicon-1.ico" type="image/x-icon">
+    <!--[/include]-->
+
+    <title>Template-插件开发</title>
+
+    <!--[include "./public/head-link.html"]-->
+    <!-- IE 老版本浏览器支持css的新属性 html5shiv 支持 html5标签 respond 支持 @media 媒体查询 -->
+    <!--[if lt IE 10]>
+        <script src="vendor/html5/html5shiv.min.js" type="text/javascript"></script>
+        <script src="vendor/html5/respond.min.js" type="text/javascript"></script>
+    <![endif]-->
+    <script type="text/javascript" src="vendor/jquery-1.11.3.min.js"></script>
+    <!-- 项目封装 -->
+    <script type="text/javascript" src="scripts/widget.min.js"></script>
+
+    <!--
+       *
+       * 与form表单相关
+       *
+    -->
+    <!-- 输入框input输入内容格式限制插件 -->
+    <script type="text/javascript" src="vendor/inputmask/min/jquery.inputmask.bundle.min.js"></script>
+    <script type="text/javascript" src="vendor/inputmask/min/inputmask/bindings/inputmask.binding.min.js"></script>
+    <!-- 日期处理类库 -->
+    <script type="text/javascript" src="vendor/moment/moment.min.js"></script>
+    <!-- 时间插件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/My97DatePicker/skin/WdatePicker.css">
+    <script type="text/javascript" src="vendor/My97DatePicker/WdatePicker.js"></script>
+    <!-- 下拉插件 多选 -->
+    <link rel="stylesheet" type="text/css" href="vendor/select2-4.0.2/select2.css">
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/select2-Initials.js"></script>
+    <script type="text/javascript" src="vendor/select2-4.0.2/i18n/zh-CN.js"></script><!-- 中文提示 -->
+    <!-- 多选和单选的美化 -->
+    <link rel="stylesheet" type="text/css" href="vendor/icheck/icheck.css">
+    <script type="text/javascript" src="vendor/icheck/icheck.js"></script>
+    <!-- 上传附件的组件 -->
+    <link rel="stylesheet" type="text/css" href="vendor/webuploader/diyUpload.css">
+    <script type="text/javascript" src="vendor/webuploader/webuploader.js"></script>
+    <script type="text/javascript" src="vendor/webuploader/diyUpload.js"></script>
+    <!-- 富文本编辑器  -->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript" charset="utf-8" src="vendor/ueditor1_4_3_3-utf8-php/lang/zh-cn/zh-cn.js"></script>
+    <!-- ztree的组件 -->
+    <link rel="stylesheet" href="vendor/ztree/css/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="vendor/ztree/jquery.ztree.all-3.5.min.js"></script>
+    <!-- 上传头像 -->
+    <script src="vendor/photoClip/iscroll-zoom.js"></script>
+    <script src="vendor/photoClip/hammer.min.js"></script><!-- 触摸屏的手势 -->
+    <script src="vendor/photoClip/lrz.all.bundle.js"></script>
+    <script src="vendor/photoClip/jquery.photoClip.js"></script>
+    <!-- 表单验证 -->
+    <link rel="stylesheet" type="text/css" href="vendor/Validform/Validform_v5.css">
+    <script type="text/javascript" src="vendor/Validform/Validform_v5.3.2.js"></script>
+
+    <!--
+       *
+       * 经常会用到
+       *
+    -->
+    <!-- bootstrap 的 js -->
+    <script src="vendor/bootstrap/bootstrap.js"></script>
+    <script src="vendor/bootstrap/bootstrap-hover-dropdown.js"></script>
+    <!-- echarts美化插件 -->
+    <script type="text/javascript" src="vendor/echarts/4.0.4/echarts.min.js"></script>
+    <script type="text/javascript" src="vendor/echarts/map/js/china.js"></script>
+    <!-- 使用jQuery监听DOM元素大小变化 -->
+    <script type="text/javascript" src="vendor/ba-resize/jquery.ba-resize.js"></script>
+    <!-- 轮播图 -->
+    <link rel="stylesheet" type="text/css" href="vendor/pgwSlideshow/pgwslideshow.css" />
+    <script type="text/javascript" src="vendor/pgwSlideshow/pgwslideshow.js"></script>
+    <!-- jquery-ui-abridged 由于jq-ui的方法很多用不上还会占用资源和与别的插件冲突，把不用的移除了 -->
+    <script type="text/javascript" src="vendor/jquery-ui-1.9.2/jquery-ui-abridged.js"></script>
+    <!-- 响应式图片 picture标签 解决IE等浏览器不支持 的问题 -->
+    <script type="text/javascript" src="vendor/picturefill/picturefill.min.js"></script>
+    <!-- js实现复制到剪贴板功能，兼容所有浏览器 -->
+    <script type="text/javascript" src="vendor/clipboard/clipboard.min.js"></script>
+    <!-- jQuery图片延迟加载插件jQuery.lazyload -->
+    <script type="text/javascript" src="vendor/jquery.lazyload/jquery.lazyload.js"></script>
+
+    <!-- 导出 XLS XLSX XML JSON PDF PNG等 -->
+    <script type="text/javascript" src="vendor/tableExport/libs/FileSaver/FileSaver.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/libs/js-xlsx/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="vendor/tableExport/tableExport.js"></script>
+    <!-- 两种字体图标 -->
+    <link rel="stylesheet" type="text/css" href="fonts/glyphicons/css/glyphicons.css" />
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <!-- css3 动画库 -->
+    <link rel="stylesheet" type="text/css" href="styles/animate.css" />
+
+    <!--
+       *
+       * 基本不会使用
+       *
+    -->
+    <!-- h5量子背景 -->
+    <script type="text/javascript" src="vendor/quantum.js"></script>
+    <!-- 显示代码插件 -->
+    <link rel="stylesheet" href="vendor/prismjs/prism-coy.css">
+    <script src="vendor/prismjs/prism.js" defer async></script>
+
+    <!--
+       *
+       * 放到最后
+       *
+    -->
+    <!-- 项目需求的特殊样式 -->
+    <link rel="stylesheet" type="text/css" href="styles/css/global.css" />
+    <link rel="stylesheet" type="text/css" href="styles/css/item.css" />
+    <script type="text/javascript" src="scripts/common.min.js"></script>
+    <!--[/include]-->
+
+
+    <!-- 开发插件用的临时文件 -->
+    <script type="text/javascript" src="plugin/myplugin.js"></script>
+
+
+
+</head>
+<body class="page-bg-default">
+    <!-- page-container start -->
+    <section id="page-container">
+
+        <!-- page-header start -->
+        <!--[include "./public/page-header.html"]-->
+        <header id="page-header">
+            <div class="header-top">
+                <div class="mine">
+                    <a class="mine-list" href="javascript:;">
+                        <span>王升库</span>
+                   </a>
+                    <a class="mine-list" href="javascript:;">
+                        <i class="fa fa-cog"></i>
+                        <span>个人设置</span>
+                    </a>
+                    <a class="mine-list" href="javascript:;">
+                        <i class="fa fa-power-off"></i>
+                        <span>退出系统</span>
+                    </a>
+               </div>
+            </div>
+            <div class="header-navbar">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo-fchsoft.png" alt=""></a>
+                </div>
+
+                <nav class="header-nav">
+                    <div class="header-pane">
+                        <div class="header-menu">
+                            <a class="header-menu-item active" href="index.html"><span>首页</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全预警</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>应急处置</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产指挥</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产分析</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>部门考核</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>干部履职</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>簿册管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>施工管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>设备管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>基础管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>安全预警</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>应急处置</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产指挥</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>生产分析</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>部门考核</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>干部履职</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>簿册管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>施工管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>设备管理</span></a>
+                            <a class="header-menu-item" href="javascript:;"><span>基础管理-l</span></a>
+                        </div>
+                    </div>
+                    <div class="header-pane-toggle"><i class="icon"></i></div>
+                </nav>
+            </div>
+        </header>
+        <!--[/include]-->
+        <!-- page-header end -->
+
+        <!-- page-bodier start -->
+        <article id="page-bodier">
+            <!-- sidebar start -->
+            <aside id="sidebar">
+                <!--[include "./public/page-left-nav.html"]-->
+                <div class="left-nav left-nav-default" data-toggle="left-nav">
+                    <ul>
+                        <li><a href="index.html"><i class="icon icon-books"></i>index<i class="caret caret-up"></i></a>
+                            <ul>
+                                <li><a href="index.html#flying">与双飞翼布局相关的</a></li>
+                                <li><a href="index.html#flexbox">flexbox布局</a></li>
+                                <li><a href="index.html#grid">与栅格系统相关的</a></li>
+                                <li><a href="index.html#panel">panel面版</a></li>
+                                <li><a href="index.html#toggle">toggle 显示隐藏</a></li>
+                                <li><a href="index.html#section">boxes 盒 section 模块</a></li>
+                                <li><a href="index.html#breadcrumb">路径导航</a></li>
+                                <li><a href="index.html#nav">nav</a></li>
+                                <li><a href="index.html#title">标题相关的</a></li>
+                                <li><a href="index.html#article">article 文章</a></li>
+                                <li><a href="index.html#describe">describe 描述</a></li>
+                                <li><a href="index.html#list">list 列表</a></li>
+                                <li><a href="index.html#Alert">Alert 警告</a></li>
+                                <li><a href="index.html#text-list">text-list 文字列表</a></li>
+                                <li><a href="index.html#tag">tag 标签</a></li>
+                                <li><a href="index.html#badge">badge 徽章</a></li>
+                                <li><a href="index.html#rating">rating 评分</a></li>
+                                <li><a href="index.html#btn">与 按钮 相关的</a></li>
+                                <li><a href="index.html#callout">callout</a></li>
+                                <li><a href="index.html#step">流程进度条</a></li>
+                                <li><a href="index.html#progress">进度条</a></li>
+                                <li><a href="index.html#range">range 滑动条</a></li>
+                                <li><a href="index.html#divider">与横向分隔条相关的</a></li>
+                                <li><a href="index.html#media">与媒体对象相关的</a></li>
+                                <li><a href="index.html#pagination">与分页器相关的</a></li>
+                                <li><a href="index.html#card">card 卡片</a></li>
+                                <li><a href="index.html#list-item"> list（列表）</a></li>
+                                <li><a href="index.html#timeline">与 时间轴 相关的</a></li>
+                                <li><a href="index.html#clipboard">复制到剪贴板功能</a></li>
+                                <li><a href="index.html#smartMenu">鼠标右键菜单</a></li>
+                                <li><a href="index.html#iframe">iframe 引入页</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="table.html"><i class="icon icon-books"></i>table</a></li>
+                        <li><a href="form.html"><i class="icon icon-books"></i>form</a></li>
+                        <li><a href="text.html"><i class="icon icon-books"></i>text 文字相关的</a></li>
+                        <li><a href="bootstrap.html"><i class="icon icon-books"></i>bootstrap</a></li>
+                        <li><a href="icons.html"><i class="icon icon-books"></i>icons</a></li>
+
+                        <li><a href="widget.html"><i class="icon icon-books"></i>widget</a></li>
+                        <li><a href="Container.html"><i class="icon icon-books"></i>Container</a></li>
+                        <li><a href="sublime3-config.html"><i class="icon icon-books"></i>配置sublime3的插件</a></li>
+                        <li><a href="javascript:;"><i class="icon icon-books"></i>帮助文件</a>
+                            <ul>
+                                <li><a href="帮助文档-项目规则.html">项目规则</a></li>
+                                <li><a href="帮助文档-修改日志.html">修改日志</a></li>
+                                <li><a href="帮助文档-英文单词.html">英文单词</a></li>
+                                <li><a href="帮助文档-辅助类.html">辅助类</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <script type="text/javascript">
+                    // 左导航进行添加选中
+                    var arrUrl = window.location.href.split("/");
+                    var pageText = arrUrl[arrUrl.length - 1];
+                    if ( pageText.indexOf("?") !== -1 ) {
+                        pageText = pageText.split("?")[0];
+                    }else if ( pageText.indexOf("#") !== -1 ) {
+                        pageText = pageText.split("#")[0];
+                    }
+                    $('[data-toggle="left-nav"] li>a').each(function(index, el) {
+                        var pageBtn = $(el).attr('href');
+                        if ( pageText == pageBtn ) {
+                            $(el).addClass('active');
+                            return false;
+                        }
+                    });
+                </script>
+                <!--[/include]-->
+            </aside>
+            <!-- sidebar end -->
+            <!-- content start -->
+            <main id="content">
+                <div id="wrapper">
+                    <div class="content-wrap">
+
+                        <!-- 开发插件用的临时文件 start -->
+                        <section class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">开发插件用的临时文件</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="echarts-item" id="echarts-a" style="height: 620px;"></div>
+                            </div>
+                        </section>
+                        <!-- 开发插件用的临时文件 end -->
+                    </div>
+                </div>
+            </main>
+            <!-- content end -->
+        </article>
+        <!-- page-bodier end -->
+    </section>
+    <!-- page-container end -->
+
+
+
+    <script type="text/javascript">
+        $(function() {
+
+            var myChart = echarts.init(document.getElementById('echarts-a'));
+            
+            // 点的坐标
+            var geoCoordMap = {
+                '上海': [121.4648,31.2891],
+                '东莞': [113.8953,22.901],
+                '东营': [118.7073,37.5513],
+                '中山': [113.4229,22.478],
+                '临汾': [111.4783,36.1615],
+                '临沂': [118.3118,35.2936],
+                '丹东': [124.541,40.4242],
+                '丽水': [119.5642,28.1854],
+                '乌鲁木齐': [87.9236,43.5883],
+                '佛山': [112.8955,23.1097],
+                '保定': [115.0488,39.0948],
+                '兰州': [103.5901,36.3043],
+                '包头': [110.3467,41.4899],
+                '北京': [116.4551,40.2539],
+                '北海': [109.314,21.6211],
+                '南京': [118.8062,31.9208],
+                '南宁': [108.479,23.1152],
+                '南昌': [116.0046,28.6633],
+                '南通': [121.1023,32.1625],
+                '厦门': [118.1689,24.6478],
+                '台州': [121.1353,28.6688],
+                '合肥': [117.29,32.0581],
+                '呼和浩特': [111.4124,40.4901],
+                '咸阳': [108.4131,34.8706],
+                '哈尔滨': [127.9688,45.368],
+                '唐山': [118.4766,39.6826],
+                '嘉兴': [120.9155,30.6354],
+                '大同': [113.7854,39.8035],
+                '大连': [122.2229,39.4409],
+                '天津': [117.4219,39.4189],
+                '太原': [112.3352,37.9413],
+                '威海': [121.9482,37.1393],
+                '宁波': [121.5967,29.6466],
+                '宝鸡': [107.1826,34.3433],
+                '宿迁': [118.5535,33.7775],
+                '常州': [119.4543,31.5582],
+                '广州': [113.5107,23.2196],
+                '廊坊': [116.521,39.0509],
+                '延安': [109.1052,36.4252],
+                '张家口': [115.1477,40.8527],
+                '徐州': [117.5208,34.3268],
+                '德州': [116.6858,37.2107],
+                '惠州': [114.6204,23.1647],
+                '成都': [103.9526,30.7617],
+                '扬州': [119.4653,32.8162],
+                '承德': [117.5757,41.4075],
+                '拉萨': [91.1865,30.1465],
+                '无锡': [120.3442,31.5527],
+                '日照': [119.2786,35.5023],
+                '昆明': [102.9199,25.4663],
+                '杭州': [119.5313,29.8773],
+                '枣庄': [117.323,34.8926],
+                '柳州': [109.3799,24.9774],
+                '株洲': [113.5327,27.0319],
+                '武汉': [114.3896,30.6628],
+                '汕头': [117.1692,23.3405],
+                '江门': [112.6318,22.1484],
+                '沈阳': [123.1238,42.1216],
+                '沧州': [116.8286,38.2104],
+                '河源': [114.917,23.9722],
+                '泉州': [118.3228,25.1147],
+                '泰安': [117.0264,36.0516],
+                '泰州': [120.0586,32.5525],
+                '济南': [117.1582,36.8701],
+                '济宁': [116.8286,35.3375],
+                '海口': [110.3893,19.8516],
+                '淄博': [118.0371,36.6064],
+                '淮安': [118.927,33.4039],
+                '深圳': [114.5435,22.5439],
+                '清远': [112.9175,24.3292],
+                '温州': [120.498,27.8119],
+                '渭南': [109.7864,35.0299],
+                '湖州': [119.8608,30.7782],
+                '湘潭': [112.5439,27.7075],
+                '滨州': [117.8174,37.4963],
+                '潍坊': [119.0918,36.524],
+                '烟台': [120.7397,37.5128],
+                '玉溪': [101.9312,23.8898],
+                '珠海': [113.7305,22.1155],
+                '盐城': [120.2234,33.5577],
+                '盘锦': [121.9482,41.0449],
+                '石家庄': [114.4995,38.1006],
+                '福州': [119.4543,25.9222],
+                '秦皇岛': [119.2126,40.0232],
+                '绍兴': [120.564,29.7565],
+                '聊城': [115.9167,36.4032],
+                '肇庆': [112.1265,23.5822],
+                '舟山': [122.2559,30.2234],
+                '苏州': [120.6519,31.3989],
+                '莱芜': [117.6526,36.2714],
+                '菏泽': [115.6201,35.2057],
+                '营口': [122.4316,40.4297],
+                '葫芦岛': [120.1575,40.578],
+                '衡水': [115.8838,37.7161],
+                '衢州': [118.6853,28.8666],
+                '西宁': [101.4038,36.8207],
+                '西安': [109.1162,34.2004],
+                '贵阳': [106.6992,26.7682],
+                '连云港': [119.1248,34.552],
+                '邢台': [114.8071,37.2821],
+                '邯郸': [114.4775,36.535],
+                '郑州': [113.4668,34.6234],
+                '鄂尔多斯': [108.9734,39.2487],
+                '重庆': [107.7539,30.1904],
+                '金华': [120.0037,29.1028],
+                '铜川': [109.0393,35.1947],
+                '银川': [106.3586,38.1775],
+                '镇江': [119.4763,31.9702],
+                '长春': [125.8154,44.2584],
+                '长沙': [113.0823,28.2568],
+                '长治': [112.8625,36.4746],
+                '阳泉': [113.4778,38.0951],
+                '青岛': [120.4651,36.3373],
+                '韶关': [113.7964,24.7028]
+            };
+            // 获取到的数据
+            var CityData = [
+                [
+                    '西安', 
+                    [
+                        [{name:'西安'}, {name:'北京',value:100}],
+                        [{name:'西安'}, {name:'上海',value:100}],
+                        [{name:'西安'}, {name:'广州',value:100}],
+                        [{name:'西安'}, {name:'西宁',value:100}],
+                        [{name:'西安'}, {name:'银川',value:100}]
+                    ]
+                ],
+                [
+                    '西宁', 
+                    [
+                        [{name:'西宁'}, {name:'北京',value:100}],
+                        [{name:'西宁'}, {name:'上海',value:100}],
+                        [{name:'西宁'}, {name:'广州',value:100}],
+                        [{name:'西宁'}, {name:'西安',value:100}],
+                        [{name:'西宁'}, {name:'银川',value:100}]
+                    ]
+                ],
+                [
+                    '银川',
+                    [
+                        [{name:'银川'}, {name:'北京',value:100}],
+                        [{name:'银川'}, {name:'广州',value:100}],
+                        [{name:'银川'}, {name:'上海',value:100}],
+                        [{name:'银川'}, {name:'西安',value:100}],
+                        [{name:'银川'}, {name:'西宁',value:100}],
+                        [{name:'银川'}, {name:'乌鲁木齐',value:100}],
+                    ]
+                ],
+                [
+                    '哈尔滨',
+                    [
+                        [{name:'哈尔滨'}, {name:'北京',value:100}],
+                        [{name:'哈尔滨'}, {name:'广州',value:100}]
+                    ]
+                ],
+                [
+                    '广州',
+                    [
+                        [{name:'广州'}, {name:'哈尔滨',value:100}]
+                    ]
+                ],
+                [
+                    '乌鲁木齐',
+                    [
+                        [{name:'乌鲁木齐'}, {name:'银川',value:100}]
+                    ]
+                ]
+            ];
+            // 飞机坐标点
+            var planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
+
+            var convertData = function (data) {
+                var res = [];
+                for (var i = 0; i < data.length; i++) {
+                    var dataItem = data[i];
+                    var fromCoord = geoCoordMap[dataItem[0].name];
+                    var toCoord = geoCoordMap[dataItem[1].name];
+                    if (fromCoord && toCoord) {
+                        res.push({
+                            fromName: dataItem[0].name,
+                            toName: dataItem[1].name,
+                            coords: [fromCoord, toCoord],
+                            value: dataItem[1].value
+                        });
+                    }
+                }
+                return res;
+            };
+            // 航线的颜色
+            var color = ['#a6c84c', '#ffa022', '#46bee9', '#a6c84c', '#ffa022', '#46bee9' ];
+            var series = [];
+            var legend = [];
+            CityData.forEach(function (item, i) {
+                legend.push( item[0] );
+                
+                console.log( convertData(item[1]) );
+
+                series.push({
+                    name: item[0],
+                    type: 'lines',
+                    zlevel: 1,
+                    effect: {
+                        show: true,
+                        period: 6,
+                        trailLength: 0.7,
+                        color: 'red',   //arrow箭头的颜色
+                        symbolSize: 3
+                    },
+                    lineStyle: {
+                        normal: {
+                            color: color[i],
+                            width: 0,
+                            curveness: 0.2
+                        }
+                    },
+                    data: convertData(item[1])
+                },
+                {
+                    name: item[0],
+                    type: 'lines',
+                    zlevel: 2,
+                    symbol: ['none', 'arrow'],
+                    symbolSize: 10,
+                    effect: {
+                        show: true,
+                        period: 6,
+                        trailLength: 0,
+                        symbol: planePath,
+                        symbolSize: 15
+                    },
+                    lineStyle: {
+                        normal: {
+                            color: color[i],
+                            width: 1,
+                            opacity: 0.6,
+                            curveness: 0.2
+                        }
+                    },
+                    data: convertData(item[1])
+                },
+                {
+                    name: item[0],
+                    type: 'effectScatter',
+                    coordinateSystem: 'geo',
+                    zlevel: 2,
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'right',
+                            formatter: '{b}'
+                        }
+                    },
+                    symbolSize: function (val) {
+                        return val[2] / 8;
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: color[i],
+                        },
+                        emphasis: {
+                            areaColor: '#2B91B7'
+                        }
+                    },
+                    data: item[1].map(function (dataItem) {
+                        return {
+                            name: dataItem[1].name,
+                            value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
+                        };
+                    })
+                });
+            });
+
+            var options = {
+                legend: {
+                    orient: 'vertical',
+                    top: 10,
+                    left: 10,
+                    data: legend,
+                    textStyle: {
+                        color: '#fff'
+                    },
+                    selectedMode: 'multiple'
+                },
+                backgroundColor: '#013954',
+                tooltip : {
+                    trigger: 'item', 
+                    formatter:function(params, ticket, callback){
+                        if(params.seriesType=="effectScatter") {
+                            return "线路："+params.data.name+""+params.data.value[2];
+                        }else if(params.seriesType=="lines"){
+                            return params.data.fromName+">"+params.data.toName+"<br />"+params.data.value;
+                        }else{
+                            return params.name;
+                        }
+                    } 
+                },
+                geo: {
+                    map: 'china',
+                    label: {
+                        emphasis: { // 鼠标经过省的文字颜色
+                            show: true,
+                            color:'#fff'
+                        }
+                    },
+                    roam: true, //是否允许缩放
+                    itemStyle: {
+                        normal: {
+                            color: 'rgba(51, 69, 89, .5)', //地图背景色
+                            borderColor: '#516a89', //省市边界线00fcff 516a89
+                            borderWidth: 1
+                        },
+                        emphasis: {
+                            color: 'rgba(37, 43, 61, .5)' //悬浮背景
+                        }
+                    }
+                },
+                series: series
+            };
+
+            myChart.setOption(options);
+        });
+    </script>
+
+</body>
+</html>
