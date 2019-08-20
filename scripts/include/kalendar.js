@@ -42,14 +42,14 @@
     privateFunction.prototype.init = function (dateval) {
         var self = this,
             options = this.options;
-        var activeType = true;
+        var activeType = true; // 是否设置当前日期
         if (dateval) {
-            if (dateval.length<8) {
+            if (dateval.length<8) {     // 判断所给日期是否含有年月日
                activeType = false; 
             }
             var date = new Date(dateval);   // 获取加载的时间
         }else{
-            var date = options.date;   // 获取加载的时间
+            var date = new Date(options.date);   // 获取加载的时间
         }
         var year = date.getFullYear(),                  // 获取年
             month = date.getMonth(),                    // 获取月
@@ -172,7 +172,7 @@
                     options.callBack(date);
                 }
             });
-            // 上月的点击事件
+            // 下月的点击事件
             $(document).on('click', '.moc-kalendar-next-day', function(e) {
                 e.preventDefault();
                 var year = $(this).closest('.moc-kalendar').data('year'),       // 获取年
