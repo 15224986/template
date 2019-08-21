@@ -373,23 +373,21 @@
             /**
              * 判断是否生成 右侧的浮动层
              */
+            var rightLeft = 0;
+            var nHeight = s.container.outerHeight();
+            var wHeight = s.container.closest('.mocFixedtable-view').height();
+            if ( nHeight>wHeight ) {
+                if(navigator.userAgent.toLowerCase().indexOf('applewebkit/') > -1) {
+                    rightLeft = o.scrollRight;
+                }else{
+                    rightLeft = 18;
+                }
+            }
             if( o.tright > 0 ) {
                 var trightWidth = 2;
                 s.container.find('tbody tr:first').children().slice(-o.tright || 1).each(function(i,td) {
                     trightWidth += $(td).mocActual('outerWidth');
                 });
-
-                var rightLeft = 0;
-                var nHeight = s.container.outerHeight();
-                var wHeight = s.container.closest('.mocFixedtable-view').height();
-                if ( nHeight>wHeight ) {
-                    if(navigator.userAgent.toLowerCase().indexOf('applewebkit/') > -1) {
-                        rightLeft = o.scrollRight;
-                    }else{
-                        rightLeft = 18;
-                    }
-                }
-
                 var right = $("<div>", {
                     'class' : "mocFixedtable-right"
                 }).appendTo(Fixedtable);
@@ -486,10 +484,14 @@
             /**
              * 补全底部边框线
              */
-            $("<div>", {
-                'class' : "mocFixedtable-bottom-border"
-            }).css({"bottom": footTop+"px"}).appendTo(Fixedtable);
-
+            if ( nHeight>wHeight ){
+                $("<div>", {
+                    'class' : "mocFixedtable-bottom-border"
+                }).css({
+                    "bottom": footTop+"px",
+                    "right": rightLeft+"px",
+                }).appendTo(Fixedtable);
+            }
             /**
              * 滚动条事件
              */
