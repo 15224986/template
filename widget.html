@@ -774,16 +774,18 @@
                                     <a class="btn btn-primary kalendar-btn" href="javascript:;">2018-11</a>
                                     <a class="btn btn-primary kalendar-btn" href="javascript:;">2018-12</a>
                                 </div>
-                                <h3 class="tac" id="kalendarDate">2018-10-09</h3>
+                                <h3 class="tac" id="kalendarDate">2019-08-20</h3>
                                 <div id="kalendar"></div>
+                                <h3 class="tac" id="kalendarDate2"></h3>
+                                <div id="kalendar2"></div>
                                 
                                 <script type="text/javascript">
                                     $(function() {
 
                                         var mykalendar = $("#kalendar").mocKalendar({
-                                            'date'      : new Date(),
+                                            'date'      : new Date('2019-08-20'),
                                             callBack: function(date){
-                                                console.log(date);
+                                                console.log(date+"111");
                                                 $("#kalendarDate").text(date);
                                             }
                                         });
@@ -794,6 +796,16 @@
                                             mykalendar.init(val);
                                             $("#kalendarDate").text(val);
                                         });
+
+                                        var mykalendar = $("#kalendar2").mocKalendar({
+                                            'date'      : new Date(),
+                                            callBack: function(date){
+                                                $("#kalendarDate2").text(date);
+                                            }
+                                        });
+
+                                        let now = moment().format('YYYY-MM-DD');
+                                        $("#kalendarDate2").text(now);
                                             
                                     });
                                 </script>
