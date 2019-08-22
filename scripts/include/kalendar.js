@@ -20,10 +20,12 @@
 
         // 定义默认参数
         self.defaults = {
-            'date'              : new Date(),
-            'weekArr'           : ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],
-            'callBack'          : false,
-            'neighborClick'     : true
+            'date'              : new Date(),           // 默认时间
+            'weekArr'           : ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'], // 头部文字
+            'dayClick'          : true,                 // 本月是否添加点击事件
+            'neighborClick'     : true,                 // 其它月是否添加点击事件
+            'callBack'          : false,                // 点击后的后调 返回点击的日期
+            'slotCallBack'      : false
         };
         self.options = $.extend({}, self.defaults, options);
         
@@ -32,8 +34,6 @@
         
         // 初始化插件
         self.init();
-        self.event();
-
     };
 
     /**
@@ -59,14 +59,15 @@
             fdw = _getFirstDayWeek(year, month, 1),      // 获得本月的第一天是星期几
             ldw = _getFirstDayWeek(year, month, dnm);    // 获得本月的最后一天是星期几
 
+        // 记录当前年月
+        self.year = year;
+        self.month = month+1;
         /**
          * 插件框架
          */
         self.$element.children('.moc-kalendar').remove();
         var kalendar = $('<div>', {
-            class:'moc-kalendar',
-            'data-year':year,
-            'data-month':month+1
+            class:'moc-kalendar'
         }).appendTo(self.$element);
         // 日历头部
         var weekBox = $('<ul>', {
@@ -90,27 +91,42 @@
         var pnm = _getDaysInOneMonth(year, month-1);       // 获得本月的总天数
         for(var i = 1; i <= fdw; i++){
             var prevList = $("<li>", {
-                class:'moc-kalendar-prev-day'
-            }).appendTo(dayBox);
+                    class:'moc-kalendar-prev-day'
+                }).appendTo(dayBox);
             $("<span>", {
                 text: pnm-(fdw-i)
             }).appendTo(prevList);
+            // 添加点击事件
+            if(options.neighborClick){
+                prevList.on("click",function(){
+                    _prevDayclick(this,self);
+                });
+            }
         };
 
         // 生成当月的天数
         for(i = 1; i <= dnm; i++){
             var dw = _getFirstDayWeek(year, month, i);
             var dayList = $("<li>", {
-                class:'moc-kalendar-day-list'
-            }).appendTo(dayBox);
+                    class:'moc-kalendar-day-list'
+                }).appendTo(dayBox);
             $("<span>", {
                 text: i
             }).appendTo(dayList);
-            if(i == day && activeType){
+            if(i === day && activeType){
                 dayList.addClass('moc-kalendar-now moc-kalendar-active');
             }
-            if ( dw==0 || dw==6 ) {
+            if ( dw===0 || dw===6 ) {
                 dayList.addClass('moc-kalendar-holiday');
+            }
+            if ( $.isFunction(options.slotCallBack) ) {
+                options.slotCallBack();
+            }
+            // 添加点击事件
+            if(options.dayClick){
+                dayList.on("click",function(){
+                    _dayclick(this,self);
+                });
             }
         };
 
@@ -121,78 +137,85 @@
         }
         for(var i = 1; i <= nextL; i++){
             var nextList = $("<li>", {
-                class:'moc-kalendar-next-day'
-            }).appendTo(dayBox);
+                    class:'moc-kalendar-next-day'
+                }).appendTo(dayBox);
             $("<span>", {
                 text: i
             }).appendTo(nextList);
+            // 添加点击事件
+            if(options.neighborClick){
+                nextList.on("click",function(){
+                    _nextDayclick(this,self);
+                });
+            }
         };
     }
 
+
     /**
-     * 内部的事件
+     * 上月的点击事件
      */
-    privateFunction.prototype.event = function () {
-        var self = this,
-            options = this.options;
+    function _prevDayclick(_this,self){
+        var year = self.year,                   // 获取年
+            month = self.month-1,               // 获取月
+            day = $(_this).text();              // 获取日
 
-        // 本月的点击事件
-        $(document).on('click', '.moc-kalendar-day-list', function(e) {
-            e.preventDefault();
-            $(this).addClass('moc-kalendar-active').siblings().removeClass('moc-kalendar-active');
-
-            var year = $(this).closest('.moc-kalendar').data('year'),       // 获取年
-                month = $(this).closest('.moc-kalendar').data('month'),     // 获取月
-                day = $(this).text();                                       // 获取日
-            // 单位数添加 0 补位
-            month = month<10? '0'+month:month;
-            day = day<10? '0'+day:day;
-            // 是否需要回调
-            var date = year+'-'+month+'-'+day;
-            if ($.isFunction(options.callBack)) {
-                options.callBack(date);
-            }
-        });
-        if( options.neighborClick ){
-            // 上月的点击事件
-            $(document).on('click', '.moc-kalendar-prev-day', function(e) {
-                e.preventDefault();
-                var year = $(this).closest('.moc-kalendar').data('year'),       // 获取年
-                    month = $(this).closest('.moc-kalendar').data('month')-1,   // 获取月
-                    day = $(this).text();                                       // 获取日
-
-                // 单位数添加 0 补位
-                month = month<10? '0'+month:month;
-                day = day<10? '0'+day:day;
-                // 是否需要回调
-                var date = year+'-'+month+'-'+day;
-                self.init(date);
-                
-                if ($.isFunction(options.callBack)) {
-                    options.callBack(date);
-                }
-            });
-            // 下月的点击事件
-            $(document).on('click', '.moc-kalendar-next-day', function(e) {
-                e.preventDefault();
-                var year = $(this).closest('.moc-kalendar').data('year'),       // 获取年
-                    month = $(this).closest('.moc-kalendar').data('month')+1,   // 获取月
-                    day = $(this).text();                                       // 获取日
-
-                // 单位数添加 0 补位
-                month = month<10? '0'+month:month;
-                day = day<10? '0'+day:day;
-                // 是否需要回调
-                var date = year+'-'+month+'-'+day;
-                self.init(date);
-                
-                if ($.isFunction(options.callBack)) {
-                    options.callBack(date);
-                }
-            });
+        if( month<1 ){
+            year = year - 1;
+            month = 12;
+        }
+        // 单位数添加 0 补位
+        month = month<10? '0'+month:month;
+        day = day<10? '0'+day:day;
+        // 是否需要回调
+        var date = year+'-'+month+'-'+day;
+        self.init(date);
+        
+        if ($.isFunction(self.options.callBack)) {
+            self.options.callBack(date);
         }
     }
+    /**
+     * 本月的点击事件
+     */
+    function _dayclick(_this,self){
+        var year = self.year,                   // 获取年
+            month = self.month,                 // 获取月
+            day = $(_this).text();              // 获取日
 
+        $(_this).addClass('moc-kalendar-active').siblings().removeClass('moc-kalendar-active');
+        // 单位数添加 0 补位
+        month = month<10? '0'+month:month;
+        day = day<10? '0'+day:day;
+        // 是否需要回调
+        var date = year+'-'+month+'-'+day;
+        if ($.isFunction(self.options.callBack)) {
+            self.options.callBack(date);
+        }
+    }
+    /**
+     * 下月的点击事件
+     */
+    function _nextDayclick(_this,self){
+        var year = self.year,                   // 获取年
+            month = self.month+1,               // 获取月
+            day = $(_this).text();              // 获取日
+
+        if( month>12 ){
+            year = year + 1;
+            month = 1;
+        }
+        // 单位数添加 0 补位
+        month = month<10? '0'+month:month;
+        day = day<10? '0'+day:day;
+        // 是否需要回调
+        var date = year+'-'+month+'-'+day;
+        self.init(date);
+        
+        if ($.isFunction(self.options.callBack)) {
+            self.options.callBack(date);
+        }
+    }
     /* 
      * 获得某年某月某日是星期几
     */
