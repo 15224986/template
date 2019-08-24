@@ -970,12 +970,13 @@
                                     <b class="divider-txt">倒计时</b>
                                 </div>
 
-                                <p class="text-center">倒计时00:15:10  <span class="jcountdown1"></span></p>
+                                <p class="text-center">倒计时2019-10-01 8:00:00还有<span class="jcountdown1"></span></p>
+                                <p class="text-center">倒计时2019-10-08 8:00:00还有<span class="jcountdown1" data-endDate="2019-10-08 8:00:00"></span></p>
                                 
                                 <script type="text/javascript">
                                     $(function() {
                                         $('.jcountdown1').mocCountDown({
-                                            endDate:"2019-10-10 08:00:00",
+                                            endDate:"2019-10-01 8:00:00",
                                             callBack:function(){
                                                 $(this).css('color', 'red');
                                                 console.log('倒计时结束了！');
