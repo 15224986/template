@@ -11,10 +11,9 @@
 
         // 定义默认参数
         self.defaults = {
-            type:'time',  // date  ||  time
-            startDate:"1:00:00",
-            endDate:"2028-12-12 00:00:00",
-            callBack:false
+            isShowDays: true,                      // 默认不显示天数
+            endDate: "2028-12-12 00:00:00",         // 结束日期
+            callBack: false                         // 回调
         };
         self.options = $.extend({}, self.defaults, options);
         
@@ -30,47 +29,66 @@
      */
     privateFunction.prototype.init = function () {
         var self = this;
-        self.millisecond = 0;
-        if( self.options.type === 'time' ){
-            var time = self.options.startDate;
-            var timeArr = time.split(':');
-            self.millisecond += timeArr[0]*60*60*1000;
-            self.millisecond += timeArr[1]*60*1000;
-            self.millisecond += timeArr[2]*1000; 
-        }else if( self.options.type === 'date' ){
-            var time = self.options.startDate,
-                date = self.options.endDate;
-            self.millisecond = toDateGetTime(time) - toDateGetTime(date);
-        }
-        calcTime(self);
-        self.timer = setInterval(function(){
-            self.millisecond = self.millisecond-1000;
-            calcTime(self);
-        },1000);
+        // 循环元素执行
+        self.$element.each(function(index, el) {
+
+            var time = new Date().getTime(),
+                endDate = $(el).attr('data-endDate') || self.options.endDate,
+                millisecond = _toDateGetTime(endDate) - time,
+                timer = '',
+                options = self.options,
+                $el = $(el);
+
+            _calcTime($el, timer, millisecond, options);
+            timer = setInterval(function(){
+                millisecond = millisecond-1000;
+                _calcTime($el, timer, millisecond, options);
+            },1000);
+        });   
     };
 
-    function calcTime(self){
-        var time = self.millisecond;
+    function _calcTime($el,timer,time,options){
         if(time>=1000){
-            var days = parseInt(time / (1000 * 60 * 60 * 24));
-            var hours = parseInt((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + days*24;
-            var minutes = parseInt((time % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = (time % (1000 * 60)) / 1000;
-            minutes = minutes>9?minutes:'0'+minutes;
-            seconds = seconds>9?seconds:'0'+seconds;
-            self.$element.text(hours+":"+minutes+":"+seconds);
+        var days = parseInt(time / (1000 * 60 * 60 * 24));
+        if(options.isShowDays){
+            var hours = parseInt((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         }else{
-            self.$element.text("0:00:00");
-            clearTimeout(self.timer);
-            if( $.type(self.options.callBack) === "function" ){
-                self.options.callBack.call(self.$element);
-            }
+            var hours = parseInt((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + days*24;
         }
-        
+        var minutes = parseInt((time % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((time % (1000 * 60)) / 1000);
+        if(minutes > 0 && minutes < 10){
+            minutes = '0'+minutes;
+        }
+        if(seconds > 0 && seconds < 10){
+            seconds = '0'+seconds;
+        }
+        _assignment($el,options,days,hours,minutes,seconds);
+        }else{
+            _assignment($el,options,'0','0','0','0');
+            if( $.type(options.callBack) === "function" ){
+                options.callBack.call($el);
+            }
+            clearTimeout(timer);
+        }
     }
 
-    function toDateGetTime(date){
-        date = date.replace(/-/g, '/');
+    function _assignment($el,options,days,hours,minutes,seconds){
+        var text = "";
+        if(options.isShowDays){
+            if(days>0){
+                hours = hours>9?hours:'0'+hours;
+                text = '<span class="moc-count-down-item moc-count-down-days">'+days+'</span><span class="moc-count-down-symbol">天</span><span class="moc-count-down-item moc-count-down-hours">'+hours+'</span><span class="moc-count-down-symbol">时</span><span class="moc-count-down-item moc-count-down-minutes">'+minutes+'</span><span class="moc-count-down-symbol">分</span><span class="moc-count-down-item moc-count-down-seconds">'+seconds+'</span><span class="moc-count-down-symbol">秒</span>';
+            }else{
+                text = '<span class="moc-count-down-item moc-count-down-hours">'+hours+'</span><span class="moc-count-down-symbol">时</span><span class="moc-count-down-item moc-count-down-minutes">'+minutes+'</span><span class="moc-count-down-symbol">分</span><span class="moc-count-down-item moc-count-down-seconds">'+seconds+'</span><span class="moc-count-down-symbol">秒</span>';
+            }
+        }else{
+            text = '<span class="moc-count-down-item moc-count-down-hours">'+hours+'</span><span class="moc-count-down-symbol">:</span><span class="moc-count-down-item moc-count-down-minutes">'+minutes+'</span><span class="moc-count-down-symbol">:</span><span class="moc-count-down-item moc-count-down-seconds">'+seconds+'</span>';
+        }
+        $el.html(text);
+    }
+
+    function _toDateGetTime(date){
         var time = new Date(date);
         return time.getTime();
     }
