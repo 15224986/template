@@ -37,11 +37,11 @@
     <script type="text/javascript" src="vendor/jquery-1.11.3.min.js"></script>
     <!-- 项目封装 -->
     <script type="text/javascript" src="scripts/widget.min.js"></script>
-    
-    <!-- 
+
+    <!--
        *
        * 与form表单相关
-       * 
+       *
     -->
     <!-- 输入框input输入内容格式限制插件 -->
     <script type="text/javascript" src="vendor/inputmask/min/jquery.inputmask.bundle.min.js"></script>
@@ -81,10 +81,10 @@
     <link rel="stylesheet" type="text/css" href="vendor/Validform/Validform_v5.css">
     <script type="text/javascript" src="vendor/Validform/Validform_v5.3.2.js"></script>
 
-    <!-- 
+    <!--
        *
        * 经常会用到
-       * 
+       *
     -->
     <!-- bootstrap 的 js -->
     <script src="vendor/bootstrap/bootstrap.js"></script>
@@ -104,7 +104,7 @@
     <script type="text/javascript" src="vendor/clipboard/clipboard.min.js"></script>
     <!-- jQuery图片延迟加载插件jQuery.lazyload -->
     <script type="text/javascript" src="vendor/jquery.lazyload/jquery.lazyload.js"></script>
-    
+
     <!-- 导出 XLS XLSX XML JSON PDF PNG等 -->
     <script type="text/javascript" src="vendor/tableExport/libs/FileSaver/FileSaver.min.js"></script>
     <script type="text/javascript" src="vendor/tableExport/libs/js-xlsx/xlsx.core.min.js"></script>
@@ -114,22 +114,22 @@
     <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
     <!-- css3 动画库 -->
     <link rel="stylesheet" type="text/css" href="styles/animate.css" />
-    
-    <!-- 
+
+    <!--
        *
        * 基本不会使用
-       * 
+       *
     -->
     <!-- h5量子背景 -->
     <script type="text/javascript" src="vendor/quantum.js"></script>
     <!-- 显示代码插件 -->
     <link rel="stylesheet" href="vendor/prismjs/prism-coy.css">
     <script src="vendor/prismjs/prism.js" defer async></script>
-    
-    <!-- 
+
+    <!--
        *
        * 放到最后
-       * 
+       *
     -->
     <!-- 项目需求的特殊样式 -->
     <link rel="stylesheet" type="text/css" href="styles/css/global.css" />
@@ -140,9 +140,75 @@
 
     <!-- 开发插件用的临时文件 -->
     <script type="text/javascript" src="plugin/myplugin.js"></script>
-    
-    
-    
+
+
+    <style type="text/css">
+        [name="checkbox_uaSysPARAConfGrid"]{
+            background-color: rgba(0, 0, 0, 0);
+            background-image: url('images/Inptime.png')
+        }
+        .move-overlay{
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 899;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+        }
+        .move{
+            width: 520px;
+            height: 360px;
+            background-color: #fff;
+            border: #ccc 2px solid;
+            position: relative;
+            margin: 80px auto 0;
+            /*left: 50%;
+            top: 50%;*/
+            /*margin-left: -18rem;
+            margin-top: -12rem;*/
+            /*transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);*/
+        }
+        .move-handle{
+            height: 36px;
+            background-color: #0085d0;
+            cursor: move;
+        }
+
+
+        .nav-list-box{
+            background-color: #409EFF;
+        }
+        .nav-list{
+            position: relative;
+            overflow: hidden;
+            z-index: 9;
+        }
+        .nav-item{
+            float: left;
+        }
+        .nav-item a{
+            display: block;
+            padding: 8px 22px;
+            color: #fff;
+        }
+        .nav-item.active a{
+            background-color: #f00;
+        }
+        .nav-object{
+            position: absolute;
+            top: 0;
+            height: 100%;
+            background-color: #f00;
+            z-index: -1;
+        }
+    </style>
+
 </head>
 <body class="page-bg-default">
     <!-- page-container start -->
@@ -168,7 +234,7 @@
             </div>
             <div class="header-navbar">
                 <div class="logo">
-                    <a href="index.html"><img src="images/logo-fchsoft.png" alt=""></a>
+                    <a href="index.html"><h2>logo.png</h2></a>
                 </div>
 
                 <nav class="header-nav">
@@ -205,7 +271,7 @@
         </header>
         <!--[/include]-->
         <!-- page-header end -->
-        
+
         <!-- page-bodier start -->
         <article id="page-bodier">
             <!-- sidebar start -->
@@ -253,7 +319,7 @@
                         <li><a href="text.html"><i class="icon icon-books"></i>text 文字相关的</a></li>
                         <li><a href="bootstrap.html"><i class="icon icon-books"></i>bootstrap</a></li>
                         <li><a href="icons.html"><i class="icon icon-books"></i>icons</a></li>
-                        
+
                         <li><a href="widget.html"><i class="icon icon-books"></i>widget</a></li>
                         <li><a href="Container.html"><i class="icon icon-books"></i>Container</a></li>
                         <li><a href="sublime3-config.html"><i class="icon icon-books"></i>配置sublime3的插件</a></li>
@@ -291,7 +357,7 @@
             <main id="content">
                 <div id="wrapper">
                     <div class="content-wrap">
-                        
+
                         <!-- 开发插件用的临时文件 start -->
                         <div class="panel">
                             <div class="panel-head">
@@ -301,6 +367,22 @@
                             </div>
                             <div class="panel-body">
                                 
+
+                                <div class="nav-list-box">
+                                    <ul class="nav-list">
+                                        <div class="nav-object"></div>
+                                        <li class="nav-item active"><a href="javascript:;">首页</a></li>
+                                        <li class="nav-item"><a href="javascript:;">国内</a></li>
+                                        <li class="nav-item"><a href="javascript:;">国际</a></li>
+                                        <li class="nav-item"><a href="javascript:;">军事</a></li>
+                                        <li class="nav-item"><a href="javascript:;">财经</a></li>
+                                        <li class="nav-item"><a href="javascript:;">互联网</a></li>
+                                        <li class="nav-item"><a href="javascript:;">权限设置</a></li>
+                                    </ul>
+                                </div>
+
+                                <input type="checkbox" name="checkbox_uaSysPARAConfGrid">
+
                             </div>
                         </div>
                         <!-- 开发插件用的临时文件 end -->
@@ -312,12 +394,136 @@
         <!-- page-bodier end -->
     </section>
     <!-- page-container end -->
-    <script>
-        
-    </script>
+
+
+    <div class="move-overlay">
+        <div class="move">
+            <div class="move-head">
+                <div class="move-handle"></div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
+
+        let is_confirm = true;
+        // 关闭窗口时弹出确认提示
+        $(window).on('beforeunload', function(event){
+            // 只有在标识变量is_confirm不为false时，才弹出确认提示
+            if( is_confirm ){
+                event= event|| window.event;
+                event.returnValue="文章还未保存,是否放弃?";
+                return '您可能有数据没有保存';
+            }  
+        });
+
         $(function() {
-            
+            /**
+             * 导航跟随
+             */
+             var navLeft = $(".nav-list").offset().left;
+            // $(document).on('mouseenter', '.nav-item', function(event) {
+            //     event.preventDefault();
+            //     let width = $(this).width(),
+            //         left  = $(this).offset().left - navLeft;
+
+            //     $(".nav-object").animate({
+            //         left: left,
+            //         width: width},150);
+            // });
+            // $(document).on('mouseleave', '.nav-list', function(event) {
+            //     event.preventDefault();
+            //     let width = $(".nav-item.active").width(),
+            //         left  = $(".nav-item.active").offset().left - navLeft;
+            //     $(".nav-object").animate({
+            //         left: left,
+            //         width: width}, 150);  
+            // });
+
+            $(".nav-item").hover(function() {
+                let width = $(this).width(),
+                    left  = $(this).offset().left - navLeft;
+                $(".nav-object").stop().animate({
+                    left: left,
+                    width: width},150);
+            }, function() {
+                let width = $(".nav-item.active").width(),
+                    left  = $(".nav-item.active").offset().left - navLeft;
+                $(".nav-object").stop().animate({
+                    left: left,
+                    width: width}, 150);  
+            });
+            $(".nav-item").on('click', function(event) {
+                event.preventDefault();
+                $(this).addClass('active').siblings().removeClass('active');
+            });
+
+
+            /**
+             * 拖动方法
+             */
+            $(document).on('mousedown','.move-handle',function(e){
+                var e = e || window.event;
+                // 获取dom标签
+                var move = $(this).closest('.move')[0];
+                /**
+                 * 计算出鼠标的位置距离要移动的dom的左顶点的距离
+                 * move.offsetLeft 获取js的偏移位置  而不是jq的偏移位置
+                 */
+                let mouseOffsetX = e.clientX - move.offsetLeft;
+                let mouseOffsetY = e.clientY - move.offsetTop;
+
+                /**
+                 * 获取自身携带的marginLeft、marginTop值，通过+转化为数字
+                 * 获取原有属性 ie dom元素.currentStyle 火狐谷歌 window.getComputedStyle(dom元素, null);
+                 */
+                const sty = move.currentStyle || window.getComputedStyle(move, null);
+                var marginL = +sty.marginLeft.replace(/\px/g, '');
+                var marginT = +sty.marginTop.replace(/\px/g, '');
+
+                // console.log(marginT);
+
+                // 鼠标移动
+                $(document).on('mousemove', function(e){
+                    var e = e || window.event;
+                    // 计算位置
+                    let moveX = e.clientX - mouseOffsetX - marginL;
+                    let moveY = e.clientY - mouseOffsetY - marginT;
+
+                    /**
+                     * 边界检测
+                     */
+                    // 顶部检测
+                    if( moveY < -marginT ){
+                        moveY = -marginT;
+                    }
+                    // 左侧检测
+                    if( moveX < -marginL ){
+                        moveX = -marginL;
+                    }
+                    // 右侧检测
+                    if( moveX > marginL ){
+                        moveX = marginL;
+                    }
+                    // 底部检测
+                    let moveTop = $(window).height() - marginT - $(move).outerHeight();
+                    if( moveY > moveTop ){
+                        moveY = moveTop;
+                    }
+                    // 赋值
+                    $(move).css({
+                        left: moveX,
+                        top: moveY
+                    });
+                });
+                // 鼠标放开
+                $(document).on('mouseup', function(e){
+                    $(document).off('mousemove');
+                    $(document).off('mouseup');
+                });
+                return false;
+            });
+
         });
     </script>
 
