@@ -91,7 +91,12 @@
     <script src="vendor/bootstrap/bootstrap-hover-dropdown.js"></script>
     <!-- echarts美化插件 -->
     <script type="text/javascript" src="vendor/echarts/4.0.4/echarts.min.js"></script>
+    <!-- 中国地图数据 --><!-- bmap 自定义系列（custom series） 支持 百度地图插件（bmap） --><!-- 坐标和数据 -->
     <script type="text/javascript" src="vendor/echarts/map/js/china.js"></script>
+    <script src="./vendor/echarts/map/bmap.js"></script>
+    <script src="./vendor/echarts/map/geoCoord.js"></script>
+    <!-- 百度地图 -->
+    <script src="http://api.map.baidu.com/api?v=3.0&ak=EzDXzjUWeF3Wb9tihrGr2IRvsIddR37G"></script>
     <!-- 使用jQuery监听DOM元素大小变化 -->
     <script type="text/javascript" src="vendor/ba-resize/jquery.ba-resize.js"></script>
     <!-- 轮播图 -->
@@ -293,18 +298,33 @@
                 <div id="wrapper">
                     <div class="content-wrap">
 
-                        <!-- 开发插件用的临时文件 start -->
+                        <!-- 飞机飞行图 start -->
                         <section class="panel">
                             <div class="panel-head">
                                 <div class="panel-inner">
-                                    <h2 class="panel-title">开发插件用的临时文件</h2>
+                                    <h2 class="panel-title">飞机飞行图</h2>
                                 </div>
                             </div>
                             <div class="panel-body">
                                 <div class="echarts-item" id="echarts-a" style="height: 620px;"></div>
                             </div>
                         </section>
-                        <!-- 开发插件用的临时文件 end -->
+                        <!-- 飞机飞行图 end -->
+
+                        <!-- 百度地图和echarts 迁徙图 start -->
+                        <section class="panel">
+                            <div class="panel-head">
+                                <div class="panel-inner">
+                                    <h2 class="panel-title">百度地图和echarts 迁徙图</h2>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="echarts-item" id="echarts-b" style="height: 620px;"></div>
+                            </div>
+                        </section>
+                        <!-- 百度地图和echarts 迁徙图 end -->
+
+
                     </div>
                 </div>
             </main>
@@ -443,32 +463,32 @@
                 [
                     '西安', 
                     [
-                        [{name:'西安'}, {name:'北京',value:100}],
-                        [{name:'西安'}, {name:'上海',value:100}],
-                        [{name:'西安'}, {name:'广州',value:100}],
-                        [{name:'西安'}, {name:'西宁',value:100}],
-                        [{name:'西安'}, {name:'银川',value:100}]
+                        [{name:'西安'}, {name:'北京',value:1000}],
+                        [{name:'西安'}, {name:'上海',value:1000}],
+                        [{name:'西安'}, {name:'广州',value:1000}],
+                        [{name:'西安'}, {name:'西宁',value:1000}],
+                        [{name:'西安'}, {name:'银川',value:1000}]
                     ]
                 ],
                 [
                     '西宁', 
                     [
-                        [{name:'西宁'}, {name:'北京',value:100}],
-                        [{name:'西宁'}, {name:'上海',value:100}],
-                        [{name:'西宁'}, {name:'广州',value:100}],
-                        [{name:'西宁'}, {name:'西安',value:100}],
-                        [{name:'西宁'}, {name:'银川',value:100}]
+                        [{name:'西宁'}, {name:'北京',value:1000}],
+                        [{name:'西宁'}, {name:'上海',value:1000}],
+                        [{name:'西宁'}, {name:'广州',value:1000}],
+                        [{name:'西宁'}, {name:'西安',value:1000}],
+                        [{name:'西宁'}, {name:'银川',value:1000}]
                     ]
                 ],
                 [
                     '银川',
                     [
-                        [{name:'银川'}, {name:'北京',value:100}],
-                        [{name:'银川'}, {name:'广州',value:100}],
-                        [{name:'银川'}, {name:'上海',value:100}],
-                        [{name:'银川'}, {name:'西安',value:100}],
-                        [{name:'银川'}, {name:'西宁',value:100}],
-                        [{name:'银川'}, {name:'乌鲁木齐',value:100}],
+                        [{name:'银川'}, {name:'北京',value:1000}],
+                        [{name:'银川'}, {name:'广州',value:1000}],
+                        [{name:'银川'}, {name:'上海',value:900}],
+                        [{name:'银川'}, {name:'西安',value:800}],
+                        [{name:'银川'}, {name:'西宁',value:1000}],
+                        [{name:'银川'}, {name:'乌鲁木齐',value:1000}],
                     ]
                 ],
                 [
@@ -518,86 +538,95 @@
             CityData.forEach(function (item, i) {
                 legend.push( item[0] );
                 
-                console.log( convertData(item[1]) );
+                // console.log( convertData(item[1]) );
 
-                series.push({
-                    name: item[0],
-                    type: 'lines',
-                    zlevel: 1,
-                    effect: {
-                        show: true,
-                        period: 6,
-                        trailLength: 0.7,
-                        color: 'red',   //arrow箭头的颜色
-                        symbolSize: 3
-                    },
-                    lineStyle: {
-                        normal: {
-                            color: color[i],
-                            width: 0,
-                            curveness: 0.2
-                        }
-                    },
-                    data: convertData(item[1])
-                },
-                {
-                    name: item[0],
-                    type: 'lines',
-                    zlevel: 2,
-                    symbol: ['none', 'arrow'],
-                    symbolSize: 10,
-                    effect: {
-                        show: true,
-                        period: 6,
-                        trailLength: 0,
-                        symbol: planePath,
-                        symbolSize: 15
-                    },
-                    lineStyle: {
-                        normal: {
-                            color: color[i],
-                            width: 1,
-                            opacity: 0.6,
-                            curveness: 0.2
-                        }
-                    },
-                    data: convertData(item[1])
-                },
-                {
-                    name: item[0],
-                    type: 'effectScatter',
-                    coordinateSystem: 'geo',
-                    zlevel: 2,
-                    rippleEffect: {
-                        brushType: 'stroke'
-                    },
-                    label: {
-                        normal: {
+                series.push(
+                    {
+                        name: item[0],
+                        type: 'lines',
+                        zlevel: 1,
+                        effect: {
                             show: true,
-                            position: 'right',
-                            formatter: '{b}'
-                        }
-                    },
-                    symbolSize: function (val) {
-                        return val[2] / 8;
-                    },
-                    itemStyle: {
-                        normal: {
-                            color: color[i],
+                            period: 6,
+                            trailLength: 0.7,
+                            color: 'red',   // arrow箭头的颜色
+                            symbolSize: 3
                         },
-                        emphasis: {
-                            areaColor: '#2B91B7'
-                        }
+                        lineStyle: {
+                            normal: {
+                                color: color[i],
+                                width: 0,
+                                curveness: 0.2
+                            }
+                        },
+                        data: convertData(item[1])
                     },
-                    data: item[1].map(function (dataItem) {
-                        return {
-                            name: dataItem[1].name,
-                            value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
-                        };
-                    })
-                });
+                    {
+                        name: item[0],
+                        type: 'lines',
+                        zlevel: 2,
+                        symbol: ['none', 'arrow'],
+                        symbolSize: 10, 
+                        effect: {
+                            show: true,
+                            period: 6,
+                            trailLength: 0,
+                            symbol: planePath,
+                            symbolSize: 15
+                        },
+                        lineStyle: {
+                            normal: {
+                                color: color[i],
+                                width: 1,
+                                opacity: 0.6,
+                                curveness: 0.2
+                            }
+                        },
+                        data: convertData(item[1])
+                    },
+                    {
+                        name: item[0],
+                        type: 'effectScatter',
+                        coordinateSystem: 'geo',
+                        zlevel: 2,
+                        rippleEffect: {
+                            brushType: 'stroke'
+                        },
+                        label: {
+                            normal: {
+                                show: true,
+                                position: 'right',
+                                formatter: '{b}'
+                            }
+                        },
+                        symbolSize: function (val,params) { // 设置地图闪烁点的大小
+                            if( val[2]>100 ){
+                                return val[2] / 80;
+                            }else if( val[2]>1000 ){
+                                return val[2] / 800;
+                            }else {
+                                return val[2] / 8;
+                            }
+                        },
+                        itemStyle: {
+                            normal: {
+                                color: color[i],
+                            },
+                            emphasis: {
+                                areaColor: '#2B91B7'
+                            }
+                        },
+                        data: item[1].map(function (dataItem) {
+                            return {
+                                name: dataItem[1].name,
+                                value: geoCoordMap[dataItem[1].name].concat([dataItem[1].value])
+                            };
+                        })
+                    }
+                );
             });
 
+            console.log(series);
             var options = {
                 legend: {
                     orient: 'vertical',
@@ -647,6 +676,557 @@
 
             myChart.setOption(options);
         });
+    </script>
+
+    <script>
+
+        /**
+         * echarts结合百度地图使用--热力图
+         * https://www.jianshu.com/p/deaf251f7e57
+         * 可以参考
+         */
+
+        /**
+         * echarts 迁徙图所需的数据
+         * 1.获取数
+         * 2.数据赋值
+         * 3.数据整理
+         */
+        
+        // 1
+        var data = {
+            "markdata": [
+                {
+                    "cityname": "西藏",
+                    "itemvalue": 86
+                },
+                {
+                    "cityname": "海南",
+                    "itemvalue": 85
+                },
+                {
+                    "cityname": "吉林",
+                    "itemvalue": 80
+                }
+            ],
+            "lineArr": [
+                {
+                    "from": {"cityname":"北京"},
+                    "to": {"cityname":"西藏","itemvalue":1}
+                },{
+                    "from": {"cityname":"北京"},
+                    "to": {"cityname":"海南","itemvalue":2}
+                },{
+                    "from": {"cityname":"北京"},
+                    "to": {"cityname":"吉林","itemvalue":3}
+                }
+            ],
+            "legend": [
+                "Top10"
+            ],
+            "itemname": "DDOS攻击分布",
+            "rangemax": 500
+        };
+        // 2
+        var BJData = data.lineArr;
+        var MARKData = data.markdata
+        var legend = data.legend;
+        var color = ['#36ddf1'];
+        var series = [];
+
+        // 3
+        [
+            ['', BJData]
+        ].forEach(function(item, i) {
+            series.push(
+                // 攻击数据
+                {
+                    name: legend[0],
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    zlevel: 1,
+                    effect: {
+                        show: true,
+                        period: 6,
+                        trailLength: 0.7,
+                        color: '#fff',
+                        symbolSize: 3
+                    },
+                    lineStyle: {
+                        normal: {
+                            color: color[i],
+                            width: 0,
+                            curveness: 0.2
+                        }
+                    },
+                    data: convertData(item[1])
+                },
+                // 底部蓝色线
+                {
+                    name: legend[0],
+                    type: 'lines',
+                    coordinateSystem: 'bmap',
+                    zlevel: 2,
+                    effect: {
+                        show: true,
+                        period: 6,
+                        trailLength: 0,
+                        symbolSize: 3
+                    },
+                    lineStyle: {
+                        normal: {
+                            color: color[i],
+                            width: 2,
+                            opacity: 0.4,
+                            curveness: 0.2
+                        }
+                    },
+                    data: convertData(item[1]), // 调用 convertData 数据处理函数
+                    tooltip: {
+                        formatter: function(param) {
+                            var warning = ["", "高", "中", "低"]
+
+                            return "从 " + param.data.fromName + " 到 " + param.data.toName + " 的攻击<br/>严重级别: " +
+                                warning[param.data.consdata]
+                        }
+                    }
+                },
+                // 所有行政显示信息
+                {
+                    name: legend[0],
+                    type: 'scatter',
+                    coordinateSystem: 'bmap',
+                    zlevel: 2,
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'right',
+                            formatter: '{b}'
+                        }
+                    },
+                    symbolSize: function(val) {
+                        return 10
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: "#3b89cc"
+                        }
+                    },
+                    data: allProviance.map(function(dataItem) {     // geoCoord.js 的数组
+                        return {
+                            name: dataItem.cityname,
+                            value: geoCoordMap[dataItem.cityname].concat([dataItem.itemvalue])
+                        };
+                    }),
+                    tooltip: {
+                        formatter: function(param) {
+                            return
+                        }
+                    }
+                },
+                // 扩散点的坐标
+                {
+                    name: legend[0],
+                    type: 'effectScatter',
+                    coordinateSystem: 'bmap',
+                    zlevel: 2,
+                    rippleEffect: {
+                        brushType: 'stroke'
+                    },
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'right',
+                            formatter: '{b}'
+                        }
+                    },
+                    symbolSize: function(val) {
+                        //console.log(val)
+                        //return val[2] / 8;
+                        return 8
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: "#3b89cc"
+                        }
+                    },
+                    data: MARKData.map(function(dataItem) {
+                        return {
+                            name: dataItem.cityname,
+                            value: geoCoordMap[dataItem.cityname].concat([dataItem.itemvalue])
+                        };
+                    }),
+                    tooltip: {
+                        formatter: function(param) {
+                            //return "123"
+                        }
+                    }
+                }
+            );
+            console.log(series);
+        });
+
+        // 整理数据方法
+        function convertData(data) {
+            var res = [];
+            for(var i = 0; i < data.length; i++) {
+                var dataItem = data[i];
+                var fromCoord = geoCoordMap[dataItem.from.cityname];
+                var toCoord = geoCoordMap[dataItem.to.cityname];
+                if(fromCoord && toCoord) {
+                    res.push({
+                        fromName: dataItem.from.cityname,
+                        toName: dataItem.to.cityname,
+                        coords: [fromCoord, toCoord],
+                        consdata: dataItem.to.itemvalue
+                    });
+                }
+            }
+            return res;
+        };
+
+        /**
+         * echarts 的 option
+         */
+        option = {
+            bmap: {
+                // 地图是否可以缩放
+                roam: true,
+            },
+            backgroundColor: 'rgba(0,0,0,0)',
+            tooltip: {
+                trigger: 'item'
+            },
+            // 提示
+            legend: {
+                show: false,
+                orient: 'vertical',
+                top: 'bottom',
+                left: 'right',
+                data: legend,
+                textStyle: {
+                    color: '#fff'
+                },
+                selectedMode: 'single'
+            },
+            dataRange: {
+                show: false,
+                min: 0,
+                max: 100,
+                x: 'right',
+                calculable: true,
+                color: ['#36ddf1'],
+                textStyle: {
+                    color: '#fff'
+                }
+            },
+            series: series
+        };
+
+        var myChart = echarts.init(document.getElementById('echarts-b'));
+        myChart.setOption(option);
+
+        /**
+         * 个性化地图设置
+         * 找到已发布的个性化地图
+         * 复制样式ID: 91128690644e24bc5818013fc0f42cf7
+         * 需配合 ak 秘钥使用
+         *
+         * http://lbsyun.baidu.com/apiconsole/key
+         */
+        var bmap = null;
+        var ecModel = myChart._model;
+        ecModel.eachComponent('bmap', function(bmapModel) {
+            //if(bmap == null) {
+            bmap = bmapModel.__bmap;
+            //}
+        })
+        bmap.setMapStyleV2({
+            styleId: '91128690644e24bc5818013fc0f42cf7'
+        });
+
+        /**
+         * 地图放大缩小的调用
+         */
+        bmap.addEventListener("zoomend", function(e) {
+            var zoom = bmap.getZoom();
+            if(zoom < 7) {
+                $(".css-city-name").hide()
+            } else {
+                $(".css-city-name").show()
+            }
+        });
+
+        /**
+         * 地图创建dom的方法
+         */
+        getCurrentArea();
+        function getCurrentArea() {
+            var data = {
+                "location": "辽宁",
+                "cities": [
+                    {
+                        "name": "沈阳",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "大连",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "鞍山",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "抚顺",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "本溪",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "丹东",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "锦州",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "营口",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "阜新",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "辽阳",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "盘锦",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "铁岭",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "朝阳",
+                        "value": {
+                            "value1": 12321,
+                            "value2": 123123,
+                            "value3": 777
+                        }
+                    }, {
+                        "name": "葫芦岛",
+                        "value": {
+                            "value1": 121,
+                            "value2": 123,
+                            "value3": 7
+                        }
+                    }
+                ]
+            };
+            // 获取坐标数组
+            var _area = geoCoordMap[data.location];
+            // console.log( _area );
+            bmap.centerAndZoom(new BMap.Point(_area[0], _area[1]), 8);
+            clearPly();
+            var cities = data.cities;
+            for(var i = 0; i < cities.length; i++) {
+                // 创建地级市的覆盖物
+                getBoundary(cities[i].name);
+                // 生成提示文字
+                var _text = "<div class='css-city-name' data-value1='" + cities[i].value.value1 + "' data-value2='" + cities[i].value.value2 + "' data-value3='" + cities[i].value.value3 + "'><span class='js-city-name'>" + cities[i].name + "</span><br/>33<div>"
+                addLabel(_text, geoCoordMap[cities[i].name]);
+            }
+        }
+
+        /**
+         * 创建地级市的覆盖物 存储器
+         * 1.清空创建地级市的覆盖物
+         * 
+         */
+        var MAPPLY={};
+        function clearPly(){
+            MAPPLY={};
+        }
+        /**
+         * 创建地级市的覆盖物
+         */
+        function getBoundary(name) {
+            var bdary = new BMap.Boundary();
+            bdary.get(name, function(rs) { // 获取行政区域
+                var count = rs.boundaries.length; // 行政区域的点有多少个
+                if(count === 0) {
+                    console.log('未能获取当前输入行政区域'+name);
+                    return;
+                }
+                if  (name=="沈阳"){
+                    count=1
+                }
+                for(var i = 0; i < count; i++) {
+                    // 循环创建了 创建地级市的覆盖物
+                    MAPPLY[name]= new BMap.Polygon(rs.boundaries[i], { strokeWeight: 1, strokeColor: "#36ddf1", strokeStyle: "dashed", fillColor: "rgba(255,255,255,0.1)", strokeOpacity: 0.2 }); //建立多边形覆盖物
+                    bmap.addOverlay(MAPPLY[name]); //添加覆盖物
+                }             
+            });
+        };
+        /**
+         * 生成label标签
+         */
+        function addLabel(text, point) {
+            var opts = {
+                position: new BMap.Point(point[0], point[1]), // 指定文本标注所在的地理位置
+                offset: new BMap.Size(-10, -30) //设置文本偏移量
+            }
+            var label = new BMap.Label(text, opts); // 创建文本标注对象
+            label.setStyle({
+                color: "white",
+                fontSize: "12px",
+                fontFamily: "微软雅黑",
+                backgroundColor: "rgba(0,0,0,0)",
+                border: "none",
+                textAlign: "center",
+                cursor: "pointer",
+                zIndex :"999"
+            });
+            label.addEventListener("mouseover", function(e) {
+                var $obj=$(e.target.content);
+                var city=$obj.find(".js-city-name").text();
+                var ply= MAPPLY[city];
+
+                if (ply==undefined){
+                    return
+                }
+                ply.setFillColor("rgba(255,255,255,0.5)")
+                var position={
+                    left:e.screenX+30,
+                    top:e.screenY-20
+                }
+                var text="<p>安全事件:&nbsp;"+ numberFormatter($obj.data("value1"))
+                        +"</p><p>"+ "漏洞扫描:&nbsp;"+ numberFormatter($obj.data("value2"))
+                        +"</p><p>"+ "网络攻击:&nbsp;"+ numberFormatter($obj.data("value3")) +"</p>";
+                /**
+                 * 生成提示的dom
+                 */
+                var $obj = $("<div class='css-page-tips'><div class='css-page-tips-in'></div></div>");
+                $obj.find(".css-page-tips-in").html(text);
+                $obj.css({
+                    "left": position.left,
+                    "top": position.top
+                });
+                $("body").append($obj);
+            })
+            label.addEventListener("mouseout", function(e) {
+                var $obj = $(e.target.content)
+                var city = $obj.find(".js-city-name").text();
+                var ply = MAPPLY[city]
+                if (ply==undefined){
+                    return
+                }           
+                ply.setFillColor("rgba(255,255,255,0.1)");
+                // 删除提示dom
+                $(".css-page-tips").remove();
+            })
+            label.addEventListener("click", function(e) {
+                console.log(e);
+            });
+            label.setZIndex(99999999999)
+            bmap.addOverlay(label);
+        }
+        /**
+         * 数字的格式转换
+         */
+        function numberFormatter(n) {
+            if(n == "-") {
+                return n;
+            }
+            var _n;
+            if(typeof(n) == "number") {
+                _n = n
+            } else {
+                _n = parseFloat(n);
+            }
+            var _s = _n.toString();
+            var _smallP = "";
+            if(_s.indexOf(".") >= 0) {
+                _smallP = _s.substring(_s.indexOf("."), _s.length);
+                _s = _s.substring(0, _s.indexOf("."));
+            }
+            var _f;
+            if(_s.length < 5) {
+                _f = _s + _smallP;
+            } else if(_s.length >= 5 && _s.length < 9) {
+                _f = (_n / 10000).toFixed(1);
+                var _m = _f.split(".");
+                if(_m[1] == 0) {
+                    _f = _m[0] + "万";
+                } else {
+                    _f = _f + "万";
+                }
+            } else if(_s.length >= 9 && _s.length < 13) {
+                _f = (_n / 100000000).toFixed(1);
+                var _m = _f.split(".");
+                if(_m[1] == 0) {
+                    _f = _m[0] + "亿";
+                } else {
+                    _f = _f + "亿";
+                }
+            } else if(_s.length >= 13) {
+                _f = (_n / 1000000000000).toFixed(1);
+                var _m = _f.split(".");
+                if(_m[1] == 0) {
+                    _f = _m[0] + "万亿";
+                } else {
+                    _f = _f + "万亿";
+                }
+            }
+            return _f;
+        }
+
     </script>
 
 </body>
