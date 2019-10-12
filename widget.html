@@ -407,11 +407,25 @@
                                             name: '小明',
                                             sex: '男',
                                             age: '18',
-                                            hobby: '足球、篮球'
+                                            hobby: '足球、篮球',
+                                            friends:['小芳','张波','王超','谢磊'],
+                                            school:{
+                                                primary:'南宁路小学',
+                                                middle:'101中学',
+                                                high:'东北育才',
+                                                university:'华中科技大学'
+                                            }
                                         };
 
                                         var newObj = moc.deepCopyObj(obj);
                                         newObj.hobby = "魔兽世界、英雄联盟、王者荣耀";
+                                        newObj.friends = ['王金洋','李寒松','姚成军','秦凤青'];
+                                        newObj.school = {
+                                            primary:'南宁路小学',
+                                            middle:'南阳中学',
+                                            high:'南阳一中',
+                                            university:'魔都武大'
+                                        };
 
                                         $(".Obj").text( JSON.stringify(obj) );
                                         $(".newObj").text( JSON.stringify(newObj) );
@@ -512,6 +526,9 @@
                                 <p class="isInteger3">判断 <i class="text-blue">100.124</i>&ensp;是否为正整数:<span class="funSpan"></span></p>
                                 <p class="isInteger4">判断 <i class="text-blue">100.00000000000001</i>&ensp;是否为正整数:<span class="funSpan"></span></p>
                                 <p class="isInteger5">判断 <i class="text-blue">100.000000000000001</i>&ensp;是否为正整数:<span class="funSpan"></span></p>
+                                <br>
+                                <h4>调整时间中的特殊字符</h4>
+                                <p class="formatterDate">调整时间的格式:<i>2019-05-15 12:12:12</i><span class="funSpan"></span></p>                                
 
                                 <script type="text/javascript">
                                     $(function(){
@@ -583,6 +600,12 @@
                                         }else{
                                             $(".isInteger5 span").text('不是');
                                         }
+
+                                        var getDate = $(".formatterDate i").text();
+                                        getDate = getDate.replace(/ |-|:/g,"");
+                                        getDate = getDate.replace(/\s|-|:/g, "").substring(0,8);
+                                        $(".formatterDate span").text( getDate );
+                                        
 
                                     });
                                 </script>
