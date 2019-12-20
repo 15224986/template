@@ -11,7 +11,8 @@
 
         // 定义默认参数
         self.defaults = {
-            isShowDays: true,                      // 默认不显示天数
+            isCountDown: true,                      // true 倒计时  false 距离现在过去了多久
+            isShowDays: true,                       // 默认不显示天数
             endDate: "2028-12-12 00:00:00",         // 结束日期
             callBack: false                         // 回调
         };
@@ -34,16 +35,27 @@
 
             var time = new Date().getTime(),
                 endDate = $(el).attr('data-endDate') || self.options.endDate,
-                millisecond = _toDateGetTime(endDate) - time,
                 timer = '',
                 options = self.options,
                 $el = $(el);
 
-            _calcTime($el, timer, millisecond, options);
-            timer = setInterval(function(){
-                millisecond = millisecond-1000;
+
+            if( options.isCountDown ){
+                var millisecond = _toDateGetTime(endDate) - time;
                 _calcTime($el, timer, millisecond, options);
-            },1000);
+                timer = setInterval(function(){
+                    millisecond = millisecond-1000;
+                    _calcTime($el, timer, millisecond, options);
+                },1000);
+            }else{
+                var millisecond = time - _toDateGetTime(endDate);
+                _calcTime($el, timer, millisecond, options);
+                timer = setInterval(function(){
+                    millisecond = millisecond+1000;
+                    _calcTime($el, timer, millisecond, options);
+                },1000);
+                }
+            
         });   
     };
 
