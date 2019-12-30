@@ -75,7 +75,7 @@
     }
     .btn-line-#{$class}{
         @if #{$class} == default {
-            color: $assistantColor;
+            color: $hostColor;
             border-color: $hostColor;
         } @else {
             color: $hostColor;
@@ -86,8 +86,8 @@
         &:focus{
             @if #{$class} == default {
                 color: $assistantColor;
-                background-color: rgba($hostColor,.3);
-                border-color: rgba($assistantColor,.4);
+                background-color: rgba($hostColor, 1);
+                border-color: rgba($hostColor, 1);
             } @else {
                 color: $hostColor;
                 background-color: rgba($hostColor,.2);
@@ -101,9 +101,9 @@
         }
         &.disabled,
         &:disabled{
-            color: $hostColor;
+            color: rgba($hostColor,.8);
             background-color: $assistantColor;
-            border-color: $hostColor;
+            border-color: rgba($hostColor,.8);
         }
     }
 }
