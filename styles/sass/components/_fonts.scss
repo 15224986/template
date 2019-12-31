@@ -1,29 +1,38 @@
 @charset "utf-8";
 
 // **************************** 注册字体 **********************************
-@font-face{
-    font-family: 'microsoft yahei';
-    src:url('font/yuehei.ttf') format('truetype'),
-        url('font/yuehei.eot') format('embedded-opentype'),
-        url('font/yuehei.otf'), 
-        url('font/yuehei.svg') format('svg');
-        
+//  百度下：font-face生成器
+//  https://www.fontke.com/tool/fontface/
+//
+
+
+
+@font-face {
+    font-family: "HATTEN";
+    src: url("../fonts/HATTEN.woff2") format("woff2"),
+         url("../fonts/HATTEN.woff") format("woff"),
+         url("../fonts/HATTEN.ttf") format("truetype"),
+         url("../fonts/HATTEN.eot") format("embedded-opentype"),
+         url("../fonts/HATTEN.svg") format("svg");
     font-weight: normal;
     font-style: normal;
 }
 
 
 
-@font-face {
-    font-family: "SourceHanSansCN-Light";
-    src: url("../font/SourceHanSansCN-Light.otf"), url("../font/SourceHanSansCN-Light.ttf");
+// @font-face {
+//     font-family: "SourceHanSansCN-Light";
+//     src:url("../font/SourceHanSansCN-Light.otf"),
+//         url("../font/SourceHanSansCN-Light.ttf");
     
-    font-family: "SourceHanSansCN-Normal";
-    src: url("../font/SourceHanSansCN-Normal.otf");
+//     font-family: "SourceHanSansCN-Normal";
+//     src:url("../font/SourceHanSansCN-Normal.otf");
     
-    font-family: "SourceHanSansCN-Regular";
-    src: url("../font/SourceHanSansCN-Regular.otf");
-}
+//     font-family: "SourceHanSansCN-Regular";
+//     src:url("../font/SourceHanSansCN-Regular.otf");
+// }
+
+
 
 
 // 结束
