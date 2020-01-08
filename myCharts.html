@@ -1,0 +1,142 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    
+    <title>charts 例子</title>
+    
+    <script type="text/javascript" src="vendor/jquery-1.11.3.min.js"></script>
+    <!-- highcharts -->
+    <script src="./vendor/highcharts/highcharts.js"></script>
+    <script src="./vendor/highcharts/highcharts-3d.js"></script>
+    <!-- echarts -->
+    <script type="text/javascript" src="vendor/echarts/4.0.4/echarts.min.js"></script>
+    <!-- myCharts -->
+    <script src="./scripts/myCharts.js"></script>
+
+    <style>
+        .highcharts-plot-options{
+            fill: #f00;
+        }
+
+        .myCharts-item{
+            height: 550px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+
+    <div id="make3Dpie" class="myCharts-item"></div>
+
+    <div id="makeBar" class="myCharts-item"></div>
+
+
+    <script language="JavaScript">
+        $(function(){
+            
+            /**
+             * highcharts的3D饼图
+             */
+            var make3DpieData=[{
+                type: 'pie',
+                size: '100%',
+                data: [
+                    ['商用广告类', 3258585],
+                    ['涉黑类', 2952073],
+                    ['诈骗类', 2844903],
+                    ['涉黄类', 2718117],
+                    ['政治类', 3158815],
+                    ['其他', 3607137]
+                ]
+            }];
+            myCharts.make3Dpie("make3Dpie", make3DpieData, function(options){
+                options.title = false;
+                options.chart.options3d.alpha =  55;
+                options.tooltip.pointFormat =  '{point.y}';
+                options.plotOptions.pie.dataLabels = {
+                    textShadow:false,
+                    distance: 10,
+                    formatter: function() {
+                        return '<span class="highcharts-plot-options">'+ this.point.name+ '</span>';
+                        // return '<span class="highcharts-plot-options">'+ this.point.name+ '</span><br/><span class="highcharts-plot-options">' + this.point.y +'</span>';
+                    }
+                };
+            });
+
+
+            /**
+             * echarts的柱形图
+             */
+            var makeBarData = {
+                legend: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎'],
+                xAxisData: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎'],
+                title: {
+                    text: '阶梯瀑布图',
+                    subtext: 'From ExcelHome',
+                    sublink: 'http://e.weibo.com/1341556070/Aj1J2x5a5'
+                },
+                series: [
+                    {
+                        name: '直接访问',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            show: true,
+                            position: 'insideRight'
+                        },
+                        data: [320, 302, 301, 334, 390, 330, 320]
+                    },
+                    {
+                        name: '邮件营销',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            show: true,
+                            position: 'insideRight'
+                        },
+                        data: [120, 132, 101, 134, 90, 230, 210]
+                    },
+                    {
+                        name: '联盟广告',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            show: true,
+                            position: 'insideRight'
+                        },
+                        data: [220, 182, 191, 234, 290, 330, 310]
+                    },
+                    {
+                        name: '视频广告',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            show: true,
+                            position: 'insideRight'
+                        },
+                        data: [150, 212, 201, 154, 190, 330, 410]
+                    },
+                    {
+                        name: '搜索引擎',
+                        type: 'bar',
+                        stack: '总量',
+                        label: {
+                            show: true,
+                            position: 'insideRight'
+                        },
+                        data: [820, 832, 901, 934, 1290, 1330, 1320]
+                    }
+                ]
+            }
+            myCharts.makeBar("makeBar", makeBarData, function(options){
+                options.color = ['#7792d9', '#5f21d1', '#0986bf', '#df9360', '#ffde43', '#00f7e5', '#fe76b4', '#2e6cc8', '#c86f2e'];
+            }, makeBarClick);
+            function makeBarClick(params){
+                console.log( params );
+            }
+        });     
+    </script>
+</body>
+</html>
