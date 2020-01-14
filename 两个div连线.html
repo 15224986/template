@@ -79,6 +79,14 @@
             top: 340px;
         }
 
+
+        .css-last-line{
+            width: 4px;
+            background-color: #f00;
+            position: absolute;
+            transform-origin: 0 2px;
+            -webkit-transform-origin: 0 2px;
+        }
     </style>
 
 </head>
@@ -101,8 +109,9 @@
             <li class="pot5" id="pot5"></li>
         </ul>
         
-
     </div>
+    <div id="line-content"></div>
+
 
     <script>
 
@@ -139,6 +148,18 @@
                 });
             });
 
+
+            $(document).on('click', '.canvas-box .top li', function(event) {
+                event.preventDefault();
+                $("#line-content").empty();
+                var key = $(this).attr('class');
+
+                // 循环画线
+                obj[key].forEach(element => {
+                    makeLinkLine(  $(this) , $('#'+element) );
+                });
+            });
+
         });
 
         function drawDashed( canvas, x1, y1, x2, y2 ){
@@ -153,6 +174,61 @@
             context.closePath();
         }
 
+
+        /**
+         * 两点之间连线 
+         * 
+         */
+        function makeLinkLine(ele1, ele2) {
+
+            var line1 = Math.abs(ele1.offset().left - ele2.offset().left)
+
+            var line2 = Math.abs(ele1.offset().top - ele2.offset().top)
+
+            /*var $div=$("<div class='css-want-line'></div>")
+                $div.width(line1);
+                $div.height(line2);
+
+
+                $div.css("left",ele1.offset().left-line1)
+                $div.css("top",ele1.offset().top)*/
+
+            //ab = Math.asin(sb/sc) * 180 / Math.PI;    
+
+            var $wantLine = $("<div class='css-last-line'></div>");
+            $wantLine.css("left", ele1.offset().left+2)
+            $wantLine.css("top", ele1.offset().top)
+            var _height = Math.sqrt(line1 * line1 + line2 * line2);
+            $wantLine.height(_height)
+            var angle;
+
+            if(ele1.offset().top < ele2.offset().top) { //上到下
+                if(ele1.offset().left > ele2.offset().left) {
+                    angle = Math.asin(line1 / _height) * 180 / Math.PI;
+                } else {
+                    angle = -Math.asin(line1 / _height) * 180 / Math.PI;
+                }
+            } else {
+                //下到上
+                if(ele1.offset().left > ele2.offset().left) {
+                    var tp = (Math.asin(line1 / _height) * 180 / Math.PI);
+                    angle = (90 - tp) * 2 + tp
+                } else {
+                    var tp = Math.asin(line1 / _height) * 180 / Math.PI;
+                    angle = -((90 - tp) * 2 + tp)
+                }
+            }
+            var lineBar = `
+                <div class='css-move-line-mask'></div>
+                <div class='css-move-line-track'>
+                    <div class='css-move-line-icon'></div>
+                    <div class='css-move-line-bar'></div>
+                </div>
+            `
+            $wantLine.append(lineBar);
+            $wantLine.css("transform", "rotateZ(" + angle + "deg)")
+            $("#line-content").append($wantLine);
+        }
     </script>
 
 
