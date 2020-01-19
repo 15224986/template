@@ -67,7 +67,7 @@
 					delete anims[this[pauseId]];
 				} else {
 					// pause animation
-					$(this).stop();
+					$(this).stop(true);
 					data.run = false;
 				}
 			}
