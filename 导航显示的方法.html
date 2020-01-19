@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- 在手机上原比例显示，不可以放大缩小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+
+    <title>两点之间连线</title>
+
+    <script type="text/javascript" src="vendor/jquery-1.11.3.min.js"></script>
+
+    <style>
+        *{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+
+        .center{
+            width: 880px;
+            margin: 60px auto 10px;
+        }
+        .neu-tagsView-box{
+            height: 120px;
+            background-color: #eee;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .neu-tagsView-box > ul{
+            overflow: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .neu-tagsView-box > ul > li{
+            height: 100px;
+            float: left;
+            line-height: 100px;
+            text-align: center;
+            background-color: green;
+        }
+        .neu-tagsView-box > ul > li:nth-child(2n){
+            background-color: #f00;
+        }
+
+        .center > span{
+            display: inline-block;
+            border: #ccc 1px solid;
+            padding: 6px 26px;
+            cursor: pointer;
+        }
+
+
+
+
+    </style>
+
+</head>
+<body class="page-bg-default">
+    
+    <div class="center">
+        <div class="neu-tagsView-box">
+            <ul>
+                <li style="width: 100px;">100</li>
+                <li style="width: 200px;">200</li>
+                <li style="width: 110px;">110</li>
+                <li style="width: 110px;">110</li>
+                <li style="width: 110px;">110</li>
+                <li style="width: 110px;">110</li>
+                <li style="width: 140px;">140</li>
+                <li style="width: 156px;">156</li>
+                <li style="width: 158px;">158</li>
+                <li style="width: 95px;">95</li>
+                <li style="width: 78px;">78</li>
+                <li style="width: 158px;">158</li>
+                <li style="width: 59px;">59</li>
+                <li style="width: 240px;">240</li>
+                <li style="width: 100px;">100</li>
+            </ul>
+        </div>
+        <span id="btnleft">left</span>
+        <span id="btnright">right</span>
+    </div>
+        
+
+
+
+    
+
+    <script>
+        $( function(){
+            var navLeft = Math.abs($(".neu-tagsView-box ul").position().left),
+                navView = $(".neu-tagsView-box").width(),
+                navWidth = 0;
+
+            $(".neu-tagsView-box li").each(function(index, el) {
+                navWidth += $(el).width();
+            });
+            $(".neu-tagsView-box ul").width(navWidth);
+
+
+            var timeout= "",
+                timeInterval = "",
+                clickType = true;
+            /**
+             * 左侧的按钮的点击事件
+             */
+            $(document).on('click', '#btnleft', function(event) {
+                event.preventDefault();
+
+                if( !clickType ){
+                    return false;
+                }
+
+                var leftView = navLeft + navView;
+                var nextView = 0;
+
+                $(".neu-tagsView-box li").each(function(index, el) {
+                    if( nextView <= leftView){
+                        nextView += $(el).width();
+                    }
+                });
+                navLeft = nextView-navView;
+
+                if ( navLeft+navView < navWidth ) {
+                    $(".neu-tagsView-box ul").animate({
+                        left: - navLeft
+                    }, 350);
+                }else if(navLeft+navView == navWidth){
+                    $(".neu-tagsView-box ul").animate({
+                        left: - navLeft
+                    }, 350);
+                    $("#btnleft").css({
+                        color: 'red'
+                    });
+                }
+            });
+
+            
+            $("#btnleft").mousedown(function() {  
+                timeout = setTimeout(function() {  
+                    clickType = false;
+                    timeInterval = setInterval(function(){
+                        navLeft += 10;
+                        if( navLeft+navView >= navWidth ){
+                            navLeft = navWidth - navView;
+                            clearInterval(timeInterval);
+                            $("#btnleft").css({
+                                color: 'red'
+                            });
+                        }
+                        $(".neu-tagsView-box ul").css({
+                            left: - navLeft
+                        });
+                    }, 25);
+                }, 1000);  
+            });  
+            // 长按事件
+            $("#btnleft").mouseup(function() { 
+                clearTimeout(timeout);
+                if( !clickType ){
+                    clearInterval(timeInterval);
+                    setTimeout(function() { 
+                        clickType = true;
+                    }, 50);
+                }
+            });  
+            $("#btnleft").mouseout(function() {
+                clearTimeout(timeout);
+                if( !clickType ){
+                    clearInterval(timeInterval);
+                    clickType = true;
+                }
+            }); 
+
+
+
+            /**
+             * 右侧的按钮的点击事件
+             */
+            $(document).on('click', '#btnright', function(event) {
+                event.preventDefault();
+                
+                var nextView = 0,
+                    activeList = 0;
+
+                $(".neu-tagsView-box li").each(function(index, el) {
+                    if( nextView < navLeft){
+                        nextView += $(el).width();
+                        activeList = index;
+                    }
+                });
+                
+                navLeft = 0;
+                for (var i = 0; i < activeList; i++) {
+                    navLeft += $(".neu-tagsView-box li").eq(i).width();
+                }
+                if ( activeList > 0 ) {
+                    $(".neu-tagsView-box ul").animate({
+                        left: - navLeft
+                    }, 350);
+                }else if(activeList == 0){
+                    $(".neu-tagsView-box ul").animate({
+                        left: - navLeft
+                    }, 350);
+                    $("#btnright").css({
+                        color: 'red'
+                    });
+                }
+            });
+        });
+    </script>
+
+
+</body>
+</html>
