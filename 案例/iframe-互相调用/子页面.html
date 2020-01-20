@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>iframe子页面</title>
+</head>
+<body>
+    <h2>iframe子页面</h2>
+    <div>
+        <h3>接收消息区域</h3>
+        <span id="message"></span>
+        
+        <div>
+        	<a href="javascript:;" id="parentBtn" class="mycontainer">调用父页面的方法，变量</a>
+        </div>
+    </div>
+	
+	
+	<script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+	    $(function() {
+	    	
+	    	/**
+	    	 * iframe子页面接收信息
+	    	 */
+		    window.addEventListener('message',function(event){
+		        console.log(event);
+		        document.getElementById('message').innerHTML = "收到"  + event.origin + "消息：" + event.data;
+		    }, false);
+	
+		    /**
+		     * iframe子页面接收信息后回复父页面信息
+		     */
+		    window.addEventListener('message',function(event){
+		        console.log(event);
+		        document.getElementById('message').innerHTML = "收到" + event.origin + "消息：" + event.data;
+		        top.postMessage("子页面消息收到", '*')
+		    }, false);
+	    	
+	    	$(document).on('click', '#parentBtn', function(event){
+	    		event.preventDefault();
+	    		/**
+	    		 * 在iframe子页面中查找父页面元素
+	    		 */
+//	    		var parentHtml = $('#default', window.parent.document).html();
+	    		var parentHtml = window.parent.$('#default').html();
+//	    		var parentHtml = window.parent.document.getElementById("default").innerHTML;
+	            alert(parentHtml);
+	            
+	            /**
+	             * 在iframe中调用父页面中定义的变量
+	             */
+	            alert( window.parent.value );
+	            /**
+	             * 在iframe中调用父页面中定义的方法
+	             */
+	            window.parent.sayhello();
+	    	})  
+
+		});
+	    
+	    function subFunction(){
+	    	alert( '父页面调用的方法' );
+	    }
+	    var val = "父页面调用的变量";
+	</script>
+
+</body>
+</html>

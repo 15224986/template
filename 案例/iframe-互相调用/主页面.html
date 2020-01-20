@@ -1,0 +1,104 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>主页面</title>
+</head>
+<body>
+    <h1>主页面</h1>
+    <iframe id="iframePopup" src="./子页面.html"></iframe>
+    <div>
+        <h2>主页面接收消息区域</h2>
+        <span id="messageReturn"></span>
+        
+        <div id="default">div内容</div>
+        
+        <div>
+        	<a href="javascript:;" id="messageBtn">父页面发送消息</a>
+        </div>
+        <div>
+        	<a href="javascript:;" id="iframeBtn">调用父页面的方法，变量</a>
+        </div>
+        
+    </div>
+
+	<script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+    	/**
+    	 * 子页面调用的方法，变量
+    	 */
+    	function sayhello() {
+	        alert('Hello World!');
+	    }
+	    var value = 'value';
+    	
+    	/**
+    	 * <iframe>框架通过postMessage进行不同页面间的数据传递
+    	 */
+	    $(function() {
+	    	// 父页面发送消息
+	        $(document).on('click', '#messageBtn', function(event){
+	    		var iframePopup=document.getElementById('iframePopup').contentWindow;
+	        	// iframePopup.postMessage("主页面消息", '*')
+	        	iframePopup.postMessage("主页面消息", 'http://10.10.124.136:3000/主页面.html')
+	    	});
+	    	// 父页面接收iframe子页面返回信息
+	        window.addEventListener('message',function(event){
+	            console.log(event);
+	            document.getElementById('messageReturn').innerHTML = "收到" + event.origin + "消息：" + event.data; 
+	        }, false);
+
+
+			/**
+		     * 调用子页面的方法 变量
+		     */
+	        $(document).on('click', '#iframeBtn', function(event){
+	        	// 表示获取了嵌入在iframe中的子页面的window对象。  []将JQuery对象转成DOM对象，用DOM对象的contentWindow获取子页面window对象。
+//			    var childWindow = $("#iframePopup")[0].contentWindow;
+			    var childWindow = document.getElementById('iframePopup').contentWindow;
+				/**
+				 * 调用子页面中的subFunction方法
+				 */
+				childWindow.subFunction();
+				
+				/**
+				 * 调用子页面变量
+				 */
+				alert(childWindow.val);
+				
+				/**
+				 * 获取子页面元素
+				 */
+//				var childHtml = window.frames["iframePopup"].contentDocument.getElementsByClassName("mycontainer")[0].innerHTML;
+//				var childHtml = document.getElementById('iframePopup').contentWindow.document.getElementsByClassName("mycontainer")[0].innerHTML ;
+//				var childHtml = $(window.frames["iframePopup"].contentDocument.documentElement).find(".mycontainer").html();
+				var childHtml = $("#iframePopup").contents().find(".mycontainer").html();
+				alert( childHtml );
+	    	});
+	    });
+	    
+	    /**
+	     * iframe页面加载完成后执行
+	     */
+	    $("#iframePopup").load(function (){
+	    	//表示获取了嵌入在iframe中的子页面的window对象。  []将JQuery对象转成DOM对象，用DOM对象的contentWindow获取子页面window对象。
+		    var childWindow = $("#iframePopup")[0].contentWindow;
+		    //调用子页面中的subFunction方法。
+			childWindow.subFunction();
+			
+			alert(childWindow.val);
+			
+			/**
+			 * 获取子页面元素
+			 */
+//				var childHtml = window.frames["iframePopup"].contentDocument.getElementsByClassName("mycontainer")[0].innerHTML;
+//				var childHtml = document.getElementById('iframePopup').contentWindow.document.getElementsByClassName("mycontainer")[0].innerHTML ;
+//				var childHtml = $(window.frames["iframePopup"].contentDocument.documentElement).find(".mycontainer").html();
+			var childHtml = $("#iframePopup").contents().find(".mycontainer").html();
+			alert( childHtml );
+	    });
+	</script>
+
+
+</body> 
+</html>
