@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <!-- 在手机上原比例显示，不可以放大缩小 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+    <title>模拟滚动条</title>
+
+    <script type="text/javascript" src="../vendor/jquery-1.11.3.min.js"></script>
+    <!-- jquery.mCustomScrollbar.js -->
+    <link rel="stylesheet" type="text/css" href="../vendor/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+    <script type="text/javascript" src="../vendor/mCustomScrollbar/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="../vendor/mCustomScrollbar/jquery.mCustomScrollbar.js"></script>
+    <!-- 项目需求的特殊样式 -->
+    <link rel="stylesheet" type="text/css" href="../styles/css/global.css" />
+
+
+     <style type="text/css" media="screen">
+        .content{
+            width: 520px;
+            height: 360px;
+            background-color: #f1f1f1;
+        }
+        .content p{
+            line-height: 44px;
+        }
+    </style>
+</head>
+<body class="page-bg-default">
+    <!-- mCustomScrollbar start -->
+    <section class="panel p-20">
+        <div class="panel-head">
+            <div class="panel-inner">
+                <h2 class="panel-title">jQuery custom content scroller</h2>
+            </div>
+        </div>
+        <div class="panel-body">
+            <dl class="describe-basics">
+                <dt>由于github无法上传 jquery.mCustomScrollbar.min.css 和 jquery.mCustomScrollbar.js 文件，请去下面地址下载</dt>
+                <dd>jQuery mCustomScrollbar  英文官网：<a class="link" target="_blank" href="http://manos.malihu.gr/jquery-custom-content-scroller/">点击查看</a></dd>
+                <dd>jQuery mCustomScrollbar  Github源码：<a class="link" target="_blank" href="https://github.com/malihu/malihu-custom-scrollbar-plugin">点击查看</a></dd>
+                <dd>jQuery mCustomScrollbar  各个版本的源码下载：<a class="link" target="_blank" href="https://github.com/malihu/malihu-custom-scrollbar-plugin/releases">点击查看</a></dd>
+                <dd>jQuery mCustomScrollbar 展示效果：<a class="link" target="_blank" href="http://manos.malihu.gr/repository/custom-scrollbar/demo/examples/scrollbar_themes_demo.html">点击查看</a></dd>
+            </dl>
+
+
+            <div id="content_1" class="content">
+                <p>Lorem ipsum dolor sit amet. Aliquam erat volutpat. Maecenas non tortor nulla, non malesuada velit.</p>
+                <p>Aliquam erat volutpat. Maecenas non tortor nulla, non malesuada velit. Nullam felis tellus, tristique nec egestas in, luctus sed diam. Suspendisse potenti. </p>
+                <p>Consectetur adipiscing elit. Nulla consectetur libero consectetur quam consequat nec tincidunt massa feugiat. Donec egestas mi turpis. Fusce adipiscing dui eu metus gravida vel facilisis ligula iaculis. Cras a rhoncus massa. Donec sed purus eget nunc placerat consequat.</p>
+                <p>Cras venenatis condimentum nibh a mollis. Duis id sapien nibh. Vivamus porttitor, felis quis blandit tincidunt, erat magna scelerisque urna, a faucibus erat nisl eget nisl. Aliquam consequat turpis id velit egestas a posuere orci semper. Mauris suscipit erat quis urna adipiscing ultricies. In hac habitasse platea dictumst. Nulla scelerisque lorem quis dui sagittis egestas.</p> 
+                <p>Etiam sed massa felis, aliquam pellentesque est.</p>
+                <p>Nam eu arcu at purus tincidunt pharetra ultrices at ipsum. Mauris urna nunc, vulputate quis gravida in, pharetra id mauris. Ut sit amet mi dictum nulla lobortis adipiscing quis a nulla. Etiam diam ante, imperdiet vel scelerisque eget, venenatis non eros. Praesent ipsum sem, eleifend ut gravida eget, tristique id orci. Nam adipiscing, sem in mattis vulputate, risus libero adipiscing risus, eu molestie mi justo eget nulla.</p> 
+                <p>Cras venenatis metus et urna egestas non laoreet orci rutrum. Pellentesque ullamcorper dictum nisl a tincidunt. Quisque et lacus quam, sed hendrerit mi. Mauris pretium, sapien et malesuada pulvinar, lorem leo viverra leo, et egestas mi nisl quis odio. </p>
+                <p>Aliquam erat volutpat. Sed urna arcu, tempus eu vulputate adipiscing, consectetur et orci. Vivamus congue, nunc vitae fringilla convallis, libero massa lacinia lorem, id convallis mauris elit ut leo. Nulla vel odio sem. Duis lorem urna, congue vitae rutrum sed, tincidunt vel tortor. In hac habitasse platea dictumst. Nunc vitae enim ante, vitae facilisis massa. Etiam sagittis sapien at nibh fermentum consectetur convallis lacus blandit.</p>
+                <p>the end.</p>
+
+                <a onclick="onToggle()" class="btn" href="javascript:;">显示</a>
+
+                <div id="toggle" class="hide">
+                    <p>Lorem ipsum dolor sit amet. Aliquam erat volutpat. Maecenas non tortor nulla, non malesuada velit.</p>
+                    <p>Aliquam erat volutpat. Maecenas non tortor nulla, non malesuada velit. Nullam felis tellus, tristique nec egestas in, luctus sed diam. Suspendisse potenti. </p>
+                    <p>Consectetur adipiscing elit. Nulla consectetur libero consectetur quam consequat nec tincidunt massa feugiat. Donec egestas mi turpis. Fusce adipiscing dui eu metus gravida vel facilisis ligula iaculis. Cras a rhoncus massa. Donec sed purus eget nunc placerat consequat.</p>
+                    <p>Cras venenatis condimentum nibh a mollis. Duis id sapien nibh. Vivamus porttitor, felis quis blandit tincidunt, erat magna scelerisque urna, a faucibus erat nisl eget nisl. Aliquam consequat turpis id velit egestas a posuere orci semper. Mauris suscipit erat quis urna adipiscing ultricies. In hac habitasse platea dictumst. Nulla scelerisque lorem quis dui sagittis egestas.</p> 
+                    <p>Etiam sed massa felis, aliquam pellentesque est.</p>
+                    <p>Nam eu arcu at purus tincidunt pharetra ultrices at ipsum. Mauris urna nunc, vulputate quis gravida in, pharetra id mauris. Ut sit amet mi dictum nulla lobortis adipiscing quis a nulla. Etiam diam ante, imperdiet vel scelerisque eget, venenatis non eros. Praesent ipsum sem, eleifend ut gravida eget, tristique id orci. Nam adipiscing, sem in mattis vulputate, risus libero adipiscing risus, eu molestie mi justo eget nulla.</p> 
+                    <p>Cras venenatis metus et urna egestas non laoreet orci rutrum. Pellentesque ullamcorper dictum nisl a tincidunt. Quisque et lacus quam, sed hendrerit mi. Mauris pretium, sapien et malesuada pulvinar, lorem leo viverra leo, et egestas mi nisl quis odio. </p>
+                    <p>Aliquam erat volutpat. Sed urna arcu, tempus eu vulputate adipiscing, consectetur et orci. Vivamus congue, nunc vitae fringilla convallis, libero massa lacinia lorem, id convallis mauris elit ut leo. Nulla vel odio sem. Duis lorem urna, congue vitae rutrum sed, tincidunt vel tortor. In hac habitasse platea dictumst. Nunc vitae enim ante, vitae facilisis massa. Etiam sagittis sapien at nibh fermentum consectetur convallis lacus blandit.</p>
+                    <p>the end.</p>
+
+                    <p>气、体、魂</p>
+                    <p>1.体术 兽魂拳</p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- mCustomScrollbar end -->
+
+    <script>
+        $( function(){
+            $("#content_1").mCustomScrollbar({
+                theme:"dark", //主题颜色
+                scrollButtons:{
+                    enable:true //是否使用上下滚动按钮
+                },
+                autoHideScrollbar: true, //是否自动隐藏滚动条
+                horizontalScroll : false,//水平滚动条
+                callbacks:{
+                    onScroll: function(){
+                        console.log( 11111 );
+                    } //滚动完成后触发事件
+                }
+            });
+        });
+        function onToggle(){
+            $("#toggle").toggleClass('hide');
+        }
+    </script>
+
+</body>
+</html>
