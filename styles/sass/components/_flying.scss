@@ -50,21 +50,20 @@ $flying-extra: 211px;
 .flexbox{
     @include displayFlex;
     @include boxOrient($orient:horizontal);
-    margin-bottom: 20px;
-    border: #ccc 1px solid;
 }
 .flexbox-vertical{
     @include displayFlex;
     @include boxOrient;
-    margin-bottom: 20px;
-    border: #ccc 1px solid;
 }
 .flexbox-head,
 .flexbox-foot{
-    background-color: #eee;
+    
 }
 .flexbox-body{
-    width:100%;
+    position: relative;
     @include displayFlexNumber;
+}
+.flexbox-body-inner{
+    @include box-inner;
 }
 // 结束
