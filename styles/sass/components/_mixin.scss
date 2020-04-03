@@ -256,3 +256,13 @@ $lte8: true !default;
     -ms-user-select:none;
     user-select:none;
 }
+
+
+// 内部盒子
+@mixin box-inner(){
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
