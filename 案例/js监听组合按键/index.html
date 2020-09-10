@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="UTF-8">
+		<!-- 在手机上原比例显示，不可以放大缩小 -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1, maximum-scale=1" />
+		<script src="./shortcut.js"></script>
+	</head>
+	<body>
+		
+		<p>请同时点击‘Ctrl+Alt+1’</p>
+		<input type="text" id="textinput" placeholder="请同时点击‘Ctrl+Alt+n1 ---n代表数字键盘’" style="width: 360px;">
+		
+		<script>
+			/**
+			 * github 地址
+			 * https://github.com/amireh/shortcut-js
+			 * 该方法有三个参数：
+			 * shortcut.add(key,func,options)
+			 * 
+			 * key :要设置的快捷键，比如
+			 * 1
+			 * Function Called : Not Yet
+			 * Ctrl+1
+			 * Function Called : Not Yet
+			 * Alt+1
+			 * Function Called : Not Yet
+			 * Shift+1
+			 * Function Called : Not Yet
+			 * Ctrl+Shift+1
+			 * Function Called : Not Yet
+			 * Ctrl+Alt+1
+			 * Function Called : Not Yet
+			 * Shift+Alt+1
+			 * Function Called : Not Yet
+			 * 
+			 * 
+			 * func: 响应快捷键的函数，当快捷键按下时，将执行该函数；
+			 * 
+			 * options: 配置参数，以关联数组形式填写，参数包括下面几个：
+			 * type – String	事件类型 – 可以是’keydown’,'keyup’,'keypress’。默认为 ‘keydown’
+			 * disable_in_input – Boolean	是否在输入表单时屏蔽快捷键 – 如果该项设置为true，当光标焦点在input或textarea时，快捷键将屏蔽。这项功能是非常有用的，特别是当我们设置的快捷键只需按一个键时。该项默认为false
+			 * target – DOM Node	响应快捷键的元素范围。默认为 : document
+			 * propagate – Boolean		是否允许继承? 默认 : false
+			 * keycode – Integer		监视的键盘编码。比如, 编码’65′ 为按键 ‘a’.
+			 * 
+			 */
+			
+			/**
+			 * shortcut.remove()
+			 * 只有一个参数，即前面设置的的快捷键组合。确保跟前面设置的快捷键组合是一样的，比如我们前面shortcut.add()的第一个参数为“CTRL+A”，此处也必须为“CTRL+A”。
+			 */
+			shortcut.add("Ctrl+Alt+1",function() {
+				alert("Ctrl+Alt+1");
+			});
+
+			shortcut.add("Ctrl+Alt+n1",function() {
+				alert("n代表数字键盘，Ctrl+Alt+n1");
+			},{
+				'type':'keydown',
+				'propagate':true,
+				/**
+				 * $('input')[0]
+				 * $("#textinput")[0]
+				 * document.getElementsByTagName('input')[0] 
+				 */
+				'target': document.getElementById('textinput')
+			});
+		</script>
+	</body>
+</html>
