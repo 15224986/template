@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>toTree</title>
+	
+	</head>
+
+	<body>
+		
+		
+		<div id="totree" style="width: 48%; float: left;"></div>
+		
+		<div id="filtertree" style="width: 48%; float: left;"></div>
+		
+		
+		<script>
+			var source = [
+				{
+					id: 1,
+					pid: null,
+					label: 'body'
+				},
+				{
+					id: 2,
+					pid: 1,
+					label: 'title'
+				},
+				{
+					id: 3,
+					pid: 1,
+					label: 'div'
+				},
+				{
+					id: 4,
+					pid: 3,
+					label: 'span'
+				},
+				{
+					id: 5,
+					pid: 3,
+					label: 'icon'
+				},
+				{
+					id: 6,
+					pid: 4,
+					label: 'subspan'
+				},
+				{
+					id: 7,
+					pid: 6,
+					label: 'subspan'
+				},
+				{
+					id: 8,
+					pid: 7,
+					label: 'subspan'
+				},
+				{
+					id: 9,
+					pid: 8,
+					label: 'subspan'
+				},
+				{
+					id: 10,
+					pid: 9,
+					label: 'subspan'
+				},
+				{
+					id: 'd',
+					pid: 'a',
+					label: 'subspan'
+				},
+				{
+					id: 'e',
+					pid: 'b',
+					label: 'subspan'
+				},
+				{
+					id: 'f',
+					pid: 'b',
+					label: 'subspan'
+				},
+				{
+					id: 'g',
+					pid: 'e',
+					label: 'subspan'
+				},
+			
+			
+			
+				{
+					id: 'a',
+					pid: null,
+					label: 'subspan'
+				},
+				{
+					id: 'b',
+					pid: 'a',
+					label: 'subspan'
+				},
+				{
+					id: 'c',
+					pid: 'a',
+					label: 'subspan'
+				}
+			]
+			
+			/**
+			 * 该方法用于将有父子关系的数组转换成树形结构的数组
+			 * 接收一个具有父子关系的数组作为参数
+			 * 返回一个树形结构的数组
+			 */
+			function translateDataToTree(data, id='id', parentId='pid') {
+				// 没有父节点的数据
+				let parents = data.filter(value => value[parentId] == 'undefined' || value[parentId] == null);
+				// 有父节点的数据
+				let children = data.filter(value => value[parentId] !== 'undefined' && value[parentId] != null);
+				//定义转换方法的具体实现
+				function translator(parents, children) {
+					//遍历父节点数据
+					parents.forEach((parent) => {
+						//遍历子节点数据
+						children.forEach((current, index) => {
+							//此时找到父节点对应的一个子节点
+							if (current[parentId] === parent[id]) {
+								//对子节点数据进行深复制，这里只支持部分类型的数据深复制，对深复制不了解的童靴可以先去了解下深复制
+								let temp = JSON.parse(JSON.stringify(children))
+								//让当前子节点从temp中移除，temp作为新的子节点数据，这里是为了让递归时，子节点的遍历次数更少，如果父子关系的层级越多，越有利
+								temp.splice(index, 1)
+								//让当前子节点作为唯一的父节点，去递归查找其对应的子节点
+								translator([current], temp)
+								//把找到子节点放入父节点的children属性中
+								typeof parent.children !== 'undefined' ? parent.children.push(current) : parent.children = [current]
+							}
+						})
+					})
+				}
+				//调用转换方法
+				translator(parents, children)
+				//返回最终的结果
+				return parents
+			}
+			let source1 = setDeepCopy( source );
+			console.log( translateDataToTree(source1) )
+			let translateData = translateDataToTree( setDeepCopy( source ) )
+			document.getElementById('totree').innerHTML = buildMenu( translateData )
+			
+			
+			
+			
+			let arr = [
+				{
+					label: '标题1',
+					children: [
+						{
+							label: '标题11',
+							children: [
+								{
+									label: '标题11',
+									children: null
+								},
+								{
+									label: '标题21',
+									children: null
+								}
+							]
+						},
+						{
+							label: '标题12',
+							children: [
+								{
+									label: '标题11',
+									children: null
+								},
+								{
+									label: '标题12',
+									children: null
+								}
+							]
+						}
+					]
+				},
+				{
+					label: '标题2',
+					children: [
+						{
+							label: '标题12',
+							children: null
+						},
+						{
+							label: '标题23',
+							children: [
+								{
+									label: '标题121',
+									children: [
+										{
+											label: '标题121',
+											children: null
+										},
+										{
+											label: '标题231',
+											children: null
+										}
+									]
+								},
+								{
+									label: '标题231',
+									children: null
+								}
+							]
+						}
+					]
+				},
+				{
+					label: '标题3',
+					children: null
+				}
+			];
+			/**
+			 * 过滤树形数据
+			 */
+			function rebuildData(value, arr) {
+				let newarr = [];
+				arr.forEach(element => {
+					if (element.label.indexOf(value) > -1) { // 判断条件
+						if (element.children && element.children.length > 0) {
+							let children = element.children.concat([]);
+							element.children = [];
+							let redata = rebuildData(value, children);
+							element.children = redata;
+						}
+						newarr.push(element);
+					} else {
+						if (element.children && element.children.length > 0) {
+							let redata = rebuildData(value, element.children);
+							let obj = {
+								...element,
+								children: redata
+							};
+							if (redata && redata.length>0) {
+								newarr.push(obj);
+							}
+						}
+					}
+				});
+				return newarr;
+			};
+			document.getElementById('filtertree').innerHTML = buildMenu( rebuildData('题2', arr) )
+			
+			
+			
+			
+			
+			/**
+			 * 树形数据生成dom
+			 */
+			function buildMenu(arr) {
+			    if(  Array.isArray(arr) && arr.length>0 ){
+			        var str = "<ul>";
+					arr.forEach(function (item, index) {
+						if ( Array.isArray(item.children) ) {
+							str += '<li>' + item.label;
+							str += buildMenu(item.children); //递归判断是不是object,直到不是li 
+							str += '</li>';
+						}else {
+							str += '<li>' + item.label + '</li>';
+						}
+			        });
+			        str += "</ul>";
+			        return str;
+			    }
+			}
+			
+			
+			
+			
+			/**
+			 * obj对象/、arr数组的深层复制
+			 */
+			function setDeepCopy(obj){
+				if (!obj) {
+					return false;
+				}
+	
+				var newObj = obj.constructor === Array ? [] : {};
+				// 实现深层复制
+				if (obj.constructor === Array) {
+					for(var i=0;i<obj.length;i++){
+						let item = obj[i];
+						if( item.constructor === Array || item.constructor === Object ){
+							item = this.setDeepCopy(item);
+						}
+						newObj.push(item);
+					}
+				} else if (obj.constructor === Object) {
+					for (var key in obj) {
+						// 判断如果是对象
+						if (typeof obj[key] === 'object') {
+							if (obj[key] === null || obj[key].constructor === RegExp || obj[key].constructor === Date) {
+								newObj[key] = obj[key];
+							} else {
+								// 递归
+								newObj[key] = this.setDeepCopy(obj[key]);
+							}
+						} else {
+							newObj[key] = obj[key];
+						}
+					}
+				} else {
+					newObj = obj;
+				}
+				return newObj;
+			}
+			
+			
+		</script>
+	</body>
+
+</html>
